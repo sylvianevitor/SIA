@@ -3,11 +3,7 @@ package com.example.sylviane.sia.SelecionarAtividade_Scene;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
-import com.example.sylviane.sia.Main_Scene.MainActivity;
-import com.example.sylviane.sia.Main_Scene.MainPresenter;
 import com.example.sylviane.sia.R;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -30,35 +26,24 @@ public class SelecionarAtividadesActivity extends AppCompatActivity implements S
     }
 
     @OnClick(R.id.button_atividade_interativa)
-    public void selecionarAtividade(){
-        selecionarAtividadesPresenter.criarAtividade();
+    public void selecionarAtividadeInterativa(){
+        selecionarAtividadesPresenter.selecionarAtividadeInterativa();
     }
 
     @Override
-    public void criar() {
-        Intent abrirCriarAtividadesActivity = new Intent(MainActivity.this, CriarAtividadesActivity.class);
-        startActivity(abrirCriarAtividadesActivity);
+    public void selecionarInterativa() {
+        Intent abrirTemaInterativoActivity = new Intent(SelecionarAtividadesActivity.this, TemaInterativoActivity.class);
+        startActivity(abrirTemaInterativoActivity);
     }
 
-    @OnClick(R.id.button_selecionar_atividade)
-    public void selecionarAtividade(){
-        mainPresenter.selecionarAtividade();
-    }
-
-    @Override
-    public void selecionar() {
-        Intent abrirSelecionarAtividadesActivity = new Intent(MainActivity.this, SelecionarAtividadesActivity.class);
-        startActivity(abrirSelecionarAtividadesActivity);
-    }
-
-    @OnClick(R.id.button_ver_assistidos)
-    public void verAssistidos(){
-        mainPresenter.verAssistidos();
+    @OnClick(R.id.button_atividade_passiva)
+    public void selecionarAtividadePassiva(){
+        selecionarAtividadesPresenter.selecionarAtividadePassiva();
     }
 
     @Override
-    public void ver() {
-        Intent abrirSelecionarAssistidosActivity = new Intent(MainActivity.this, SelecionarAssistidosActivity.class);
-        startActivity(abrirSelecionarAssistidosActivity);
+    public void selecionarPassiva() {
+        Intent abrirTemaPassivoActivity = new Intent(SelecionarAtividadesActivity.this, TemaPassivoActivity.class);
+        startActivity(abrirTemaPassivoActivity);
     }
 }
