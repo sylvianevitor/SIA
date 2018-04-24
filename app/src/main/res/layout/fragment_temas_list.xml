@@ -1,0 +1,30 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sylviane.sia.activities.homeFragments.TemasListFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
+        tools:context="com.example.sylviane.sia.activities.homeFragments.TemasFragment"
+        tools:listitem="@layout/fragment_temas" >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/botao_Adicionar_Tema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:tint="#fff"
+        android:src="@android:drawable/ic_menu_add"/>
+
+</android.support.design.widget.CoordinatorLayout>

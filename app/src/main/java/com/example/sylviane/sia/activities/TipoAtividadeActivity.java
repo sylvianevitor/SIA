@@ -1,9 +1,11 @@
-package com.example.sylviane.sia;
+package com.example.sylviane.sia.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class TipoAtividade extends AppCompatActivity {
+import com.example.sylviane.sia.R;
+
+public class TipoAtividadeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

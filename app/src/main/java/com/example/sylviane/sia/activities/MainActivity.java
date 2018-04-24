@@ -1,7 +1,9 @@
-package com.example.sylviane.sia;
+package com.example.sylviane.sia.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.sylviane.sia.R;
 
 public class MainActivity extends AppCompatActivity {
 
