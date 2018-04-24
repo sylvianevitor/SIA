@@ -16,7 +16,7 @@
             android:layout_gravity="top"
             android:background="@color/buttom_atividade"
             android:padding="10dp"
-            android:text="Atividade Interativa"
+            android:text="@string/atividade_interativa"
             android:textAlignment="center"
             android:textColor="#fff" />
 
@@ -26,7 +26,7 @@
             android:layout_gravity="top"
             android:background="@color/buttom_atividade"
             android:padding="10dp"
-            android:text="Atividade Passiva"
+            android:text="@string/atividade_passiva"
             android:textAlignment="center"
             android:textColor="#fff" />
     </LinearLayout>

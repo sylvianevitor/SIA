@@ -17,7 +17,7 @@
             android:layout_gravity="top"
             android:background="@color/buttom_atividade"
             android:padding="10dp"
-            android:text="Atividades"
+            android:text="@string/atividades"
             android:textAlignment="center"
             android:textColor="#fff" />
 
@@ -27,7 +27,7 @@
             android:layout_gravity="top"
             android:background="@color/buttom_atividade"
             android:padding="10dp"
-            android:text="Criar atividade"
+            android:text="@string/criar_atividade"
             android:textAlignment="center"
             android:textColor="#fff" />
 
@@ -37,7 +37,7 @@
             android:layout_gravity="top"
             android:background="@color/buttom_atividade"
             android:padding="10dp"
-            android:text="Assistidos"
+            android:text="@string/assistidos"
             android:textAlignment="center"
             android:textColor="#fff" />
 

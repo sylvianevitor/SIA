@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SIA</string>
     <string name="title_activity_tipo_atividade">TipoAtividade</string>
+    <string name="atividade_passiva">Atividade Passiva</string>
+    <string name="atividade_interativa">Atividade Interativa</string>
+    <string name="atividades">Atividades</string>
+    <string name="criar_atividade">Criar atividade</string>
+    <string name="assistidos">Assistidos</string>
 </resources>
