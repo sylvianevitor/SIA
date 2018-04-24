@@ -1,21 +1,23 @@
-package com.example.sylviane.sia.Main_Scene;
-
-/**
- * Created by mariana on 24/04/18.
- */
+package com.example.sylviane.sia.SelecionarAtividade_Scene;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
+import com.example.sylviane.sia.Main_Scene.MainActivity;
+import com.example.sylviane.sia.Main_Scene.MainPresenter;
 import com.example.sylviane.sia.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements MainView {
+/**
+ * Created by mariana on 24/04/18.
+ */
 
-    MainPresenter mainPresenter;
+public class SelecionarAtividadesActivity extends AppCompatActivity implements SelecionarAtividadesView{
+
+    SelecionarAtividadesPresenter selecionarAtividadesPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +26,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         ButterKnife.bind(this);
 
-        mainPresenter = new MainPresenter(this);
+        selecionarAtividadesPresenter = new SelecionarAtividadesPresenter(this);
     }
 
-    @OnClick(R.id.button_criar_atividade)
-    public void criarAtividade(){
-        mainPresenter.criarAtividade();
+    @OnClick(R.id.button_atividade_interativa)
+    public void selecionarAtividade(){
+        selecionarAtividadesPresenter.criarAtividade();
     }
 
     @Override
