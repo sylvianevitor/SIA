@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.SelecionarAtividade_Scene.SelecionarAtividadesActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

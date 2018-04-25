@@ -18,7 +18,7 @@ public class SelecionarAtividadesActivity extends AppCompatActivity implements S
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tipo_atividade);
 
         ButterKnife.bind(this);
 
