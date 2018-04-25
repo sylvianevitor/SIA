@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sylviane.sia.Main_Scene.MainActivity">
+    tools:context="com.example.sylviane.sia.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +16,7 @@
             android:layout_gravity="top"
             android:background="@color/buttom_atividade"
             android:padding="10dp"
-            android:text="Atividades"
+            android:text="Atividade Interativa"
             android:textAlignment="center"
             android:textColor="#fff" />
 
@@ -27,20 +26,8 @@
             android:layout_gravity="top"
             android:background="@color/buttom_atividade"
             android:padding="10dp"
-            android:text="Criar atividade"
+            android:text="Atividade Passiva"
             android:textAlignment="center"
             android:textColor="#fff" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:background="@color/buttom_atividade"
-            android:padding="10dp"
-            android:text="Assistidos"
-            android:textAlignment="center"
-            android:textColor="#fff" />
-
-
     </LinearLayout>
 </FrameLayout>
