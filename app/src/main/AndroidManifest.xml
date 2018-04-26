@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.TipoAtividadeActivity" />
+        <activity android:name=".activities.ListaAssistidos.AssistidosActivity"></activity>
     </application>
 
 </manifest>
