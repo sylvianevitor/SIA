@@ -24,15 +24,14 @@ import butterknife.ButterKnife;
 
 public class AssistidosActivity extends AppCompatActivity implements AssistidosView{
 
-    @BindView(R.id.recyclerView);
-    RecyclerView recyclerView;
+    @BindView(R.id.recyclerView) RecyclerView recyclerView;
 
     AssistidosPresenter assistidosPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.id.listaAssistidos);
+        setContentView(R.layout.assistidos_item_list);
 
         ButterKnife.bind(this);
         assistidosPresenter = new AssistidosPresenter(this);
