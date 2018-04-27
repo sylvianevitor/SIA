@@ -1,8 +1,13 @@
 <component name="libraryTable">
   <library name="com.android.support:design-26.1.0">
     <CLASSES>
+<<<<<<< HEAD
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/a00f702cc3697981be8716e38199788f/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/a00f702cc3697981be8716e38199788f/res" />
+=======
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/d4dc1cc4744d8eeb497a99397f73e7db/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/d4dc1cc4744d8eeb497a99397f73e7db/res" />
+>>>>>>> Control_Mari
     </CLASSES>
     <JAVADOC />
     <SOURCES>
