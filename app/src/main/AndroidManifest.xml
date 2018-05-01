@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.TipoAtividadeActivity" />
+        <activity android:name=".CriarTemplate1" />
+        <activity android:name=".DescricaoAtividade"></activity>
     </application>
 
 </manifest>
