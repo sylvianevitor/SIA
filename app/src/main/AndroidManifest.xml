@@ -17,6 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+=======
+        <activity android:name=".activities.TipoAtividadeActivity" />
+        <activity android:name=".CriarTemplate1" />
+        <activity android:name=".DescricaoAtividade"></activity>
+>>>>>>> View_Syl
     </application>
 
 </manifest>

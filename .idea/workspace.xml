@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="6e8ef7c3-5cf5-4400-b685-e11ba8b9a11e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
@@ -20,6 +21,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+=======
+    <list default="true" id="b88f41c5-408a-4b3c-8b13-c61ebae4c8a4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+>>>>>>> View_Syl
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
@@ -64,6 +78,7 @@
   <component name="FileEditorManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="SelecionarAtividadesActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/SelecionarAtividade_Scene/SelecionarAtividadesActivity.java">
@@ -87,6 +102,14 @@
             <state relative-caret-position="420">
               <caret line="45" column="14" lean-forward="true" selection-start-line="44" selection-start-column="3" selection-end-line="45" selection-end-column="14" />
 >>>>>>> master
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="activity_descricao_atividade.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_descricao_atividade.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
+>>>>>>> View_Syl
               <folding />
 =======
             <state relative-caret-position="240">
@@ -98,6 +121,7 @@
 >>>>>>> master
             </state>
           </provider>
+<<<<<<< HEAD
         </entry>
       </file>
 <<<<<<< HEAD
@@ -117,10 +141,17 @@
       <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
 >>>>>>> master
+=======
+>>>>>>> View_Syl
           <provider editor-type-id="android-designer2">
             <state />
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arrays.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <state relative-caret-position="60">
               <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -148,6 +179,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
               <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+=======
+            <state relative-caret-position="185">
+              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+>>>>>>> View_Syl
               <folding />
 =======
             <state relative-caret-position="80">
@@ -163,7 +198,11 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="580">
+=======
+            <state relative-caret-position="600">
+>>>>>>> View_Syl
               <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <marker date="1524678699993" expanded="true" signature="529:1042" ph="{...}" />
@@ -175,8 +214,8 @@
       <file leaf-file-name="colors.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
               <folding />
 >>>>>>> master
             </state>
@@ -185,6 +224,7 @@
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -196,6 +236,15 @@
   </component>
 =======
 >>>>>>> master
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+      </list>
+    </option>
+  </component>
+>>>>>>> View_Syl
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -2202,6 +2251,7 @@
     <option name="CHANGED_PATHS">
       <list>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/MainPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
@@ -2213,13 +2263,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/SelecionarAtividade_Scene/SelecionarAtividadesActivity.java" />
 =======
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+=======
+>>>>>>> View_Syl
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_tipo_atividade.xml" />
 <<<<<<< HEAD
 >>>>>>> master
 =======
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_temas_list_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/activities/MainActivity.java" />
@@ -2229,7 +2280,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_temas.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/activities/homeFragments/TemasListFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_temas_list.xml" />
+<<<<<<< HEAD
 >>>>>>> master
+=======
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-v21/activity_criar_template1.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_criar_template1.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_descricao_atividade.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
+>>>>>>> View_Syl
       </list>
     </option>
   </component>
@@ -2264,11 +2324,29 @@
     <panes>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="AndroidView">
 =======
 =======
       <pane id="Scratches" />
 >>>>>>> master
+=======
+      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SIA" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+>>>>>>> View_Syl
       <pane id="ProjectPane">
 >>>>>>> master
         <subPane>
@@ -2494,7 +2572,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="layout" />
+=======
+              <option name="myItemId" value="drawable" />
+>>>>>>> View_Syl
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
 >>>>>>> master
@@ -2529,6 +2611,7 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
           </PATH>
         </subPane>
       </pane>
@@ -2555,6 +2638,17 @@
       <pane id="Scratches" />
 =======
 >>>>>>> master
+=======
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sia" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+>>>>>>> View_Syl
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2574,9 +2668,9 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/values" />
       <recent name="$PROJECT_DIR$/app/src/main/res/mipmap" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/menu" />
     </key>
 >>>>>>> master
@@ -2668,11 +2762,15 @@
 =======
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524599612061" />
 >>>>>>> master
 =======
         <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524678812546" />
 >>>>>>> master
+=======
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525184809586" />
+>>>>>>> View_Syl
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2724,11 +2822,15 @@
 =======
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524599612061" />
 >>>>>>> master
 =======
         <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524678812546" />
 >>>>>>> master
+=======
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525184809586" />
+>>>>>>> View_Syl
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2921,11 +3023,15 @@
 =======
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524599612063" />
 >>>>>>> master
 =======
         <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524678812548" />
 >>>>>>> master
+=======
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525184809588" />
+>>>>>>> View_Syl
       </method>
     </configuration>
     <list size="1">
@@ -2976,6 +3082,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
     <layout>
+<<<<<<< HEAD
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3042,10 +3149,40 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924694" sideWeight="0.5030349" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7503794" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924694" sideWeight="0.4969651" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15402125" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+>>>>>>> View_Syl
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> master
 =======
@@ -3069,6 +3206,10 @@
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
 >>>>>>> master
+=======
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924694" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> View_Syl
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3079,6 +3220,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/SelecionarAtividade_Scene/SelecionarAtividadesActivity.java">
@@ -3092,10 +3234,21 @@
         <state relative-caret-position="220">
           <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
 >>>>>>> master
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_temas.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/TemasListRow.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_temas_list_row.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+>>>>>>> View_Syl
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/SelecionarAtividade_Scene/SelecionarAtividadesPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -3152,10 +3305,54 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tipo_atividade.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/temas_list_row.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas_list_row.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/activities/homeFragments/TemasFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/activities/TipoAtividadeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_temas_list.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/fragment_temas_list.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/activities/homeFragments/TemasListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+>>>>>>> View_Syl
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="240">
           <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
           <folding>
@@ -3163,10 +3360,16 @@
             <element signature="e#1169#1196#0" expanded="true" />
 >>>>>>> master
           </folding>
+=======
+        <state relative-caret-position="220">
+          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding />
+>>>>>>> View_Syl
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+<<<<<<< HEAD
 <<<<<<< HEAD
       <provider selected="true" editor-type-id="android-designer2">
         <state />
@@ -3187,16 +3390,37 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas.xml">
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="44" />
+          <folding>
+            <marker date="1524678760813" expanded="false" signature="1589:1599" ph="&quot;Assistidos&quot;" />
+          </folding>
+        </state>
+      </provider>
+>>>>>>> View_Syl
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas_list.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="200">
           <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+=======
+        <state relative-caret-position="328">
+          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+>>>>>>> View_Syl
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas_list.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3204,11 +3428,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="12" column="47" lean-forward="false" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tipo_atividade.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+>>>>>>> View_Syl
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> View_Syl
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_profile.xml">
       <provider selected="true" editor-type-id="text-editor">
 >>>>>>> master
@@ -3217,6 +3453,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/SelecionarAtividade_Scene/SelecionarAtividadesActivity.java">
 =======
@@ -3246,12 +3483,23 @@
 =======
     <entry file="file://$PROJECT_DIR$/SIA.iml">
 >>>>>>> master
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_logout.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SIA.iml">
+>>>>>>> View_Syl
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/SelecionarAtividade_Scene/SelecionarAtividadesPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -3305,18 +3553,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
           <caret line="29" column="68" lean-forward="false" selection-start-line="29" selection-start-column="68" selection-end-line="29" selection-end-column="68" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_tipo_atividade.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_temas.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/TemasListRow.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_temas_list_row.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/temas_list_row.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas_list_row.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+>>>>>>> View_Syl
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/Main_Scene/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="160">
           <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+=======
+        <state relative-caret-position="271">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+>>>>>>> View_Syl
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/Main_Scene/MainPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="360">
           <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
         </state>
@@ -3397,10 +3680,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+=======
+        <state relative-caret-position="80">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fragment_temas_list.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/fragment_temas_list.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/activities/homeFragments/TemasListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+>>>>>>> View_Syl
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="44" />
+          <folding>
+            <marker date="1524678760813" expanded="false" signature="1589:1599" ph="&quot;Assistidos&quot;" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -3430,9 +3750,27 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tipo_atividade.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas_list.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+>>>>>>> View_Syl
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/CriarTemplate1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_image_repr.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -3450,7 +3788,11 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_logout.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_camera.xml">
+>>>>>>> View_Syl
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -3483,6 +3825,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_tipo_atividade.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tipo_atividade.xml">
       <provider editor-type-id="android-designer2">
@@ -3539,41 +3882,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-v21/activity_criar_template1.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+>>>>>>> View_Syl
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas.xml">
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        <state relative-caret-position="260">
+          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_criar_template1.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="127" column="39" lean-forward="false" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sylviane/sia/DescricaoAtividade.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="420">
           <caret line="45" column="14" lean-forward="true" selection-start-line="44" selection-start-column="3" selection-end-line="45" selection-end-column="14" />
 >>>>>>> master
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> View_Syl
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="android-designer2">
@@ -3595,10 +3950,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_temas_list.xml">
 >>>>>>> master
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_tipo_atividade.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+>>>>>>> View_Syl
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="60">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -3607,8 +3982,23 @@
         <state relative-caret-position="328">
           <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
 >>>>>>> master
+=======
+        <state relative-caret-position="185">
+          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+>>>>>>> View_Syl
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_descricao_atividade.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="112" column="55" lean-forward="false" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>
