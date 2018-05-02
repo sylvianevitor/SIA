@@ -9,16 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity">
+
+        <activity android:name=".Main_Scene.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+        <activity android:name=".activities.ListaAssistidos.AssistidosActivity"></activity>
+        <activity android:name=".activities.ListaAtividades.AtividadesActivity"></activity>
+        <activity android:name=".SelecionarAtividade_Scene.SelecionarAtividadesActivity"></activity>
+=======
+<<<<<<< HEAD
         <activity android:name=".activities.TipoAtividadeActivity" />
-        <activity android:name=".CriarTemplate1" />
-        <activity android:name=".DescricaoAtividade"></activity>
+        <activity android:name=".activities.ListaAssistidos.AssistidosActivity"></activity>
+        <activity android:name=".activities.ListaAtividades.AtividadesActivity"></activity>
+=======
+        <activity android:name=".SelecionarAtividade_Scene.SelecionarAtividadesActivity" />
+        <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity"/>
+        <activity android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity"/>
+>>>>>>> master
+>>>>>>> master
     </application>
 
 </manifest>
