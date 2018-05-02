@@ -17,12 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-=======
-        <activity android:name=".activities.TipoAtividadeActivity" />
-        <activity android:name=".CriarTemplate1" />
-        <activity android:name=".DescricaoAtividade"></activity>
->>>>>>> View_Syl
+        <activity android:name=".SelecionarAtividade_Scene.SelecionarAtividadesActivity" />
+        <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity"/>
+        <activity android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity"/>
     </application>
 
 </manifest>
