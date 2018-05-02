@@ -29,15 +29,14 @@ import butterknife.ButterKnife;
 
 public class AtividadesActivity extends AppCompatActivity implements AtividadesView{
 
-    @BindView(R.id.rvAtividades);
-    RecyclerView rvAtividades;
+    @BindView(R.id.rvAtividades) RecyclerView rvAtividades;
 
     AtividadesPresenter atividadesPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.id.listaAtividades);
+        setContentView(R.layout.activity_lista_atividades);
 
         ButterKnife.bind(this);
         atividadesPresenter = new AtividadesPresenter(this);

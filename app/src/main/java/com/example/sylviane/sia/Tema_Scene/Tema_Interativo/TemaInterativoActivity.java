@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.activities.ListaAtividades.AtividadesActivity;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         ButterKnife.bind(this);
 
         temaInterativoPresenter = new TemaInterativoPresenter(this);
-        temaInterativoPresenter.updateList(jsonSocial); //passar os dados no banco de dados
+       // temaInterativoPresenter.updateList(jsonSocial); //passar os dados no banco de dados
 
 //        bancoDados = new BancoDados(conexaoBanco);
 //        List<TemaInterativoEntity> temaList = bancoDados.buscarTodos(); //buscar todos os temas no BD
@@ -60,8 +61,8 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         temaInterativoAdapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
             @Override
             public void onClick(View view, int position) {
-                Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, ListaAtividadesActivity.class);
-                openListaAtividadesActivity.putExtra("tema", temaInterativoPresenter.getTemaId(position));
+                Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
+               // openListaAtividadesActivity.putExtra("tema", temaInterativoPresenter.getTemaId(position));
                 startActivity(openListaAtividadesActivity);
             }
         });

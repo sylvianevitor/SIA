@@ -24,15 +24,14 @@ import butterknife.ButterKnife;
 
 public class AssistidosActivity extends AppCompatActivity implements AssistidosView{
 
-    @BindView(R.id.recyclerView);
-    RecyclerView recyclerView;
+    @BindView(R.id.rvAssistidos) RecyclerView rvAssistidos;
 
     AssistidosPresenter assistidosPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.id.listaAssistidos);
+        setContentView(R.layout.assistidos_item_list);
 
         ButterKnife.bind(this);
         assistidosPresenter = new AssistidosPresenter(this);
@@ -59,14 +58,14 @@ public class AssistidosActivity extends AppCompatActivity implements AssistidosV
             }
         });
 
-        recyclerView.setAdapter(assistidosAdapter);
+        rvAssistidos.setAdapter(assistidosAdapter);
 
 
         // criação do gerenciador de layouts
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         DividerItemDecoration dividerItemDecoration =
                 new DividerItemDecoration(this, layoutManager.getOrientation());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(dividerItemDecoration);
+        rvAssistidos.setLayoutManager(layoutManager);
+        rvAssistidos.addItemDecoration(dividerItemDecoration);
     }
 }
