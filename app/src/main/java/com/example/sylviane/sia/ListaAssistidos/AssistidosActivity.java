@@ -1,4 +1,4 @@
-package com.example.sylviane.sia.activities.ListaAssistidos;
+package com.example.sylviane.sia.ListaAssistidos;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +10,8 @@ import android.view.View;
 
 
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.activities.AssistidosDetail.AssistidosDetailActivity;
-import com.example.sylviane.sia.activities.Entity.AssistidosEntity;
+import com.example.sylviane.sia.AssistidosDetail.AssistidosDetailActivity;
+import com.example.sylviane.sia.Entity.AssistidosEntity;
 
 import java.util.List;
 

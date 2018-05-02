@@ -1,4 +1,4 @@
-package com.example.sylviane.sia.activities.Entity;
+package com.example.sylviane.sia.Entity;
 
 /**
  * Created by Natasha on 25/04/2018.

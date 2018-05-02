@@ -1,8 +1,6 @@
-package com.example.sylviane.sia.activities.ListaAtividades;
+package com.example.sylviane.sia.ListaAtividades;
 
-import com.example.sylviane.sia.activities.Entity.AssistidosEntity;
-import com.example.sylviane.sia.activities.Entity.AtividadesEntity;
-import com.example.sylviane.sia.activities.Entity.AtividadesListEntity;
+import com.example.sylviane.sia.Entity.AtividadesEntity;
 
 import java.util.List;
 

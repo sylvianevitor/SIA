@@ -1,7 +1,6 @@
-package com.example.sylviane.sia.activities.Relatorios;
+package com.example.sylviane.sia.Relatorios;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.sylviane.sia.R;

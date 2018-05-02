@@ -1,4 +1,4 @@
-package com.example.sylviane.sia.activities.AtividadesDetail;
+package com.example.sylviane.sia.AtividadesDetail;
 
 /**
  * Created by Natasha on 25/04/2018.

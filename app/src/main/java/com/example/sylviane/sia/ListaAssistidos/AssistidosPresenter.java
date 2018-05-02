@@ -1,7 +1,7 @@
-package com.example.sylviane.sia.activities.ListaAssistidos;
+package com.example.sylviane.sia.ListaAssistidos;
 
-import com.example.sylviane.sia.activities.Entity.AssistidosEntity;
-import com.example.sylviane.sia.activities.Entity.AssistidosListEntity;
+import com.example.sylviane.sia.Entity.AssistidosEntity;
+import com.example.sylviane.sia.Entity.AssistidosListEntity;
 
 import java.util.ArrayList;
 import java.util.List;

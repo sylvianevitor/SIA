@@ -1,4 +1,4 @@
-package com.example.sylviane.sia.activities.ListaAtividades;
+package com.example.sylviane.sia.ListaAtividades;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.activities.Entity.AssistidosEntity;
-import com.example.sylviane.sia.activities.Entity.AtividadesEntity;
-import com.example.sylviane.sia.activities.ListaAssistidos.AssistidosAdapter;
-import com.example.sylviane.sia.activities.ListaAssistidos.OnRecyclerViewSelectedAssistidos;
+import com.example.sylviane.sia.Entity.AtividadesEntity;
 
 import java.util.List;
 

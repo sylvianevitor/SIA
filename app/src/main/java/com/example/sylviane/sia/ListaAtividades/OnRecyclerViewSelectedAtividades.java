@@ -1,4 +1,4 @@
-package com.example.sylviane.sia.activities.ListaAtividades;
+package com.example.sylviane.sia.ListaAtividades;
 
 import android.view.View;
 

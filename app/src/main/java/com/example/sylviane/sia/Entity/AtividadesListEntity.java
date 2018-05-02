@@ -1,4 +1,4 @@
-package com.example.sylviane.sia.activities.Entity;
+package com.example.sylviane.sia.Entity;
 
 import java.util.List;
 

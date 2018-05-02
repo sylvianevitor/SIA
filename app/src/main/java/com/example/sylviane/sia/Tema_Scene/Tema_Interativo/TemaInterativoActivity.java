@@ -7,10 +7,9 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.activities.ListaAtividades.AtividadesActivity;
+import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 
 import java.util.List;
 

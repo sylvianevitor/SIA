@@ -1,4 +1,4 @@
-package com.example.sylviane.sia.activities.ListaAssistidos;
+package com.example.sylviane.sia.ListaAssistidos;
 
 import android.view.View;
 
