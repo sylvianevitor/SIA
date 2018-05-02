@@ -17,9 +17,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+        <activity android:name=".activities.TipoAtividadeActivity" />
+        <activity android:name=".activities.ListaAssistidos.AssistidosActivity"></activity>
+        <activity android:name=".activities.ListaAtividades.AtividadesActivity"></activity>
+=======
         <activity android:name=".SelecionarAtividade_Scene.SelecionarAtividadesActivity" />
         <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity"/>
         <activity android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity"/>
+>>>>>>> master
     </application>
 
 </manifest>

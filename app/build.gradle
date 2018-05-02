@@ -28,12 +28,19 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
+<<<<<<< HEAD
+    compile 'com.jakewharton:butterknife:8.8.1'
+=======
     compile 'com.jakewharton:butterknife:8.8.1' //butterknife
+>>>>>>> master
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     compile 'com.android.support:recyclerview-v7:26.1.0'
 
+<<<<<<< HEAD
+=======
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
 
+>>>>>>> master
 }
