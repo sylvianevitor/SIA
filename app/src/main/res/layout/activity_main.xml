@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sylviane.sia.activities.MainActivity">
+    tools:context="com.example.sylviane.sia.Main_Scene.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,6 +12,7 @@
         tools:layout_editor_absoluteY="123dp">
 
         <Button
+            android:id="@+id/button_selecionar_atividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
@@ -22,6 +23,7 @@
             android:textColor="#fff" />
 
         <Button
+            android:id="@+id/button_criar_atividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
@@ -32,6 +34,7 @@
             android:textColor="#fff" />
 
         <Button
+            android:id="@+id/button_ver_assistidos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
