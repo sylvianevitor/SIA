@@ -15,7 +15,7 @@ public class RelatoriosActivity extends AppCompatActivity implements RelatoriosV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.id.layoutRelatorios);
+        setContentView(R.layout.activity_relatorios);
         ButterKnife.bind(this);
     }
 }

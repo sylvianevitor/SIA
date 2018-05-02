@@ -15,8 +15,6 @@ public class CriarTemplate1Presenter {
     }
 
     public void ligarCamera() {
-        criarTemplate1View.showLoading();
         criarTemplate1View.camera();
-        criarTemplate1View.hideLoading();
     }
 }

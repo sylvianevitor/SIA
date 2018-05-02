@@ -16,4 +16,9 @@ public class TemaPassivoActivity extends AppCompatActivity implements TemaIntera
     public void updateList(List<TemaInterativoEntity> socialList) {
 
     }
+
+    @Override
+    public void cadastrar() {
+
+    }
 }

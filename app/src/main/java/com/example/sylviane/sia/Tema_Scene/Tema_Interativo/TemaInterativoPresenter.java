@@ -50,4 +50,8 @@ public class TemaInterativoPresenter {
         return temaInterativoListEntity.getTema().get(position);
 
     }
+
+    public void cadastrarTema() {
+        temaInterativoView.cadastrar();
+    }
 }

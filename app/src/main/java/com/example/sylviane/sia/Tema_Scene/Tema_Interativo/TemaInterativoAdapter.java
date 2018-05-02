@@ -44,7 +44,6 @@ public class TemaInterativoAdapter extends RecyclerView.Adapter<TemaInterativoAd
     public void onBindViewHolder(ViewHolder holder, int position) {
         TemaInterativoEntity socialEntity = temaList.get(position);
         holder.nomeTema.setText(socialEntity.getName());
-        holder.obsTema.setText(socialEntity.getObs());
         Picasso.with(context)
                 .load(socialEntity.getImage())
                 .centerCrop()
@@ -63,9 +62,6 @@ public class TemaInterativoAdapter extends RecyclerView.Adapter<TemaInterativoAd
 
         @BindView(R.id.nome_tema_row)
         TextView nomeTema;
-
-        @BindView(R.id.content)
-        TextView obsTema;
 
         @BindView(R.id.foto_tema_row)
         ImageView fotoTema;
