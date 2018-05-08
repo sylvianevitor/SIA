@@ -30,7 +30,7 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
 
         ButterKnife.bind(this);
 
-         cadastrarTemasInterativoPresenter = new CadastrarTemasInterativoPresenter(this);
+        cadastrarTemasInterativoPresenter = new CadastrarTemasInterativoPresenter(this);
 
     }
 
@@ -61,7 +61,7 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
             toast = Toast.makeText(CadastrarTemasInterativosActivity.this, "Impossível cadastrar o tema", Toast.LENGTH_LONG);
 
         toast.show();
-
+        
         //Intent abrirCriarAtividadesActivity = new Intent(MainActivity.this, CriarAtividadesActivity.class);
         //startActivity(abrirCriarAtividadesActivity);
     }
