@@ -24,6 +24,8 @@
         <activity android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity" />
         <activity android:name=".Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity"/>
         <activity android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity"/>
+        <activity android:name=".Relatorios.RelatoriosActivity"
+            android:label="Relatório da Atividade"/>
     </application>
 
 </manifest>
