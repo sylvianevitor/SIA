@@ -13,6 +13,8 @@ import android.view.View;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
+import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
+import com.example.sylviane.sia.com.example.sylviane.sia.persist.dao.TemaDAO;
 
 import java.util.List;
 
@@ -43,9 +45,9 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         temaInterativoPresenter = new TemaInterativoPresenter(this);
         //temaInterativoPresenter.updateList(); //passar os dados no banco de dados
 
-//        bancoDados = new BancoDados(conexaoBanco);
-//        List<TemaInterativoEntity> temaList = bancoDados.buscarTodos(); //buscar todos os temas no BD
-//
+        TemaDAO temaDAO = new TemaDAO(TemaInterativoActivity.this);
+        List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD
+        this.updateList(temaList);
     }
 
 
@@ -55,7 +57,7 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
     }
 
     @Override
-    public void updateList(final List<TemaInterativoEntity> temaList) {
+    public void updateList(final List<Tema> temaList) {
 
         //seta o adapter
         TemaInterativoAdapter temaInterativoAdapter = new TemaInterativoAdapter(temaList, this);
