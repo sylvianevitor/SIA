@@ -32,7 +32,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     @BindView(R.id.imageButton2) ImageButton image2;
     @BindView(R.id.imageButton3) ImageButton image3;
     @BindView(R.id.btnAudio) Button audio;
-
+    int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -52,7 +52,8 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         //verificar thread
         Log.i("AsyncTask", "Thread: " + Thread.currentThread().getName());
         //thread para acesso ao banco
-        chamarAsyncTask();
+        i = 0;  // caso 0: thread de buscar imagem
+        chamarAsyncTask(i);
 
         ButterKnife.bind(this);
         executarTemplate1Presenter = new ExecutarTemplate1Presenter(this);
@@ -68,11 +69,18 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         }
     }
     // chamar criacao de thread
-    private void chamarAsyncTask(){
-        ImagemBD downloadImage = new ImagemBD();
-        //verificar thread
-        Log.i("AsyncTask", "AsyncTask sendo chamado Thread: " + Thread.currentThread().getName());
-        downloadImage.execute();
+    private void chamarAsyncTask(int i){
+        if( i == 0) {
+            ImagemBD downloadImage = new ImagemBD();
+            //verificar thread
+            Log.i("AsyncTask", "AsyncTask sendo chamado Thread: " + Thread.currentThread().getName());
+            downloadImage.execute();
+        }
+        /*else{
+            AudioBD downloadAudio = new AudioBD();
+            Log.i("AsyncTask", "AsyncTask sendo chamado Thread: " + Thread.currentThread().getName());
+            downloadAudio.execute();
+        }*/
     }
 
     //thread para buscar imagem no banco
@@ -94,7 +102,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         @Override
         protected void onPostExecute(Bitmap bitmap){
             if(bitmap!=null) {
-                image1.setImageBitmap(bitmap);
+                image1.setImageBitmap(bitmap); //seta imagem nova
                 Log.i("AsyncTask", "Exibindo Bitmap Thread: " + Thread.currentThread().getName());
             }else{
                 Log.i("AsyncTask", "Erro ao baixar a imagem " + Thread.currentThread().getName());
