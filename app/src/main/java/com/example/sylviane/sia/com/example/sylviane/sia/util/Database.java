@@ -35,7 +35,7 @@ public class Database extends SQLiteOpenHelper {
                 "dt_cadastro text, " +
                 "nr_execucoes integer, " +
                 "id_tema integer, " +
-                "tipo_atividade integer";
+                "tipo_atividade integer )";
         return sql;
     }
 
@@ -47,14 +47,14 @@ public class Database extends SQLiteOpenHelper {
                 "dt_nasc text, " +
                 "responsavel text, " +
                 "telefone text, " +
-                "informacoes text ";
+                "informacoes text )";
         return sql;
     }
 
     private String getSQLCreateTableTema() {
         String sql = "CREATE TABLE tema ( " +
                 "id integer primary key autoincrement, " +
-                "tema text";
+                "tema text )";
         return sql;
     }
 
@@ -62,14 +62,14 @@ public class Database extends SQLiteOpenHelper {
         String sql = "CREATE TABLE profissional ( " +
                 "id integer primary key autoincrement, " +
                 "nome_completo text, " +
-                "id_formacao integer";
+                "id_formacao integer )";
         return sql;
     }
 
     private String getSQLCreateTableFormacao() {
         String sql = "CREATE TABLE formacao ( " +
                 "id integer primary key autoincrement, " +
-                "formacao text";
+                "formacao text )";
         return sql;
     }
 }

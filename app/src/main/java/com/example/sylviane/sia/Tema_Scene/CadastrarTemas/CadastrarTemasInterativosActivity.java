@@ -30,7 +30,7 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
 
         ButterKnife.bind(this);
 
-         cadastrarTemasInterativoPresenter = new CadastrarTemasInterativoPresenter(this);
+        cadastrarTemasInterativoPresenter = new CadastrarTemasInterativoPresenter(this);
 
     }
 
