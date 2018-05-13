@@ -16,7 +16,7 @@ public class TemaInterativoPresenter {
         this.temaInterativoView = temaInterativoView;
     }
 
-
+/*
     protected void updateList(String jsonSocial) {
 
         //verifica se há informações no json
@@ -45,9 +45,13 @@ public class TemaInterativoPresenter {
             });
         }
     }
-
+*/
     TemaInterativoEntity getTemaId(int position) throws IndexOutOfBoundsException {
         return temaInterativoListEntity.getTema().get(position);
 
+    }
+
+    public void cadastrarTema() {
+        temaInterativoView.cadastrar();
     }
 }

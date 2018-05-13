@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".Main_Scene.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,9 +16,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ListaAssistidos.AssistidosActivity" />
+        <activity android:name=".ListaAtividades.AtividadesActivity" />
         <activity android:name=".SelecionarAtividade_Scene.SelecionarAtividadesActivity" />
-        <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity"/>
-        <activity android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity"/>
+        <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity" />
+        <activity android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity" />
+<<<<<<< HEAD
+        <activity android:name=".Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity"/>
+        <activity android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.sylviane.sia.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+=======
+        <activity android:name=".Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity" />
+        <activity android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity" />
+        <activity
+            android:name=".Relatorios.RelatoriosActivity"
+            android:label="Relatório da Atividade" />
+>>>>>>> master
     </application>
 
 </manifest>

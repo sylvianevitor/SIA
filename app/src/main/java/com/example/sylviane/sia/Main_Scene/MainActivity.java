@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void criar() {
-        Intent abrirCriarAtividadesActivity = new Intent(MainActivity.this, CriarAtividadesActivity.class);
-        startActivity(abrirCriarAtividadesActivity);
+        //Intent abrirCriarAtividadesActivity = new Intent(MainActivity.this, CriarAtividadesActivity.class);
+        //startActivity(abrirCriarAtividadesActivity);
     }
 
     @OnClick(R.id.button_selecionar_atividade)
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void ver() {
-        Intent abrirSelecionarAssistidosActivity = new Intent(MainActivity.this, SelecionarAssistidosActivity.class);
-        startActivity(abrirSelecionarAssistidosActivity);
+       // Intent abrirSelecionarAssistidosActivity = new Intent(MainActivity.this, SelecionarAssistidosActivity.class);
+       // startActivity(abrirSelecionarAssistidosActivity);
     }
 }

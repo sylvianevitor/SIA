@@ -15,4 +15,8 @@ public class DescricaoAtividadePresenter {
     public void cadastro() {
         descricaoAtividadeView.efetuaCadastro();
     }
+
+    public void ligarCamera() {
+
+    }
 }
