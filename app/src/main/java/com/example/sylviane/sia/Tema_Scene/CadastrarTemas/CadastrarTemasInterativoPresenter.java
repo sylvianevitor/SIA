@@ -18,4 +18,8 @@ public class CadastrarTemasInterativoPresenter {
     public void salvarTema() {
         cadastrarTemasInterativosView.salvar();
     }
+
+    public void ligarCamera() {
+        cadastrarTemasInterativosView.camera();
+    }
 }

@@ -63,7 +63,6 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
             @Override
             public void onClick(View view, int position) {
                 Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
-               // openListaAtividadesActivity.putExtra("tema", temaInterativoPresenter.getTemaId(position));
                 startActivity(openListaAtividadesActivity);
             }
         });
