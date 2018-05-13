@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -25,9 +26,9 @@ import butterknife.OnLongClick;
 public class TemaInterativoAdapter extends RecyclerView.Adapter<TemaInterativoAdapter.ViewHolder> {
     private Context context;
     private OnRecyclerViewSelected mOnRecyclerViewSelected;
-    private List<TemaInterativoEntity> temaList;
+    private List<Tema> temaList;
 
-    public TemaInterativoAdapter(List<TemaInterativoEntity> temaList, Context context) {
+    public TemaInterativoAdapter(List<Tema> temaList, Context context) {
         this.temaList = temaList;
         this.context = context;
     }
@@ -42,13 +43,13 @@ public class TemaInterativoAdapter extends RecyclerView.Adapter<TemaInterativoAd
     //seta os dados nas views
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        TemaInterativoEntity socialEntity = temaList.get(position);
-        holder.nomeTema.setText(socialEntity.getName());
-        Picasso.with(context)
+        Tema socialEntity = temaList.get(position);
+        holder.nomeTema.setText(socialEntity.getTema());
+        /* Picasso.with(context)
                 .load(socialEntity.getImage())
                 .centerCrop()
                 .fit()
-                .into(holder.fotoTema);
+                .into(holder.fotoTema); */
     }
 
     //retorna o tamanho da lista

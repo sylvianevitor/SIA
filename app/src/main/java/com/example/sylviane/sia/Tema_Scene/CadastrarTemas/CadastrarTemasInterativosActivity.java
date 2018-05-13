@@ -50,7 +50,7 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
         ButterKnife.bind(this);
         selectedImagePath = new String();
 
-         cadastrarTemasInterativoPresenter = new CadastrarTemasInterativoPresenter(this);
+        cadastrarTemasInterativoPresenter = new CadastrarTemasInterativoPresenter(this);
 
     }
 

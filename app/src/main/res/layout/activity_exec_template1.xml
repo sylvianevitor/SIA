@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity">
+    tools:context="com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -36,9 +36,7 @@
                 android:layout_height="80dp"
                 android:layout_margin="40dp"
                 android:layout_weight="1"
-                android:background="#aaa"
-                android:src="@drawable/ic_camera"
-                />
+                android:background="#aaa" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
@@ -46,8 +44,7 @@
                 android:layout_height="80dp"
                 android:layout_margin="40dp"
                 android:layout_weight="1"
-                android:background="#aaa"
-                android:src="@drawable/ic_camera" />
+                android:background="#aaa" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
@@ -55,8 +52,7 @@
                 android:layout_height="80dp"
                 android:layout_margin="40dp"
                 android:layout_weight="1"
-                android:background="#aaa"
-                android:src="@drawable/ic_camera" />
+                android:background="#aaa" />
 
         </LinearLayout>
     </ScrollView>
@@ -64,15 +60,15 @@
     <LinearLayout
         android:layout_width="120dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="236dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="176dp"
-        android:layout_marginRight="36dp">
+        tools:layout_editor_absoluteY="180dp"
+        android:layout_marginRight="236dp">
 
         <Button
-            android:id="@+id/btnAudio1"
+            android:id="@+id/btnAudio"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_marginEnd="10dp"
@@ -84,52 +80,5 @@
             android:textAlignment="center"
             android:textColor="#fff" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="125dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="232dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="176dp"
-        android:layout_marginRight="232dp">
-
-        <Button
-            android:id="@+id/btnAudio2"
-            android:layout_width="125dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:drawableLeft="@drawable/ic_volume_down_black_24dp"
-            android:drawableStart="@drawable/ic_volume_down_black_24dp"
-            android:text="ÁUDIO"
-            android:textAlignment="center"
-            android:textColor="#fff" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="176dp">
-
-        <Button
-            android:id="@+id/btnAudio3"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:drawableLeft="@drawable/ic_volume_down_black_24dp"
-            android:drawableStart="@drawable/ic_volume_down_black_24dp"
-            android:text="ÁUDIO"
-            android:textAlignment="center"
-            android:textColor="#fff" />
-    </LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>

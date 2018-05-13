@@ -1,5 +1,7 @@
 package com.example.sylviane.sia.Tema_Scene.Tema_Interativo;
 
+import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
+
 import java.util.List;
 
 /**
@@ -7,7 +9,7 @@ import java.util.List;
  */
 
 public interface TemaInterativoView {
-    void updateList(List<TemaInterativoEntity> socialList);
+    void updateList(List<Tema> socialList);
 
     void cadastrar();
 }
