@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MOBILE-SIA.iml" filepath="$PROJECT_DIR$/MOBILE-SIA.iml" />
       <module fileurl="file://$PROJECT_DIR$/SIA.iml" filepath="$PROJECT_DIR$/SIA.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/SIA-app.iml" filepath="$PROJECT_DIR$/app/SIA-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
