@@ -60,14 +60,14 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     }
 
     //classe auxiliar busca imagem no banco
-    public class Auxiliar{
-        public Bitmap baixarImagem(){
+    /*public static class Auxiliar{
+        public static Bitmap baixarImagem(String param){
             Bitmap imagem;
             //metodo do DAO
 
             return imagem;
         }
-    }
+    }*/
     // chamar criacao de thread
     private void chamarAsyncTask(int i){
         if( i == 0) {
@@ -96,7 +96,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         protected Bitmap doInBackground(String... params) {
             Bitmap imagemBitmap = null;
             Log.i("AsyncTask", "Baixando a imagem Thread: " + Thread.currentThread().getName());
-            imagemBitmap = Auxiliar.baixarImagem(params[0]);
+            //imagemBitmap = Auxiliar.baixarImagem(params[0]);
             return imagemBitmap;
         }
         @Override

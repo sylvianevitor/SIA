@@ -27,7 +27,7 @@ import butterknife.OnClick;
 
 public class CriarTemplate1Activity extends AppCompatActivity implements CriarTemplate1View{
 
-    @BindView(R.id.imageView1)ImageView imageView1;
+    @BindView(R.id.imageButton1)ImageView imageView1;
 
     private static final int REQUEST_CAMERA = 123;
 
@@ -48,7 +48,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
 
     }
 
-    @OnClick(R.id.btnCamera1)
+    @OnClick(R.id.imageButton1)
     public void ligarCamera(){
         criarTemplate1Presenter.ligarCamera();
     }
