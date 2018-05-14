@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.com.example.sylviane.persist.persist.model.Tema;
+import com.example.sylviane.sia.persist.model.Tema;
 
 import java.util.List;
 

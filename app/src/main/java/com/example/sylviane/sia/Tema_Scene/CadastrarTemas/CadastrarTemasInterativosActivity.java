@@ -8,8 +8,8 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.com.example.sylviane.persist.persist.dao.TemaDAO;
-import com.example.sylviane.sia.com.example.sylviane.persist.persist.model.Tema;
+import com.example.sylviane.sia.persist.dao.TemaDAO;
+import com.example.sylviane.sia.persist.model.Tema;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
