@@ -3,7 +3,9 @@ package com.example.sylviane.sia.com.example.sylviane.sia.persist.model;
 public class Atividade {
 
     private int id;
+    private String nome;
     private String descricao;
+    private String objetivo;
     private int dificuldade;
     private int id_proprietario;
     private String dt_cadastro;
@@ -19,12 +21,28 @@ public class Atividade {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getObjetivo() {
+        return objetivo;
+    }
+
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
     }
 
     public int getDificuldade() {

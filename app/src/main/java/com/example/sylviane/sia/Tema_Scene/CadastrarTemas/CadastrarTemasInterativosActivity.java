@@ -19,8 +19,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Presenter;
+import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.Main_Scene.MainPresenter;
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoActivity;
+import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoPresenter;
 import com.example.sylviane.sia.com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
 
@@ -78,6 +81,8 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
         if (ok == true) {
             toast = Toast.makeText(CadastrarTemasInterativosActivity.this, "Tema cadastrado com sucesso", Toast.LENGTH_LONG);
             toast.show();
+            Intent abrirTemasInterativosActivity = new Intent(CadastrarTemasInterativosActivity.this, TemaInterativoActivity.class);
+            startActivity(abrirTemasInterativosActivity);
 
         } else{
             toast = Toast.makeText(CadastrarTemasInterativosActivity.this, "Impossível cadastrar o tema", Toast.LENGTH_LONG);
