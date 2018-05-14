@@ -16,8 +16,8 @@ public class Database extends SQLiteOpenHelper {
     private Context context;
 
     public Database(Context context) {
-        this.context = context;
         super(context, NOME_BANCO, null, VERSAO);
+        this.context = context;
     }
 
     @Override
@@ -28,6 +28,8 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(this.getSQLCreateTableFormacao());
         db.execSQL(this.getSQLCreateTableProfissional());
         db.execSQL(this.getSQLCreateTableTemplate1());
+
+        this.popularAssistidos();
     }
 
     @Override
@@ -63,7 +65,6 @@ public class Database extends SQLiteOpenHelper {
         assistido.setTelefone("(14)994929991");
         assistido.setInformacoes("Alérgico aos remédios JJJ");
         assistidoDAO.insert(assistido);
-
     }
 
     private String getSQLCreateTableAtividade() {
