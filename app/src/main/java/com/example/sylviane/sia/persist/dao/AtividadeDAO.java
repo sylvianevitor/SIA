@@ -45,6 +45,36 @@ public class AtividadeDAO {
         }
     }
 
+    public Atividade getAtividadeId(int id) {
+
+        db = database.getReadableDatabase();
+
+        String[] campos = {"id", "nome", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade"};
+
+        Cursor cursor = db.query(TABLE, campos, "id=?", new String[] { Integer.toString(id) }, null, null, "descricao");
+
+        if(cursor==null) {
+
+            db.close();
+            return null;
+        }
+
+        cursor.moveToFirst();
+        Atividade atividade = new Atividade();
+        atividade.setId(cursor.getInt(0));
+        atividade.setNome(cursor.getString(1));
+        atividade.setDescricao(cursor.getString(2));
+        atividade.setDificuldade(cursor.getInt(3));
+        atividade.setId_proprietario(cursor.getInt(4));
+        atividade.setDt_cadastro(cursor.getString(5));
+        atividade.setNr_execucoes(cursor.getInt(6));
+        atividade.setId_tema(cursor.getInt(7));
+        atividade.setTipo_atividade(cursor.getInt(8));
+
+        db.close();
+        return atividade;
+    }
+
     public ArrayList<Atividade> getAtividade() {
 
         ArrayList<Atividade>  list = new ArrayList<Atividade>();
