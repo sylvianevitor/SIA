@@ -1,13 +1,12 @@
-package com.example.sylviane.sia.com.example.sylviane.sia.persist.dao;
+package com.example.sylviane.sia.persist.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
-import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
-import com.example.sylviane.sia.com.example.sylviane.sia.util.Database;
+import com.example.sylviane.sia.persist.model.Tema;
+import com.example.sylviane.sia.persist.util.Database;
 
 import java.util.ArrayList;
 
@@ -28,6 +27,7 @@ public class TemaDAO {
 
         ContentValues values = new ContentValues();
         values.put("tema", tema.getTema());
+        values.put("imagem", tema.getImagem());
 
         long result = db.insert(TABLE, null, values);
         db.close();
@@ -45,7 +45,7 @@ public class TemaDAO {
 
         db = database.getReadableDatabase();
 
-        String[] campos = {"id", "tema"};
+        String[] campos = {"id", "tema", "imagem"};
 
         Cursor cursor = db.query(TABLE, campos, null, null, null, null, "tema");
 
@@ -55,6 +55,7 @@ public class TemaDAO {
                 Tema tema = new Tema();
                 tema.setId(cursor.getInt(0));
                 tema.setTema(cursor.getString(1));
+                tema.setImagem(cursor.getString(2));
                 list.add(tema);
             }
         }

@@ -1,13 +1,12 @@
-package com.example.sylviane.sia.com.example.sylviane.sia.persist.dao;
+package com.example.sylviane.sia.persist.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Assistido;
-import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
-import com.example.sylviane.sia.com.example.sylviane.sia.util.Database;
+import com.example.sylviane.sia.persist.model.Assistido;
+import com.example.sylviane.sia.persist.util.Database;
 
 import java.util.ArrayList;
 
@@ -52,7 +51,7 @@ public class AssistidoDAO {
 
         String[] campos = {"id", "nome_completo", "apelido", "dt_nasc", "responsavel", "telefone", "informacoes"};
 
-        Cursor cursor = db.query(TABLE, campos, null, null, null, null, "tema");
+        Cursor cursor = db.query(TABLE, campos, null, null, null, null, "apelido");
 
         if(cursor!=null) {
 

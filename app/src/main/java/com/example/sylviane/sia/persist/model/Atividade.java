@@ -1,8 +1,11 @@
-package com.example.sylviane.sia.com.example.sylviane.sia.persist.model;
+package com.example.sylviane.sia.persist.model;
+
+import android.content.Context;
 
 public class Atividade {
 
     private int id;
+    private String nome;
     private String descricao;
     private int dificuldade;
     private int id_proprietario;
@@ -11,6 +14,10 @@ public class Atividade {
     private int id_tema;
     private int tipo_atividade;
 
+    public static final int TIPO_PASSIVA = 0;
+    public static final int TIPO_ATIVA = 0;
+
+
     public int getId() {
         return id;
     }
@@ -18,6 +25,10 @@ public class Atividade {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getNome() { return nome; }
+
+    public void setNome(String nome) { this.nome = nome; }
 
     public String getDescricao() {
         return descricao;

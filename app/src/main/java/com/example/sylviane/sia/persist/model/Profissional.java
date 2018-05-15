@@ -1,4 +1,4 @@
-package com.example.sylviane.sia.com.example.sylviane.sia.persist.model;
+package com.example.sylviane.sia.persist.model;
 
 public class Profissional {
 
