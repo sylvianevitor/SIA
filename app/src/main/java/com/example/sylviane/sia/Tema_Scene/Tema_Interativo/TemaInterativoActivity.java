@@ -13,8 +13,8 @@ import android.view.View;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
-import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
-import com.example.sylviane.sia.com.example.sylviane.sia.persist.dao.TemaDAO;
+import com.example.sylviane.sia.persist.model.Tema;
+import com.example.sylviane.sia.persist.dao.TemaDAO;
 
 import java.util.List;
 

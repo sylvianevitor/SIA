@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
@@ -26,6 +27,11 @@ import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoActivit
 import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoPresenter;
 import com.example.sylviane.sia.com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
+=======
+import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.persist.dao.TemaDAO;
+import com.example.sylviane.sia.persist.model.Tema;
+>>>>>>> origin/DAO_TEMA_IMAGEM
 
 import java.io.File;
 

@@ -2,9 +2,8 @@ package com.example.sylviane.sia.Tema_Scene.Tema_Passivo;
 
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoEntity;
 import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoView;
-import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
+import com.example.sylviane.sia.persist.model.Tema;
 
 import java.util.List;
 

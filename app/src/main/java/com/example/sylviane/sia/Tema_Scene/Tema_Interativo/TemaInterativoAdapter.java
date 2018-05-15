@@ -9,15 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
-import com.squareup.picasso.Picasso;
+import com.example.sylviane.sia.persist.model.Tema;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnLongClick;
 
 /**
  * Created by mariana on 25/04/18.
