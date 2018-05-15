@@ -91,33 +91,21 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
 
                 if(id == 1){
                     Glide.with(imageButton1.getContext()).load(selectedImagePath).asBitmap().centerCrop().into(new BitmapImageViewTarget(imageButton1) {
-                        @Override
-                        protected void setResource(Bitmap resource) {
-                            RoundedBitmapDrawable circularBitmapDrawable =
-                                    RoundedBitmapDrawableFactory.create(imageButton1.getContext().getResources(), resource);
-                            circularBitmapDrawable.setCircular(true);
-                            imageButton1.setImageDrawable(circularBitmapDrawable);
-                        }
+//
                     });
                 } else if(id == 2){
                     Glide.with(imageButton2.getContext()).load(selectedImagePath).asBitmap().centerCrop().into(new BitmapImageViewTarget(imageButton2) {
-                        @Override
-                        protected void setResource(Bitmap resource) {
-                            RoundedBitmapDrawable circularBitmapDrawable =
-                                    RoundedBitmapDrawableFactory.create(imageButton2.getContext().getResources(), resource);
-                            circularBitmapDrawable.setCircular(true);
-                            imageButton2.setImageDrawable(circularBitmapDrawable);
-                        }
+
                     });
                 } else if(id == 3){
                     Glide.with(imageButton3.getContext()).load(selectedImagePath).asBitmap().centerCrop().into(new BitmapImageViewTarget(imageButton3) {
-                        @Override
-                        protected void setResource(Bitmap resource) {
-                            RoundedBitmapDrawable circularBitmapDrawable =
-                                    RoundedBitmapDrawableFactory.create(imageButton3.getContext().getResources(), resource);
-                            circularBitmapDrawable.setCircular(true);
-                            imageButton3.setImageDrawable(circularBitmapDrawable);
-                        }
+//                        @Override
+//                        protected void setResource(Bitmap resource) {
+//                            RoundedBitmapDrawable circularBitmapDrawable =
+//                                    RoundedBitmapDrawableFactory.create(imageButton3.getContext().getResources(), resource);
+//                            circularBitmapDrawable.setCircular(true);
+//                            imageButton3.setImageDrawable(circularBitmapDrawable);
+//                        }
                     });
                 }
 
