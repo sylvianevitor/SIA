@@ -28,6 +28,10 @@ import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoPresent
 import com.example.sylviane.sia.com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.com.example.sylviane.sia.persist.model.Tema;
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> 35f0932d772b6540cb2044fde71c2fd6763eb90e
+>>>>>>> master
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.persist.model.Tema;
