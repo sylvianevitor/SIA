@@ -43,7 +43,6 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         ButterKnife.bind(this);
 
         temaInterativoPresenter = new TemaInterativoPresenter(this);
-        //temaInterativoPresenter.updateList(); //passar os dados no banco de dados
 
         TemaDAO temaDAO = new TemaDAO(TemaInterativoActivity.this);
         List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD

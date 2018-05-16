@@ -15,15 +15,16 @@ import android.text.TextUtils;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-<<<<<<< HEAD
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Presenter;
+import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.Main_Scene.MainPresenter;
-=======
->>>>>>> 35f0932d772b6540cb2044fde71c2fd6763eb90e
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoActivity;
+import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoPresenter;
+
 import com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.persist.model.Tema;
 
@@ -73,6 +74,7 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
 
         Tema tema = new Tema();
         tema.setTema(nameEditText.getText().toString());
+        tema.setImagem(caminho_foto);
 
         TemaDAO temaDAO = new TemaDAO(CadastrarTemasInterativosActivity.this);
         boolean ok = temaDAO.insert(tema);
@@ -81,6 +83,8 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
         if (ok == true) {
             toast = Toast.makeText(CadastrarTemasInterativosActivity.this, "Tema cadastrado com sucesso", Toast.LENGTH_LONG);
             toast.show();
+            Intent abrirTemasInterativosActivity = new Intent(CadastrarTemasInterativosActivity.this, TemaInterativoActivity.class);
+            startActivity(abrirTemasInterativosActivity);
 
         } else{
             toast = Toast.makeText(CadastrarTemasInterativosActivity.this, "Impossível cadastrar o tema", Toast.LENGTH_LONG);

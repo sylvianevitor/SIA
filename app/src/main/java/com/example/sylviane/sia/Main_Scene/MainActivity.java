@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity;
+import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.SelecionarAtividade_Scene.SelecionarAtividadesActivity;
 
@@ -35,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void criar() {
-        //Intent abrirCriarAtividadesActivity = new Intent(MainActivity.this, CriarAtividadesActivity.class);
-        //startActivity(abrirCriarAtividadesActivity);
+        Intent abrirCriarAtividadesActivity = new Intent(MainActivity.this, DescricaoAtividadeActivity.class);
+        startActivity(abrirCriarAtividadesActivity);
     }
 
     @OnClick(R.id.button_selecionar_atividade)

@@ -21,9 +21,11 @@
         <activity android:name=".SelecionarAtividade_Scene.SelecionarAtividadesActivity" />
         <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity" />
         <activity android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity" />
-<<<<<<< HEAD
         <activity android:name=".Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity"/>
         <activity android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity"/>
+        <activity
+            android:name=".Relatorios.RelatoriosActivity"
+            android:label="Relatório da Atividade" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -35,13 +37,7 @@
                 android:resource="@xml/filepaths" />
         </provider>
 
-=======
-        <activity android:name=".Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity" />
-        <activity android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity" />
-        <activity
-            android:name=".Relatorios.RelatoriosActivity"
-            android:label="Relatório da Atividade" />
->>>>>>> master
+
     </application>
 
 </manifest>

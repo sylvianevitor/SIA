@@ -6,6 +6,7 @@ public class Atividade {
 
     private int id;
     private String nome;
+    private String objetivo;
     private String descricao;
     private int dificuldade;
     private int id_proprietario;
@@ -29,6 +30,14 @@ public class Atividade {
     public String getNome() { return nome; }
 
     public void setNome(String nome) { this.nome = nome; }
+
+    public String getObjetivo() {
+        return objetivo;
+    }
+
+    public void setObjetivo(String objetivo) {
+        this.objetivo = objetivo;
+    }
 
     public String getDescricao() {
         return descricao;

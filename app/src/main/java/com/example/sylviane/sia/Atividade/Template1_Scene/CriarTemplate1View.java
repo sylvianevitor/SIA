@@ -5,5 +5,5 @@ package com.example.sylviane.sia.Atividade.Template1_Scene;
  */
 
 public interface CriarTemplate1View {
-    void camera();
+    void camera(int id);
 }
