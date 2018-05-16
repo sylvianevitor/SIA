@@ -95,7 +95,7 @@ public class Database extends SQLiteOpenHelper {
     private String getSQLCreateTableTema() {
         String sql = "CREATE TABLE tema ( " +
                 "id integer primary key autoincrement, " +
-                "tema text " +
+                "tema text, " +
                 "imagem text )";
         return sql;
     }
