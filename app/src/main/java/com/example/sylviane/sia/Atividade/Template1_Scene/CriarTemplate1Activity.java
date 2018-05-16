@@ -91,7 +91,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
 
                 if(id == 1){
                     Glide.with(imageButton1.getContext()).load(selectedImagePath).asBitmap().centerCrop().into(new BitmapImageViewTarget(imageButton1) {
-//
+
                     });
                 } else if(id == 2){
                     Glide.with(imageButton2.getContext()).load(selectedImagePath).asBitmap().centerCrop().into(new BitmapImageViewTarget(imageButton2) {
