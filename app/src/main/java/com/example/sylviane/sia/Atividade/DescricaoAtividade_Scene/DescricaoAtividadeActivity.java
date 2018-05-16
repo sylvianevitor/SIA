@@ -3,6 +3,7 @@ package com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -49,7 +50,9 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
         atividade.setObjetivo(objetivoAtividadeEditText.getText().toString());
         atividade.setDescricao(descricaoAtividadeEditText.getText().toString());
         atividade.setDificuldade(dificuldadeAtividade.getBaseline()); //deve estar errado
-        atividade.setId_tema(temaAtividade.getBaseline()); //deve estar errado
+//        atividade.setId_tema(); //deve estar errado
+//        temaAtividade.setOnItemClickListener();
+
 
         AtividadeDAO atividadeDAO = new AtividadeDAO(DescricaoAtividadeActivity.this);
         boolean ok = atividadeDAO.insert(atividade);

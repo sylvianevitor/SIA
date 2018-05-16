@@ -74,6 +74,7 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
 
         Tema tema = new Tema();
         tema.setTema(nameEditText.getText().toString());
+        tema.setImagem(caminho_foto);
 
         TemaDAO temaDAO = new TemaDAO(CadastrarTemasInterativosActivity.this);
         boolean ok = temaDAO.insert(tema);
