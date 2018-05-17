@@ -92,10 +92,15 @@ public class Database extends SQLiteOpenHelper {
         return sql;
     }
 
+    private String getSQLDropTableTema() {
+        String sql = "DROP TABLE tema";
+        return sql;
+    }
+
     private String getSQLCreateTableTema() {
         String sql = "CREATE TABLE tema ( " +
                 "id integer primary key autoincrement, " +
-                "tema text " +
+                "tema text, " +
                 "imagem text )";
         return sql;
     }

@@ -43,7 +43,6 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         ButterKnife.bind(this);
 
         temaInterativoPresenter = new TemaInterativoPresenter(this);
-        //temaInterativoPresenter.updateList(); //passar os dados no banco de dados
 
         TemaDAO temaDAO = new TemaDAO(TemaInterativoActivity.this);
         List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD
@@ -65,7 +64,6 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
             @Override
             public void onClick(View view, int position) {
                 Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
-               // openListaAtividadesActivity.putExtra("tema", temaInterativoPresenter.getTemaId(position));
                 startActivity(openListaAtividadesActivity);
             }
         });

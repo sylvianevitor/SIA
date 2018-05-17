@@ -6,4 +6,5 @@ package com.example.sylviane.sia.Tema_Scene.CadastrarTemas;
 
 public interface CadastrarTemasInterativosView {
     void salvar();
+    void camera();
 }
