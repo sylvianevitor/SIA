@@ -10,5 +10,8 @@ import java.util.List;
 
 public interface SelecaoAssistidosView {
     void updateList(List<Assistido> assistidosList);
+    void showMessage(String msg);
+    void showLoading();
+    void hideLoading();
 }
 

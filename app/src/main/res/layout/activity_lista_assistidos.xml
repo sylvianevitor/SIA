@@ -17,4 +17,7 @@
             android:layout_height="0dp"
             android:layout_weight="9"/>
     </LinearLayout>
+
+    <include layout="@layout/custom_progress_bar" />
+
 </RelativeLayout>

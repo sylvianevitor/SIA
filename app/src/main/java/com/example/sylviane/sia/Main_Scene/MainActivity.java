@@ -10,7 +10,9 @@ import android.os.Bundle;
 
 import com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
+import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.SelecaoAssistidos.SelecaoAssisitidosActivity;
 import com.example.sylviane.sia.SelecionarAtividade_Scene.SelecionarAtividadesActivity;
 
 import butterknife.ButterKnife;
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void selecionar() {
-        Intent abrirSelecionarAtividadesActivity = new Intent(MainActivity.this, SelecionarAtividadesActivity.class);
+        Intent abrirSelecionarAtividadesActivity = new Intent(MainActivity.this, ExecutarTemplate1Activity.class);
         startActivity(abrirSelecionarAtividadesActivity);
     }
 
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void ver() {
-       // Intent abrirSelecionarAssistidosActivity = new Intent(MainActivity.this, SelecionarAssistidosActivity.class);
-       // startActivity(abrirSelecionarAssistidosActivity);
+       Intent abrirSelecionarAssistidosActivity = new Intent(MainActivity.this, SelecaoAssisitidosActivity.class);
+       startActivity(abrirSelecionarAssistidosActivity);
     }
 }
