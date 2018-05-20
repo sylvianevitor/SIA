@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:context="com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -15,16 +15,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nome_da_atividade"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal"
+            android:text="@string/nome_da_atividade" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="294dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="226dp"
+        tools:layout_editor_absoluteY="201dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                 android:layout_margin="40dp"
                 android:layout_weight="1"
                 android:background="#aaa"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
@@ -49,7 +49,7 @@
                 android:layout_margin="40dp"
                 android:layout_weight="1"
                 android:background="#aaa"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
@@ -58,32 +58,27 @@
                 android:layout_margin="40dp"
                 android:layout_weight="1"
                 android:background="#aaa"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal" />
 
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/btnAudio"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:drawableLeft="@drawable/ic_volume_down_black_24dp"
+        android:drawableStart="@drawable/ic_volume_down_black_24dp"
         android:orientation="horizontal"
+        android:text="ÁUDIO"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="192dp">
-
-        <Button
-            android:id="@+id/btnAudio"
-            android:layout_width="120dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:drawableLeft="@drawable/ic_volume_down_black_24dp"
-            android:drawableStart="@drawable/ic_volume_down_black_24dp"
-            android:orientation="horizontal"
-            android:text="ÁUDIO"
-            android:textAlignment="center"
-            android:textColor="#fff" />
-    </LinearLayout>
+        tools:layout_editor_absoluteY="210dp" />
 
 </android.support.constraint.ConstraintLayout>
