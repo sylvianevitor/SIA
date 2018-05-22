@@ -49,7 +49,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     private String getSQLCreateTableAssistido() {
-        String sql = "CREATE TABLE assitido ( " +
+        String sql = "CREATE TABLE assistido ( " +
                 "id integer primary key autoincrement, " +
                 "nome_completo text, " +
                 "apelido text, " +
