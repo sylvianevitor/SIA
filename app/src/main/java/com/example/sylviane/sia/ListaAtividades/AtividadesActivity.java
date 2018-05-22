@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
+import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1View;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.AtividadesDetail.AtividadesDetailActivity;
 import com.example.sylviane.sia.Entity.AtividadesEntity;
@@ -57,7 +59,6 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         });
 
         rvAtividades.setAdapter(atividadesAdapter);
-
 
         // criação do gerenciador de layouts
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

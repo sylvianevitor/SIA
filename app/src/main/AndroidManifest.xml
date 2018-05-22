@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sylviane.sia">
 
     <application
@@ -22,12 +21,24 @@
         <activity android:name=".SelecionarAtividade_Scene.SelecionarAtividadesActivity" />
         <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity" />
         <activity android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity" />
-        <activity android:name=".Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity" />
-        <activity android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity" />
+        <activity android:name=".Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity"/>
+        <activity android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity"/>
         <activity
             android:name=".Relatorios.RelatoriosActivity"
             android:label="Relatório da Atividade" />
-        <activity android:name=".Relatorios.RelatorioAssistidosActivity"></activity>
+        <activity android:name=".Relatorios.RelatorioAssistidosActivity"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.sylviane.sia.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+
     </application>
 
 </manifest>
