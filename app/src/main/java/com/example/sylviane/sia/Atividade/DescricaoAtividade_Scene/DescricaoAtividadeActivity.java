@@ -49,9 +49,12 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
         atividade.setNome(nomeAtividadeEditText.getText().toString());
         atividade.setObjetivo(objetivoAtividadeEditText.getText().toString());
         atividade.setDescricao(descricaoAtividadeEditText.getText().toString());
-        atividade.setDificuldade(dificuldadeAtividade.getBaseline()); //deve estar errado
-//        atividade.setId_tema(); //deve estar errado
-//        temaAtividade.setOnItemClickListener();
+        //atividade.setDificuldade(dificuldadeAtividade.getBaseline()); //deve estar errado
+        //atividade.setId_tema(); //deve estar errado
+        //temaAtividade.setOnItemClickListener();
+
+        atividade.setDificuldade((int) dificuldadeAtividade.getSelectedItem()); //TESTAR
+        atividade.setId_tema((int) temaAtividade.getSelectedItemId());
 
 
         AtividadeDAO atividadeDAO = new AtividadeDAO(DescricaoAtividadeActivity.this);
