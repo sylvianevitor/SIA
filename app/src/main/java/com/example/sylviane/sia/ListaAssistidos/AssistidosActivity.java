@@ -12,7 +12,12 @@ import android.view.View;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.AssistidosDetail.AssistidosDetailActivity;
 import com.example.sylviane.sia.Entity.AssistidosEntity;
+import com.example.sylviane.sia.persist.dao.AssistidoDAO;
+import com.example.sylviane.sia.persist.model.Assistido;
 
+import com.example.sylviane.sia.persist.model.Assistido;
+import com.example.sylviane.sia.persist.dao.AssistidoDAO;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -31,14 +36,16 @@ public class AssistidosActivity extends AppCompatActivity implements AssistidosV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.assistidos_item_list);
+        setContentView(R.layout.activity_lista_assistidos);
 
         ButterKnife.bind(this);
         assistidosPresenter = new AssistidosPresenter(this);
-        assistidosPresenter.updateList();
+        AssistidoDAO assistidoDAO = new AssistidoDAO(this);
+        List<Assistido> assistidosList = assistidoDAO.getAssistidos();
+        assistidosPresenter.updateList(assistidosList);
 
     }
-    public void updateList(final List<AssistidosEntity> assistidosList) {
+    public void updateList(final List<Assistido> assistidosList) {
 
         //seta o adapter
         AssistidosAdapter assistidosAdapter = new AssistidosAdapter(assistidosList, this);

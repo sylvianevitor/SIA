@@ -16,18 +16,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
-
+import com.example.sylviane.sia.persist.model.Atividade;
 /**
  * Created by Natasha on 25/04/2018.
  */
 
 public class AtividadesAdapter extends RecyclerView.Adapter<AtividadesAdapter.ViewHolder>{
 
-    private List<AtividadesEntity> atividadesList;
+    private List<Atividade> atividadesList;
     OnRecyclerViewSelectedAtividades onRecyclerViewSelectedAtividades;
     private Context context;
 
-    AtividadesAdapter(List<AtividadesEntity> atividadesList, Context context){
+    AtividadesAdapter(List<Atividade> atividadesList, Context context){
         this.atividadesList = atividadesList;
         this.context = context;
     }
@@ -40,7 +40,8 @@ public class AtividadesAdapter extends RecyclerView.Adapter<AtividadesAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        AtividadesEntity atividadesEntity = atividadesList.get(position);
+        Atividade atividadesEntity = atividadesList.get(position);
+        holder.nomeAtividade.setText(atividadesEntity.getNome());
     }
 
     @Override

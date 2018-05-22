@@ -16,18 +16,18 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
-
+import com.example.sylviane.sia.persist.model.Assistido;
 /**
  * Created by Natasha on 25/04/2018.
  */
 
 public class AssistidosAdapter extends RecyclerView.Adapter<AssistidosAdapter.ViewHolder>{
 
-    private List<AssistidosEntity> assistidosList;
-    OnRecyclerViewSelectedAssistidos onRecyclerViewSelectedAssistidos;
+    private List<Assistido> assistidosList;
+    private OnRecyclerViewSelectedAssistidos onRecyclerViewSelectedAssistidos;
     private Context context;
 
-    AssistidosAdapter(List<AssistidosEntity> assistidosList, Context context){
+    AssistidosAdapter(List<Assistido> assistidosList, Context context){
         this.assistidosList = assistidosList;
         this.context = context;
     }
@@ -42,7 +42,8 @@ public class AssistidosAdapter extends RecyclerView.Adapter<AssistidosAdapter.Vi
     //seta os dados nas views
     @Override
     public void onBindViewHolder(AssistidosAdapter.ViewHolder holder, int position) {
-        AssistidosEntity assistidosEntity = assistidosList.get(position);
+        Assistido assistidosEntity = assistidosList.get(position);
+        holder.nomeAssistido.setText(assistidosEntity.getNome_completo());
     }
 
     @Override

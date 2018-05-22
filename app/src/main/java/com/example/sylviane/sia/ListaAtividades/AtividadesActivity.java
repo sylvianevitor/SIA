@@ -13,6 +13,8 @@ import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1View;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.AtividadesDetail.AtividadesDetailActivity;
 import com.example.sylviane.sia.Entity.AtividadesEntity;
+import com.example.sylviane.sia.persist.dao.AtividadeDAO;
+import com.example.sylviane.sia.persist.model.Atividade;
 
 import java.util.List;
 
@@ -36,10 +38,12 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
 
         ButterKnife.bind(this);
         atividadesPresenter = new AtividadesPresenter(this);
-        atividadesPresenter.updateList();
+        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
+        List<Atividade> atividadeList = atividadeDAO.getAtividade();
+        atividadesPresenter.updateList(atividadeList);
     }
 
-    public void updateListAtividades(List<AtividadesEntity> atividadesList) {
+    public void updateListAtividades(List<Atividade> atividadesList) {
         //seta o adapter
         AtividadesAdapter atividadesAdapter = new AtividadesAdapter(atividadesList, this);
 
