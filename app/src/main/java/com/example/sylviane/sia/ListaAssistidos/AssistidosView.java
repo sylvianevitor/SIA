@@ -11,4 +11,5 @@ import java.util.List;
 
 public interface AssistidosView {
     void updateList(List<Assistido> assistidosListEntities);
+
 }

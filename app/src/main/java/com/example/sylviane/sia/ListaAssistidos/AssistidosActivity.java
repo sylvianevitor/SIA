@@ -56,6 +56,7 @@ public class AssistidosActivity extends AppCompatActivity implements AssistidosV
                 Intent intent = new Intent
                         (AssistidosActivity.this,
                                 AssistidosDetailActivity.class);
+                intent.putExtra("assistido_id", assistidosList.get(position).getId());
                 startActivity(intent);
             }
 
