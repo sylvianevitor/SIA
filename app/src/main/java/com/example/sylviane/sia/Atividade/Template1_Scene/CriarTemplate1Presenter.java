@@ -17,4 +17,8 @@ public class CriarTemplate1Presenter {
     public void ligarCamera(int id) {
         criarTemplate1View.camera(id);
     }
+
+    public void cadastrarTemplate1() {
+        criarTemplate1View.cadastrar();
+    }
 }
