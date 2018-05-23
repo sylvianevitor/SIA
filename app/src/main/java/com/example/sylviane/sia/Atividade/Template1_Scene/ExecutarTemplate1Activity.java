@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static android.app.ProgressDialog.*;
 
 /**
  * Created by sylviane on 12/05/18.
@@ -81,7 +84,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         @Override
         protected void onPreExecute(){
             Log.i("AsyncTask", "Exibindo ProgressDialog na tela Thread: " + Thread.currentThread().getName());
-            load = ProgressDialog.show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
+            load = show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
                     "Carregando Atividade ...");
         }
         @Override
@@ -95,7 +98,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         @Override
         protected void onPostExecute(Bitmap bitmap){
             if(bitmap!=null) {
-                image1.setImageBitmap(bitmap); //seta imagem nova
+                //image1.setImageBitmap(bitmap); //seta imagem nova
                 Log.i("AsyncTask", "Exibindo Bitmap Thread: " + Thread.currentThread().getName());
             }else{
                 Log.i("AsyncTask", "Erro ao baixar a imagem " + Thread.currentThread().getName());
@@ -112,7 +115,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         @Override
         protected void onPreExecute(){
             Log.i("AsyncTask", "Exibindo ProgressDialog na tela Thread: " + Thread.currentThread().getName());
-            load = ProgressDialog.show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
+            load = show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
                     "Carregando Audio ...");
         }
         @Override
@@ -149,8 +152,8 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         //thread para acesso ao banco
         chamarAsyncTask(i);
         //executar
-        //MediaPlayer mp = MediaPlayer.create(this,R.raw.sound);
-        //mp.start();
+        MediaPlayer mp = MediaPlayer.create(this,R.raw.sound);
+        mp.start();
     }
 }
 

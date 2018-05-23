@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -39,7 +40,9 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
         setContentView(R.layout.activity_lista_assistidos);
         ButterKnife.bind(this);
         assistidosPresenter= new SelecaoAssistidosPresenter(this);
+        assistidoDAO.popularAssistidos();
         List<Assistido> listaAssistidos = assistidoDAO.getAssistidos(); //lista do banco
+        Log.d("Visualiza assistidos", listaAssistidos.get(0).getNome_completo());
         assistidosPresenter.updateList(listaAssistidos);
     }
 
@@ -65,10 +68,6 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
             }
 
         });
-
-
-
-
         rvAssistidos.setAdapter(assistidosAdapter);
 
         // criação do gerenciador de layouts

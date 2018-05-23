@@ -25,7 +25,7 @@ import butterknife.OnLongClick;
 public class SelecaoAssistidosAdapter extends RecyclerView.Adapter<SelecaoAssistidosAdapter.ViewHolder> {
     private List<Assistido> assistidosList;
     private Context context;
-    private int row_position = -1; //default
+    //private int row_position = -1; //default
     OnRecyclerViewSelectedAssistido onRecyclerViewSelected;
 
     SelecaoAssistidosAdapter(List<Assistido> assistidosList, Context context) {

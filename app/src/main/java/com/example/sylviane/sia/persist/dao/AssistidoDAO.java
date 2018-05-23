@@ -74,7 +74,7 @@ public class AssistidoDAO {
     }
 
     // Popular campos automaticamente
-    private void popularAssistidos() {
+    public void popularAssistidos() {
         Assistido assistido = new Assistido();
 
         assistido.setNome_completo("Ricardo Pereira");
