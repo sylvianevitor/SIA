@@ -29,8 +29,30 @@
         android:layout_marginTop="20dp"
         android:text="pontos" />
 
+    <TextView
+        android:id="@+id/observacoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="Observações"
+        android:textColor="#000"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/text_observacoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/observacoes"
+        android:inputType="textMultiLine" />
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botao_sair"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

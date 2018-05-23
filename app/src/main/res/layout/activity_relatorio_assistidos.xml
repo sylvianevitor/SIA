@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/nome_atividade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Nome da atividade"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/data_execucao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/porcentagem_acertos"
+        android:layout_alignStart="@+id/porcentagem_acertos"
+        android:layout_below="@+id/nome_atividade"
+        android:layout_marginTop="29dp"
+        android:text="Data da execução"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="61dp" />
+
+    <TextView
+        android:id="@+id/text_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/data_execucao"
+        android:layout_alignBottom="@+id/data_execucao"
+        android:layout_alignLeft="@+id/text_porcentagem"
+        android:layout_alignStart="@+id/text_porcentagem"
+        android:text="dia/mes/ano"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="61dp" />
+
+    <TextView
+        android:id="@+id/text_horario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/text_data"
+        android:layout_alignBottom="@+id/text_data"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:text="horario"
+        tools:layout_editor_absoluteX="282dp"
+        tools:layout_editor_absoluteY="61dp" />
+
+    <TextView
+        android:id="@+id/dificuldade_atividade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/data_execucao"
+        android:layout_alignStart="@+id/data_execucao"
+        android:layout_below="@+id/data_execucao"
+        android:layout_marginTop="17dp"
+        android:text="Dificuldade"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="105dp" />
+
+    <TextView
+        android:id="@+id/text_dificuldade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dificuldade_atividade"
+        android:layout_alignBottom="@+id/dificuldade_atividade"
+        android:layout_centerHorizontal="true"
+        android:text="valor da dificuldade"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="105dp" />
+
+    <TextView
+        android:id="@+id/porcentagem_acertos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/observacoes"
+        android:layout_alignStart="@+id/observacoes"
+        android:layout_below="@+id/nome_atividade"
+        android:layout_marginTop="101dp"
+        android:text="Porcentagem de acertos"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="148dp" />
+
+    <TextView
+        android:id="@+id/text_porcentagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/porcentagem_acertos"
+        android:layout_alignBottom="@+id/porcentagem_acertos"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/porcentagem_acertos"
+        android:layout_toRightOf="@+id/porcentagem_acertos"
+        android:text="valor"
+        tools:layout_editor_absoluteX="189dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <TextView
+        android:id="@+id/tempo_execucao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/porcentagem_acertos"
+        android:layout_alignStart="@+id/porcentagem_acertos"
+        android:layout_below="@+id/porcentagem_acertos"
+        android:layout_marginTop="21dp"
+        android:text="Tempo de execução"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <TextView
+        android:id="@+id/text_tempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tempo_execucao"
+        android:layout_alignBottom="@+id/tempo_execucao"
+        android:layout_alignLeft="@+id/text_porcentagem"
+        android:layout_alignStart="@+id/text_porcentagem"
+        android:text="valor"
+        tools:layout_editor_absoluteX="202dp"
+        tools:layout_editor_absoluteY="148dp" />
+
+    <TextView
+        android:id="@+id/observacoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tempo_execucao"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_toLeftOf="@+id/nome_atividade"
+        android:layout_toStartOf="@+id/nome_atividade"
+        android:text="Observações"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="232dp" />
+
+
+    <TextView
+        android:id="@+id/text_observacoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/text_horario"
+        android:layout_alignLeft="@+id/observacoes"
+        android:layout_alignRight="@+id/text_horario"
+        android:layout_alignStart="@+id/observacoes"
+        android:layout_centerVertical="true"
+        android:text="observações digitadas pelo professor na hora que acaba a atividade" />
+
+    <Button
+        android:id="@+id/botao_sair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="120dp"
+        android:background="@color/buttom_atividade"
+        android:padding="10dp"
+        android:text="Sair"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="295dp" />
+
+</RelativeLayout>

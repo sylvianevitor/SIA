@@ -39,6 +39,7 @@ public class Database extends SQLiteOpenHelper {
         String sql = "CREATE TABLE atividade ( " +
                 "id integer primary key autoincrement, " +
                 "nome text, " +
+                "objetivo text, " + 
                 "descricao text, " +
                 "id_proprietario integer, " +
                 "dt_cadastro text, " +

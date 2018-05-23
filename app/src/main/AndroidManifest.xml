@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sylviane.sia">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,7 +29,11 @@
         <activity android:name=".Atividade.Template1_Scene.ExecutarTemplate1Activity"/>
         <activity
             android:name=".Relatorios.RelatoriosActivity"
-            android:label="Relatório da Atividade" />
+            android:label="Relatório da Atividade">
+
+        </activity>
+        <activity android:name=".Relatorios.RelatorioAssistidosActivity">
+        </activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
