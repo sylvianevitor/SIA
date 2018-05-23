@@ -72,4 +72,33 @@ public class AssistidoDAO {
 
         return list;
     }
+
+    // Popular campos automaticamente
+    private void popularAssistidos() {
+        Assistido assistido = new Assistido();
+
+        assistido.setNome_completo("Ricardo Pereira");
+        assistido.setApelido("Ricardo");
+        assistido.setDt_nasc("23/02/2010");
+        assistido.setResponsavel("Ana Paula Pereira");
+        assistido.setTelefone("(14)994929221");
+        assistido.setInformacoes("Alérgico aos remédios XXX");
+        this.insert(assistido);
+
+        assistido.setNome_completo("Carol Silva");
+        assistido.setApelido("Carol");
+        assistido.setDt_nasc("20/01/2001");
+        assistido.setResponsavel("Maria Silva");
+        assistido.setTelefone("(14)994929299");
+        assistido.setInformacoes("Alérgico aos remédios KKK");
+        this.insert(assistido);
+
+        assistido.setNome_completo("Sebastião Cardoso");
+        assistido.setApelido("Bastião");
+        assistido.setDt_nasc("27/09/1991");
+        assistido.setResponsavel("António Cardoso");
+        assistido.setTelefone("(14)994929991");
+        assistido.setInformacoes("Alérgico aos remédios JJJ");
+        this.insert(assistido);
+    }
 }

@@ -1,9 +1,12 @@
 package com.example.sylviane.sia.Tema_Scene.CadastrarTemas;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.provider.SyncStateContract;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
@@ -29,6 +32,7 @@ import com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.persist.model.Tema;
 
 import java.io.File;
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +41,9 @@ import butterknife.OnClick;
 public class CadastrarTemasInterativosActivity extends AppCompatActivity implements  CadastrarTemasInterativosView{
 
     CadastrarTemasInterativoPresenter cadastrarTemasInterativoPresenter;
+
+    private int PICK_IMAGE_REQUEST = 1;
+    private String imagePath;
 
     @BindView(R.id.text_input_layout_name)TextInputLayout nameTextInputLayout;
     @BindView(R.id.nome_tema)TextInputEditText nameEditText;
@@ -74,10 +81,12 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
 
         Tema tema = new Tema();
         tema.setTema(nameEditText.getText().toString());
-        tema.setImagem(caminho_foto);
+        tema.setImagem(imagem.toString());
 
         TemaDAO temaDAO = new TemaDAO(CadastrarTemasInterativosActivity.this);
         boolean ok = temaDAO.insert(tema);
+
+        Toast.makeText(getApplicationContext(), imagem.toString(), Toast.LENGTH_SHORT).show();
 
         Toast toast;
         if (ok == true) {
@@ -99,40 +108,27 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
 
     @Override
     public void camera(){
-        Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if(intentCamera.resolveActivity(getPackageManager()) != null) {
-            selectedImagePath = getExternalFilesDir(null) + "/" + System.currentTimeMillis() + ".jpg";
-            File arquivoFoto = new File(selectedImagePath);
-            Uri fileUri = FileProvider.getUriForFile(this, "com.example.sylviane.sia.fileprovider", arquivoFoto);
-            intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-
-            startActivityForResult(intentCamera, REQUEST_CAMERA);
-        }else {
-            Toast toast = Toast.makeText(CadastrarTemasInterativosActivity.this, "Impossível abrir o recurso", Toast.LENGTH_LONG);
-            toast.show();
-        }
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CAMERA && resultCode == RESULT_OK) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            Uri uri = data.getData();
+
             try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                imagem.setImageBitmap(bitmap);
 
-                Glide.with(imagem.getContext()).load(selectedImagePath).asBitmap().centerCrop().into(new BitmapImageViewTarget(imagem) {
-//                    @Override
-//                    protected void setResource(Bitmap resource) {
-//                        RoundedBitmapDrawable circularBitmapDrawable =
-//                                RoundedBitmapDrawableFactory.create(imagem.getContext().getResources(), resource);
-//                        circularBitmapDrawable.setCircular(true);
-//                        imagem.setImageDrawable(circularBitmapDrawable);
-//                    }
-                });
-
-            } catch (Exception e) {
+            } catch (IOException e) {
                 e.printStackTrace();
-                Toast.makeText(this, "Unable to open image", Toast.LENGTH_LONG).show();
             }
-            caminho_foto = selectedImagePath;
         }
     }
 
