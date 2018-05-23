@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.Relatorios.RelatoriosActivity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.dao.Template1DAO;
 import com.example.sylviane.sia.persist.model.Atividade;
@@ -46,6 +47,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     @BindView(R.id.imageButton2) ImageButton image2;
     @BindView(R.id.imageButton3) ImageButton image3;
     @BindView(R.id.btnAudio) Button audio;
+    @BindView(R.id.btnSair) Button sair;
 
     int i;
 
@@ -63,6 +65,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         ButterKnife.bind(this);
         executarTemplate1Presenter = new ExecutarTemplate1Presenter(this);
     }
+
     // chamar criacao de thread
     private void chamarAsyncTask(int i){
         if( i == 0) {
@@ -155,5 +158,15 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         MediaPlayer mp = MediaPlayer.create(this,R.raw.sound);
         mp.start();
     }
+
+    @OnClick(R.id.btnSair)
+    public void sair(){executarTemplate1Presenter.sair();}
+
+    @Override
+    public void fim(){
+        Intent abrirFeedback = new Intent(ExecutarTemplate1Activity.this, RelatoriosActivity.class);
+        startActivity(abrirFeedback);
+    }
+
 }
 

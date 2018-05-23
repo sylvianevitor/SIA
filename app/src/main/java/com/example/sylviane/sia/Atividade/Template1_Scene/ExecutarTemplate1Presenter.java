@@ -17,5 +17,6 @@ public class ExecutarTemplate1Presenter {
     }
 
     public void load_info(){executarTemplate1View.load_audio();}
+    public void sair(){executarTemplate1View.fim();}
 
 }
