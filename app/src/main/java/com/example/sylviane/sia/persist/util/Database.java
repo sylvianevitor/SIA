@@ -28,43 +28,11 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(this.getSQLCreateTableFormacao());
         db.execSQL(this.getSQLCreateTableProfissional());
         db.execSQL(this.getSQLCreateTableTemplate1());
-
-        this.popularAssistidos();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-    }
-
-    // Popular campos automaticamente
-    private void popularAssistidos() {
-        AssistidoDAO assistidoDAO = new AssistidoDAO(this.context);
-        Assistido assistido = new Assistido();
-
-        assistido.setNome_completo("Ricardo Pereira");
-        assistido.setApelido("Ricardo");
-        assistido.setDt_nasc("23/02/2010");
-        assistido.setResponsavel("Ana Paula Pereira");
-        assistido.setTelefone("(14)994929221");
-        assistido.setInformacoes("Alérgico aos remédios XXX");
-        assistidoDAO.insert(assistido);
-
-        assistido.setNome_completo("Carol Silva");
-        assistido.setApelido("Carol");
-        assistido.setDt_nasc("20/01/2001");
-        assistido.setResponsavel("Maria Silva");
-        assistido.setTelefone("(14)994929299");
-        assistido.setInformacoes("Alérgico aos remédios KKK");
-        assistidoDAO.insert(assistido);
-
-        assistido.setNome_completo("Sebastião Cardoso");
-        assistido.setApelido("Bastião");
-        assistido.setDt_nasc("27/09/1991");
-        assistido.setResponsavel("António Cardoso");
-        assistido.setTelefone("(14)994929991");
-        assistido.setInformacoes("Alérgico aos remédios JJJ");
-        assistidoDAO.insert(assistido);
     }
 
     private String getSQLCreateTableAtividade() {
@@ -81,7 +49,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     private String getSQLCreateTableAssistido() {
-        String sql = "CREATE TABLE assitido ( " +
+        String sql = "CREATE TABLE assistido ( " +
                 "id integer primary key autoincrement, " +
                 "nome_completo text, " +
                 "apelido text, " +
