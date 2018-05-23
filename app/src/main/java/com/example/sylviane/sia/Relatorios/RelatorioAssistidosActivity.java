@@ -21,7 +21,7 @@ public class RelatorioAssistidosActivity extends AppCompatActivity implements Re
     @BindView(R.id.text_dificuldade)TextView text_dificuldade;
     @BindView(R.id.text_porcentagem)TextView text_porcentagem;
     @BindView(R.id.text_tempo)TextView text_tempo;
-    @BindView(R.id.text_observacoes)TextInputEditText text_observacoes;
+    @BindView(R.id.text_observacoes)TextView text_observacoes;
 
     RelatorioAssistidosPresenter relatorioAssistidosPresenter;
 

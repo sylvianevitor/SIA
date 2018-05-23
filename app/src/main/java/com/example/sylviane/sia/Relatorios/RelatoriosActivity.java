@@ -25,7 +25,7 @@ public class RelatoriosActivity extends AppCompatActivity implements RelatoriosV
 
     @OnClick(R.id.botao_sair)
     public void sair_relatorios(){
-        relatoriosPresenter.voltar_tela_inicial();
+       relatoriosPresenter.voltar_tela_inicial();
     }
 
     @Override
