@@ -25,7 +25,6 @@ import butterknife.OnLongClick;
 public class SelecaoAssistidosAdapter extends RecyclerView.Adapter<SelecaoAssistidosAdapter.ViewHolder> {
     private List<Assistido> assistidosList;
     private Context context;
-    //private int row_position = -1; //default
     OnRecyclerViewSelectedAssistido onRecyclerViewSelected;
 
     SelecaoAssistidosAdapter(List<Assistido> assistidosList, Context context) {
@@ -45,6 +44,7 @@ public class SelecaoAssistidosAdapter extends RecyclerView.Adapter<SelecaoAssist
     public void onBindViewHolder(SelecaoAssistidosAdapter.ViewHolder holder, int position) {
             Assistido assistido = assistidosList.get(position);
             holder.nomeAssistido.setText(assistido.getNome_completo());
+
     }
 
     //tamanho da lista

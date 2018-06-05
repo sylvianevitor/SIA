@@ -30,8 +30,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.app.ProgressDialog.*;
-
 /**
  * Created by sylviane on 12/05/18.
  */
@@ -42,6 +40,8 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     AtividadeDAO atividadeDAO;
     //int id_atividade = 0; //id fake
     MediaStore.Audio sound;
+    int pontuacao = 100;
+
     //Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
     @BindView(R.id.imageButton1) ImageButton image1;
     @BindView(R.id.imageButton2) ImageButton image2;
@@ -49,36 +49,18 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     @BindView(R.id.btnAudio) Button audio;
     @BindView(R.id.btnSair) Button sair;
 
-    int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exec_template1);
 
-        //verificar thread
-        Log.i("AsyncTask", "Thread: " + Thread.currentThread().getName());
-        //thread para acesso ao banco
-        i = 0;  // caso 0: thread de buscar imagem
-        chamarAsyncTask(i);
 
         ButterKnife.bind(this);
         executarTemplate1Presenter = new ExecutarTemplate1Presenter(this);
-    }
 
-    // chamar criacao de thread
-    private void chamarAsyncTask(int i){
-        if( i == 0) {
-            ImagemBD downloadImage = new ImagemBD();
-            //verificar thread
-            Log.i("AsyncTask", "AsyncTask sendo chamado Thread: " + Thread.currentThread().getName());
-            downloadImage.execute();
-        }
-        else{
-            AudioBD downloadAudio = new AudioBD();
-            Log.i("AsyncTask", "AsyncTask sendo chamado Thread: " + Thread.currentThread().getName());
-            downloadAudio.execute();
-        }
+        //Carregar conteudo
+        executarTemplate1Presenter.load_info();
     }
 
     //thread para buscar imagem no banco
@@ -87,7 +69,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         @Override
         protected void onPreExecute(){
             Log.i("AsyncTask", "Exibindo ProgressDialog na tela Thread: " + Thread.currentThread().getName());
-            load = show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
+            load = ProgressDialog.show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
                     "Carregando Atividade ...");
         }
         @Override
@@ -118,7 +100,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         @Override
         protected void onPreExecute(){
             Log.i("AsyncTask", "Exibindo ProgressDialog na tela Thread: " + Thread.currentThread().getName());
-            load = show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
+            load = ProgressDialog.show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
                     "Carregando Audio ...");
         }
         @Override
@@ -145,26 +127,49 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
 
 
     @OnClick(R.id.btnAudio)
-    public void load_info(){executarTemplate1Presenter.load_info();}
-
-    @Override
-    public void load_audio(){
-        i = 1;
-        //verificar thread
-        Log.i("AsyncTask", "Thread: " + Thread.currentThread().getName());
-        //thread para acesso ao banco
-        chamarAsyncTask(i);
-        //executar
+    public void play(){
         MediaPlayer mp = MediaPlayer.create(this,R.raw.sound);
         mp.start();
     }
+
+    @OnClick(R.id.imageButton1)
+    public void selectImage1(){executarTemplate1Presenter.selecao_imagem();}
+
+    @OnClick(R.id.imageButton2)
+    public void selectImage2(){executarTemplate1Presenter.selecao_imagem();}
+
+    @OnClick(R.id.imageButton3)
+    public void selectImage3(){executarTemplate1Presenter.selecao_imagem();}
 
     @OnClick(R.id.btnSair)
     public void sair(){executarTemplate1Presenter.sair();}
 
     @Override
+    public void load_audio(){
+        AudioBD downloadAudio = new AudioBD();
+        downloadAudio.execute();
+    }
+
+    @Override
+    public void load_imagem(){
+        ImagemBD downloadImage = new ImagemBD();
+        downloadImage.execute();
+    }
+
+    @Override
+    public void selecao(){
+        //verificar se imagem eh a mesma do banco
+        //atualizar pontuacao
+        image1.setImageResource(R.drawable.ic_menu_profile);
+        image2.setImageResource(R.drawable.ic_menu_profile);
+        image3.setImageResource(R.drawable.ic_menu_profile);
+    }
+
+    @Override
     public void fim(){
         Intent abrirFeedback = new Intent(ExecutarTemplate1Activity.this, RelatoriosActivity.class);
+        abrirFeedback.putExtra("pontos", pontuacao);
+        //salvar execucao no banco
         startActivity(abrirFeedback);
     }
 

@@ -6,5 +6,9 @@ package com.example.sylviane.sia.Atividade.Template1_Scene;
 
 public interface ExecutarTemplate1View {
     void load_audio();
+    void load_imagem();
     void fim();
+    void selecao();
 }
+
+

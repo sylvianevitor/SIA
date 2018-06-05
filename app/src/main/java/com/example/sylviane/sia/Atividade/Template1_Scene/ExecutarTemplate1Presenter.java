@@ -16,7 +16,8 @@ public class ExecutarTemplate1Presenter {
         this.executarTemplate1View = executarTemplate1View;
     }
 
-    public void load_info(){executarTemplate1View.load_audio();}
+    public void load_info(){executarTemplate1View.load_audio(); executarTemplate1View.load_imagem();}
+    public void selecao_imagem(){executarTemplate1View.selecao();}
     public void sair(){executarTemplate1View.fim();}
 
 }

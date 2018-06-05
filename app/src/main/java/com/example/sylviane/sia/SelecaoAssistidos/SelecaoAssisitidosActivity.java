@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
@@ -32,6 +33,8 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
     @BindView(R.id.linear_layout_loading)
     LinearLayout loadingLayout;
 
+    private int selectedPos = RecyclerView.NO_POSITION;
+
     SelecaoAssistidosPresenter assistidosPresenter;
     AssistidoDAO assistidoDAO = new AssistidoDAO(SelecaoAssisitidosActivity.this);
     @Override
@@ -42,23 +45,20 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
         assistidosPresenter= new SelecaoAssistidosPresenter(this);
         assistidoDAO.popularAssistidos();
         List<Assistido> listaAssistidos = assistidoDAO.getAssistidos(); //lista do banco
-        Log.d("Visualiza assistidos", listaAssistidos.get(0).getNome_completo());
-        assistidosPresenter.updateList(listaAssistidos);
+        this.updateList(listaAssistidos);
     }
 
     public void updateList(final List<Assistido> assistidosList) {
         //seta o adapter
-        SelecaoAssistidosAdapter assistidosAdapter = new SelecaoAssistidosAdapter(assistidosList, this);
-
-        rvAssistidos.setAdapter(assistidosAdapter);
+        final SelecaoAssistidosAdapter assistidosAdapter = new SelecaoAssistidosAdapter(assistidosList, this);
 
         assistidosAdapter.setOnRecyclerViewSelected(new OnRecyclerViewSelectedAssistido() {
             @Override
             public void onClick(View view, int position) {
+                assistidosAdapter.notifyItemChanged(position);
                 Intent intent = new Intent
-                        (SelecaoAssisitidosActivity.this,
-                                SelecaoAssisitidosActivity.class);
-                intent.putExtra("assistido_id", assistidosList.get(position).getId());
+                        (SelecaoAssisitidosActivity.this, ExecutarTemplate1Activity.class); //trocar para AtividadesActivity
+                //salvar no banco assistido selecionado
                 startActivity(intent);
             }
 
@@ -72,23 +72,11 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
 
         // criação do gerenciador de layouts
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        DividerItemDecoration dividerItemDecoration =
-                new DividerItemDecoration(this, layoutManager.getOrientation());
         rvAssistidos.setLayoutManager(layoutManager);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layoutManager.getOrientation());
         rvAssistidos.addItemDecoration(dividerItemDecoration);
     }
 
-    @Override
-    public void showMessage(String msg) {Toast.makeText(this, msg, Toast.LENGTH_LONG).show();}
-
-    @Override
-        public void showLoading() {
-            loadingLayout.setVisibility(View.VISIBLE);
-        }
-
-    @Override
-        public void hideLoading() {
-            loadingLayout.setVisibility(View.GONE);
-        }
 }
 
