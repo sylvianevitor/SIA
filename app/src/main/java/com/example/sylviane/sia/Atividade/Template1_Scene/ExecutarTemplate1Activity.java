@@ -38,7 +38,8 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     ExecutarTemplate1Presenter executarTemplate1Presenter;
     Template1DAO template1DAO;
     AtividadeDAO atividadeDAO;
-    //int id_atividade = 0; //id fake
+    int exec = 0;
+   // int id_atividade = 0; //id fake
     MediaStore.Audio sound;
     int pontuacao = 100;
 
@@ -133,13 +134,20 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     }
 
     @OnClick(R.id.imageButton1)
-    public void selectImage1(){executarTemplate1Presenter.selecao_imagem();}
+    public void selectImage1(){
+        //desabilitar click de imagem ja selecionada
+        image1.setClickable(false);
+        executarTemplate1Presenter.selecao_imagem();}
 
     @OnClick(R.id.imageButton2)
-    public void selectImage2(){executarTemplate1Presenter.selecao_imagem();}
+    public void selectImage2(){
+        image2.setClickable(false);
+        executarTemplate1Presenter.selecao_imagem();}
 
     @OnClick(R.id.imageButton3)
-    public void selectImage3(){executarTemplate1Presenter.selecao_imagem();}
+    public void selectImage3(){
+        image3.setClickable(false);
+        executarTemplate1Presenter.selecao_imagem();}
 
     @OnClick(R.id.btnSair)
     public void sair(){executarTemplate1Presenter.sair();}
@@ -160,9 +168,18 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     public void selecao(){
         //verificar se imagem eh a mesma do banco
         //atualizar pontuacao
+
+        exec++;
+        //nao ha mais imagens para selecionar
+        if (exec == 3){
+            fim();
+        }
+
         image1.setImageResource(R.drawable.ic_menu_profile);
-        image2.setImageResource(R.drawable.ic_menu_profile);
-        image3.setImageResource(R.drawable.ic_menu_profile);
+        image2.setImageResource(R.drawable.ic_image_repr);
+        image3.setImageResource(R.drawable.ic_camera);
+        //carregar proximo audio
+        load_audio();
     }
 
     @Override
