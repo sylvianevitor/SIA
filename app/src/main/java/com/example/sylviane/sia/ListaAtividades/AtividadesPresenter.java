@@ -1,11 +1,14 @@
 package com.example.sylviane.sia.ListaAtividades;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.example.sylviane.sia.Entity.AtividadesEntity;
 import com.example.sylviane.sia.Entity.AtividadesListEntity;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.example.sylviane.sia.persist.model.Atividade;
 /**
  * Created by Natasha on 25/04/2018.
  */
@@ -13,14 +16,19 @@ import java.util.List;
 public class AtividadesPresenter {
 
     private AtividadesView atividadesView;
-    private List<AtividadesEntity> atividadesEntityList = new ArrayList<>();
-    AtividadesListEntity atividadesListEntity;
+    private Context context;
 
     AtividadesPresenter(AtividadesView atividadesView){
         this.atividadesView = atividadesView;
     }
 
-    //pega informações do banco
-    public void updateList() {
+    //valida informações do banco
+    public void updateList(List<Atividade> atividadeList) {
+        if(atividadeList!=null){
+            atividadesView.updateListAtividades(atividadeList);
+        }
+        else{
+            Toast.makeText(context,"Erro ao carregar lista de atividades",Toast.LENGTH_LONG);
+        }
     }
 }

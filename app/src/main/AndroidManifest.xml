@@ -27,6 +27,8 @@
         <activity android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity"/>
         <activity android:name=".SelecaoAssistidos.SelecaoAssisitidosActivity"/>
         <activity android:name=".Atividade.Template1_Scene.ExecutarTemplate1Activity"/>
+        <activity android:name=".AssistidosDetail.AssistidosDetailActivity"/>
+
         <activity
             android:name=".Relatorios.RelatoriosActivity"
             android:label="Relatório da Atividade">

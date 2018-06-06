@@ -1,5 +1,6 @@
 package com.example.sylviane.sia.ListaAtividades;
 
+import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.Entity.AtividadesEntity;
 
 import java.util.List;
@@ -9,5 +10,5 @@ import java.util.List;
  */
 
 public interface AtividadesView {
-    void updateListAtividades(List<AtividadesEntity> atividadesListEntity);
+    void updateListAtividades(List<Atividade> atividadesListEntity);
 }

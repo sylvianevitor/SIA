@@ -76,6 +76,8 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layoutManager.getOrientation());
         rvTemas.addItemDecoration(dividerItemDecoration);
 
+        
+
     }
 
     @Override
