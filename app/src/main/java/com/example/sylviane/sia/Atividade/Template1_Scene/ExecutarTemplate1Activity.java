@@ -34,161 +34,91 @@ import butterknife.OnClick;
  * Created by sylviane on 12/05/18.
  */
 
-public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View{
+public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View {
     ExecutarTemplate1Presenter executarTemplate1Presenter;
-    Template1DAO template1DAO;
-    AtividadeDAO atividadeDAO;
     int exec = 0;
-   // int id_atividade = 0; //id fake
-    MediaStore.Audio sound;
+    MediaPlayer mp;
     int pontuacao = 100;
 
-    //Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
-    @BindView(R.id.imageButton1) ImageButton image1;
-    @BindView(R.id.imageButton2) ImageButton image2;
-    @BindView(R.id.imageButton3) ImageButton image3;
-    @BindView(R.id.btnAudio) Button audio;
-    @BindView(R.id.btnSair) Button sair;
+    @BindView(R.id.imageButton1)
+    ImageButton image1;
+    @BindView(R.id.imageButton2)
+    ImageButton image2;
+    @BindView(R.id.imageButton3)
+    ImageButton image3;
+    @BindView(R.id.btnAudio)
+    Button audio;
+    @BindView(R.id.btnSair)
+    Button sair;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exec_template1);
 
-
         ButterKnife.bind(this);
-        executarTemplate1Presenter = new ExecutarTemplate1Presenter(this);
-
-        //Carregar conteudo
-        executarTemplate1Presenter.load_info();
+        executarTemplate1Presenter = new ExecutarTemplate1Presenter(this, this);
+        load_info();
     }
-
-    //thread para buscar imagem no banco
-    public class ImagemBD extends AsyncTask<String,Void,Bitmap> {
-        ProgressDialog load;
-        @Override
-        protected void onPreExecute(){
-            Log.i("AsyncTask", "Exibindo ProgressDialog na tela Thread: " + Thread.currentThread().getName());
-            load = ProgressDialog.show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
-                    "Carregando Atividade ...");
-        }
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            Bitmap imagemBitmap = null;
-            Log.i("AsyncTask", "Baixando a imagem Thread: " + Thread.currentThread().getName());
-           // List<Template1> arquivos = template1DAO.getArquivos(atividade);
-            //imagemBitmap = arquivos.getImage();
-            return imagemBitmap;
-        }
-        @Override
-        protected void onPostExecute(Bitmap bitmap){
-            if(bitmap!=null) {
-                //image1.setImageBitmap(bitmap); //seta imagem nova
-                Log.i("AsyncTask", "Exibindo Bitmap Thread: " + Thread.currentThread().getName());
-            }else{
-                Log.i("AsyncTask", "Erro ao baixar a imagem " + Thread.currentThread().getName());
-            }
-            Log.i("AsyncTask", "Tirando ProgressDialog da tela Thread: " + Thread.currentThread().getName());
-            load.dismiss();
-        }
-
-    }
-
-    //thread para buscar audio no banco
-    public class AudioBD extends AsyncTask<String,Void,MediaStore.Audio> {
-        ProgressDialog load;
-        @Override
-        protected void onPreExecute(){
-            Log.i("AsyncTask", "Exibindo ProgressDialog na tela Thread: " + Thread.currentThread().getName());
-            load = ProgressDialog.show(ExecutarTemplate1Activity.this, "Por favor aguarde ...",
-                    "Carregando Audio ...");
-        }
-        @Override
-        protected MediaStore.Audio doInBackground(String... params) {
-            MediaStore.Audio audio = null;
-            Log.i("AsyncTask", "Baixando o audio Thread: " + Thread.currentThread().getName());
-            //List<Template1> arquivos = template1DAO.getArquivos(atividade);
-            //imagemBitmap = arquivos.getaudio();
-            return audio;
-        }
-        @Override
-        protected void onPostExecute(MediaStore.Audio audio){
-            if(audio!=null) {
-               sound = audio;//seta novo audio
-                Log.i("AsyncTask", "Exibindo Bitmap Thread: " + Thread.currentThread().getName());
-            }else{
-                Log.i("AsyncTask", "Erro ao baixar o audio " + Thread.currentThread().getName());
-            }
-            Log.i("AsyncTask", "Tirando ProgressDialog da tela Thread: " + Thread.currentThread().getName());
-            load.dismiss();
-        }
-
-    }
-
 
     @OnClick(R.id.btnAudio)
-    public void play(){
-        MediaPlayer mp = MediaPlayer.create(this,R.raw.sound);
+    public void play() {
+        mp = MediaPlayer.create(this, R.raw.sound);
         mp.start();
     }
 
     @OnClick(R.id.imageButton1)
-    public void selectImage1(){
+    public void selectImage1() {
         //desabilitar click de imagem ja selecionada
         image1.setClickable(false);
-        executarTemplate1Presenter.selecao_imagem();}
+        selecao();
+    }
 
     @OnClick(R.id.imageButton2)
-    public void selectImage2(){
+    public void selectImage2() {
         image2.setClickable(false);
-        executarTemplate1Presenter.selecao_imagem();}
+        selecao();
+    }
 
     @OnClick(R.id.imageButton3)
-    public void selectImage3(){
+    public void selectImage3() {
         image3.setClickable(false);
-        executarTemplate1Presenter.selecao_imagem();}
+        selecao();
+    }
 
     @OnClick(R.id.btnSair)
-    public void sair(){executarTemplate1Presenter.sair();}
-
-    @Override
-    public void load_audio(){
-        AudioBD downloadAudio = new AudioBD();
-        downloadAudio.execute();
+    public void fim() {
+        executarTemplate1Presenter.sair(pontuacao, this);
     }
 
     @Override
-    public void load_imagem(){
-        ImagemBD downloadImage = new ImagemBD();
-        downloadImage.execute();
+    public void load_info() {
+        //Carregar conteudo
+        MediaPlayer audioFile = executarTemplate1Presenter.load_audio();
+        if (audioFile != null) {
+            mp = audioFile;
+        } else {
+            mp = MediaPlayer.create(this, R.raw.sound);
+        }
+        Bitmap imageFile = executarTemplate1Presenter.load_image();
+        if (imageFile != null) {
+            image1.setImageBitmap(imageFile);
+        }
     }
 
     @Override
     public void selecao(){
-        //verificar se imagem eh a mesma do banco
-        //atualizar pontuacao
-
+        executarTemplate1Presenter.selecao_imagem();
         exec++;
         //nao ha mais imagens para selecionar
-        if (exec == 3){
+        if (exec == 3) {
             fim();
         }
-
         image1.setImageResource(R.drawable.ic_menu_profile);
-        image2.setImageResource(R.drawable.ic_image_repr);
-        image3.setImageResource(R.drawable.ic_camera);
         //carregar proximo audio
-        load_audio();
+        load_info();
     }
 
-    @Override
-    public void fim(){
-        Intent abrirFeedback = new Intent(ExecutarTemplate1Activity.this, RelatoriosActivity.class);
-        abrirFeedback.putExtra("pontos", pontuacao);
-        //salvar execucao no banco
-        startActivity(abrirFeedback);
-    }
 
 }
-
