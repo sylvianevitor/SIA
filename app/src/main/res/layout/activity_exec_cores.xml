@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity">
+
+    <Button
+        android:id="@+id/btnSair2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btnAudio"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:text="SAIR" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:text="Atividade das Cores" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="47dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="405dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageButton
+            android:id="@+id/colorButton2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignBottom="@+id/colorButton3"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_blue"
+            android:orientation="horizontal" />
+
+        <ImageButton
+            android:id="@+id/colorButton3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="55dp"
+            android:layout_marginRight="55dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_yellow"
+            android:orientation="horizontal" />
+
+        <ImageButton
+            android:id="@+id/colorButton1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="51dp"
+            android:layout_marginStart="51dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_red"
+            android:orientation="horizontal" />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/colorButton0"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:background="@drawable/round_button_gray"
+        android:orientation="horizontal" />
+
+</RelativeLayout>
