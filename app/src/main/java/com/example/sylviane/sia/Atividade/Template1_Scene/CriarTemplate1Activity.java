@@ -75,6 +75,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         int id_atividade = intent.getIntExtra("id_atividade", -1);
 
         AtividadeDAO atividadeDAO = new AtividadeDAO(this);
+        Log.d("LUAN", String.valueOf(id_atividade));
         Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
     }
 
