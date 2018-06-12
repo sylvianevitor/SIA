@@ -21,7 +21,7 @@ public class AtividadeDAO {
         database = new Database(context);
     }
 
-    public boolean insert(Atividade atividade) {
+    public Atividade insert(Atividade atividade) {
 
         db = database.getWritableDatabase();
 
@@ -40,9 +40,10 @@ public class AtividadeDAO {
         db.close();
 
         if(result == -1) {
-            return false;
+            return null;
         } else {
-            return true;
+            atividade.setId((int)result);
+            return atividade;
         }
     }
 

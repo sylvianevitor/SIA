@@ -45,7 +45,8 @@ public class Database extends SQLiteOpenHelper {
                 "dt_cadastro text, " +
                 "nr_execucoes integer, " +
                 "id_tema integer, " +
-                "tipo_atividade integer )";
+                "tipo_atividade integer," +
+                "dificuldade integer )";
         return sql;
     }
 
@@ -57,7 +58,9 @@ public class Database extends SQLiteOpenHelper {
                 "dt_nasc text, " +
                 "responsavel text, " +
                 "telefone text, " +
-                "informacoes text )";
+                "informacoes text," +
+                "imagem text," +
+                "medicamento text )";
         return sql;
     }
 
