@@ -32,6 +32,8 @@ public class AssistidoDAO {
         values.put("responsavel", assistido.getResponsavel());
         values.put("telefone", assistido.getTelefone());
         values.put("informacoes", assistido.getInformacoes());
+        values.put("medicamento", assistido.getMedicamentos());
+        values.put("imagem", assistido.getImagem());
 
         long result = db.insert(TABLE, null, values);
         db.close();
@@ -49,7 +51,7 @@ public class AssistidoDAO {
 
         db = database.getReadableDatabase();
 
-        String[] campos = {"id", "nome_completo", "apelido", "dt_nasc", "responsavel", "telefone", "informacoes"};
+        String[] campos = {"id", "nome_completo", "apelido", "dt_nasc", "responsavel", "telefone", "informacoes", "medicamento", "imagem"};
 
         Cursor cursor = db.query(TABLE, campos, null, null, null, null, "apelido");
 
@@ -64,6 +66,8 @@ public class AssistidoDAO {
                 assistido.setResponsavel(cursor.getString(4));
                 assistido.setTelefone(cursor.getString(5));
                 assistido.setInformacoes(cursor.getString(6));
+                assistido.setMedicamentos(cursor.getString(7));
+                assistido.setImagem(cursor.getString(8));
                 list.add(assistido);
             }
         }
@@ -71,6 +75,36 @@ public class AssistidoDAO {
         db.close();
 
         return list;
+    }
+
+    public Assistido getAssistidoId(int id) {
+
+        db = database.getReadableDatabase();
+
+        String[] campos = {"id", "nome_completo", "apelido", "dt_nasc", "responsavel", "telefone", "informacoes", "medicamento", "imagem"};
+
+        Cursor cursor = db.query(TABLE, campos, null, null, null, null, "apelido");
+
+        if(cursor!=null) {
+            db.close();
+            return null;
+        }
+
+        cursor.moveToFirst();
+        Assistido assistido = new Assistido();
+        assistido.setId(cursor.getInt(0));
+        assistido.setNome_completo(cursor.getString(1));
+        assistido.setApelido(cursor.getString(2));
+        assistido.setDt_nasc(cursor.getString(3));
+        assistido.setResponsavel(cursor.getString(4));
+        assistido.setTelefone(cursor.getString(5));
+        assistido.setInformacoes(cursor.getString(6));
+        assistido.setMedicamentos(cursor.getString(7));
+        assistido.setImagem(cursor.getString(8));
+
+        db.close();
+
+        return assistido;
     }
 
     // Popular campos automaticamente
@@ -83,6 +117,7 @@ public class AssistidoDAO {
         assistido.setResponsavel("Ana Paula Pereira");
         assistido.setTelefone("(14)994929221");
         assistido.setInformacoes("Alérgico aos remédios XXX");
+        assistido.setMedicamentos("Remedio 1");
         this.insert(assistido);
 
         assistido.setNome_completo("Carol Silva");
@@ -91,6 +126,7 @@ public class AssistidoDAO {
         assistido.setResponsavel("Maria Silva");
         assistido.setTelefone("(14)994929299");
         assistido.setInformacoes("Alérgico aos remédios KKK");
+        assistido.setMedicamentos("Remedio 2");
         this.insert(assistido);
 
         assistido.setNome_completo("Sebastião Cardoso");
@@ -99,6 +135,7 @@ public class AssistidoDAO {
         assistido.setResponsavel("António Cardoso");
         assistido.setTelefone("(14)994929991");
         assistido.setInformacoes("Alérgico aos remédios JJJ");
+        assistido.setMedicamentos("Remedio 4");
         this.insert(assistido);
     }
 }
