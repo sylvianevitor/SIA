@@ -9,6 +9,7 @@ public class Assistido {
     private String responsavel;
     private String telefone;
     private String informacoes;
+    private String medicamentos;
 
     public int getId() {
         return id;
