@@ -101,6 +101,7 @@ public class Database extends SQLiteOpenHelper {
         String sql = "CREATE TABLE execucao ( " +
                 "id integer primary key autoincrement, " +
                 "id_atividade integer, " +
+                "id_assistido integer, " +
                 "data text, " +
                 "hora text, " +
                 "perc_acertos real," +
