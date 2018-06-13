@@ -1,13 +1,17 @@
 package com.example.sylviane.sia.Main_Scene;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.sylviane.sia.persist.dao.AtividadeDAO;
+import com.example.sylviane.sia.persist.model.Atividade;
 
 /**
  * Created by mariana on 24/04/18.
  */
 
 public class MainPresenter extends AppCompatActivity {
-
+    Context contexto;
     MainView mainView = null;
 
     public MainPresenter(MainView mainView){
@@ -25,4 +29,5 @@ public class MainPresenter extends AppCompatActivity {
     public void verAssistidos() {
         mainView.ver();
     }
+
 }

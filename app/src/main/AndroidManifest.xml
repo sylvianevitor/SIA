@@ -63,6 +63,10 @@
             android:label="Relatório da Atividade">
         </activity>
 
+        <activity android:name=".Atividade.Cores_Scene.ExecutarCoresActivity"
+            android:label="Execução da Atividade de Cores">
+        </activity>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.sylviane.sia.fileprovider"

@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
 import com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
 import com.example.sylviane.sia.ListaAssistidos.AssistidosActivity;
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         ButterKnife.bind(this);
 
         mainPresenter = new MainPresenter(this);
+
     }
 
     @OnClick(R.id.button_criar_atividade)
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void selecionar() {
-        Intent abrirSelecionarAtividadesActivity = new Intent(MainActivity.this, ExecutarCoresActivity.class);
+        Intent abrirSelecionarAtividadesActivity = new Intent(MainActivity.this, SelecionarAtividadesActivity.class);
         startActivity(abrirSelecionarAtividadesActivity);
     }
 
