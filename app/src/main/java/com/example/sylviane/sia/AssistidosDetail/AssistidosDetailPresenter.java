@@ -36,5 +36,9 @@ public class AssistidosDetailPresenter {
                     //exibe msg de erro
                     assistidosDetailView.showError();
                 }
-            }
+    }
+
+    public String calculaIdade(java.util.Date dataNasc){
+        return assistidosDetailView.calculaIdade(dataNasc);
+    }
 }

@@ -13,6 +13,11 @@ import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -27,8 +32,8 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
     TextView idade_detail;
     @BindView(R.id.nome_responsavel_assistido_detail)
     TextView responsavel_detail;
-    @BindView(R.id.imagem_assistido_detail)
-    ImageView imagem_detail;
+//    @BindView(R.id.imagem_assistido_detail)
+//    ImageView imagem_detail;
     @BindView(R.id.telefone_assistido_detail)
     TextView telefone_detail;
     @BindView(R.id.outras_infos_assistido_detail)
@@ -59,6 +64,20 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
         telefone_detail.setText(assistido.getTelefone());
         outras_infos_detail.setText(assistido.getInformacoes());
         medicamentos_detail.setText(assistido.getMedicamentos());
+
+        Date date = new Date();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            date = formatter.parse(assistido.getDt_nasc());
+            System.out.println(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+
+        idade_detail.setText(assistidosDetailPresenter.calculaIdade(date));
         //Picasso.with(this)
         //        .load(assistido.getImagemUrl())
         //        .centerCrop()
@@ -69,5 +88,26 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
     @Override
     public void showError() {
         Toast.makeText(this,"Erro ao pegar infos do banco",Toast.LENGTH_LONG);
+    }
+
+    @Override
+    public String calculaIdade(Date dataNasc) {
+        Calendar dataNascimento = Calendar.getInstance();
+        dataNascimento.setTime(dataNasc);
+        Calendar hoje = Calendar.getInstance();
+
+        int idade = hoje.get(Calendar.YEAR) - dataNascimento.get(Calendar.YEAR);
+
+        if (hoje.get(Calendar.MONTH) < dataNascimento.get(Calendar.MONTH)) {
+            idade--;
+        }
+        else
+        {
+            if (hoje.get(Calendar.MONTH) == dataNascimento.get(Calendar.MONTH) && hoje.get(Calendar.DAY_OF_MONTH) < dataNascimento.get(Calendar.DAY_OF_MONTH)) {
+                idade--;
+            }
+        }
+
+        return Integer.toString(idade);
     }
 }

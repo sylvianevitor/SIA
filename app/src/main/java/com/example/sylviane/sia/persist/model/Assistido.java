@@ -11,6 +11,7 @@ public class Assistido {
     private String informacoes;
     private String medicamentos;
     private String imagem;
+    private int idade;
 
     public String getImagem() { return imagem; }
 
