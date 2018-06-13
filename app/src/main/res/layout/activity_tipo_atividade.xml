@@ -8,28 +8,36 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="123dp">
+        tools:layout_editor_absoluteY="123dp"
+        android:weightSum="2">
 
         <Button
             android:id="@+id/button_atividade_interativa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="@color/buttom_atividade"
+            android:background="#52a1d6"
             android:padding="10dp"
             android:text="@string/atividade_interativa"
             android:textAlignment="center"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="#fff"/>
 
         <Button
             android:id="@+id/button_atividade_passiva"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="@color/buttom_atividade"
+            android:background="#3d95d1"
             android:padding="10dp"
             android:text="@string/atividade_passiva"
             android:textAlignment="center"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:layout_weight="1"/>
     </LinearLayout>
 </FrameLayout>

@@ -85,7 +85,7 @@ public class AssistidoDAO {
 
         Cursor cursor = db.query(TABLE, campos, "id=?", new String[] { Integer.toString(id) }, null, null, "apelido");
 
-        if(cursor!=null) {
+        if(cursor==null) {
             db.close();
             return null;
         }

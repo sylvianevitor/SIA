@@ -28,6 +28,7 @@ public class ExecucaoDAO {
 
         ContentValues values = new ContentValues();
         values.put("id_atividade", execucao.getId_atividade());
+        values.put("id_assistido", execucao.getId_assistido());
         values.put("data", execucao.getData());
         values.put("hora", execucao.getHora());
         values.put("perc_acertos", execucao.getPerc_acertos());
@@ -51,7 +52,7 @@ public class ExecucaoDAO {
 
         db = database.getReadableDatabase();
 
-        String[] campos = {"id", "id_atividade", "data", "hora", "perc_acertos", "tempo", "observacao"};
+        String[] campos = {"id", "id_atividade", "id_assistido", "data", "hora", "perc_acertos", "tempo", "observacao"};
 
         Cursor cursor = db.query(TABLE, campos, "id_assistido=?", new String[] { Integer.toString(id_assistido) }, null, null, "tema");
 
@@ -61,11 +62,12 @@ public class ExecucaoDAO {
                 Execucao execucao = new Execucao();
                 execucao.setId(cursor.getInt(0));
                 execucao.setId_atividade(cursor.getInt(1));
+                execucao.setId_assistido(cursor.getInt(2));
                 execucao.setData(cursor.getString(3));
                 execucao.setHora(cursor.getString(4));
                 execucao.setPerc_acertos(cursor.getFloat(5));
                 execucao.setTempo(cursor.getFloat(6));
-                execucao.setObservacao(cursor.getString(2));
+                execucao.setObservacao(cursor.getString(7));
                 list.add(execucao);
             }
         }
