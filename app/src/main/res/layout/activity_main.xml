@@ -9,40 +9,54 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="123dp">
+        tools:layout_editor_absoluteY="123dp"
+        android:weightSum="3">
 
         <Button
             android:id="@+id/button_selecionar_atividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="@color/buttom_atividade"
+            android:background="#67acdb"
             android:padding="10dp"
             android:text="@string/atividades"
             android:textAlignment="center"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="#fff"/>
 
         <Button
             android:id="@+id/button_criar_atividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="@color/buttom_atividade"
+            android:background="#52a1d6"
             android:padding="10dp"
             android:text="@string/criar_atividade"
             android:textAlignment="center"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:layout_weight="1"/>
+
+        <View
+            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:background="#fff"/>
 
         <Button
             android:id="@+id/button_ver_assistidos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="@color/buttom_atividade"
+            android:background="#3d95d1"
             android:padding="10dp"
             android:text="@string/assistidos"
             android:textAlignment="center"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:layout_weight="1"/>
 
 
     </LinearLayout>
