@@ -10,8 +10,10 @@ import android.provider.MediaStore;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.Relatorios.RelatoriosActivity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
+import com.example.sylviane.sia.persist.dao.ExecucaoDAO;
 import com.example.sylviane.sia.persist.dao.Template1DAO;
 import com.example.sylviane.sia.persist.model.Atividade;
+import com.example.sylviane.sia.persist.model.Execucao;
 import com.example.sylviane.sia.persist.model.Template1;
 
 import java.io.File;
@@ -26,8 +28,10 @@ public class ExecutarTemplate1Presenter {
     ExecutarTemplate1View executarTemplate1View;
     Template1DAO template1DAO;
     AtividadeDAO atividadeDAO;
-    //int id_atividade = 0;
-    //Atividade atividade = atividadeDAO.getAtividadeId(0);
+    Execucao execucao;
+    ExecucaoDAO execucaoDAO;
+    int id_atividade = 0;
+    //Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
     Context contexto;
 
     public ExecutarTemplate1Presenter(ExecutarTemplate1View executarTemplate1View, Context contexto){
@@ -68,8 +72,15 @@ public class ExecutarTemplate1Presenter {
     public void sair(int pontuacao, Context contexto){
         Intent abrirFeedback = new Intent(contexto, RelatoriosActivity.class);
         abrirFeedback.putExtra("pontos", pontuacao);
-        //salvar execucao no banco
+        //gravar_execucao(pontuacao);
         contexto.startActivity(abrirFeedback);
     }
 
+    /*public void gravar_execucao(int pontuacao){
+        execucao.setId_atividade(id_atividade);
+        execucao.setHora();
+        execucao.setData();
+        execucao.setPerc_acertos(pontuacao);
+        execucao.setTempo();
+    }*/
 }
