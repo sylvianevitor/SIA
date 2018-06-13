@@ -56,11 +56,11 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
 //        atividade.setId_tema(temaAtividade.getSelectedItem().toString());
 
         AtividadeDAO atividadeDAO = new AtividadeDAO(DescricaoAtividadeActivity.this);
-        boolean ok = atividadeDAO.insert(atividade);
+        atividade = atividadeDAO.insert(atividade);
 
         Toast toast;
 
-        if (ok == true) {
+        if (atividade != null) {
             toast = Toast.makeText(DescricaoAtividadeActivity.this, "Descrição de atividade cadastrada com sucesso", Toast.LENGTH_LONG);
             toast.show();
             Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarTemplate1Activity.class);

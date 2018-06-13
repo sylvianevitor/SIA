@@ -10,6 +10,11 @@ public class Assistido {
     private String telefone;
     private String informacoes;
     private String medicamentos;
+    private String imagem;
+
+    public String getImagem() { return imagem; }
+
+    public void setImagem(String imagem) { this.imagem = imagem; }
 
     public int getId() {
         return id;
@@ -30,6 +35,10 @@ public class Assistido {
     public String getApelido() {
         return apelido;
     }
+
+    public String getMedicamentos() { return medicamentos; }
+
+    public void setMedicamentos(String medicamentos) { this.medicamentos = medicamentos; }
 
     public void setApelido(String apelido) {
         this.apelido = apelido;

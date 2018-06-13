@@ -28,6 +28,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(this.getSQLCreateTableFormacao());
         db.execSQL(this.getSQLCreateTableProfissional());
         db.execSQL(this.getSQLCreateTableTemplate1());
+        db.execSQL(this.getSQLCreateTableExecucao());
     }
 
     @Override
@@ -45,7 +46,8 @@ public class Database extends SQLiteOpenHelper {
                 "dt_cadastro text, " +
                 "nr_execucoes integer, " +
                 "id_tema integer, " +
-                "tipo_atividade integer )";
+                "tipo_atividade integer," +
+                "dificuldade integer )";
         return sql;
     }
 
@@ -57,12 +59,9 @@ public class Database extends SQLiteOpenHelper {
                 "dt_nasc text, " +
                 "responsavel text, " +
                 "telefone text, " +
-                "informacoes text )";
-        return sql;
-    }
-
-    private String getSQLDropTableTema() {
-        String sql = "DROP TABLE tema";
+                "informacoes text," +
+                "imagem text," +
+                "medicamento text )";
         return sql;
     }
 
@@ -95,6 +94,19 @@ public class Database extends SQLiteOpenHelper {
                 "id_atividade integer, " +
                 "audio text, " +
                 "imagem text )";
+        return sql;
+    }
+
+    private String getSQLCreateTableExecucao() {
+        String sql = "CREATE TABLE execucao ( " +
+                "id integer primary key autoincrement, " +
+                "id_atividade integer, " +
+                "id_assistido integer, " +
+                "data text, " +
+                "hora text, " +
+                "perc_acertos real," +
+                "tempo real," +
+                "observacao text )";
         return sql;
     }
 }

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
 import com.squareup.picasso.Picasso;
 
@@ -45,10 +46,10 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        long assistidoId = intent.getLongExtra("assistido_id", -1);
+        int assistidoId = intent.getIntExtra("assistido_id", -1);
 
 
-        assistidosDetailPresenter = new AssistidosDetailPresenter(this);
+        assistidosDetailPresenter = new AssistidosDetailPresenter(this,this);
         assistidosDetailPresenter.getAssistidosDetails(assistidoId);
     }
     @Override
@@ -57,7 +58,7 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
         responsavel_detail.setText(assistido.getResponsavel());
         telefone_detail.setText(assistido.getTelefone());
         outras_infos_detail.setText(assistido.getInformacoes());
-        //medicamentos_detail.setText(assistido.);
+        medicamentos_detail.setText(assistido.getMedicamentos());
         //Picasso.with(this)
         //        .load(assistido.getImagemUrl())
         //        .centerCrop()
