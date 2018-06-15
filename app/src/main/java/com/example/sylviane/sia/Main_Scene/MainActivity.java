@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void criar() {
-        Intent abrirCriarAtividadesActivity = new Intent(MainActivity.this, DescricaoAtividadeActivity.class);
+        Intent abrirCriarAtividadesActivity = new Intent(MainActivity.this, CriarTemplate1Activity.class);
         startActivity(abrirCriarAtividadesActivity);
     }
 

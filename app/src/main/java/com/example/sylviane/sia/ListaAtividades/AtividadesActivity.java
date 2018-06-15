@@ -9,11 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
-import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
-import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1View;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.AtividadesDetail.AtividadesDetailActivity;
-import com.example.sylviane.sia.Entity.AtividadesEntity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 

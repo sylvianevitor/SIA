@@ -49,8 +49,15 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
         atividade.setNome(nomeAtividadeEditText.getText().toString());
         atividade.setObjetivo(objetivoAtividadeEditText.getText().toString());
         atividade.setDescricao(descricaoAtividadeEditText.getText().toString());
-        //atividade.setDificuldade(Integer.parseInt(dificuldadeAtividade.getSelectedItem().toString())); //deve estar errado
-        //atividade.setId_tema();
+
+        atividade.setDificuldade(2);
+        atividade.setDt_cadastro("teste");
+        atividade.setId_proprietario(1);
+        atividade.setId_tema(1);
+        atividade.setNr_execucoes(0);
+        atividade.setTipo_atividade(Atividade.TIPO_ATIVA);
+
+        atividade.setDificuldade((Integer) dificuldadeAtividade.getSelectedItem()); //deve estar errado
 
 //        atividade.setDificuldade(dificuldadeAtividade.getSelectedItem().toString());
 //        atividade.setId_tema(temaAtividade.getSelectedItem().toString());
@@ -64,7 +71,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
             toast = Toast.makeText(DescricaoAtividadeActivity.this, "Descrição de atividade cadastrada com sucesso", Toast.LENGTH_LONG);
             toast.show();
             Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarTemplate1Activity.class);
-            abrirCriarTemplate1Activity.putExtra("id_atividade", atividade.getId());
+//            abrirCriarTemplate1Activity.putExtra("id_atividade", atividade.getId());
             startActivity(abrirCriarTemplate1Activity);
 
         } else{

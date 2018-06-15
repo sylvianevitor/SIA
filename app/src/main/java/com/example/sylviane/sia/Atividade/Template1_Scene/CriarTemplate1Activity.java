@@ -1,65 +1,78 @@
 package com.example.sylviane.sia.Atividade.Template1_Scene;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
-import android.provider.MediaStore;
+import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
-import com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene.DescricaoAtividadePresenter;
 import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
-import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoActivity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
-import com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.persist.dao.Template1DAO;
 import com.example.sylviane.sia.persist.model.Atividade;
-import com.example.sylviane.sia.persist.model.Tema;
 import com.example.sylviane.sia.persist.model.Template1;
+import com.squareup.picasso.Picasso;
 
-import java.io.File;
-import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CriarTemplate1Activity extends AppCompatActivity implements CriarTemplate1View{
+import static com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Presenter.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE;
+
+public class CriarTemplate1Activity extends AppCompatActivity implements CriarTemplate1View.View{
 
     @BindView(R.id.imageButton1)ImageButton imageButton1;
     @BindView(R.id.imageButton2)ImageButton imageButton2;
     @BindView(R.id.imageButton3)ImageButton imageButton3;
 
-    private int PICK_IMAGE_REQUEST = 1;
-    private String imagePath1, imagePath2, imagePath3;
-    private int id;
+    CriarTemplate1View.Presenter criarTemplate1Presenter;
+
+    int id;
     Atividade atividade;
+    String selectedImagePath, path1, path2, path3;
+    private MediaPlayer mMediaPlayer;
+    private AudioManager mAudioManager;
 
-    CriarTemplate1Presenter criarTemplate1Presenter;
+    private int currentAudioId = 0;
+    private int currentImageId = 0;
+    private String pathAudio1, pathAudio2, pathAudio3;
+    private String pathImage1, pathImage2, pathImage3;
 
-    String selectedImagePath;
-    String caminho_foto1, caminho_foto2, caminho_foto3;
+    private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            //se o foco for perdido por pouco tempo o áudio é pausado
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                mMediaPlayer.pause();
+                mMediaPlayer.seekTo(0);
+
+                //quando o foco for recuperado o áudio é executado novamente
+            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                mMediaPlayer.start();
+
+                //caso perca o foco permanentemente é dado o stop
+            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                mMediaPlayer.stop();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,68 +82,146 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         ButterKnife.bind(this);
         selectedImagePath = new String();
 
-        criarTemplate1Presenter = new CriarTemplate1Presenter(this);
+        criarTemplate1Presenter = new CriarTemplate1Presenter(this, this);
 
-        Intent intent = getIntent();
-        int id_atividade = intent.getIntExtra("id_atividade", -1);
+//        Intent intent = getIntent();
+//        int id_atividade = intent.getIntExtra("id_atividade", -1);
+//
+//        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
+//        Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
 
-        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
-        Log.d("LUAN", String.valueOf(id_atividade));
-        Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
-    }
-
-    @OnClick(R.id.imageButton1)
-    public void ligarCamera1(){
-        id = 1;
-        criarTemplate1Presenter.ligarCamera(id);
-    }
-
-    @OnClick(R.id.imageButton2)
-    public void ligarCamera2(){
-        id =2;
-        criarTemplate1Presenter.ligarCamera(id);
-    }
-
-    @OnClick(R.id.imageButton3)
-    public void ligarCamera3(){
-        id = 3;
-        criarTemplate1Presenter.ligarCamera(id);
-    }
-
-    @Override
-    public void camera(int id){
-
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+        //Classe responsável por solicitar o foco do áudio
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        criarTemplate1Presenter.verificaResultado(requestCode, resultCode, data);
+        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
+//        Log.d("LUAN", String.valueOf(id_atividade));
+//        Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
+    }
 
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+    @OnClick(R.id.imageButton1)
+    public void selecionaImagem1(){
+        this.currentImageId = 1;
+        criarTemplate1Presenter.selecionaImagem(1);
+    }
 
-            Uri uri = data.getData();
+    @OnClick(R.id.imageButton2)
+    public void selecionaImagem2(){
+        this.currentImageId = 2;
+        criarTemplate1Presenter.selecionaImagem(2);
+    }
 
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+    @OnClick(R.id.imageButton3)
+    public void selecionaImagem3(){
+        this.currentImageId = 3;
+        criarTemplate1Presenter.selecionaImagem(3);
+    }
 
-                if(id == 1){
-                    imageButton1.setImageBitmap(bitmap);
-                }else if(id == 2){
-                    imageButton2.setImageBitmap(bitmap);
-                }else if(id == 3){
-                    imageButton3.setImageBitmap(bitmap);
-                }
+    @OnClick(R.id.btnAudio1)
+    public void selecionaAudio1(){
 
-            } catch (IOException e) {
-                e.printStackTrace();
+        this.currentAudioId = 1;
+
+        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) { }
+        criarTemplate1Presenter.selecionaAudio(1);
+    }
+
+    @OnClick(R.id.btnAudio2)
+    public void selecionaAudio2(){
+
+        this.currentAudioId = 2;
+
+        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {}
+        criarTemplate1Presenter.selecionaAudio(2);
+    }
+
+    @OnClick(R.id.btnAudio3)
+    public void selecionaAudio3(){
+
+        this.currentAudioId = 3;
+
+        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {}
+        criarTemplate1Presenter.selecionaAudio(3);
+    }
+
+    //@OnClick(R.id.btnAudio2)
+    public void executaAudio(){
+
+        //Verifica se algum áudio foi setado antes de dar play
+        if(mMediaPlayer != null) {
+
+            //pede permissão para o Android para executar o áudio
+            int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
+                    AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+
+            if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                mMediaPlayer.start();
             }
         }
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    @Override
+    public void abreActivity(Intent intent, Integer codigo, int id) {
+        startActivityForResult(intent, codigo);
+    }
+
+    //Exibe uma imagem a partir do seu caminho
+    @Override
+    public void carregaImagem(String caminhoImagem){
+        ImageButton currentImageButton;
+        if(currentImageId == 1)
+            currentImageButton = imageButton1;
+        else if(currentImageId == 2)
+            currentImageButton = imageButton2;
+        else
+            currentImageButton = imageButton3;
+
+        Picasso.get()
+                .load("file://" + caminhoImagem)
+                .fit()
+                .centerCrop()
+                .into(currentImageButton);
+
+        if(currentImageId == 1)
+            pathImage1 = caminhoImagem;
+        else if (currentImageId == 2)
+            pathImage2 = caminhoImagem;
+        else
+            pathImage3 = caminhoImagem;
+    }
+
+    //Carrega o áudio a partir do seu caminho
+    @Override
+    public void carregaAudio(String caminhoAudio) {
+
+        releaseMediaPlayer();
+        mMediaPlayer = MediaPlayer.create(this, Uri.parse(caminhoAudio));
+
+        if(currentAudioId == 1)
+            pathAudio1 = caminhoAudio;
+        else if (currentAudioId == 2)
+            pathAudio2 = caminhoAudio;
+        else
+            pathAudio3 = caminhoAudio;
+    }
+
+    //Limpa o MediaPlayer
+    private void releaseMediaPlayer() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+            mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -142,7 +233,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_salvar:
-                criarTemplate1Presenter.cadastrarTemplate1();
+                cadastrar();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -151,25 +242,29 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     @Override
     public void cadastrar(){
 
+        Log.d("PATH1: ", pathAudio1 + " | " + pathImage1);
+        Log.d("PATH2: ", pathAudio2 + " | " + pathImage2);
+        Log.d("PATH3: ", pathAudio3 + " | " + pathImage3);
+
         Template1 template1 = new Template1();
-        template1.setImage(imageButton1.toString());
+        template1.setImage(pathImage1);
+        template1.setAudio(pathAudio1);
         template1.setAtividade(atividade);
 
-//        Template1 template2 = new Template1();
-//        template2.setImage(imageButton2.toString());
-//        template1.setAtividade(atividade);
-//
-//        Template1 template3 = new Template1();
-//        template3.setImage(imageButton3.toString());
-//        template1.setAtividade(atividade);
+        Template1 template2 = new Template1();
+        template2.setImage(pathImage2);
+        template2.setAudio(pathAudio2);
+        template2.setAtividade(atividade);
 
-        Log.d("MARI", imageButton1.toString());
-
+        Template1 template3 = new Template1();
+        template3.setImage(pathImage3);
+        template3.setAudio(pathAudio3);
+        template3.setAtividade(atividade);
 
         Template1DAO template1DAO = new Template1DAO(CriarTemplate1Activity.this);
         boolean ok1 = template1DAO.adicionarAquivo(template1);
-//        boolean ok2 = template1DAO.adicionarAquivo(template2);
-//        boolean ok3 = template1DAO.adicionarAquivo(template3);
+        boolean ok2 = template1DAO.adicionarAquivo(template2);
+        boolean ok3 = template1DAO.adicionarAquivo(template3);
 
         Toast toast;
         if (ok1 == true) {
@@ -182,8 +277,72 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
             toast = Toast.makeText(CriarTemplate1Activity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
             toast.show();
         }
+    }
+
+    public boolean checkPermissionREAD_EXTERNAL_STORAGE(
+            final Context context) {
+        int currentAPIVersion = Build.VERSION.SDK_INT;
+        if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(context,
+                    Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(
+                        (Activity) context,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    showDialog("External storage", context,
+                            Manifest.permission.READ_EXTERNAL_STORAGE);
+
+                } else {
+                    ActivityCompat
+                            .requestPermissions(
+                                    (Activity) context,
+                                    new String[] { Manifest.permission.READ_EXTERNAL_STORAGE },
+                                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+                }
+                return false;
+            } else {
+                return true;
+            }
+
+        } else {
+            return true;
+        }
+    }
+
+    public void showDialog(final String msg, final Context context,
+                           final String permission) {
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(context);
+        alertBuilder.setCancelable(true);
+        alertBuilder.setTitle("Permission necessary");
+        alertBuilder.setMessage(msg + " permission is necessary");
+        alertBuilder.setPositiveButton(android.R.string.yes,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        ActivityCompat.requestPermissions((Activity) context,
+                                new String[] { permission },
+                                MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+                    }
+                });
+        AlertDialog alert = alertBuilder.create();
+        alert.show();
+    }
 
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // do your stuff
+                } else {
+                    Toast.makeText(this, "GET_ACCOUNTS Denied",
+                            Toast.LENGTH_SHORT).show();
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions,
+                        grantResults);
+        }
     }
 
 }
