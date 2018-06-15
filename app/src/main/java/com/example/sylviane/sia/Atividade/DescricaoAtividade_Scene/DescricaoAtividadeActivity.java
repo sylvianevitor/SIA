@@ -3,7 +3,9 @@ package com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -11,8 +13,13 @@ import android.widget.Toast;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
+import com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.persist.model.Atividade;
+import com.example.sylviane.sia.persist.model.Tema;
 
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +34,8 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
     @BindView(R.id.campotemaatividade)Spinner temaAtividade;
 
     DescricaoAtividadePresenter descricaoAtividadePresenter;
+    TemaDAO temaDAO = new TemaDAO(this);
+    //List<Tema> temasList = temaDAO.getTemas();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +44,14 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
 
         ButterKnife.bind(this);
         descricaoAtividadePresenter = new DescricaoAtividadePresenter(this); //MainActivity.this
+
+        String data[] = new String[4];
+        for (int i = 0; i < 4; i++){
+            data[i] = String.valueOf(temaDAO.getTemas().get(i).getTema());
+        }
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, data);
+        temaAtividade.setAdapter(spinnerArrayAdapter);
     }
 
     @OnClick(R.id.botaocadastrardescricaoatividade)
@@ -58,7 +75,6 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
         atividade.setTipo_atividade(Atividade.TIPO_ATIVA);
 
         atividade.setDificuldade((Integer) dificuldadeAtividade.getSelectedItem()); //deve estar errado
-
 //        atividade.setDificuldade(dificuldadeAtividade.getSelectedItem().toString());
 //        atividade.setId_tema(temaAtividade.getSelectedItem().toString());
 
