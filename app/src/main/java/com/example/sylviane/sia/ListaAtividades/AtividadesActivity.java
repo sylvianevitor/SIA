@@ -28,6 +28,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
     @BindView(R.id.rvAtividades) RecyclerView rvAtividades;
 
     AtividadesPresenter atividadesPresenter;
+    AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +37,12 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
 
         ButterKnife.bind(this);
         atividadesPresenter = new AtividadesPresenter(this);
-        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
+
         Atividade atividadeDefault = new Atividade();
 
         creatAtivCores(atividadeDefault);
-
         List<Atividade> atividadeList = atividadeDAO.getAtividade();
-        atividadeList.add(0, atividadeDefault);
+
         atividadesPresenter.updateList(atividadeList);
     }
 
@@ -53,18 +53,10 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         atividadesAdapter.setOnRecyclerViewSelectedAtividades(new OnRecyclerViewSelectedAtividades() {
             @Override
             public void onClick(View view, int position) {
-
-                if(position == 0){
-                    Intent cores = new Intent
-                            (AtividadesActivity.this,
-                                    ExecutarCoresActivity.class);
-                    startActivity(cores);
-                } else{
-                    Intent intent = new Intent
+                Intent intent = new Intent
                         (AtividadesActivity.this,
                                 AtividadesDetailActivity.class);
-                    startActivity(intent);
-                }
+                startActivity(intent);
             }
 
             @Override
@@ -89,5 +81,8 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         atividade.setDificuldade(1);
         atividade.setObjetivo("Aprender sobre cores");
         atividade.setDt_cadastro("11/04/1997");
+        // verificar se já existe
+        if(atividadeDAO.getAtividadeId(1) == null)
+            atividadeDAO.insert(atividade);
     }
 }
