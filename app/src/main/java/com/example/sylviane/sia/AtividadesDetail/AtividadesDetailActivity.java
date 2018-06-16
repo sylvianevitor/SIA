@@ -3,22 +3,26 @@ package com.example.sylviane.sia.AtividadesDetail;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by Natasha on 25/04/2018.
  */
 
-public class AtividadesDetailActivity extends Activity {
+public class AtividadesDetailActivity extends AppCompatActivity implements AtividadesDetailView {
     Atividade atividade = new Atividade();
     AtividadeDAO atividadeDAO = new AtividadeDAO(this);
     Integer id_atividade;
@@ -28,8 +32,7 @@ public class AtividadesDetailActivity extends Activity {
     @BindView(R.id.campodescricao) TextView descricaoAtividade;
     @BindView(R.id.campodificuldadeatividade)Spinner dificuldadeAtividade;
     @BindView(R.id.campotemaatividade)Spinner temaAtividade;
-
-
+    @BindView(R.id.botaoIniciarAtividade)Button botaoiniciar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +42,26 @@ public class AtividadesDetailActivity extends Activity {
         if (extras != null) {
            id_atividade = extras.getInt("atividade_id");
         }
-
         setContentView(R.layout.activity_detail_atividade);
-
         atividade = atividadeDAO.getAtividadeId(id_atividade);
-
         Log.d("Nome atividade", atividade.getNome());
 
+        abreDescricao();
+    }
+
+    @OnClick(R.id.botaoIniciarAtividade)
+    public void iniciar(){
+        Log.d("Iniciar atividade", atividade.getNome());
+        Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, ExecutarTemplate1Activity.class);
+        abrirExecucao.putExtra("id_atividade", atividade.getId());
+        startActivity(abrirExecucao);
+    }
+
+    @Override
+    public void abreDescricao(){
        /* nomeAtividade.setText(atividade.getNome());
         objetivoAtividade.setText(atividade.getObjetivo());
         descricaoAtividade.setText(atividade.getDescricao());*/
-
     }
+
 }
