@@ -46,7 +46,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         atividadesPresenter.updateList(atividadeList);
     }
 
-    public void updateListAtividades(List<Atividade> atividadesList) {
+    public void updateListAtividades(final List<Atividade> atividadesList) {
         //seta o adapter
         AtividadesAdapter atividadesAdapter = new AtividadesAdapter(atividadesList, this);
 
@@ -56,6 +56,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
                 Intent intent = new Intent
                         (AtividadesActivity.this,
                                 AtividadesDetailActivity.class);
+                intent.putExtra("atividade_id", atividadesList.get(position).getId());
                 startActivity(intent);
             }
 
