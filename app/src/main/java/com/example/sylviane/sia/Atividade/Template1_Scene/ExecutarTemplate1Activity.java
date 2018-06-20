@@ -58,8 +58,11 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         setContentView(R.layout.activity_exec_template1);
 
         ButterKnife.bind(this);
-        executarTemplate1Presenter = new ExecutarTemplate1Presenter(this, this);
+        Intent intent = getIntent();
+        int id_atividade = intent.getIntExtra("id_atividade",0);
+        executarTemplate1Presenter = new ExecutarTemplate1Presenter(this, this, id_atividade);
         load_info();
+
     }
 
     @OnClick(R.id.btnAudio)

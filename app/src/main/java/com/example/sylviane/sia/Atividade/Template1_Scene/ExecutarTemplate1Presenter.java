@@ -50,8 +50,8 @@ public class ExecutarTemplate1Presenter {
 
         Log.d("Syl", Integer.toString(arquivos.size()));
 
-        String PathImage = arquivos.get(1).getImage();
-        Log.d("path da imagem", PathImage);
+        //String PathImage = arquivos.get(1).getImage();
+       // Log.d("path da imagem", PathImage);
         /*File imgFile = new  File(PathImage);
         if(imgFile.exists()){
             imagemBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());

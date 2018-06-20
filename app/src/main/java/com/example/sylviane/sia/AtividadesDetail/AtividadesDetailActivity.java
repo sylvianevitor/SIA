@@ -16,6 +16,7 @@ import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -37,12 +38,14 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detail_atividade);
+        ButterKnife.bind(this);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
            id_atividade = extras.getInt("atividade_id");
         }
-        setContentView(R.layout.activity_detail_atividade);
+
         atividade = atividadeDAO.getAtividadeId(id_atividade);
         Log.d("Nome atividade", atividade.getNome());
 
@@ -59,9 +62,9 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
 
     @Override
     public void abreDescricao(){
-       /* nomeAtividade.setText(atividade.getNome());
+        nomeAtividade.setText(atividade.getNome());
         objetivoAtividade.setText(atividade.getObjetivo());
-        descricaoAtividade.setText(atividade.getDescricao());*/
+        descricaoAtividade.setText(atividade.getDescricao());
     }
 
 }
