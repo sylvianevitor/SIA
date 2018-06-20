@@ -7,8 +7,17 @@ public class Execucao {
     private String data;
     private String hora;
     private Float perc_acertos;
+    private Float pontos;
     private Float tempo;
     private String observacao;
+
+    public Float getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(Float pontos) {
+        this.pontos = pontos;
+    }
 
     public int getId() {
         return id;
