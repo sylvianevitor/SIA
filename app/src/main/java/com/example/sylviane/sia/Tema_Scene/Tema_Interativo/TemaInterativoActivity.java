@@ -13,6 +13,7 @@ import android.view.View;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
+import com.example.sylviane.sia.Tema_Scene.Tema_Detail.TemaDetailActivity;
 import com.example.sylviane.sia.persist.model.Tema;
 import com.example.sylviane.sia.persist.dao.TemaDAO;
 
@@ -29,13 +30,10 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
 
     @BindView(R.id.temas_list) RecyclerView rvTemas;
 
-   // private BancoDados bancoDados;
-
     TemaInterativoPresenter temaInterativoPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //String jsonSocial = getIntent().getStringExtra("json_social");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_temas_list);
@@ -63,7 +61,8 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         temaInterativoAdapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
             @Override
             public void onClick(View view, int position) {
-                Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
+                Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, TemaDetailActivity.class);
+                openListaAtividadesActivity.putExtra("tema_id", temaList.get(position).getId());
                 startActivity(openListaAtividadesActivity);
             }
         });
@@ -75,8 +74,6 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layoutManager.getOrientation());
         rvTemas.addItemDecoration(dividerItemDecoration);
-
-        
 
     }
 

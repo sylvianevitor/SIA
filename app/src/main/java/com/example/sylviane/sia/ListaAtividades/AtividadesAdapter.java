@@ -27,7 +27,7 @@ public class AtividadesAdapter extends RecyclerView.Adapter<AtividadesAdapter.Vi
     OnRecyclerViewSelectedAtividades onRecyclerViewSelectedAtividades;
     private Context context;
 
-    AtividadesAdapter(List<Atividade> atividadesList, Context context){
+    public AtividadesAdapter(List<Atividade> atividadesList, Context context){
         this.atividadesList = atividadesList;
         this.context = context;
     }

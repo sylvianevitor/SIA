@@ -38,6 +38,9 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         ButterKnife.bind(this);
         atividadesPresenter = new AtividadesPresenter(this);
 
+        Intent intent = getIntent();
+        int temaId = intent.getIntExtra("tema_id", -1);
+
         Atividade atividadeDefault = new Atividade();
 
         creatAtivCores(atividadeDefault);
