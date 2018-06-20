@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,6 +47,9 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
 
         TemaDAO temaDAO = new TemaDAO(TemaInterativoActivity.this);
         List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD
+
+        Log.d("LUAN", Integer.toString(temaList.size()));
+
         this.updateList(temaList);
     }
 
