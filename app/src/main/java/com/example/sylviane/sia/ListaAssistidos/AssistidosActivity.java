@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 
@@ -43,6 +44,7 @@ public class AssistidosActivity extends AppCompatActivity implements AssistidosV
         AssistidoDAO assistidoDAO = new AssistidoDAO(this);
         assistidoDAO.popularAssistidos();
         List<Assistido> assistidosList = assistidoDAO.getAssistidos();
+
         assistidosPresenter.updateList(assistidosList);
 
     }
