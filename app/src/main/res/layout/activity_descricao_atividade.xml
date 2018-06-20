@@ -109,13 +109,14 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:backgroundTint="@color/colorAccent"
+                android:background="@drawable/rounded_corners_button"
                 android:textColor="#fff"
                 android:id="@+id/botaocadastrardescricaoatividade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_margin="12dp"
+                android:padding="10dp"
                 android:text="Cadastrar Descrição"
                 android:textAllCaps="true" />
         </RelativeLayout>
