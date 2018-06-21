@@ -14,7 +14,7 @@ import android.view.View;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
-import com.example.sylviane.sia.Tema_Scene.Tema_Detail.TemaDetailActivity;
+import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.Tema;
 import com.example.sylviane.sia.persist.dao.TemaDAO;
 
@@ -65,7 +65,7 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         temaInterativoAdapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
             @Override
             public void onClick(View view, int position) {
-                Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, TemaDetailActivity.class);
+                Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
                 openListaAtividadesActivity.putExtra("tema_id", temaList.get(position).getId());
                 startActivity(openListaAtividadesActivity);
             }
