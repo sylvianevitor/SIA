@@ -22,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by mariana on 25/04/18.
@@ -81,23 +82,8 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_cadastro_temas, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_salvar:
-                temaInterativoPresenter.cadastrarTema();
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
+    @OnClick(R.id.botao_Adicionar_Tema)
     public void cadastrar(){
         Intent openCadastrarTemaInterativoActivity = new Intent(TemaInterativoActivity.this, CadastrarTemasInterativosActivity.class);
         startActivity(openCadastrarTemaInterativoActivity);
