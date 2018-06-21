@@ -44,7 +44,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     CriarTemplate1View.Presenter criarTemplate1Presenter;
 
     int id;
-    Atividade atividade;
+    Atividade atividade = new Atividade();
     String selectedImagePath, path1, path2, path3;
     private MediaPlayer mMediaPlayer;
     private AudioManager mAudioManager;
@@ -84,11 +84,12 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
 
         criarTemplate1Presenter = new CriarTemplate1Presenter(this, this);
 
-//        Intent intent = getIntent();
-//        int id_atividade = intent.getIntExtra("id_atividade", -1);
-//
-//        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
-//        Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
+        Intent intent = getIntent();
+        int id_atividade = intent.getIntExtra("id_atividade", -1);
+        Log.d("id mari", Integer.toString(id_atividade));
+
+        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
+        Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
 
         //Classe responsável por solicitar o foco do áudio
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
@@ -99,7 +100,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         criarTemplate1Presenter.verificaResultado(requestCode, resultCode, data);
         AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 //        Log.d("LUAN", String.valueOf(id_atividade));
-//        Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
+       // Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
     }
 
     @OnClick(R.id.imageButton1)

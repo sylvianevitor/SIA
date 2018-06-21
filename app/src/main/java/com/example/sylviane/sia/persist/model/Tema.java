@@ -29,4 +29,9 @@ public class Tema {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
+
+    @Override
+    public String toString() {
+        return this.tema;
+    }
 }

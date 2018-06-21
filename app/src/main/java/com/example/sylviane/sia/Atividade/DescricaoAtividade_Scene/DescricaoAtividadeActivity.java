@@ -34,26 +34,28 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
     @BindView(R.id.campotemaatividade)Spinner temaAtividade;
 
     DescricaoAtividadePresenter descricaoAtividadePresenter;
-    TemaDAO temaDAO = new TemaDAO(this);
-    //List<Tema> temasList = temaDAO.getTemas();
-    String data[] = new String[4];
-    Integer id_data[] = new Integer[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descricao_atividade);
+        TemaDAO temaDAO = new TemaDAO(this);
+        List<Tema> temasList = temaDAO.getTemas();
+        int totalTemas = temasList.size();
+        //String data[] = new String[totalTemas];
+        //Integer id_data[] = new Integer[totalTemas];
+
 
         ButterKnife.bind(this);
         descricaoAtividadePresenter = new DescricaoAtividadePresenter(this); //MainActivity.this
 
+        //for (int i = 0; i < totalTemas; i++){
+        //    data[i] = String.valueOf(temaDAO.getTemas().get(i).getTema());
+        //   id_data[i] = temaDAO.getTemas().get(i).getId();
+        //}
 
-        for (int i = 0; i < 4; i++){
-            data[i] = String.valueOf(temaDAO.getTemas().get(i).getTema());
-            id_data[i] = temaDAO.getTemas().get(i).getId();
-        }
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, data);
+        ArrayAdapter<Tema> spinnerArrayAdapter = new ArrayAdapter<Tema>(
+                this, android.R.layout.simple_spinner_item, temaDAO.getTemas());
         temaAtividade.setAdapter(spinnerArrayAdapter);
     }
 
@@ -77,9 +79,8 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
         atividade.setNr_execucoes(0);
         atividade.setTipo_atividade(Atividade.TIPO_ATIVA);
         atividade.setDificuldade(dificuldadeAtividade.getSelectedItemPosition());
-        atividade.setId_tema(id_data[temaAtividade.getSelectedItemPosition()]);
-        //Log.d("Dificuldade selecionada", String.valueOf(dificuldadeAtividade.getSelectedItemPosition()));
-        //Log.d("Tema id selecionado", String.valueOf(id_data[temaAtividade.getSelectedItemPosition()]));
+        Tema t = (Tema) temaAtividade.getSelectedItem();
+        atividade.setId_tema(t.getId());
 
         AtividadeDAO atividadeDAO = new AtividadeDAO(DescricaoAtividadeActivity.this);
         atividade = atividadeDAO.insert(atividade);

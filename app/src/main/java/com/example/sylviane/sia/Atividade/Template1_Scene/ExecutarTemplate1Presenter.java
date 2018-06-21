@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.Relatorios.RelatoriosActivity;
@@ -26,25 +27,32 @@ import java.util.List;
 
 public class ExecutarTemplate1Presenter {
     ExecutarTemplate1View executarTemplate1View;
-    Template1DAO template1DAO;
-    AtividadeDAO atividadeDAO;
+
     Execucao execucao;
     ExecucaoDAO execucaoDAO;
-    int id_atividade = 0;
-    //Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
+
+    Atividade atividade = new Atividade();
+    int id_atividade;
     Context contexto;
 
-    public ExecutarTemplate1Presenter(ExecutarTemplate1View executarTemplate1View, Context contexto){
+    public ExecutarTemplate1Presenter(ExecutarTemplate1View executarTemplate1View, Context contexto, int id_atividade){
         this.executarTemplate1View = executarTemplate1View;
         this.contexto = contexto;
+        this.id_atividade = id_atividade;
+        AtividadeDAO atividadeDAO = new AtividadeDAO(contexto);
+        atividade = atividadeDAO.getAtividadeId(id_atividade);
     }
 
     public Bitmap load_image(){
-
+        Template1DAO template1DAO = new Template1DAO(contexto);
         Bitmap imagemBitmap = null;
-        /*List<Template1> arquivos = template1DAO.getArquivos(atividade);
-        String PathImage = arquivos.get(id_atividade).getImage();
-        File imgFile = new  File(PathImage);
+        List<Template1> arquivos = template1DAO.getArquivosAll();
+
+        Log.d("Syl", Integer.toString(arquivos.size()));
+
+        //String PathImage = arquivos.get(1).getImage();
+       // Log.d("path da imagem", PathImage);
+        /*File imgFile = new  File(PathImage);
         if(imgFile.exists()){
             imagemBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
         }*/
