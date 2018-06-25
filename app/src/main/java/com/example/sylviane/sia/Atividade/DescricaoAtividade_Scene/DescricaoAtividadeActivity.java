@@ -3,7 +3,9 @@ package com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -11,8 +13,13 @@ import android.widget.Toast;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
+import com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.persist.model.Atividade;
+import com.example.sylviane.sia.persist.model.Tema;
 
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,9 +39,24 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descricao_atividade);
+        TemaDAO temaDAO = new TemaDAO(this);
+        List<Tema> temasList = temaDAO.getTemas();
+        int totalTemas = temasList.size();
+        //String data[] = new String[totalTemas];
+        //Integer id_data[] = new Integer[totalTemas];
+
 
         ButterKnife.bind(this);
         descricaoAtividadePresenter = new DescricaoAtividadePresenter(this); //MainActivity.this
+
+        //for (int i = 0; i < totalTemas; i++){
+        //    data[i] = String.valueOf(temaDAO.getTemas().get(i).getTema());
+        //   id_data[i] = temaDAO.getTemas().get(i).getId();
+        //}
+
+        ArrayAdapter<Tema> spinnerArrayAdapter = new ArrayAdapter<Tema>(
+                this, android.R.layout.simple_spinner_item, temaDAO.getTemas());
+        temaAtividade.setAdapter(spinnerArrayAdapter);
     }
 
     @OnClick(R.id.botaocadastrardescricaoatividade)
@@ -49,11 +71,16 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
         atividade.setNome(nomeAtividadeEditText.getText().toString());
         atividade.setObjetivo(objetivoAtividadeEditText.getText().toString());
         atividade.setDescricao(descricaoAtividadeEditText.getText().toString());
-        //atividade.setDificuldade(Integer.parseInt(dificuldadeAtividade.getSelectedItem().toString())); //deve estar errado
-        //atividade.setId_tema();
 
-//        atividade.setDificuldade(dificuldadeAtividade.getSelectedItem().toString());
-//        atividade.setId_tema(temaAtividade.getSelectedItem().toString());
+        atividade.setDificuldade(2);
+        atividade.setDt_cadastro("teste");
+        atividade.setId_proprietario(1);
+        atividade.setId_tema(1);
+        atividade.setNr_execucoes(0);
+        atividade.setTipo_atividade(Atividade.TIPO_ATIVA);
+        atividade.setDificuldade(dificuldadeAtividade.getSelectedItemPosition());
+        Tema t = (Tema) temaAtividade.getSelectedItem();
+        atividade.setId_tema(t.getId());
 
         AtividadeDAO atividadeDAO = new AtividadeDAO(DescricaoAtividadeActivity.this);
         atividade = atividadeDAO.insert(atividade);

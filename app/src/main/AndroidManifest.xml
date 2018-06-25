@@ -51,6 +51,10 @@
             android:name=".Atividade.Cores_Scene.ExecutarCoresActivity"
             android:label="Execução da Atividade de Cores"></activity>
 
+        <activity android:name=".AtividadesDetail.AtividadesDetailActivity"
+            android:label="Descrição da Atividade Cadastrada">
+        </activity>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.sylviane.sia.fileprovider"
