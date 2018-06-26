@@ -51,8 +51,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     Button audio;
     @BindView(R.id.btnSair)
     Button sair;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
