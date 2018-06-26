@@ -44,7 +44,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     CriarTemplate1View.Presenter criarTemplate1Presenter;
 
     int id;
-    Atividade atividade = new Atividade();
+    Atividade atividade;
     String selectedImagePath, path1, path2, path3;
     private MediaPlayer mMediaPlayer;
     private AudioManager mAudioManager;
@@ -89,7 +89,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         Log.d("id mari", Integer.toString(id_atividade));
 
         AtividadeDAO atividadeDAO = new AtividadeDAO(this);
-        Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
+        atividade = atividadeDAO.getAtividadeId(id_atividade);
 
         //Classe responsável por solicitar o foco do áudio
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
