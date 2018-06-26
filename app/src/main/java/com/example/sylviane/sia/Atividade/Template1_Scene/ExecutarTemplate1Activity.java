@@ -33,7 +33,6 @@ import butterknife.OnClick;
 /**
  * Created by sylviane on 12/05/18.
  */
-
 public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View {
     ExecutarTemplate1Presenter executarTemplate1Presenter;
     int exec = 0;
