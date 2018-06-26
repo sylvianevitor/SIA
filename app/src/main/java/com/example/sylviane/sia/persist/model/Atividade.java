@@ -14,10 +14,13 @@ public class Atividade {
     private int nr_execucoes;
     private int id_tema;
     private int tipo_atividade;
+    private int ativa;
 
-    public static final int TIPO_PASSIVA = 0;
+    public static final int TIPO_PASSIVA = 1;
     public static final int TIPO_ATIVA = 0;
 
+    public static final int SITUACAO_ATIVA = 1;
+    public static final int SITUACAO_INATIVA = 0;
 
     public int getId() {
         return id;
@@ -25,6 +28,14 @@ public class Atividade {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(int ativa) {
+        this.ativa = ativa;
     }
 
     public String getNome() { return nome; }
