@@ -59,7 +59,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
 
         ButterKnife.bind(this);
         Intent intent = getIntent();
-        int id_atividade = intent.getIntExtra("id_atividade",0);
+        int id_atividade = intent.getIntExtra("id_atividade",-1);
         executarTemplate1Presenter = new ExecutarTemplate1Presenter(this, this, id_atividade);
         load_info();
 

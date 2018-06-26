@@ -31,7 +31,7 @@ public class ExecutarTemplate1Presenter {
     Execucao execucao;
     ExecucaoDAO execucaoDAO;
 
-    Atividade atividade = new Atividade();
+    Atividade atividade;
     int id_atividade;
     Context contexto;
 
@@ -46,7 +46,7 @@ public class ExecutarTemplate1Presenter {
     public Bitmap load_image(){
         Template1DAO template1DAO = new Template1DAO(contexto);
         Bitmap imagemBitmap = null;
-        List<Template1> arquivos = template1DAO.getArquivosAll();
+        List<Template1> arquivos = template1DAO.getArquivos(atividade);
 
         Log.d("Syl", Integer.toString(arquivos.size()));
 
