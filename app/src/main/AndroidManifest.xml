@@ -47,7 +47,9 @@
         </activity>
         <activity
             android:name=".SelecaoAssistidos.SelecaoAssisitidosActivity"
-            android:label="Seleção dos Assistidos"></activity>
+            android:label="Seleção dos Assistidos">
+        </activity>
+
         <activity android:name=".Atividade.Template1_Scene.ExecutarTemplate1Activity"/>
         <activity
             android:name=".AssistidosDetail.AssistidosDetailActivity"
@@ -67,9 +69,7 @@
             android:label="Execução da Atividade de Cores">
         </activity>
 
-        <activity android:name=".AtividadesDetail.AtividadesDetailActivity"
-            android:label="Descrição da Atividade Cadastrada">
-        </activity>
+        <activity android:name=".AtividadesDetail.AtividadesDetailActivity"></activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

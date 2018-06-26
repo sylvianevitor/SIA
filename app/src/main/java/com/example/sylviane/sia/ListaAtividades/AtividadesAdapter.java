@@ -24,7 +24,7 @@ import com.example.sylviane.sia.persist.model.Atividade;
 public class AtividadesAdapter extends RecyclerView.Adapter<AtividadesAdapter.ViewHolder>{
 
     private List<Atividade> atividadesList;
-    OnRecyclerViewSelectedAtividades onRecyclerViewSelectedAtividades;
+    private OnRecyclerViewSelectedAtividades onRecyclerViewSelectedAtividades;
     private Context context;
 
     AtividadesAdapter(List<Atividade> atividadesList, Context context){
@@ -33,13 +33,13 @@ public class AtividadesAdapter extends RecyclerView.Adapter<AtividadesAdapter.Vi
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AtividadesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.atividades_item_list, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(AtividadesAdapter.ViewHolder holder, int position) {
         Atividade atividadesEntity = atividadesList.get(position);
         holder.nomeAtividade.setText(atividadesEntity.getNome());
     }

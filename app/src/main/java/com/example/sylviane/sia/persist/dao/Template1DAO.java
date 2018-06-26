@@ -43,7 +43,6 @@ public class Template1DAO {
                 Template1 arquivo = new Template1();
                 arquivo.setId(cursor.getInt(0));
                 arquivo.setAudio(cursor.getString(1));
-                Log.d("id ativ", Integer.toString(cursor.getInt(3)));
                 arquivo.setImage(cursor.getString(2));
                 arquivo.setAtividade(null);
                 list.add(arquivo);
@@ -85,6 +84,8 @@ public class Template1DAO {
     public boolean adicionarAquivo(Template1 arquivo) {
 
         this.db = this.database.getWritableDatabase();
+
+        Log.d("LUAN", Integer.toString(arquivo.getAtividade().getId()));
 
         ContentValues values = new ContentValues();
         values.put("audio", arquivo.getAudio());

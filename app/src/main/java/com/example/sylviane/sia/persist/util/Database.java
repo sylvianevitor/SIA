@@ -29,6 +29,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(this.getSQLCreateTableProfissional());
         db.execSQL(this.getSQLCreateTableTemplate1());
         db.execSQL(this.getSQLCreateTableExecucao());
+        db.execSQL(this.getSQLCreateTablePassivaTemplate1());
     }
 
     @Override
@@ -47,7 +48,8 @@ public class Database extends SQLiteOpenHelper {
                 "nr_execucoes integer, " +
                 "id_tema integer, " +
                 "tipo_atividade integer," +
-                "dificuldade integer )";
+                "dificuldade integer," +
+                "ativa integer )";
         return sql;
     }
 
@@ -97,6 +99,14 @@ public class Database extends SQLiteOpenHelper {
         return sql;
     }
 
+    private String getSQLCreateTablePassivaTemplate1() {
+        String sql = "CREATE TABLE passivatemplate1 ( " +
+                "id integer primary key autoincrement, " +
+                "id_atividade integer, " +
+                "video text )";
+        return sql;
+    }
+
     private String getSQLCreateTableExecucao() {
         String sql = "CREATE TABLE execucao ( " +
                 "id integer primary key autoincrement, " +
@@ -106,7 +116,8 @@ public class Database extends SQLiteOpenHelper {
                 "hora text, " +
                 "perc_acertos real," +
                 "tempo real," +
-                "observacao text )";
+                "observacao text," +
+                "pontos real )";
         return sql;
     }
 }
