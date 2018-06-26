@@ -108,6 +108,5 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
             toast.show();
         }
 
-
     }
 }

@@ -164,5 +164,18 @@
             android:textAllCaps="true"
             android:textColor="#fff" />
 
+        <Button
+            android:id="@+id/botaoExcluirAtividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="42dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Excluir"
+            android:textAllCaps="true"
+            android:textColor="#fff" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

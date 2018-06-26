@@ -47,6 +47,8 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
     Button botaoiniciar;
     @BindView(R.id.botaoEditarAtividade)
     Button botaoEditar;
+    @BindView(R.id.botaoExcluirAtividade)
+    Button botaoExcluir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +91,19 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
             Intent abrirEdicao = new Intent(AtividadesDetailActivity.this, DescricaoAtividadeActivity.class);
             abrirEdicao.putExtra("id_atividade", atividade.getId());
             startActivity(abrirEdicao);
+        }
+    }
+    @OnClick(R.id.botaoExcluirAtividade)
+    public void excluir(){
+        Toast toast;
+        Log.d("Excluir atividade", atividade.getNome());
+        if (atividade.getId() == 1) {
+            toast = Toast.makeText(AtividadesDetailActivity.this, "Impossivel excluir atividade default", Toast.LENGTH_LONG);
+            toast.show();
+        } else{
+           //excluir atividade
+            toast = Toast.makeText(AtividadesDetailActivity.this, "Atividade excluida com sucesso", Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 
