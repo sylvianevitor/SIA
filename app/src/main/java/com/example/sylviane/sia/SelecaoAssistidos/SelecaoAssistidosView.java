@@ -10,5 +10,6 @@ import java.util.List;
 
 public interface SelecaoAssistidosView {
     void updateList(List<Assistido> assistidosList);
+    void iniciar(List<Integer> idAssistidosList);
 }
 
