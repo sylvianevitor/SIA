@@ -66,10 +66,9 @@ public class ExecucaoDAO {
 
         if(result == -1) {
             return null;
-        } else {
-            execucao.setId((int) result);
-            return execucao;
         }
+
+        return execucao;
     }
 
     public ArrayList<Execucao> getExecucaosAssistido(int id_assistido) {

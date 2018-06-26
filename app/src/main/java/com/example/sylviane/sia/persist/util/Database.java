@@ -48,7 +48,8 @@ public class Database extends SQLiteOpenHelper {
                 "nr_execucoes integer, " +
                 "id_tema integer, " +
                 "tipo_atividade integer," +
-                "dificuldade integer )";
+                "dificuldade integer," +
+                "ativa integer )";
         return sql;
     }
 
