@@ -91,8 +91,10 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
 
         AtividadeDAO atividadeDAO = new AtividadeDAO(DescricaoAtividadeActivity.this);
 
+        //atividade.set_ativa(Atividade.SITUACAOINATIVA); //"EXCLUIR"
         //editar cadastro caso ja exista e nao inserir uma nova
         atividade = atividadeDAO.insert(atividade);
+       //atividade = atividadeDAO.update(atividade); "ATUALIZAR"
 
         Toast toast;
 

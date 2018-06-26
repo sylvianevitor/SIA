@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.util.Database;
@@ -49,6 +50,7 @@ public class AtividadeDAO {
 
     public Atividade getAtividadeId(int id) {
 
+        Log.d("Banco ativ", Integer.toString(id));
         db = database.getReadableDatabase();
 
         String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade"};
@@ -56,11 +58,11 @@ public class AtividadeDAO {
         Cursor cursor = db.query(TABLE, campos, "id=?", new String[] { Integer.toString(id) }, null, null, "descricao");
 
         if(cursor==null) {
-
+            Log.d("Teste", "Nao ha atividade");
             db.close();
             return null;
         }
-
+        Log.d("Teste", "Ha atividade");
         cursor.moveToFirst();
         Atividade atividade = new Atividade();
         atividade.setId(cursor.getInt(0));

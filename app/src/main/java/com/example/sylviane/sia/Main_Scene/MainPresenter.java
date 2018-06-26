@@ -42,7 +42,8 @@ public class MainPresenter extends AppCompatActivity {
 
         // verificar se já existe
         // if(atividadeDAO.getAtividadeId(1) != null)
-            atividadeDAO.insert(atividadeDefault);
+
+        atividadeDAO.insert(atividadeDefault);
     }
 
 }

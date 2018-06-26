@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
 import com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
+import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
@@ -104,6 +105,8 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
            //excluir atividade
             toast = Toast.makeText(AtividadesDetailActivity.this, "Atividade excluida com sucesso", Toast.LENGTH_LONG);
             toast.show();
+            Intent retornar = new Intent(AtividadesDetailActivity.this, AtividadesActivity.class);
+            startActivity(retornar);
         }
     }
 
