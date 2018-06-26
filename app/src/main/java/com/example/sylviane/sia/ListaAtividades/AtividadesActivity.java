@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
@@ -38,10 +39,18 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         ButterKnife.bind(this);
         atividadesPresenter = new AtividadesPresenter(this);
 
+        Intent intent = getIntent();
+        int temaId = intent.getIntExtra("tema_id", -1);
+
+
         Atividade atividadeDefault = new Atividade();
 
         creatAtivCores(atividadeDefault);
-        List<Atividade> atividadeList = atividadeDAO.getAtividade();
+        List<Atividade> atividadeList = atividadeDAO.getAtividadeByTema(temaId);
+
+        for (int i = 0; i < atividadeList.size(); i++){
+            Log.d("MARI", atividadeList.get(i).getNome());
+        }
 
         atividadesPresenter.updateList(atividadeList);
     }

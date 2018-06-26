@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sylviane.sia">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -14,7 +14,6 @@
         <activity
             android:name=".Main_Scene.MainActivity"
             android:theme="@style/AppThemeNoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,54 +22,63 @@
         </activity>
         <activity
             android:name=".ListaAssistidos.AssistidosActivity"
-            android:label="Lista de Assistidos"></activity>
+            android:label="Lista de Assistidos">
+        </activity>
         <activity
             android:name=".ListaAtividades.AtividadesActivity"
-            android:label="Lista de Atividades"></activity>
+            android:label="Lista de Atividades">
+        </activity>
         <activity
             android:name=".SelecionarAtividade_Scene.SelecionarAtividadesActivity"
-            android:theme="@style/AppThemeNoActionBar"></activity>
+            android:theme="@style/AppThemeNoActionBar">
+        </activity>
         <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity" />
         <activity
             android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity"
-            android:label="Cadastro da Atividade"></activity>
+            android:label="Cadastro da Atividade">
+        </activity>
         <activity
             android:name=".Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity"
-            android:label="Cadastro de Novo Tema Interativo"></activity>
+            android:label="Cadastro de Novo Tema Interativo">
+        </activity>
         <activity
             android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity"
-            android:label="Lista de Temas Interativos"></activity>
+            android:label="Lista de Temas Interativos">
+        </activity>
         <activity
             android:name=".SelecaoAssistidos.SelecaoAssisitidosActivity"
-            android:label="Seleção dos Assistidos" />
-        <activity android:name=".Atividade.Template1_Scene.ExecutarTemplate1Activity" />
+            android:label="Seleção dos Assistidos">
+        </activity>
+
+        <activity android:name=".Atividade.Template1_Scene.ExecutarTemplate1Activity"/>
         <activity
             android:name=".AssistidosDetail.AssistidosDetailActivity"
-            android:label="Informações do Assistido"></activity>
+            android:label="Informações do Assistido">
+        </activity>
+
         <activity
             android:name=".Relatorios.RelatoriosActivity"
-            android:label="Relatório da Atividade"></activity>
+            android:label="Relatório da Atividade">
+        </activity>
         <activity
             android:name=".Relatorios.RelatorioAssistidosActivity"
-            android:label="Relatório da Atividade"></activity>
-        <activity
-            android:name=".Atividade.Cores_Scene.ExecutarCoresActivity"
-            android:label="Execução da Atividade de Cores"></activity>
-
-        <activity android:name=".AtividadesDetail.AtividadesDetailActivity"
-            android:label="Descrição da Atividade Cadastrada">
+            android:label="Relatório da Atividade">
         </activity>
+
+        <activity android:name=".Atividade.Cores_Scene.ExecutarCoresActivity"
+            android:label="Execução da Atividade de Cores">
+        </activity>
+
+        <activity android:name=".AtividadesDetail.AtividadesDetailActivity"></activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.sylviane.sia.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true"
+            android:exported="false">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
         </provider>
-
     </application>
-
 </manifest>

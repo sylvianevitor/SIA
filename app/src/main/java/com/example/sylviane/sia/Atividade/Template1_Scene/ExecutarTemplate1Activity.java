@@ -33,12 +33,12 @@ import butterknife.OnClick;
 /**
  * Created by sylviane on 12/05/18.
  */
-
 public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View {
     ExecutarTemplate1Presenter executarTemplate1Presenter;
     int exec = 0;
     MediaPlayer mp;
     int pontuacao = 100;
+    int id_atividade;
 
     @BindView(R.id.imageButton1)
     ImageButton image1;
@@ -50,8 +50,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     Button audio;
     @BindView(R.id.btnSair)
     Button sair;
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +58,8 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
 
         ButterKnife.bind(this);
         Intent intent = getIntent();
-        int id_atividade = intent.getIntExtra("id_atividade",-1);
+        id_atividade = intent.getIntExtra("id_atividade",0);
+
         executarTemplate1Presenter = new ExecutarTemplate1Presenter(this, this, id_atividade);
         load_info();
 

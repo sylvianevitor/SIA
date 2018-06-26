@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.SelecaoAssistidos.SelecaoAssisitidosActivity;
+import com.example.sylviane.sia.SelecaoAssistidos.SelecaoAssistidosPresenter;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 
@@ -55,7 +57,7 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
     @OnClick(R.id.botaoIniciarAtividade)
     public void iniciar(){
         Log.d("Iniciar atividade", atividade.getNome());
-        Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, ExecutarTemplate1Activity.class);
+        Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, SelecaoAssisitidosActivity.class);
         abrirExecucao.putExtra("id_atividade", atividade.getId());
         startActivity(abrirExecucao);
     }

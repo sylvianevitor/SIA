@@ -14,6 +14,7 @@ import android.view.View;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
+import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.Tema;
 import com.example.sylviane.sia.persist.dao.TemaDAO;
 
@@ -21,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by mariana on 25/04/18.
@@ -30,13 +32,10 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
 
     @BindView(R.id.temas_list) RecyclerView rvTemas;
 
-   // private BancoDados bancoDados;
-
     TemaInterativoPresenter temaInterativoPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //String jsonSocial = getIntent().getStringExtra("json_social");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_temas_list);
@@ -68,6 +67,7 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
             @Override
             public void onClick(View view, int position) {
                 Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
+                openListaAtividadesActivity.putExtra("tema_id", temaList.get(position).getId());
                 startActivity(openListaAtividadesActivity);
             }
         });
@@ -80,27 +80,10 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layoutManager.getOrientation());
         rvTemas.addItemDecoration(dividerItemDecoration);
 
-        
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_cadastro_temas, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_salvar:
-                temaInterativoPresenter.cadastrarTema();
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
+    @OnClick(R.id.botao_Adicionar_Tema)
     public void cadastrar(){
         Intent openCadastrarTemaInterativoActivity = new Intent(TemaInterativoActivity.this, CadastrarTemasInterativosActivity.class);
         startActivity(openCadastrarTemaInterativoActivity);
