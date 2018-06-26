@@ -14,6 +14,7 @@ import com.example.sylviane.sia.ListaAssistidos.AssistidosActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.SelecaoAssistidos.SelecaoAssisitidosActivity;
 import com.example.sylviane.sia.SelecionarAtividade_Scene.SelecionarAtividadesActivity;
+import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
         ButterKnife.bind(this);
 
         mainPresenter = new MainPresenter(this);
+
+        mainPresenter.creatAtivDefault(this); // chamada da funcao para criar atividade
 
     }
 
