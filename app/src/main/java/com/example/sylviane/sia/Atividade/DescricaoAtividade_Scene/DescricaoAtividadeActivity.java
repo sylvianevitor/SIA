@@ -34,29 +34,36 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
     @BindView(R.id.campotemaatividade)Spinner temaAtividade;
 
     DescricaoAtividadePresenter descricaoAtividadePresenter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descricao_atividade);
         TemaDAO temaDAO = new TemaDAO(this);
-        List<Tema> temasList = temaDAO.getTemas();
-        int totalTemas = temasList.size();
-        //String data[] = new String[totalTemas];
-        //Integer id_data[] = new Integer[totalTemas];
-
 
         ButterKnife.bind(this);
-        descricaoAtividadePresenter = new DescricaoAtividadePresenter(this); //MainActivity.this
 
-        //for (int i = 0; i < totalTemas; i++){
-        //    data[i] = String.valueOf(temaDAO.getTemas().get(i).getTema());
-        //   id_data[i] = temaDAO.getTemas().get(i).getId();
-        //}
+        Intent intent = getIntent();
+        int id_atividade = intent.getIntExtra("id_atividade",-1);
+        Log.d("Atividade id", Integer.toString(id_atividade));
 
+        if(id_atividade != -1) { //Obter campos possivelmente ja preenchidos
+            preenchimento(id_atividade);
+        }
+
+        descricaoAtividadePresenter = new DescricaoAtividadePresenter(this);
+
+        //Preencher spinner dos temas
         ArrayAdapter<Tema> spinnerArrayAdapter = new ArrayAdapter<Tema>(
                 this, android.R.layout.simple_spinner_item, temaDAO.getTemas());
         temaAtividade.setAdapter(spinnerArrayAdapter);
+    }
+
+    public void preenchimento(int id_atividade){
+        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
+        Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
+        nomeAtividadeEditText.setText(atividade.getNome());
+        objetivoAtividadeEditText.setText(atividade.getObjetivo());
+        descricaoAtividadeEditText.setText(atividade.getDescricao());
     }
 
     @OnClick(R.id.botaocadastrardescricaoatividade)
@@ -83,6 +90,8 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
         atividade.setId_tema(t.getId());
 
         AtividadeDAO atividadeDAO = new AtividadeDAO(DescricaoAtividadeActivity.this);
+
+        //editar cadastro caso ja exista e nao inserir uma nova
         atividade = atividadeDAO.insert(atividade);
 
         Toast toast;

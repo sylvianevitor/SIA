@@ -9,7 +9,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:text = "Nome"/>
+            android:text="Nome" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,72 +53,116 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textodificuldadeatividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:labelFor="@id/campodificuldadeatividade"
+            android:text="Dificuldade" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="15dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginRight="15dp">
+        <TextView
+            android:id="@id/campodificuldadeatividade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
-                <TextView
-                    android:id="@+id/textodificuldadeatividade"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:labelFor="@id/campodificuldadeatividade"
-                    android:text="Dificuldade" />
+        <TextView
+            android:id="@+id/textotemaatividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:labelFor="@id/campotemaatividade"
+            android:text="Tema" />
+        <TextView
+            android:id="@id/campotemaatividade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
 
-                <Spinner
-                    android:id="@+id/campodificuldadeatividade"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
 
-            </LinearLayout>
+        <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginEnd="15dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_marginRight="15dp">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+        <!--<TextView-->
+        <!--android:id="@+id/textodificuldadeatividade"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:labelFor="@id/campodificuldadeatividade"-->
+        <!--android:text="Dificuldade" />-->
 
-                <TextView
-                    android:id="@+id/textotemaatividade"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:labelFor="@id/campotemaatividade"
-                    android:text="Tema" />
+        <!--<Spinner-->
+        <!--android:id="@+id/campodificuldadeatividade"-->
+        <!--style="@style/Widget.AppCompat.Spinner.Underlined"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
-                <Spinner
-                    android:id="@+id/campotemaatividade"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+        <!--</LinearLayout>-->
 
-            </LinearLayout>
-        </LinearLayout>
+        <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/textotemaatividade"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:labelFor="@id/campotemaatividade"-->
+        <!--android:text="Tema" />-->
+
+        <!--<Spinner-->
+        <!--android:id="@+id/campotemaatividade"-->
+        <!--style="@style/Widget.AppCompat.Spinner.Underlined"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+        <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
-                android:backgroundTint="@color/colorAccent"
-                android:textColor="#fff"
-                android:id="@+id/botaoIniciarAtividade"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_margin="12dp"
-                android:text="Iniciar"
-                android:textAllCaps="true" />
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/botaoIniciarAtividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="42dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Iniciar"
+            android:textAllCaps="true"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/botaoEditarAtividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="42dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Editar"
+            android:textAllCaps="true"
+            android:textColor="#fff" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

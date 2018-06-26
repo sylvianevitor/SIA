@@ -48,7 +48,7 @@ public class ExecutarTemplate1Presenter {
         Bitmap imagemBitmap = null;
         List<Template1> arquivos = template1DAO.getArquivosAll();
 
-        Log.d("Syl", Integer.toString(arquivos.size()));
+        Log.d("Total de arquivos", Integer.toString(arquivos.size()));
 
         //String PathImage = arquivos.get(1).getImage();
        // Log.d("path da imagem", PathImage);
