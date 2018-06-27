@@ -69,15 +69,9 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
     @OnClick(R.id.botaoIniciarAtividade)
     public void iniciar() {
         Log.d("Iniciar atividade", atividade.getNome());
-        if (atividade.getId() == 1) {
-            Intent ExecucaoCores = new Intent(AtividadesDetailActivity.this, ExecutarCoresActivity.class);
-            ExecucaoCores.putExtra("id_atividade", atividade.getId());
-            startActivity(ExecucaoCores);
-        } else {
-            Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, ExecutarTemplate1Activity.class);
+            Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, SelecaoAssisitidosActivity.class);
             abrirExecucao.putExtra("id_atividade", atividade.getId());
             startActivity(abrirExecucao);
-        }
     }
 
     @OnClick(R.id.botaoExcluirAtividade)

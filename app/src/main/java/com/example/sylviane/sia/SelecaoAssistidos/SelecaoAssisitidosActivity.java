@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
@@ -113,10 +114,17 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
 
     @Override
     public void iniciar(List<Integer> idAssistidosList){
+        if (id_atividade == 1) {
+            Log.d("Iniciar atividade", "Atividade cores");
+            Intent ExecucaoCores = new Intent(SelecaoAssisitidosActivity.this, ExecutarCoresActivity.class);
+            ExecucaoCores.putExtra("id_atividade", id_atividade);
+            ExecucaoCores.putExtra("assistido_id", String.valueOf(idAssistidosList));
+            startActivity(ExecucaoCores);
+        }else{
         Intent intent = new Intent (SelecaoAssisitidosActivity.this, ExecutarTemplate1Activity.class);
         intent.putExtra("id_atividade", id_atividade);
         intent.putExtra("assistido_id", String.valueOf(idAssistidosList));
-        startActivity(intent);
+        startActivity(intent);}
     }
 
     public void adicionar(int id_assistido){
