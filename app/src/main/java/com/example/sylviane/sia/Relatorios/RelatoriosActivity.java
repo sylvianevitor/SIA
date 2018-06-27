@@ -16,7 +16,7 @@ import butterknife.OnClick;
 
 public class RelatoriosActivity extends AppCompatActivity implements RelatoriosView{
 
-    @BindView(R.id.total_pontos)EditText total_pontos;
+    @BindView(R.id.total_pontos)TextView total_pontos;
     @BindView(R.id.text_total_pontos)TextView text_total_pontos;
 
     RelatoriosPresenter relatoriosPresenter;

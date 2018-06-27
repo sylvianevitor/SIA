@@ -40,7 +40,6 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
 
         Atividade atividadeDefault = new Atividade();
 
-//        creatAtivCores(atividadeDefault);
         List<Atividade> atividadeList = atividadeDAO.getAtividade();
 
         atividadesPresenter.updateList(atividadeList);
@@ -75,15 +74,4 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         rvAtividades.setLayoutManager(layoutManager);
         rvAtividades.addItemDecoration(dividerItemDecoration);
     }
-
-//    public void creatAtivCores(Atividade atividade){
-//        atividade.setNome("Misturando Cores");
-//        atividade.setDescricao("Aprender sobre cores");
-//        atividade.setDificuldade(1);
-//        atividade.setObjetivo("Aprender sobre cores");
-//        atividade.setDt_cadastro("11/04/1997");
-//        // verificar se já existe
-//        if(atividadeDAO.getAtividadeId(1) == null)
-//            atividadeDAO.insert(atividade);
-//    }
 }

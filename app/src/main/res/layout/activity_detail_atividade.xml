@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="271dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,50 +54,30 @@
             android:inputType="textMultiLine" />
 
         <TextView
-            android:id="@+id/textodificuldadeatividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:labelFor="@id/campodificuldadeatividade"
+            android:labelFor="@id/campodificuldadeativ"
             android:text="Dificuldade" />
 
         <TextView
-            android:id="@id/campodificuldadeatividade"
-            android:layout_width="wrap_content"
+            android:id="@+id/campodificuldadeativ"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:inputType="textMultiLine" />
 
         <TextView
-            android:id="@+id/textotemaatividade"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:labelFor="@id/campotemaatividade"
+            android:labelFor="@id/campotemaativ"
             android:text="Tema" />
+
         <TextView
-            android:id="@id/campotemaatividade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </RelativeLayout>
-
-        <Button
-            android:id="@+id/botaoIniciarAtividade"
+            android:id="@+id/campotemaativ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="42dp"
-            android:backgroundTint="@color/colorAccent"
-            android:text="Iniciar"
-            android:textAllCaps="true"
-            android:textColor="#fff" />
+            android:inputType="text" />
 
         <Button
             android:id="@+id/botaoEditarAtividade"
@@ -106,11 +86,12 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="42dp"
             android:backgroundTint="@color/colorAccent"
             android:text="Editar"
             android:textAllCaps="true"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="381dp" />
 
         <Button
             android:id="@+id/botaoExcluirAtividade"
@@ -119,11 +100,32 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="42dp"
             android:backgroundTint="@color/colorAccent"
             android:text="Excluir"
             android:textAllCaps="true"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="429dp" />
 
+        <Button
+            android:id="@+id/botaoIniciarAtividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Iniciar"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="333dp" />
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>
+    <!--</LinearLayout>-->
 </android.support.constraint.ConstraintLayout>

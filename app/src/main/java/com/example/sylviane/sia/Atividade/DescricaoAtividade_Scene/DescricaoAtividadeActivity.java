@@ -32,6 +32,9 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
     @BindView(R.id.campodescricaoatividade) EditText descricaoAtividadeEditText;
     @BindView(R.id.campodificuldadeatividade)Spinner dificuldadeAtividade;
     @BindView(R.id.campotemaatividade)Spinner temaAtividade;
+    boolean editar = false ;
+    Atividade atividadeExistente;
+    AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     DescricaoAtividadePresenter descricaoAtividadePresenter;
     @Override
@@ -48,6 +51,8 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
 
         if(id_atividade != -1) { //Obter campos possivelmente ja preenchidos
             preenchimento(id_atividade);
+            atividadeExistente = atividadeDAO.getAtividadeId(id_atividade);
+            editar = true;
         }
 
         descricaoAtividadePresenter = new DescricaoAtividadePresenter(this);
@@ -75,26 +80,25 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
     public void efetuaCadastro(){
 
         Atividade atividade = new Atividade();
+        if (editar){
+            atividade = atividadeExistente;
+        }
         atividade.setNome(nomeAtividadeEditText.getText().toString());
         atividade.setObjetivo(objetivoAtividadeEditText.getText().toString());
         atividade.setDescricao(descricaoAtividadeEditText.getText().toString());
-
-        atividade.setDificuldade(2);
         atividade.setDt_cadastro("teste");
         atividade.setId_proprietario(1);
-        atividade.setId_tema(1);
         atividade.setNr_execucoes(0);
         atividade.setTipo_atividade(Atividade.TIPO_ATIVA);
         atividade.setDificuldade(dificuldadeAtividade.getSelectedItemPosition());
         Tema t = (Tema) temaAtividade.getSelectedItem();
         atividade.setId_tema(t.getId());
+        atividade.setAtiva(Atividade.SITUACAO_ATIVA);
 
-        AtividadeDAO atividadeDAO = new AtividadeDAO(DescricaoAtividadeActivity.this);
-
-        //atividade.set_ativa(Atividade.SITUACAOINATIVA); //"EXCLUIR"
-        //editar cadastro caso ja exista e nao inserir uma nova
-        atividade = atividadeDAO.insert(atividade);
-       //atividade = atividadeDAO.update(atividade); "ATUALIZAR"
+        if (editar){ //editar cadastro caso ja exista e nao inserir uma nova
+            Log.d("Editar atividade", Integer.toString(atividade.getId()));
+            atividade = atividadeDAO.update(atividade);
+        }else{atividade = atividadeDAO.insert(atividade);}
 
         Toast toast;
 
