@@ -34,7 +34,7 @@ public class RelatoriosActivity extends AppCompatActivity implements RelatoriosV
         Intent intent = getIntent();
         int pontuacao = intent.getIntExtra("pontos", 0);
         id_execucao = intent.getIntExtra("id_execucao",0);
-//        Log.d("Execucao id", Integer.toString(id_execucao));
+        Log.d("Execucao id", Integer.toString(id_execucao));
 
         relatoriosPresenter = new RelatoriosPresenter(this);
         execucaoDAO = new ExecucaoDAO(this);
