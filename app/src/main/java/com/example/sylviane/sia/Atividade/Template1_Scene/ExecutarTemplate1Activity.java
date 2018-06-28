@@ -104,9 +104,11 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         } else {
             mp = MediaPlayer.create(this, R.raw.sound);
         }
-        Bitmap imageFile = executarTemplate1Presenter.load_image();
-        if (imageFile != null) {
-            image1.setImageBitmap(imageFile);
+        List<Bitmap> imageFiles = executarTemplate1Presenter.load_image();
+        if (imageFiles != null) {
+            image1.setImageBitmap(imageFiles.get(0));
+            image2.setImageBitmap(imageFiles.get(1));
+            image3.setImageBitmap(imageFiles.get(2));
         }
     }
 

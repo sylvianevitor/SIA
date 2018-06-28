@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
-import android.provider.MediaStore;
 import android.util.Log;
 
-import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.Relatorios.RelatoriosActivity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.dao.ExecucaoDAO;
@@ -18,7 +16,7 @@ import com.example.sylviane.sia.persist.model.Execucao;
 import com.example.sylviane.sia.persist.model.Template1;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,19 +41,19 @@ public class ExecutarTemplate1Presenter {
         atividade = atividadeDAO.getAtividadeId(id_atividade);
     }
 
-    public Bitmap load_image(){
+    public List<Bitmap> load_image(){
         Template1DAO template1DAO = new Template1DAO(contexto);
-        Bitmap imagemBitmap = null;
+        List <Bitmap> imagemBitmap = new ArrayList<Bitmap>();
         List<Template1> arquivos = template1DAO.getArquivos(atividade);
 
-        Log.d("Total de arquivos", Integer.toString(arquivos.size()));
-
-        //String PathImage = arquivos.get(1).getImage();
-       // Log.d("path da imagem", PathImage);
-        /*File imgFile = new  File(PathImage);
-        if(imgFile.exists()){
-            imagemBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-        }*/
+        for (int i =0; i < 3; i++) {
+            String PathImage = arquivos.get(i).getImage();
+            Log.d("path da imagem", PathImage);
+            File imgFile = new File(PathImage);
+            if (imgFile.exists()) {
+                imagemBitmap.add(i, BitmapFactory.decodeFile(imgFile.getAbsolutePath()));
+            }
+        }
         return imagemBitmap;
     }
 
