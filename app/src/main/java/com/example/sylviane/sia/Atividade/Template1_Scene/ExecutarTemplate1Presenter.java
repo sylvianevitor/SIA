@@ -79,7 +79,7 @@ public class ExecutarTemplate1Presenter {
     public void sair(int pontuacao, int[]assistidos, Context contexto, int atividade_id){
         Intent abrirFeedback = new Intent(contexto, RelatoriosActivity.class);
         abrirFeedback.putExtra("pontos", pontuacao);
-        gravar_execucao(pontuacao, assistidos,atividade_id);
+        abrirFeedback.putExtra("id_execucao", gravar_execucao(pontuacao, assistidos,atividade_id));
         contexto.startActivity(abrirFeedback);
     }
 
@@ -91,7 +91,7 @@ public class ExecutarTemplate1Presenter {
         return r.nextInt((max - min) + 1) + min;
     }
 
-    public void gravar_execucao(int pontuacao, int[]assistidos, int atividade_id){
+    public int gravar_execucao(int pontuacao, int[]assistidos, int atividade_id){
         execucao.setId_atividade(atividade_id);
         //execucao.setHora();
         //execucao.setData();
@@ -102,5 +102,6 @@ public class ExecutarTemplate1Presenter {
         //execucao.setId_assistido(assistidos);
         ExecucaoDAO execucaoDAO = new ExecucaoDAO(contexto);
         execucaoDAO.insert(execucao);
+        return execucao.getId();
     }
 }
