@@ -80,7 +80,7 @@ public class AtividadeDAO {
 
         String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade"};
 
-        Cursor cursor = db.query(TABLE, campos, "id=?", new String[] { Integer.toString(id) }, null, null, "descricao");
+        Cursor cursor = db.query(TABLE, campos, "id=?", new String[] { Integer.toString(id) }, null, null, null);
 
         if(cursor == null || cursor.getCount() <= 0) {
 
@@ -146,7 +146,7 @@ public class AtividadeDAO {
 
         String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade"};
 
-        Cursor cursor = db.query(TABLE, campos, "id_tema=?", new String[] { Integer.toString(idTema) }, null, null, "descricao");
+        Cursor cursor = db.query(TABLE, campos, "id_tema=? and ativa=?", new String[] { Integer.toString(idTema), Integer.toString(Atividade.SITUACAO_ATIVA) }, null, null, "descricao");
 
         if(cursor!=null) {
 

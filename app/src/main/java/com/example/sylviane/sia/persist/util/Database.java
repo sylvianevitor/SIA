@@ -29,6 +29,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(this.getSQLCreateTableProfissional());
         db.execSQL(this.getSQLCreateTableTemplate1());
         db.execSQL(this.getSQLCreateTableExecucao());
+        db.execSQL(this.getSQLCreateTableExecucaoAssistido());
         db.execSQL(this.getSQLCreateTablePassivaTemplate1());
     }
 
@@ -111,13 +112,20 @@ public class Database extends SQLiteOpenHelper {
         String sql = "CREATE TABLE execucao ( " +
                 "id integer primary key autoincrement, " +
                 "id_atividade integer, " +
-                "id_assistido integer, " +
                 "data text, " +
                 "hora text, " +
                 "perc_acertos real," +
                 "tempo real," +
                 "observacao text," +
                 "pontos real )";
+        return sql;
+    }
+
+    private String getSQLCreateTableExecucaoAssistido() {
+        String sql = "CREATE TABLE execucao_assistido ( " +
+                "id integer primary key autoincrement, " +
+                "id_execucao integer, " +
+                "id_assistido integer)";
         return sql;
     }
 }
