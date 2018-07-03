@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.sylviane.sia.Atividade.Atividade_Passiva.CriarAtividadePassiva.CriarAtividadePassivaActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
@@ -90,7 +91,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
         if (atividade != null) {
             toast = Toast.makeText(DescricaoAtividadeActivity.this, "Descrição de atividade cadastrada com sucesso", Toast.LENGTH_LONG);
             toast.show();
-            Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarTemplate1Activity.class);
+            Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarAtividadePassivaActivity.class);
             abrirCriarTemplate1Activity.putExtra("id_atividade", atividade.getId());
             startActivity(abrirCriarTemplate1Activity);
 

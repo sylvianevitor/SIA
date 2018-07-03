@@ -14,16 +14,20 @@
         <activity
             android:name=".Main_Scene.MainActivity"
             android:theme="@style/AppThemeNoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".ListaAssistidos.AssistidosActivity"
             android:label="Lista de Assistidos"></activity>
+        <activity
+            android:name=".Atividade.Atividade_Passiva.CriarAtividadePassiva.CriarAtividadePassivaActivity">
+        </activity>
+
         <activity
             android:name=".ListaAtividades.AtividadesActivity"
             android:label="Lista de Atividades"></activity>
@@ -33,7 +37,8 @@
         <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity" />
         <activity
             android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity"
-            android:label="Cadastro da Atividade"></activity>
+            android:label="Cadastro da Atividade">
+        </activity>
         <activity
             android:name=".Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity"
             android:label="Cadastro de Novo Tema Interativo"></activity>
