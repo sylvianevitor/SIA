@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:labelFor="@id/camponomeatividade"
             android:text="Nome da atividade" />
 
@@ -22,33 +23,41 @@
             android:id="@+id/camponomeatividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:labelFor="@id/campoobjetivoatividade"
-            android:text="Objetivo" />
+            android:text="Objetivo"
+            android:layout_marginLeft="10dp"/>
 
         <EditText
             android:id="@+id/campoobjetivoatividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:labelFor="@id/campodescricaoatividade"
-            android:text="Descrição" />
+            android:text="Descrição"
+            android:layout_marginLeft="10dp"/>
 
         <EditText
             android:id="@+id/campodescricaoatividade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,14 +78,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:labelFor="@id/campodificuldadeatividade"
-                    android:text="Dificuldade" />
+                    android:text="Dificuldade"
+                    android:layout_marginLeft="10dp"/>
 
                 <Spinner
                     android:id="@+id/campodificuldadeatividade"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/grau_dificuldade_array" />
+                    android:entries="@array/grau_dificuldade_array"
+                    android:layout_marginLeft="10dp"/>
 
             </LinearLayout>
 
@@ -99,7 +110,8 @@
                     style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/temas_array" />
+                    android:entries="@array/temas_array"
+                    android:layout_marginRight="10dp"/>
 
             </LinearLayout>
         </LinearLayout>
