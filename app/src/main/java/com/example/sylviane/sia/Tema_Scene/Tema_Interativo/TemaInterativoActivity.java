@@ -6,11 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
+import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by mariana on 25/04/18.
@@ -29,8 +31,6 @@ import butterknife.ButterKnife;
 public class TemaInterativoActivity extends AppCompatActivity implements TemaInterativoView {
 
     @BindView(R.id.temas_list) RecyclerView rvTemas;
-
-   // private BancoDados bancoDados;
 
     TemaInterativoPresenter temaInterativoPresenter;
 
@@ -47,12 +47,14 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
 
         TemaDAO temaDAO = new TemaDAO(TemaInterativoActivity.this);
         List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD
-
-        Log.d("LUAN", Integer.toString(temaList.size()));
-
         this.updateList(temaList);
     }
 
+    @OnClick(R.id.botaoVoltar)
+    public void voltar() {
+        Intent Retornar = new Intent(TemaInterativoActivity.this, MainActivity.class);
+        startActivity(Retornar);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -80,8 +82,6 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layoutManager.getOrientation());
         rvTemas.addItemDecoration(dividerItemDecoration);
 
-        
-
     }
 
     @Override
@@ -105,4 +105,5 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         Intent openCadastrarTemaInterativoActivity = new Intent(TemaInterativoActivity.this, CadastrarTemasInterativosActivity.class);
         startActivity(openCadastrarTemaInterativoActivity);
     }
+
 }

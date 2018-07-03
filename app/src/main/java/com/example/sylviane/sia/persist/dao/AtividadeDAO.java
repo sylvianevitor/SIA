@@ -35,27 +35,53 @@ public class AtividadeDAO {
         values.put("nr_execucoes", atividade.getNr_execucoes());
         values.put("id_tema", atividade.getId_tema());
         values.put("tipo_atividade", atividade.getTipo_atividade());
+        values.put("ativa", Atividade.SITUACAO_ATIVA);
 
-        long result = db.insert(TABLE, null, values);
+        int result = (int)db.insert(TABLE, null, values);
         db.close();
 
-        if(result == -1) {
+        if(result == -1)
             return null;
-        } else {
-            atividade.setId((int)result);
-            return atividade;
-        }
+
+        atividade.setId(result);
+
+        return atividade;
+    }
+
+    public Atividade update(Atividade atividade) {
+
+        db = database.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("nome", atividade.getNome());
+        values.put("objetivo", atividade.getObjetivo());
+        values.put("descricao", atividade.getDescricao());
+        values.put("dificuldade", atividade.getDificuldade());
+        values.put("id_proprietario", atividade.getId_proprietario());
+        values.put("dt_cadastro", atividade.getDt_cadastro());
+        values.put("nr_execucoes", atividade.getNr_execucoes());
+        values.put("id_tema", atividade.getId_tema());
+        values.put("tipo_atividade", atividade.getTipo_atividade());
+        values.put("ativa", atividade.getAtiva());
+
+        long result = db.update(TABLE, values, "id=?", new String[] { Integer.toString(atividade.getId()) });
+        db.close();
+
+        if(result == -1)
+            return null;
+
+        return atividade;
     }
 
     public Atividade getAtividadeId(int id) {
 
         db = database.getReadableDatabase();
 
-        String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade"};
+        String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade", "ativa"};
 
-        Cursor cursor = db.query(TABLE, campos, "id=?", new String[] { Integer.toString(id) }, null, null, "descricao");
+        Cursor cursor = db.query(TABLE, campos, "id=?", new String[] { Integer.toString(id) }, null, null, null);
 
-        if(cursor==null) {
+        if(cursor == null || cursor.getCount() <= 0) {
 
             db.close();
             return null;
@@ -73,6 +99,7 @@ public class AtividadeDAO {
         atividade.setNr_execucoes(cursor.getInt(7));
         atividade.setId_tema(cursor.getInt(8));
         atividade.setTipo_atividade(cursor.getInt(9));
+        atividade.setAtiva(cursor.getInt(10));
 
         db.close();
         return atividade;
@@ -84,9 +111,9 @@ public class AtividadeDAO {
 
         db = database.getReadableDatabase();
 
-        String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade"};
+        String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade", "ativa"};
 
-        Cursor cursor = db.query(TABLE, campos, null, null, null, null, "descricao");
+        Cursor cursor = db.query(TABLE, campos, "ativa=?", new String[] { Integer.toString(Atividade.SITUACAO_ATIVA) }, null, null, "descricao");
 
         if(cursor!=null) {
 
@@ -102,6 +129,7 @@ public class AtividadeDAO {
                 atividade.setNr_execucoes(cursor.getInt(7));
                 atividade.setId_tema(cursor.getInt(8));
                 atividade.setTipo_atividade(cursor.getInt(9));
+                atividade.setAtiva(cursor.getInt(10));
                 list.add(atividade);
             }
         }
@@ -117,9 +145,9 @@ public class AtividadeDAO {
 
         db = database.getReadableDatabase();
 
-        String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade"};
+        String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade", "ativa"};
 
-        Cursor cursor = db.query(TABLE, campos, "id_tema=?", new String[] { Integer.toString(idTema) }, null, null, "descricao");
+        Cursor cursor = db.query(TABLE, campos, "id_tema=? and ativa=?", new String[] { Integer.toString(idTema), Integer.toString(Atividade.SITUACAO_ATIVA) }, null, null, "descricao");
 
         if(cursor!=null) {
 
@@ -135,6 +163,7 @@ public class AtividadeDAO {
                 atividade.setNr_execucoes(cursor.getInt(7));
                 atividade.setId_tema(cursor.getInt(8));
                 atividade.setTipo_atividade(cursor.getInt(9));
+                atividade.setAtiva(cursor.getInt(10));
                 list.add(atividade);
             }
         }

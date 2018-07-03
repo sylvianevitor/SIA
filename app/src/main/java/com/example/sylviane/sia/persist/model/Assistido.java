@@ -12,6 +12,7 @@ public class Assistido {
     private String medicamentos;
     private String imagem;
     private int idade;
+    private boolean selected;
 
     public String getImagem() { return imagem; }
 
@@ -75,5 +76,9 @@ public class Assistido {
 
     public void setInformacoes(String informacoes) {
         this.informacoes = informacoes;
+    }
+
+    public boolean isSelected() {
+        return selected;
     }
 }

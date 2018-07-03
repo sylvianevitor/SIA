@@ -30,4 +30,20 @@ public class MainPresenter extends AppCompatActivity {
         mainView.ver();
     }
 
+    public void creatAtivDefault(Context contexto){
+        AtividadeDAO atividadeDAO = new AtividadeDAO(contexto);
+        Atividade atividadeDefault = new Atividade();
+
+        atividadeDefault.setNome("Misturando Cores");
+        atividadeDefault.setDescricao("Aprender sobre cores");
+        atividadeDefault.setDificuldade(1);
+        atividadeDefault.setObjetivo("Aprender sobre cores");
+        atividadeDefault.setDt_cadastro("11/04/1997");
+
+        // verificar se já existe
+        // if(atividadeDAO.getAtividadeId(1) != null)
+
+        atividadeDAO.insert(atividadeDefault);
+    }
+
 }

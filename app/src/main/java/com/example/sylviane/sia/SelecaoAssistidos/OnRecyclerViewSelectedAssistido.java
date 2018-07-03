@@ -7,6 +7,7 @@ import android.view.View;
  */
 
 public interface OnRecyclerViewSelectedAssistido {
-    abstract void onClick(View view, int position);
+    void onClick(View view, int position, boolean state);
+
     void onLongClick(View view, int position);
 }

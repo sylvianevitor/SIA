@@ -16,6 +16,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.Relatorios.RelatoriosActivity;
@@ -24,7 +25,10 @@ import com.example.sylviane.sia.persist.dao.Template1DAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.Template1;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,12 +37,14 @@ import butterknife.OnClick;
 /**
  * Created by sylviane on 12/05/18.
  */
-
 public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View {
     ExecutarTemplate1Presenter executarTemplate1Presenter;
-    int exec = 0;
     MediaPlayer mp;
-    int pontuacao = 100;
+    List<MediaPlayer> audioFiles = new ArrayList<MediaPlayer>();
+    int pontuacao = 0;
+    int id_atividade;
+    int[] id_assistidos;
+    int index = -1;
 
     @BindView(R.id.imageButton1)
     ImageButton image1;
@@ -51,73 +57,99 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     @BindView(R.id.btnSair)
     Button sair;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exec_template1);
 
         ButterKnife.bind(this);
-        executarTemplate1Presenter = new ExecutarTemplate1Presenter(this, this);
+        Intent intent = getIntent();
+        id_atividade = intent.getIntExtra("id_atividade", 0);
+        id_assistidos = intent.getIntArrayExtra("id_assistidos");
+
+        executarTemplate1Presenter = new ExecutarTemplate1Presenter(this, this, id_atividade);
         load_info();
     }
 
     @OnClick(R.id.btnAudio)
     public void play() {
-        mp = MediaPlayer.create(this, R.raw.sound);
+        Log.d("Antigo audio", Integer.toString(index));
+        mp = audioFiles.get(index);
         mp.start();
     }
 
     @OnClick(R.id.imageButton1)
     public void selectImage1() {
-        //desabilitar click de imagem ja selecionada
-        image1.setClickable(false);
-        selecao();
+        selecao(0);
     }
 
     @OnClick(R.id.imageButton2)
     public void selectImage2() {
-        image2.setClickable(false);
-        selecao();
+        selecao(1);
     }
 
     @OnClick(R.id.imageButton3)
     public void selectImage3() {
-        image3.setClickable(false);
-        selecao();
+        selecao(2);
     }
 
     @OnClick(R.id.btnSair)
     public void fim() {
-        executarTemplate1Presenter.sair(pontuacao, this);
+        executarTemplate1Presenter.sair(pontuacao,id_assistidos, this, id_atividade);
     }
 
     @Override
     public void load_info() {
         //Carregar conteudo
-        MediaPlayer audioFile = executarTemplate1Presenter.load_audio();
-        if (audioFile != null) {
-            mp = audioFile;
+        audioFiles = executarTemplate1Presenter.load_audio();
+        if (audioFiles != null) {
+            index = executarTemplate1Presenter.getRandomIndex(0, 2);
+            mp = audioFiles.get(index);
+            Log.d("Audio recebido", Integer.toString(index));
         } else {
             mp = MediaPlayer.create(this, R.raw.sound);
         }
-        Bitmap imageFile = executarTemplate1Presenter.load_image();
-        if (imageFile != null) {
-            image1.setImageBitmap(imageFile);
+        List<Bitmap> imageFiles = executarTemplate1Presenter.load_image();
+        if (imageFiles != null) {
+            image1.setImageBitmap(imageFiles.get(0));
+            image2.setImageBitmap(imageFiles.get(1));
+            image3.setImageBitmap(imageFiles.get(2));
         }
     }
 
+
     @Override
-    public void selecao(){
-        executarTemplate1Presenter.selecao_imagem();
-        exec++;
-        //nao ha mais imagens para selecionar
-        if (exec == 3) {
-            fim();
+    public void selecao(int i) {
+        Log.d("Audio tocado", Integer.toString(index));
+        Log.d("Imagem escolhida", Integer.toString(i));
+        Toast toast;
+        if (index == i) {
+            pontuacao += 10; // acertou
+            switch (index){
+                case 0:
+                    index = 1;
+                    Log.d("Novo audio", Integer.toString(index));
+                    image1.setClickable(false);
+                    break;
+                case 1:
+                    index = 2;
+                    Log.d("Novo audio", Integer.toString(index));
+                    image2.setClickable(false);
+                    break;
+                case 2:
+                    index = 0;
+                    Log.d("Novo audio", Integer.toString(index));
+                    image3.setClickable(false);
+                    break;
+            }
+            toast = Toast.makeText(ExecutarTemplate1Activity.this, "PARABENS, VOCE ACERTOU!", Toast.LENGTH_LONG);
+            toast.show();
+        }else{
+            toast = Toast.makeText(ExecutarTemplate1Activity.this, "TENTE NOVAMENTE!", Toast.LENGTH_LONG);
+            toast.show();
         }
-        image1.setImageResource(R.drawable.ic_menu_profile);
-        //carregar proximo audio
-        load_info();
+        if(pontuacao == 30){fim();} // acertou todas
+
     }
 
 

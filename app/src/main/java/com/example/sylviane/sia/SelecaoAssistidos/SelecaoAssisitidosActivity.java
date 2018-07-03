@@ -7,15 +7,19 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -33,18 +37,29 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
     @BindView(R.id.linear_layout_loading)
     LinearLayout loadingLayout;
 
-    private int selectedPos = RecyclerView.NO_POSITION;
+    private List<Integer> idAssistidosList = new ArrayList<Integer>();;
 
     SelecaoAssistidosPresenter assistidosPresenter;
     AssistidoDAO assistidoDAO = new AssistidoDAO(SelecaoAssisitidosActivity.this);
+
+    int id_assistido, id_atividade;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_assistidos);
+
         ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+        id_atividade = intent.getIntExtra("id_atividade",0);
+        //Log.d("ID ATIVIDADE", String.valueOf(id_atividade));
+
         assistidosPresenter= new SelecaoAssistidosPresenter(this);
+
         assistidoDAO.popularAssistidos();
-        List<Assistido> listaAssistidos = assistidoDAO.getAssistidos(); //lista do banco
+        List<Assistido> listaAssistidos = assistidoDAO.getAssistidos();
+
         this.updateList(listaAssistidos);
     }
 
@@ -54,12 +69,14 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
 
         assistidosAdapter.setOnRecyclerViewSelected(new OnRecyclerViewSelectedAssistido() {
             @Override
-            public void onClick(View view, int position) {
-                assistidosAdapter.notifyItemChanged(position);
-                Intent intent = new Intent
-                        (SelecaoAssisitidosActivity.this, ExecutarTemplate1Activity.class); //trocar para AtividadesActivity
-                //salvar no banco assistido selecionado
-                startActivity(intent);
+            public void onClick(View view, int position, boolean state) {
+                id_assistido = assistidosList.get(position).getId();
+                Log.d("ID ASSISTIDO", String.valueOf(id_assistido));
+                if(state == true){
+                    adicionar(id_assistido);
+                }else{
+                    remover(idAssistidosList, id_assistido);
+                }
             }
 
             @Override
@@ -68,6 +85,7 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
             }
 
         });
+
         rvAssistidos.setAdapter(assistidosAdapter);
 
         // criação do gerenciador de layouts
@@ -76,6 +94,56 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layoutManager.getOrientation());
         rvAssistidos.addItemDecoration(dividerItemDecoration);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_iniciar_atividade, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_salvar:
+                assistidosPresenter.iniciarAtividade();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void iniciar(List<Integer> idAssistidosList){
+        if (id_atividade == 1) {
+            Log.d("Iniciar atividade", "Atividade cores");
+            Intent ExecucaoCores = new Intent(SelecaoAssisitidosActivity.this, ExecutarCoresActivity.class);
+            ExecucaoCores.putExtra("id_atividade", id_atividade);
+            ExecucaoCores.putExtra("assistido_id", String.valueOf(idAssistidosList));
+            startActivity(ExecucaoCores);
+        }else{
+        Intent intent = new Intent (SelecaoAssisitidosActivity.this, ExecutarTemplate1Activity.class);
+        intent.putExtra("id_atividade", id_atividade);
+        intent.putExtra("assistido_id", String.valueOf(idAssistidosList));
+        startActivity(intent);}
+    }
+
+    public void adicionar(int id_assistido){
+        idAssistidosList.add(id_assistido);
+        Log.d("LISTA IDs", String.valueOf(idAssistidosList));
+    }
+
+    public void remover(List<Integer> idAssistidosList, int id_assistido){
+        int posicao = 0;
+
+        for(int i = 0; i < idAssistidosList.size(); i++){
+            if (idAssistidosList.get(i).equals(id_assistido)){
+                posicao = i;
+            }
+        }
+
+        idAssistidosList.remove(posicao);
+
+        Log.d("LISTA IDs", String.valueOf(idAssistidosList));
     }
 
 }

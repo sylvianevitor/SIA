@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sylviane.sia.AtividadesDetail.AtividadesDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="271dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:labelFor="@id/camponome"
+            android:text="Nome da atividade" />
+
+        <TextView
+            android:id="@+id/camponome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text="Nome" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:labelFor="@id/campoobjetivo"
+            android:text="Objetivo" />
+
+        <TextView
+            android:id="@+id/campoobjetivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:labelFor="@id/campodescricao"
+            android:text="Descrição" />
+
+        <TextView
+            android:id="@+id/campodescricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:labelFor="@id/campodificuldadeativ"
+            android:text="Dificuldade" />
+
+        <TextView
+            android:id="@+id/campodificuldadeativ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:labelFor="@id/campotemaativ"
+            android:text="Tema" />
+
+        <TextView
+            android:id="@+id/campotemaativ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/botaoEditarAtividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Editar"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="381dp" />
+
+        <Button
+            android:id="@+id/botaoExcluirAtividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Excluir"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="429dp" />
+
+        <Button
+            android:id="@+id/botaoIniciarAtividade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/colorAccent"
+            android:text="Iniciar"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="333dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>
+    <!--</LinearLayout>-->
+</android.support.constraint.ConstraintLayout>
