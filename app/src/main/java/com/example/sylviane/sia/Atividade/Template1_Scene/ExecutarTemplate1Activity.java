@@ -54,8 +54,6 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     ImageButton image3;
     @BindView(R.id.btnAudio)
     Button audio;
-    @BindView(R.id.btnSair)
-    Button sair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,11 +91,6 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         selecao(2);
     }
 
-    @OnClick(R.id.btnSair)
-    public void fim() {
-        executarTemplate1Presenter.sair(pontuacao,id_assistidos, this, id_atividade);
-    }
-
     @Override
     public void load_info() {
         //Carregar conteudo
@@ -117,6 +110,11 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         }
     }
 
+
+    @Override
+    public void fim() {
+        executarTemplate1Presenter.sair(pontuacao,id_assistidos, this, id_atividade);
+    }
 
     @Override
     public void selecao(int i) {

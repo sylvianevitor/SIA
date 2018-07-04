@@ -43,7 +43,7 @@
         </activity>
         <activity
             android:name=".Tema_Scene.Tema_Interativo.TemaInterativoActivity"
-            android:label="Lista de Temas Interativos">
+            android:label="Lista de Temas">
         </activity>
         <activity
             android:name=".SelecaoAssistidos.SelecaoAssisitidosActivity"
@@ -66,7 +66,7 @@
         </activity>
 
         <activity android:name=".Atividade.Cores_Scene.ExecutarCoresActivity"
-            android:label="Execução da Atividade de Cores">
+            android:label="Atividade de Cores">
         </activity>
 
         <activity android:name=".AtividadesDetail.AtividadesDetailActivity"></activity>
