@@ -14,11 +14,6 @@
         <activity
             android:name=".Main_Scene.MainActivity"
             android:theme="@style/AppThemeNoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ListaAssistidos.AssistidosActivity"
@@ -32,7 +27,9 @@
             android:name=".SelecionarAtividade_Scene.SelecionarAtividadesActivity"
             android:theme="@style/AppThemeNoActionBar">
         </activity>
-        <activity android:name=".Atividade.Template1_Scene.CriarTemplate1Activity" />
+        <activity
+            android:name=".Atividade.Template1_Scene.CriarTemplate1Activity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity"
             android:label="Cadastro da Atividade">
@@ -50,7 +47,8 @@
             android:label="Seleção dos Assistidos">
         </activity>
 
-        <activity android:name=".Atividade.Template1_Scene.ExecutarTemplate1Activity"/>
+        <activity android:name=".Atividade.Template1_Scene.ExecutarTemplate1Activity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".AssistidosDetail.AssistidosDetailActivity"
             android:label="Informações do Assistido">
@@ -66,7 +64,17 @@
         </activity>
 
         <activity android:name=".Atividade.Cores_Scene.ExecutarCoresActivity"
-            android:label="Atividade de Cores">
+            android:label="Atividade de Cores"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity android:name=".SplashScreen.SplashScreenActivity"
+            android:theme="@style/AppThemeNoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".AtividadesDetail.AtividadesDetailActivity"></activity>
