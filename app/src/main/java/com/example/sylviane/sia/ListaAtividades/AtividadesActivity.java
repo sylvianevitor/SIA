@@ -37,12 +37,15 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
 
         ButterKnife.bind(this);
         atividadesPresenter = new AtividadesPresenter(this);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         Atividade atividadeDefault = new Atividade();
-
         List<Atividade> atividadeList = atividadeDAO.getAtividade();
-
         atividadesPresenter.updateList(atividadeList);
+
     }
 
     public void updateListAtividades(final List<Atividade> atividadesList) {
@@ -57,6 +60,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
                                 AtividadesDetailActivity.class);
                 intent.putExtra("atividade_id", atividadesList.get(position).getId());
                 startActivity(intent);
+                finish();
             }
 
             @Override

@@ -108,6 +108,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Des
             Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarTemplate1Activity.class);
             abrirCriarTemplate1Activity.putExtra("id_atividade", atividade.getId());
             startActivity(abrirCriarTemplate1Activity);
+            finish();
 
         } else{
             toast = Toast.makeText(DescricaoAtividadeActivity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);

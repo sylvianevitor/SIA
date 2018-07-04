@@ -100,6 +100,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         endTime = System.currentTimeMillis();
         elapsedTime = endTime - startTime;
         executarTemplate1Presenter.sair(pontuacao,id_assistidos, this, id_atividade, elapsedTime);
+        finish();
     }
 
     @Override

@@ -120,11 +120,13 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
             ExecucaoCores.putExtra("id_atividade", id_atividade);
             ExecucaoCores.putExtra("assistido_id", idAssistidosList);
             startActivity(ExecucaoCores);
+            finish();
         }else{
         Intent intent = new Intent (SelecaoAssisitidosActivity.this, ExecutarTemplate1Activity.class);
         intent.putExtra("id_atividade", id_atividade);
         intent.putExtra("assistido_id", idAssistidosList);
-        startActivity(intent);}
+        startActivity(intent);
+        finish();}
     }
 
     public void adicionar(int id_assistido){
