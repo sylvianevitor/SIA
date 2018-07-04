@@ -43,8 +43,9 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     List<MediaPlayer> audioFiles = new ArrayList<MediaPlayer>();
     int pontuacao = 0;
     int id_atividade;
-    int[] id_assistidos;
+    ArrayList<Integer> id_assistidos;
     int index = -1;
+    long startTime, endTime, elapsedTime;
 
     @BindView(R.id.imageButton1)
     ImageButton image1;
@@ -65,10 +66,11 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         ButterKnife.bind(this);
         Intent intent = getIntent();
         id_atividade = intent.getIntExtra("id_atividade", 0);
-        id_assistidos = intent.getIntArrayExtra("id_assistidos");
-
+        id_assistidos = intent.getIntegerArrayListExtra("assistido_id");
+        Log.d("LISTA IDs", String.valueOf(id_assistidos));
         executarTemplate1Presenter = new ExecutarTemplate1Presenter(this, this, id_atividade);
         load_info();
+        startTime = System.currentTimeMillis();
     }
 
     @OnClick(R.id.btnAudio)
@@ -95,7 +97,10 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
 
     @OnClick(R.id.btnSair)
     public void fim() {
-        executarTemplate1Presenter.sair(pontuacao,id_assistidos, this, id_atividade);
+        endTime = System.currentTimeMillis();
+        elapsedTime = endTime - startTime;
+        executarTemplate1Presenter.sair(pontuacao,id_assistidos, this, id_atividade, elapsedTime);
+        finish();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.sylviane.sia.Atividade.Cores_Scene;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.sylviane.sia.R;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,15 +42,19 @@ public class ExecutarCoresActivity extends AppCompatActivity implements Executar
     boolean red_set = false;
     boolean blue_set = false;
     boolean yellow_set = false;
+    ArrayList<Integer> assistidosList;
+    long startTime, endTime, elapsedTime;
     ExecutarCoresPresenter executarCoresPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exec_cores);
-
         ButterKnife.bind(this);
+        Intent intent = getIntent();
+        assistidosList = intent.getIntegerArrayListExtra("assistido_id");
         executarCoresPresenter = new ExecutarCoresPresenter(this, this);
+        startTime = System.currentTimeMillis();
     }
 
     @OnClick(R.id.colorButton1)
@@ -71,7 +78,10 @@ public class ExecutarCoresActivity extends AppCompatActivity implements Executar
 
     @OnClick(R.id.btnSair2)
     public void fim() {
-        executarCoresPresenter.sair(pontuacao, this);
+        endTime = System.currentTimeMillis();
+        elapsedTime = endTime - startTime;
+        executarCoresPresenter.sair(this, assistidosList, elapsedTime);
+        finish();
     }
 
     @Override

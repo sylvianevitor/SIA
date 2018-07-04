@@ -17,13 +17,13 @@ public class SelecaoAssistidosPresenter {
     private SelecaoAssistidosView assistidosView;
     private List<Assistido> assistidosList = new ArrayList<>();
     AssistidoDAO assistidoDAO;
-    private List<Integer> idAssistidosList;
+    private ArrayList<Integer> idAssistidosList;
 
     SelecaoAssistidosPresenter(SelecaoAssistidosView assistidosView){
         this.assistidosView = assistidosView;
     }
 
     public void iniciarAtividade() {
-        assistidosView.iniciar(idAssistidosList);
+        assistidosView.iniciar();
     }
 }

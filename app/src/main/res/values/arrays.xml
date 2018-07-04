@@ -19,6 +19,9 @@
         <item>Meio Ambiente</item>
         <item>Datas Comemorativas</item>
         <item>Vida Diária</item>
-
+    </string-array>
+    <string-array name="tipo_atividade">
+        <item>Ativa</item>
+        <item>Passiva</item>
     </string-array>
 </resources>

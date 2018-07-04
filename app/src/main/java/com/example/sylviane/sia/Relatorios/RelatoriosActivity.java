@@ -52,6 +52,6 @@ public class RelatoriosActivity extends AppCompatActivity implements RelatoriosV
 //        Execucao execucao = execucaoDAO.getExecucaoId(id_execucao);
 //        execucao.setObservacao(text_observacao.getText().toString());
         startActivity(voltarMainActivity);
-
+        finish();
     }
 }
