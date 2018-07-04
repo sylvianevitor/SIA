@@ -20,6 +20,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.example.sylviane.sia.AtividadesDetail.AtividadesDetailActivity;
 import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
@@ -46,6 +48,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     String selectedImagePath;
     private MediaPlayer mMediaPlayer;
     private AudioManager mAudioManager;
+    Atividade atividade;
 
     private int currentAudioId = 0;
     private int currentImageId = 0;
@@ -86,7 +89,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         int id_atividade = intent.getIntExtra("id_atividade", -1);
         Log.d("id mari", Integer.toString(id_atividade));
 
-        criarTemplate1Presenter.getAtividade(id_atividade);
+        atividade = criarTemplate1Presenter.getAtividade(id_atividade);
 
         //Classe responsável por solicitar o foco do áudio
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
@@ -238,8 +241,10 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     public void abrirMainActivity(boolean ok1, boolean ok2, boolean ok3){
         if (ok1 == true && ok2 == true && ok3 == true) {
             Toast.makeText(CriarTemplate1Activity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
-            Intent openCadastrarTemaInterativoActivity = new Intent(CriarTemplate1Activity.this, MainActivity.class);
-            startActivity(openCadastrarTemaInterativoActivity);
+            Intent abrirDetalhes = new Intent(CriarTemplate1Activity.this, AtividadesDetailActivity.class);
+            abrirDetalhes.putExtra("atividade_id", atividade.getId());
+            startActivity(abrirDetalhes);
+            finish();
 
         } else{
             Toast.makeText(CriarTemplate1Activity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG).show();

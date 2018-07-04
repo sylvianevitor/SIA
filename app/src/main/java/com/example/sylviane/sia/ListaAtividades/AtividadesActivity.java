@@ -41,6 +41,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
 
         Intent intent = getIntent();
         tipo_atividade = intent.getIntExtra("tipo_atividade",-1);
+        Log.d("tipo da atividade", Integer.toString(tipo_atividade));
         atividadesPresenter = new AtividadesPresenter(this);
     }
 

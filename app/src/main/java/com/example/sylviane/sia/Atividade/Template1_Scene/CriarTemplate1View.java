@@ -2,6 +2,8 @@ package com.example.sylviane.sia.Atividade.Template1_Scene;
 
 import android.content.Intent;
 
+import com.example.sylviane.sia.persist.model.Atividade;
+
 /**
  * Created by mariana on 01/05/18.
  */
@@ -19,7 +21,7 @@ interface CriarTemplate1View {
         void verificaResultado(int requestCode, int resultCode, Intent data);
         void selecionaImagem(int id);
         void selecionaAudio(int id);
-        void getAtividade(int id_atividade);
+        Atividade getAtividade(int id_atividade);
         void cadastrar(String audio1, String audio2, String audio3, String pathAudio1, String pathAudio2, String pathAudio3);
     }
 }

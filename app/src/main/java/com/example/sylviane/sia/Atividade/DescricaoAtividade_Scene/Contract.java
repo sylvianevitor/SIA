@@ -17,7 +17,7 @@ public interface Contract {
     }
 
     interface Presenter{
-        void cadastro(String nome, String objetivo, String descricao, Integer dificuldade, Tema tema);
+        void cadastro(String nome, String objetivo, String descricao, Integer dificuldade, Tema tema, Integer tipo);
         void getTemas();
         void getAtividade(int id_atividade);
     }

@@ -110,9 +110,10 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
     }
 
     @Override
-    public void getAtividade(int id_atividade) {
+    public Atividade getAtividade(int id_atividade) {
         AtividadeDAO atividadeDAO = new AtividadeDAO(context);
         atividade = atividadeDAO.getAtividadeId(id_atividade);
+        return atividade;
     }
 
     @Override

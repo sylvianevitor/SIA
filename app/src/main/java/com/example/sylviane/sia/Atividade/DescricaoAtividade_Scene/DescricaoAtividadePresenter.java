@@ -21,7 +21,7 @@ public class DescricaoAtividadePresenter implements Contract.Presenter {
         this.context = context;
     }
 
-    public void cadastro(String nome, String objetivo, String descricao, Integer dificuldade, Tema tema) {
+    public void cadastro(String nome, String objetivo, String descricao, Integer dificuldade, Tema tema, Integer tipo) {
         AtividadeDAO atividadeDAO = new AtividadeDAO(context);
         Atividade atividade = new Atividade();
         if (editar){
@@ -36,7 +36,9 @@ public class DescricaoAtividadePresenter implements Contract.Presenter {
         atividade.setDt_cadastro("teste");
         atividade.setId_proprietario(1);
         atividade.setNr_execucoes(0);
-        atividade.setTipo_atividade(Atividade.TIPO_ATIVA);
+        if (tipo == 0) {
+            atividade.setTipo_atividade(Atividade.TIPO_ATIVA);
+        } else if (tipo == 1){atividade.setTipo_atividade(Atividade.TIPO_PASSIVA);}
         atividade.setAtiva(Atividade.SITUACAO_ATIVA);
 
         if (editar){ //editar cadastro caso ja exista e nao inserir uma nova

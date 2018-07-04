@@ -28,6 +28,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
     @BindView(R.id.campodescricaoatividade) EditText descricaoAtividadeEditText;
     @BindView(R.id.campodificuldadeatividade)Spinner dificuldadeAtividade;
     @BindView(R.id.campotemaatividade)Spinner temaAtividade;
+    @BindView(R.id.campotipoatividade)Spinner tipoAtividade;
 
     Contract.Presenter descricaoAtividadePresenter;
 
@@ -82,7 +83,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
                 objetivoAtividadeEditText.getText().toString(),
                 descricaoAtividadeEditText.getText().toString(),
                 dificuldadeAtividade.getSelectedItemPosition(),
-                (Tema) temaAtividade.getSelectedItem());
+                (Tema) temaAtividade.getSelectedItem(), tipoAtividade.getSelectedItemPosition());
     }
 
     @Override
@@ -92,6 +93,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
         Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarTemplate1Activity.class);
         abrirCriarTemplate1Activity.putExtra("id_atividade", id_atividade);
         startActivity(abrirCriarTemplate1Activity);
+        finish();
 
     }
 }

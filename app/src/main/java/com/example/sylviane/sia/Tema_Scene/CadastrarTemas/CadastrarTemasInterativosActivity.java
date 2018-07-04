@@ -57,6 +57,7 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
             Toast.makeText(CadastrarTemasInterativosActivity.this, "Tema cadastrado com sucesso", Toast.LENGTH_LONG).show();
             Intent abrirTemasInterativosActivity = new Intent(CadastrarTemasInterativosActivity.this, TemaInterativoActivity.class);
             startActivity(abrirTemasInterativosActivity);
+            finish();
 
         } else{
             Toast.makeText(CadastrarTemasInterativosActivity.this, "Impossível cadastrar o tema", Toast.LENGTH_LONG).show();

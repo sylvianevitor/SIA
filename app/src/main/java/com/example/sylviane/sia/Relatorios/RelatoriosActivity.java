@@ -49,8 +49,8 @@ public class RelatoriosActivity extends AppCompatActivity implements RelatoriosV
     @Override
     public void sair() {
         Intent voltarMainActivity = new Intent(RelatoriosActivity.this, MainActivity.class);
-//        Execucao execucao = execucaoDAO.getExecucaoId(id_execucao);
-//        execucao.setObservacao(text_observacao.getText().toString());
+        //Execucao execucao = execucaoDAO.getExecucaoId(id_execucao);
+        //execucao.setObservacao(text_observacao.getText().toString());
         startActivity(voltarMainActivity);
         finish();
     }
