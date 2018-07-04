@@ -11,8 +11,10 @@ import com.example.sylviane.sia.persist.model.Atividade;
  */
 
 public class MainPresenter extends AppCompatActivity {
-    Context contexto;
+    Context context;
     MainView mainView = null;
+    AtividadeDAO atividadeDAO = new AtividadeDAO(context);
+
 
     public MainPresenter(MainView mainView){
         this.mainView = mainView;
@@ -31,19 +33,23 @@ public class MainPresenter extends AppCompatActivity {
     }
 
     public void creatAtivDefault(Context contexto){
-        AtividadeDAO atividadeDAO = new AtividadeDAO(contexto);
-        Atividade atividadeDefault = new Atividade();
 
-        atividadeDefault.setNome("Misturando Cores");
-        atividadeDefault.setDescricao("Aprender sobre cores");
-        atividadeDefault.setDificuldade(1);
-        atividadeDefault.setObjetivo("Aprender sobre cores");
-        atividadeDefault.setDt_cadastro("11/04/1997");
+        if(atividadeDAO.getAtividadeId(1) == null) {
 
-        // verificar se já existe
-        // if(atividadeDAO.getAtividadeId(1) != null)
+            AtividadeDAO atividadeDAO = new AtividadeDAO(contexto);
+            Atividade atividadeDefault = new Atividade();
 
-        atividadeDAO.insert(atividadeDefault);
+            atividadeDefault.setNome("Misturando Cores");
+            atividadeDefault.setDescricao("Aprender sobre cores");
+            atividadeDefault.setDificuldade(1);
+            atividadeDefault.setObjetivo("Aprender sobre cores");
+            atividadeDefault.setDt_cadastro("11/04/1997");
+
+            // verificar se já existe
+            // if(atividadeDAO.getAtividadeId(1) != null)
+
+            atividadeDAO.insert(atividadeDefault);
+        }
     }
 
 }

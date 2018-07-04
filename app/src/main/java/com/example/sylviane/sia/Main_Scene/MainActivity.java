@@ -22,7 +22,6 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity implements MainView {
 
     MainPresenter mainPresenter;
-    AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +32,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         mainPresenter = new MainPresenter(this);
 
-        if(atividadeDAO.getAtividadeId(1) == null) {
-            mainPresenter.creatAtivDefault(this); // chamada da funcao para criar atividade
-        }
+        mainPresenter.creatAtivDefault(this);
     }
 
     @OnClick(R.id.button_criar_atividade)
