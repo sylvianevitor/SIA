@@ -104,6 +104,7 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
             startActivity(openCadastrarTemaInterativoActivity);
             finish();
 
+
         } else{
             toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
             toast.show();
