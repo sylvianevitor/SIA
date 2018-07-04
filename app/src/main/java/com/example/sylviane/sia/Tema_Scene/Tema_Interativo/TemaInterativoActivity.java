@@ -33,6 +33,7 @@ public class TemaInterativoActivity extends AppCompatActivity implements Contrac
 
     @BindView(R.id.temas_list) RecyclerView rvTemas;
 
+    int tipo_atividade;
     Contract.Presenter temaInterativoPresenter;
 
     @Override
@@ -41,6 +42,8 @@ public class TemaInterativoActivity extends AppCompatActivity implements Contrac
         setContentView(R.layout.fragment_temas_list);
 
         ButterKnife.bind(this);
+        Intent intent = getIntent();
+        tipo_atividade = intent.getIntExtra("tipo_atividade",-1);
 
         temaInterativoPresenter = new TemaInterativoPresenter(this, this);
 
@@ -66,7 +69,9 @@ public class TemaInterativoActivity extends AppCompatActivity implements Contrac
             @Override
             public void onClick(View view, int position) {
                 Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
+                openListaAtividadesActivity.putExtra("tipo_atividade", tipo_atividade);
                 startActivity(openListaAtividadesActivity);
+                finish();
             }
         });
 
