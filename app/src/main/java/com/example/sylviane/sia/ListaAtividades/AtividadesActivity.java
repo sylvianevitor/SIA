@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
@@ -28,6 +29,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
     @BindView(R.id.rvAtividades) RecyclerView rvAtividades;
 
     AtividadesPresenter atividadesPresenter;
+    int tipo_atividade;
     AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     @Override
@@ -36,6 +38,9 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         setContentView(R.layout.activity_lista_atividades);
 
         ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+        tipo_atividade = intent.getIntExtra("tipo_atividade",-1);
         atividadesPresenter = new AtividadesPresenter(this);
     }
 
@@ -43,6 +48,10 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
     protected void onResume() {
         super.onResume();
         Atividade atividadeDefault = new Atividade();
+
+//        if(tipo_atividade == 0){
+//            List<Atividade> atividadeList = atividadeDAO.getAtividadeAtiva();
+//        } else if (tipo_atividade == 1){List<Atividade> atividadeList = atividadeDAO.getAtividadePassiva();}
         List<Atividade> atividadeList = atividadeDAO.getAtividade();
         atividadesPresenter.updateList(atividadeList);
 
