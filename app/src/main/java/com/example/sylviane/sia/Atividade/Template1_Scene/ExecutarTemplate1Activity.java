@@ -55,8 +55,6 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     ImageButton image3;
     @BindView(R.id.btnAudio)
     Button audio;
-    @BindView(R.id.btnSair)
-    Button sair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +93,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         selecao(2);
     }
 
-    @OnClick(R.id.btnSair)
+    @Override
     public void fim() {
         endTime = System.currentTimeMillis();
         elapsedTime = endTime - startTime;
