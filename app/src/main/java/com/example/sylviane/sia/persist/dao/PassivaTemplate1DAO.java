@@ -35,7 +35,7 @@ public class PassivaTemplate1DAO {
 
         String[] campos = {"id", "video", "id_atividade"};
 
-        Cursor cursor = db.query(TABLE, campos, "id_atividade=?", new String[] { Integer.toString(atividade.getId()) }, null, null, "descricao");
+        Cursor cursor = db.query(TABLE, campos, "id_atividade=?", new String[] { Integer.toString(atividade.getId()) }, null, null, null);
 
         if(cursor!=null) {
 
