@@ -90,9 +90,18 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
     public void abrirAtividade(int id_atividade){
 
         Toast.makeText(DescricaoAtividadeActivity.this, "Descrição de atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
-        Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarTemplate1Activity.class);
-        abrirCriarTemplate1Activity.putExtra("id_atividade", id_atividade);
-        startActivity(abrirCriarTemplate1Activity);
+
+        if (tipoAtividade.getSelectedItemPosition() == 1){
+            Intent abrirPassiva = new Intent(DescricaoAtividadeActivity.this, CriarAtividadePassivaActivity.class);
+            abrirPassiva.putExtra("id_atividade", id_atividade);
+            startActivity(abrirPassiva);
+        }
+        else{
+            Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarTemplate1Activity.class);
+            abrirCriarTemplate1Activity.putExtra("id_atividade", id_atividade);
+            startActivity(abrirCriarTemplate1Activity);
+        }
+
         finish();
 
     }

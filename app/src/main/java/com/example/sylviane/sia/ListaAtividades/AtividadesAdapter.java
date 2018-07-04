@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.Entity.AtividadesEntity;
+
 
 import java.util.List;
 

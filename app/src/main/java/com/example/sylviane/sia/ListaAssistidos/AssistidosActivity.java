@@ -12,7 +12,7 @@ import android.view.View;
 
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.AssistidosDetail.AssistidosDetailActivity;
-import com.example.sylviane.sia.Entity.AssistidosEntity;
+
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
 

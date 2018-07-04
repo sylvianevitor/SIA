@@ -27,7 +27,7 @@ public class PassivaTemplate1DAO {
         database = new Database(context);
     }
 
-    public List<PassivaTemplate1> getArquivos(Atividade atividade) {
+    public ArrayList<PassivaTemplate1> getArquivos(Atividade atividade) {
 
         ArrayList<PassivaTemplate1>  list = new ArrayList<PassivaTemplate1>();
 

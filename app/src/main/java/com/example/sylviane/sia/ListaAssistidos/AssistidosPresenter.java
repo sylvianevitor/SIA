@@ -3,8 +3,7 @@ import com.example.sylviane.sia.persist.model.Assistido;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.sylviane.sia.Entity.AssistidosEntity;
-import com.example.sylviane.sia.Entity.AssistidosListEntity;
+
 
 
 import java.util.ArrayList;
