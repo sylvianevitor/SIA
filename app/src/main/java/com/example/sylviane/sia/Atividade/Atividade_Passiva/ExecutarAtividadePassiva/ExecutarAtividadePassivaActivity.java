@@ -8,6 +8,12 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.persist.dao.AtividadeDAO;
+import com.example.sylviane.sia.persist.dao.PassivaTemplate1DAO;
+import com.example.sylviane.sia.persist.model.Atividade;
+import com.example.sylviane.sia.persist.model.PassivaTemplate1;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,6 +24,7 @@ import butterknife.ButterKnife;
 
 public class ExecutarAtividadePassivaActivity extends AppCompatActivity {
     @BindView(R.id.video_view_passiva)VideoView videoView;
+    Atividade atividade;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,16 +34,26 @@ public class ExecutarAtividadePassivaActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int id_atividade = intent.getIntExtra("id_atividade",-1);
 
+        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
+        atividade = atividadeDAO.getAtividadeId(id_atividade);
+        executaVideo();
 
+
+    }
+
+    public String load_video(){
+        PassivaTemplate1DAO passivaTemplate1DAO = new PassivaTemplate1DAO(this);
+        ArrayList<PassivaTemplate1>  passivaTemplate1 = passivaTemplate1DAO.getArquivos(atividade);
+        return passivaTemplate1.get(0).getVideo();
+    }
+    public void executaVideo(){
         videoView.setVideoPath(
-                "http://www.ebookfrenzy.com/android_book/movie.mp4");
+                load_video());
         MediaController mediaController = new
                 MediaController(this);
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
 
-
-        videoView.start();
 
     }
 }
