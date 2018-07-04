@@ -15,7 +15,6 @@ public interface Contract {
     interface View{
         void updateList(List<Tema> temaList);
         void cadastrar();
-        void voltar();
     }
 
     interface Presenter{

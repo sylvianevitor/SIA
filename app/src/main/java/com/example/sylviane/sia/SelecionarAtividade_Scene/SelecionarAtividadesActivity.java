@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoActivity;
-import com.example.sylviane.sia.Tema_Scene.Tema_Passivo.TemaPassivoActivity;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 

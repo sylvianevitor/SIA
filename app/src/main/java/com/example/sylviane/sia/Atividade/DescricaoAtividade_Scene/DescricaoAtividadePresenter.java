@@ -59,6 +59,7 @@ public class DescricaoAtividadePresenter implements Contract.Presenter {
     public void getAtividade(int id_atividade){
         AtividadeDAO atividadeDAO = new AtividadeDAO(context);
         Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
+        atividadeExistente = atividade;
 
         if(id_atividade != -1) {
             descricaoAtividadeView.preenchimento(atividade.getNome(), atividade.getObjetivo(), atividade.getDescricao());

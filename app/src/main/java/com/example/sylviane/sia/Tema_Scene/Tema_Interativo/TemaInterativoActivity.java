@@ -29,33 +29,27 @@ import butterknife.OnClick;
  * Created by mariana on 25/04/18.
  */
 
-public class TemaInterativoActivity extends AppCompatActivity implements TemaInterativoView {
+public class TemaInterativoActivity extends AppCompatActivity implements Contract.View {
 
     @BindView(R.id.temas_list) RecyclerView rvTemas;
 
-    int tipo_atividade;
-    TemaInterativoPresenter temaInterativoPresenter;
+    Contract.Presenter temaInterativoPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //String jsonSocial = getIntent().getStringExtra("json_social");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_temas_list);
 
         ButterKnife.bind(this);
-        Intent intent = getIntent();
-        tipo_atividade = intent.getIntExtra("tipo_atividade",-1);
-        temaInterativoPresenter = new TemaInterativoPresenter(this);
+
+        temaInterativoPresenter = new TemaInterativoPresenter(this, this);
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        TemaDAO temaDAO = new TemaDAO(TemaInterativoActivity.this);
-        List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD
-        this.updateList(temaList);
+        temaInterativoPresenter.getTema();
     }
 
     @Override
@@ -72,9 +66,7 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
             @Override
             public void onClick(View view, int position) {
                 Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
-                openListaAtividadesActivity.putExtra("tipo_atividade", tipo_atividade);
                 startActivity(openListaAtividadesActivity);
-                finish();
             }
         });
 
