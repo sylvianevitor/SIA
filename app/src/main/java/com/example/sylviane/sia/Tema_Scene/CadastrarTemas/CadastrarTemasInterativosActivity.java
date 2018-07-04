@@ -56,6 +56,8 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
 
     }
 
+
+
     @OnClick(R.id.button_salvar_tema)
     public void salvarTema(){
         cadastrarTemasInterativoPresenter.salvarTema();
@@ -83,8 +85,7 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
         if (ok == true) {
             toast = Toast.makeText(CadastrarTemasInterativosActivity.this, "Tema cadastrado com sucesso", Toast.LENGTH_LONG);
             toast.show();
-            Intent abrirTemasInterativosActivity = new Intent(CadastrarTemasInterativosActivity.this, TemaInterativoActivity.class);
-            startActivity(abrirTemasInterativosActivity);
+            finish();
 
         } else{
             toast = Toast.makeText(CadastrarTemasInterativosActivity.this, "Impossível cadastrar o tema", Toast.LENGTH_LONG);

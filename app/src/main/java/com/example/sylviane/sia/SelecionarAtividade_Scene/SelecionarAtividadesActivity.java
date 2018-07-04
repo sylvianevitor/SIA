@@ -46,7 +46,7 @@ public class SelecionarAtividadesActivity extends AppCompatActivity implements S
 
     @Override
     public void selecionarPassiva() {
-        Intent abrirTemaPassivoActivity = new Intent(SelecionarAtividadesActivity.this, TemaPassivoActivity.class);
+        Intent abrirTemaPassivoActivity = new Intent(SelecionarAtividadesActivity.this, TemaInterativoActivity.class);
         startActivity(abrirTemaPassivoActivity);
     }
 }

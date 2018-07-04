@@ -45,6 +45,11 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
 
         temaInterativoPresenter = new TemaInterativoPresenter(this);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         TemaDAO temaDAO = new TemaDAO(TemaInterativoActivity.this);
         List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD
         this.updateList(temaList);

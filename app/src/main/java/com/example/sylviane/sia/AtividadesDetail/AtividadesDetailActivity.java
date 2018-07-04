@@ -83,6 +83,7 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
             toast.show();
         } else {
             atividade.setAtiva(Atividade.SITUACAO_INATIVA); //"EXCLUIR"
+            atividadeDAO.update(atividade);
             toast = Toast.makeText(AtividadesDetailActivity.this, "Atividade excluida com sucesso", Toast.LENGTH_LONG);
             toast.show();
             Intent retornar = new Intent(AtividadesDetailActivity.this, AtividadesActivity.class);

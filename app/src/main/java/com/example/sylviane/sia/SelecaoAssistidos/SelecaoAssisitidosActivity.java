@@ -37,7 +37,7 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
     @BindView(R.id.linear_layout_loading)
     LinearLayout loadingLayout;
 
-    private List<Integer> idAssistidosList = new ArrayList<Integer>();;
+    private ArrayList<Integer> idAssistidosList = new ArrayList<Integer>();
 
     SelecaoAssistidosPresenter assistidosPresenter;
     AssistidoDAO assistidoDAO = new AssistidoDAO(SelecaoAssisitidosActivity.this);
@@ -106,24 +106,24 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_salvar:
-                assistidosPresenter.iniciarAtividade();
+                iniciar();
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
     @Override
-    public void iniciar(List<Integer> idAssistidosList){
+    public void iniciar(){
         if (id_atividade == 1) {
             Log.d("Iniciar atividade", "Atividade cores");
             Intent ExecucaoCores = new Intent(SelecaoAssisitidosActivity.this, ExecutarCoresActivity.class);
             ExecucaoCores.putExtra("id_atividade", id_atividade);
-            ExecucaoCores.putExtra("assistido_id", String.valueOf(idAssistidosList));
+            ExecucaoCores.putExtra("assistido_id", idAssistidosList);
             startActivity(ExecucaoCores);
         }else{
         Intent intent = new Intent (SelecaoAssisitidosActivity.this, ExecutarTemplate1Activity.class);
         intent.putExtra("id_atividade", id_atividade);
-        intent.putExtra("assistido_id", String.valueOf(idAssistidosList));
+        intent.putExtra("assistido_id", idAssistidosList);
         startActivity(intent);}
     }
 
@@ -132,7 +132,7 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
         Log.d("LISTA IDs", String.valueOf(idAssistidosList));
     }
 
-    public void remover(List<Integer> idAssistidosList, int id_assistido){
+    public void remover(ArrayList<Integer> idAssistidosList, int id_assistido){
         int posicao = 0;
 
         for(int i = 0; i < idAssistidosList.size(); i++){
