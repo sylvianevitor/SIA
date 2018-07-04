@@ -17,6 +17,12 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.sylviane.sia.Main_Scene.MainActivity;
+import com.example.sylviane.sia.persist.dao.AtividadeDAO;
+import com.example.sylviane.sia.persist.dao.Template1DAO;
+import com.example.sylviane.sia.persist.model.Atividade;
+import com.example.sylviane.sia.persist.model.Template1;
+
 import java.util.List;
 
 /**
@@ -30,6 +36,7 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
     public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123;
 
     private Context context;
+    private Atividade atividade;
     private CriarTemplate1View.View criarTemplate1View;
 
     CriarTemplate1Presenter(Context context, CriarTemplate1View.View criarTemplate1View) {
@@ -100,6 +107,43 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
 
         criarTemplate1View.abreActivity(abreBiblioteca, CODIGO_AUDIO, id);
 
+    }
+
+    @Override
+    public Atividade getAtividade(int id_atividade) {
+        AtividadeDAO atividadeDAO = new AtividadeDAO(context);
+        atividade = atividadeDAO.getAtividadeId(id_atividade);
+        return atividade;
+    }
+
+    @Override
+    public void cadastrar(String pathAudio1, String pathAudio2, String pathAudio3, String pathImage1, String pathImage2, String pathImage3){
+
+        Log.d("PATH1: ", pathAudio1 + " | " + pathImage1);
+        Log.d("PATH2: ", pathAudio2 + " | " + pathImage2);
+        Log.d("PATH3: ", pathAudio3 + " | " + pathImage3);
+
+        Template1 template1 = new Template1();
+        template1.setImage(pathImage1);
+        template1.setAudio(pathAudio1);
+        template1.setAtividade(atividade);
+
+        Template1 template2 = new Template1();
+        template2.setImage(pathImage2);
+        template2.setAudio(pathAudio2);
+        template2.setAtividade(atividade);
+
+        Template1 template3 = new Template1();
+        template3.setImage(pathImage3);
+        template3.setAudio(pathAudio3);
+        template3.setAtividade(atividade);
+
+        Template1DAO template1DAO = new Template1DAO(context);
+        boolean ok1 = template1DAO.adicionarAquivo(template1);
+        boolean ok2 = template1DAO.adicionarAquivo(template2);
+        boolean ok3 = template1DAO.adicionarAquivo(template3);
+
+        criarTemplate1View.abrirMainActivity(ok1, ok2, ok3);
     }
 
     //pega o path(caminho do arquivo) da Uri retornada no onActivityResult

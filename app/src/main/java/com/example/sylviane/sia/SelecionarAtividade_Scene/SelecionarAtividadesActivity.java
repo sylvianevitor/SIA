@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.Tema_Scene.Tema_Interativo.TemaInterativoActivity;
-import com.example.sylviane.sia.Tema_Scene.Tema_Passivo.TemaPassivoActivity;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -36,7 +34,9 @@ public class SelecionarAtividadesActivity extends AppCompatActivity implements S
     @Override
     public void selecionarInterativa() {
         Intent abrirTemaInterativoActivity = new Intent(SelecionarAtividadesActivity.this, TemaInterativoActivity.class);
+        abrirTemaInterativoActivity.putExtra("tipo_atividade", 0);
         startActivity(abrirTemaInterativoActivity);
+        finish();
     }
 
     @OnClick(R.id.button_atividade_passiva)
@@ -46,7 +46,9 @@ public class SelecionarAtividadesActivity extends AppCompatActivity implements S
 
     @Override
     public void selecionarPassiva() {
-        Intent abrirTemaPassivoActivity = new Intent(SelecionarAtividadesActivity.this, TemaPassivoActivity.class);
-        startActivity(abrirTemaPassivoActivity);
+        Intent abrirTemaInterativoActivity = new Intent(SelecionarAtividadesActivity.this, TemaInterativoActivity.class);
+        abrirTemaInterativoActivity.putExtra("tipo_atividade", 1);
+        startActivity(abrirTemaInterativoActivity);
+        finish();
     }
 }

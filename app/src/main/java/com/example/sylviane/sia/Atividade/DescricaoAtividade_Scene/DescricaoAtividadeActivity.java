@@ -3,8 +3,8 @@ package com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -13,93 +13,88 @@ import android.widget.Toast;
 import com.example.sylviane.sia.Atividade.Atividade_Passiva.CriarAtividadePassiva.CriarAtividadePassivaActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.persist.dao.AtividadeDAO;
-import com.example.sylviane.sia.persist.dao.TemaDAO;
-import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.Tema;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DescricaoAtividadeActivity extends AppCompatActivity implements DescricaoAtividadeView{
+public class DescricaoAtividadeActivity extends AppCompatActivity implements Contract.View {
 
     @BindView(R.id.camponomeatividade)EditText nomeAtividadeEditText;
     @BindView(R.id.campoobjetivoatividade) EditText objetivoAtividadeEditText;
     @BindView(R.id.campodescricaoatividade) EditText descricaoAtividadeEditText;
     @BindView(R.id.campodificuldadeatividade)Spinner dificuldadeAtividade;
     @BindView(R.id.campotemaatividade)Spinner temaAtividade;
+    @BindView(R.id.campotipoatividade)Spinner tipoAtividade;
 
-    DescricaoAtividadePresenter descricaoAtividadePresenter;
+    Contract.Presenter descricaoAtividadePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descricao_atividade);
-        TemaDAO temaDAO = new TemaDAO(this);
-        List<Tema> temasList = temaDAO.getTemas();
-        int totalTemas = temasList.size();
-        //String data[] = new String[totalTemas];
-        //Integer id_data[] = new Integer[totalTemas];
-
 
         ButterKnife.bind(this);
-        descricaoAtividadePresenter = new DescricaoAtividadePresenter(this); //MainActivity.this
 
-        //for (int i = 0; i < totalTemas; i++){
-        //    data[i] = String.valueOf(temaDAO.getTemas().get(i).getTema());
-        //   id_data[i] = temaDAO.getTemas().get(i).getId();
-        //}
+        Intent intent = getIntent();
+        int id_atividade = intent.getIntExtra("id_atividade",-1);
+        Log.d("Atividade id", Integer.toString(id_atividade));
 
+        descricaoAtividadePresenter = new DescricaoAtividadePresenter(this, this);
+        descricaoAtividadePresenter.getTemas();
+        descricaoAtividadePresenter.getAtividade(id_atividade);
+
+    }
+
+    public void preencheSpinnerTemas(ArrayList temas){
+        //Preencher spinner dos temas
         ArrayAdapter<Tema> spinnerArrayAdapter = new ArrayAdapter<Tema>(
-                this, android.R.layout.simple_spinner_item, temaDAO.getTemas());
+                this, android.R.layout.simple_spinner_item, temas);
         temaAtividade.setAdapter(spinnerArrayAdapter);
+    }
+
+    public void preenchimento(String nome, String objetivo, String descricao){
+        nomeAtividadeEditText.setText(nome);
+        objetivoAtividadeEditText.setText(objetivo);
+        descricaoAtividadeEditText.setText(descricao);
     }
 
     @OnClick(R.id.botaocadastrardescricaoatividade)
     public void cadastro(){
-        descricaoAtividadePresenter.cadastro();
+
+        if (TextUtils.isEmpty(nomeAtividadeEditText.getText().toString())) {
+            nomeAtividadeEditText.setError("Nome inválido");
+            return;
+        }
+
+        if (TextUtils.isEmpty(objetivoAtividadeEditText.getText().toString())) {
+            objetivoAtividadeEditText.setError("Nome inválido");
+            return;
+        }
+        if (TextUtils.isEmpty(descricaoAtividadeEditText.getText().toString())) {
+            descricaoAtividadeEditText.setError("Nome inválido");
+            return;
+        }
+
+        descricaoAtividadePresenter.cadastro(nomeAtividadeEditText.getText().toString(),
+                objetivoAtividadeEditText.getText().toString(),
+                descricaoAtividadeEditText.getText().toString(),
+                dificuldadeAtividade.getSelectedItemPosition(),
+                (Tema) temaAtividade.getSelectedItem(), tipoAtividade.getSelectedItemPosition());
     }
 
     @Override
-    public void efetuaCadastro(){
+    public void abrirAtividade(int id_atividade){
 
-        Atividade atividade = new Atividade();
-        atividade.setNome(nomeAtividadeEditText.getText().toString());
-        atividade.setObjetivo(objetivoAtividadeEditText.getText().toString());
-        atividade.setDescricao(descricaoAtividadeEditText.getText().toString());
-
-        atividade.setDificuldade(2);
-        atividade.setDt_cadastro("teste");
-        atividade.setId_proprietario(1);
-        atividade.setId_tema(1);
-        atividade.setNr_execucoes(0);
-        atividade.setTipo_atividade(Atividade.TIPO_ATIVA);
-        atividade.setDificuldade(dificuldadeAtividade.getSelectedItemPosition());
-        Tema t = (Tema) temaAtividade.getSelectedItem();
-        atividade.setId_tema(t.getId());
-
-        AtividadeDAO atividadeDAO = new AtividadeDAO(DescricaoAtividadeActivity.this);
-        atividade = atividadeDAO.insert(atividade);
-
-        Toast toast;
-
-        if (atividade != null) {
-            toast = Toast.makeText(DescricaoAtividadeActivity.this, "Descrição de atividade cadastrada com sucesso", Toast.LENGTH_LONG);
-            toast.show();
-            Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarAtividadePassivaActivity.class);
-            abrirCriarTemplate1Activity.putExtra("id_atividade", atividade.getId());
-            startActivity(abrirCriarTemplate1Activity);
-
-        } else{
-            toast = Toast.makeText(DescricaoAtividadeActivity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
-            toast.show();
-        }
-
+        Toast.makeText(DescricaoAtividadeActivity.this, "Descrição de atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
+        Intent abrirCriarTemplate1Activity = new Intent(DescricaoAtividadeActivity.this, CriarTemplate1Activity.class);
+        abrirCriarTemplate1Activity.putExtra("id_atividade", id_atividade);
+        startActivity(abrirCriarTemplate1Activity);
+        finish();
 
     }
 }

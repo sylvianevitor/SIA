@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
+import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
@@ -21,38 +23,37 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by mariana on 25/04/18.
  */
 
-public class TemaInterativoActivity extends AppCompatActivity implements TemaInterativoView {
+public class TemaInterativoActivity extends AppCompatActivity implements Contract.View {
 
     @BindView(R.id.temas_list) RecyclerView rvTemas;
 
-   // private BancoDados bancoDados;
-
-    TemaInterativoPresenter temaInterativoPresenter;
+    int tipo_atividade;
+    Contract.Presenter temaInterativoPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //String jsonSocial = getIntent().getStringExtra("json_social");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_temas_list);
 
         ButterKnife.bind(this);
+        Intent intent = getIntent();
+        tipo_atividade = intent.getIntExtra("tipo_atividade",-1);
 
-        temaInterativoPresenter = new TemaInterativoPresenter(this);
+        temaInterativoPresenter = new TemaInterativoPresenter(this, this);
 
-        TemaDAO temaDAO = new TemaDAO(TemaInterativoActivity.this);
-        List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD
-
-        Log.d("LUAN", Integer.toString(temaList.size()));
-
-        this.updateList(temaList);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        temaInterativoPresenter.getTema();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -68,7 +69,9 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
             @Override
             public void onClick(View view, int position) {
                 Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
+                openListaAtividadesActivity.putExtra("tipo_atividade", tipo_atividade);
                 startActivity(openListaAtividadesActivity);
+                finish();
             }
         });
 
@@ -79,8 +82,6 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, layoutManager.getOrientation());
         rvTemas.addItemDecoration(dividerItemDecoration);
-
-        
 
     }
 
@@ -104,5 +105,7 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
     public void cadastrar(){
         Intent openCadastrarTemaInterativoActivity = new Intent(TemaInterativoActivity.this, CadastrarTemasInterativosActivity.class);
         startActivity(openCadastrarTemaInterativoActivity);
+        finish();
     }
+
 }

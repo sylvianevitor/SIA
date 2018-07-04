@@ -1,54 +1,31 @@
 package com.example.sylviane.sia.Tema_Scene.Tema_Interativo;
 
+import android.content.Context;
+
+import com.example.sylviane.sia.persist.dao.TemaDAO;
+import com.example.sylviane.sia.persist.model.Tema;
+
 import java.util.List;
 
 /**
  * Created by mariana on 25/04/18.
  */
 
-public class TemaInterativoPresenter {
+public class TemaInterativoPresenter implements Contract.Presenter{
 
-    private TemaInterativoView temaInterativoView;
-    private List<TemaInterativoEntity> temaList;
-    private TemaInterativoListEntity temaInterativoListEntity;
+    private Contract.View temaInterativoView;
+    private Context context;
 
-    public TemaInterativoPresenter(TemaInterativoView temaInterativoView) {
+
+    TemaInterativoPresenter(Contract.View temaInterativoView, Context context) {
         this.temaInterativoView = temaInterativoView;
+        this.context = context;
     }
 
-/*
-    protected void updateList(String jsonSocial) {
-
-        //verifica se há informações no json
-        if (jsonSocial != null) {
-            temaInterativoListEntity = new Gson().fromJson(jsonSocial, TemaInterativoListEntity.class);
-            temaList = temaInterativoListEntity.getTema();
-            temaInterativoView.updateList(temaList);
-
-        } else { //se não houver informações previamente no json, é necessário baixá-las
-
-            final SocialApi socialApi = SocialApi.getInstance();
-            socialView.showLoading();
-            socialApi.getTema().enqueue(new Callback<SocialListEntity>() {
-                @Override
-                public void onResponse(Call<SocialListEntity> call, Response<SocialListEntity> response) {
-                    socialView.hideLoading();
-                    socialListEntity = response.body();
-
-                    if (socialListEntity != null && socialListEntity.getSocial() != null) {
-                        socialView.updateList(socialListEntity.getSocial());
-                    } else {
-                        socialView.showMessage("Falha no acesso");
-                    }
-                }
-
-            });
-        }
-    }
-*/
-    TemaInterativoEntity getTemaId(int position) throws IndexOutOfBoundsException {
-        return temaInterativoListEntity.getTema().get(position);
-
+    public void getTema() {
+        TemaDAO temaDAO = new TemaDAO(context);
+        List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD
+        temaInterativoView.updateList(temaList);
     }
 
     public void cadastrarTema() {

@@ -16,15 +16,18 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/botao_Adicionar_Tema"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/botaoVoltar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:tint="#fff"
-        android:src="@android:drawable/ic_menu_add"/>
-
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="42dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Voltar"
+        android:textAllCaps="true"
+        android:textColor="#fff"
+        app:layout_anchor="@+id/temas_list"
+        app:layout_anchorGravity="bottom|center" />
 </android.support.design.widget.CoordinatorLayout>

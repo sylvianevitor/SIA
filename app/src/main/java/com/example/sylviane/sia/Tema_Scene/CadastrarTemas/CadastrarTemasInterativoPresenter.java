@@ -1,25 +1,33 @@
 package com.example.sylviane.sia.Tema_Scene.CadastrarTemas;
 
-import com.example.sylviane.sia.Main_Scene.MainView;
+import android.content.Context;
+import com.example.sylviane.sia.persist.dao.TemaDAO;
+import com.example.sylviane.sia.persist.model.Tema;
 
-/**
- * Created by mariana on 02/05/18.
- */
+public class CadastrarTemasInterativoPresenter implements Contract.Presenter{
 
-public class CadastrarTemasInterativoPresenter {
+    Contract.View cadastrarTemasInterativosView;
+    Context context;
 
-    CadastrarTemasInterativosView cadastrarTemasInterativosView = null;
-
-    public CadastrarTemasInterativoPresenter(CadastrarTemasInterativosView cadastrarTemasInterativosView){
+    public CadastrarTemasInterativoPresenter(Contract.View cadastrarTemasInterativosView, Context context){
         this.cadastrarTemasInterativosView = cadastrarTemasInterativosView;
+        this.context = context;
     }
 
+    public void salvarTema(String nome, String imagem) {
+        Tema tema = new Tema();
+        tema.setTema(nome);
+        tema.setImagem(imagem);
 
-    public void salvarTema() {
-        cadastrarTemasInterativosView.salvar();
+        TemaDAO temaDAO = new TemaDAO(context);
+        boolean ok = temaDAO.insert(tema);
+
+        cadastrarTemasInterativosView.abrirActivity(ok);
     }
 
     public void ligarCamera() {
         cadastrarTemasInterativosView.camera();
     }
+
+
 }

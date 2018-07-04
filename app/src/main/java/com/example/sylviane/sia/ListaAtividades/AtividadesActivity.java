@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
@@ -28,6 +29,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
     @BindView(R.id.rvAtividades) RecyclerView rvAtividades;
 
     AtividadesPresenter atividadesPresenter;
+    int tipo_atividade;
     AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     @Override
@@ -36,14 +38,24 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         setContentView(R.layout.activity_lista_atividades);
 
         ButterKnife.bind(this);
-        atividadesPresenter = new AtividadesPresenter(this);
 
+        Intent intent = getIntent();
+        tipo_atividade = intent.getIntExtra("tipo_atividade",-1);
+        Log.d("tipo da atividade", Integer.toString(tipo_atividade));
+        atividadesPresenter = new AtividadesPresenter(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         Atividade atividadeDefault = new Atividade();
 
-        creatAtivCores(atividadeDefault);
+//        if(tipo_atividade == 0){
+//            List<Atividade> atividadeList = atividadeDAO.getAtividadeAtiva();
+//        } else if (tipo_atividade == 1){List<Atividade> atividadeList = atividadeDAO.getAtividadePassiva();}
         List<Atividade> atividadeList = atividadeDAO.getAtividade();
-
         atividadesPresenter.updateList(atividadeList);
+
     }
 
     public void updateListAtividades(final List<Atividade> atividadesList) {
@@ -58,6 +70,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
                                 AtividadesDetailActivity.class);
                 intent.putExtra("atividade_id", atividadesList.get(position).getId());
                 startActivity(intent);
+                finish();
             }
 
             @Override
@@ -74,16 +87,5 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
                 new DividerItemDecoration(this, layoutManager.getOrientation());
         rvAtividades.setLayoutManager(layoutManager);
         rvAtividades.addItemDecoration(dividerItemDecoration);
-    }
-
-    public void creatAtivCores(Atividade atividade){
-        atividade.setNome("Misturando Cores");
-        atividade.setDescricao("Aprender sobre cores");
-        atividade.setDificuldade(1);
-        atividade.setObjetivo("Aprender sobre cores");
-        atividade.setDt_cadastro("11/04/1997");
-        // verificar se já existe
-        if(atividadeDAO.getAtividadeId(1) == null)
-            atividadeDAO.insert(atividade);
     }
 }
