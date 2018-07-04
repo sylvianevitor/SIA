@@ -43,9 +43,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
 
     CriarTemplate1View.Presenter criarTemplate1Presenter;
 
-    int id;
-    Atividade atividade;
-    String selectedImagePath, path1, path2, path3;
+    String selectedImagePath;
     private MediaPlayer mMediaPlayer;
     private AudioManager mAudioManager;
 
@@ -88,8 +86,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         int id_atividade = intent.getIntExtra("id_atividade", -1);
         Log.d("id mari", Integer.toString(id_atividade));
 
-        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
-        atividade = atividadeDAO.getAtividadeId(id_atividade);
+        criarTemplate1Presenter.getAtividade(id_atividade);
 
         //Classe responsável por solicitar o foco do áudio
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
@@ -98,9 +95,6 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         criarTemplate1Presenter.verificaResultado(requestCode, resultCode, data);
-        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
-//        Log.d("LUAN", String.valueOf(id_atividade));
-       // Atividade atividade = atividadeDAO.getAtividadeId(id_atividade);
     }
 
     @OnClick(R.id.imageButton1)
@@ -149,20 +143,20 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     }
 
     //@OnClick(R.id.btnAudio2)
-    public void executaAudio(){
-
-        //Verifica se algum áudio foi setado antes de dar play
-        if(mMediaPlayer != null) {
-
-            //pede permissão para o Android para executar o áudio
-            int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
-                    AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
-
-            if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                mMediaPlayer.start();
-            }
-        }
-    }
+//    public void executaAudio(){
+//
+//        //Verifica se algum áudio foi setado antes de dar play
+//        if(mMediaPlayer != null) {
+//
+//            //pede permissão para o Android para executar o áudio
+//            int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
+//                    AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+//
+//            if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+//                mMediaPlayer.start();
+//            }
+//        }
+//    }
 
     @Override
     protected void onStop() {
@@ -234,49 +228,21 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_salvar:
-                cadastrar();
+                criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
     @Override
-    public void cadastrar(){
-
-        Log.d("PATH1: ", pathAudio1 + " | " + pathImage1);
-        Log.d("PATH2: ", pathAudio2 + " | " + pathImage2);
-        Log.d("PATH3: ", pathAudio3 + " | " + pathImage3);
-
-        Template1 template1 = new Template1();
-        template1.setImage(pathImage1);
-        template1.setAudio(pathAudio1);
-        template1.setAtividade(atividade);
-
-        Template1 template2 = new Template1();
-        template2.setImage(pathImage2);
-        template2.setAudio(pathAudio2);
-        template2.setAtividade(atividade);
-
-        Template1 template3 = new Template1();
-        template3.setImage(pathImage3);
-        template3.setAudio(pathAudio3);
-        template3.setAtividade(atividade);
-
-        Template1DAO template1DAO = new Template1DAO(CriarTemplate1Activity.this);
-        boolean ok1 = template1DAO.adicionarAquivo(template1);
-        boolean ok2 = template1DAO.adicionarAquivo(template2);
-        boolean ok3 = template1DAO.adicionarAquivo(template3);
-
-        Toast toast;
-        if (ok1 == true) {
-            toast = Toast.makeText(CriarTemplate1Activity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG);
-            toast.show();
+    public void abrirMainActivity(boolean ok1, boolean ok2, boolean ok3){
+        if (ok1 == true && ok2 == true && ok3 == true) {
+            Toast.makeText(CriarTemplate1Activity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
             Intent openCadastrarTemaInterativoActivity = new Intent(CriarTemplate1Activity.this, MainActivity.class);
             startActivity(openCadastrarTemaInterativoActivity);
 
         } else{
-            toast = Toast.makeText(CriarTemplate1Activity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
-            toast.show();
+            Toast.makeText(CriarTemplate1Activity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG).show();
         }
     }
 
