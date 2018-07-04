@@ -19,11 +19,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".ListaAssistidos.AssistidosActivity"
             android:label="Lista de Assistidos">
         </activity>
+        <activity
+            android:name=".Atividade.Atividade_Passiva.CriarAtividadePassiva.CriarAtividadePassivaActivity">
+        </activity>
+
         <activity
             android:name=".ListaAtividades.AtividadesActivity"
             android:label="Lista de Atividades">
@@ -67,6 +72,8 @@
 
         <activity android:name=".Atividade.Cores_Scene.ExecutarCoresActivity"
             android:label="Execução da Atividade de Cores">
+        </activity>
+        <activity android:name=".Atividade.Atividade_Passiva.ExecutarAtividadePassiva.ExecutarAtividadePassivaActivity">
         </activity>
 
         <activity android:name=".AtividadesDetail.AtividadesDetailActivity"></activity>
