@@ -66,7 +66,7 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
     protected void onResume() {
         super.onResume();
         atividade = atividadeDAO.getAtividadeId(id_atividade);
-        Log.d("Nome atividade", atividade.getNome());
+        //Log.d("Nome atividade", atividade.getNome());
         abreDescricao();
     }
 

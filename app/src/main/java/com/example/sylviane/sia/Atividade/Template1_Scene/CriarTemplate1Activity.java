@@ -20,6 +20,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.example.sylviane.sia.AtividadesDetail.AtividadesDetailActivity;
 import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
@@ -271,8 +273,10 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         if (ok1 == true) {
             toast = Toast.makeText(CriarTemplate1Activity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG);
             toast.show();
-            Intent openCadastrarTemaInterativoActivity = new Intent(CriarTemplate1Activity.this, MainActivity.class);
-            startActivity(openCadastrarTemaInterativoActivity);
+            Intent abrirDetalhes = new Intent(CriarTemplate1Activity.this, AtividadesDetailActivity.class);
+            abrirDetalhes.putExtra("atividade_id", atividade.getId());
+            startActivity(abrirDetalhes);
+            finish();
 
         } else{
             toast = Toast.makeText(CriarTemplate1Activity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);

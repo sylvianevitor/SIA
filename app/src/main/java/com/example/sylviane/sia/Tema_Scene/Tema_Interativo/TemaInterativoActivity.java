@@ -54,7 +54,7 @@ public class TemaInterativoActivity extends AppCompatActivity implements TemaInt
         List<Tema> temaList = temaDAO.getTemas(); //buscar todos os temas no BD
         this.updateList(temaList);
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
