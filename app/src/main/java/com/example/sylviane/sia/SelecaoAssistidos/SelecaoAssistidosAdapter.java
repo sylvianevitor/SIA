@@ -50,7 +50,7 @@ public class SelecaoAssistidosAdapter extends RecyclerView.Adapter<SelecaoAssist
     //infla o component view
     @Override
     public SelecaoAssistidosAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.assistidos_item_list, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_selecao_assistidos, parent, false);
         return new ViewHolder(v);
     }
 
