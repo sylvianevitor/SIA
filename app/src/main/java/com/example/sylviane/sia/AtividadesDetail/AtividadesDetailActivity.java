@@ -60,9 +60,13 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
             id_atividade = extras.getInt("atividade_id");
         }
 
-        atividade = atividadeDAO.getAtividadeId(id_atividade);
-        Log.d("Nome atividade", atividade.getNome());
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        atividade = atividadeDAO.getAtividadeId(id_atividade);
+        //Log.d("Nome atividade", atividade.getNome());
         abreDescricao();
     }
 
@@ -72,6 +76,7 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
             Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, SelecaoAssisitidosActivity.class);
             abrirExecucao.putExtra("id_atividade", atividade.getId());
             startActivity(abrirExecucao);
+            finish();
     }
 
     @OnClick(R.id.botaoExcluirAtividade)
@@ -83,10 +88,12 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
             toast.show();
         } else {
             atividade.setAtiva(Atividade.SITUACAO_INATIVA); //"EXCLUIR"
+            atividadeDAO.update(atividade);
             toast = Toast.makeText(AtividadesDetailActivity.this, "Atividade excluida com sucesso", Toast.LENGTH_LONG);
             toast.show();
             Intent retornar = new Intent(AtividadesDetailActivity.this, AtividadesActivity.class);
             startActivity(retornar);
+            finish();
         }
     }
     @OnClick(R.id.botaoEditarAtividade)
@@ -100,6 +107,7 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
             Intent abrirEdicao = new Intent(AtividadesDetailActivity.this, DescricaoAtividadeActivity.class);
             abrirEdicao.putExtra("id_atividade", atividade.getId());
             startActivity(abrirEdicao);
+            finish();
         }
     }
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Natasha on 25/04/2018.
@@ -40,6 +42,8 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
     TextView outras_infos_detail;
     @BindView(R.id.medicamentos_assistido_detail)
     TextView medicamentos_detail;
+    @BindView(R.id.btnrelatorio)
+    Button botaorelatorio;
 
     AssistidosDetailPresenter assistidosDetailPresenter;
 
@@ -56,6 +60,10 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
 
         assistidosDetailPresenter = new AssistidosDetailPresenter(this,this);
         assistidosDetailPresenter.getAssistidosDetails(assistidoId);
+    }
+    @OnClick(R.id.btnrelatorio)
+    public void mostraRelatorio(){
+        //mostrar relatorio
     }
     @Override
     public void showDetails(Assistido assistido) {
@@ -110,4 +118,6 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
 
         return Integer.toString(idade);
     }
+
+
 }
