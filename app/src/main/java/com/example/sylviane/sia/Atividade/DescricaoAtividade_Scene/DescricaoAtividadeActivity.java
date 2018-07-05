@@ -65,20 +65,6 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
 
     @OnClick(R.id.botaocadastrardescricaoatividade)
     public void cadastro(){
-//
-//        if (TextUtils.isEmpty(nomeAtividadeEditText.getText().toString())) {
-//            nomeAtividadeEditText.setError("Nome inválido");
-//            return;
-//        }
-//
-//        if (TextUtils.isEmpty(objetivoAtividadeEditText.getText().toString())) {
-//            objetivoAtividadeEditText.setError("Nome inválido");
-//            return;
-//        }
-//        if (TextUtils.isEmpty(descricaoAtividadeEditText.getText().toString())) {
-//            descricaoAtividadeEditText.setError("Nome inválido");
-//            return;
-//        }
 
         if (validar(nomeAtividadeEditText.getText().toString(), objetivoAtividadeEditText.getText().toString(), descricaoAtividadeEditText.getText().toString()) == false){return;}
         descricaoAtividadePresenter.cadastro(nomeAtividadeEditText.getText().toString(),

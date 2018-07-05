@@ -49,6 +49,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     private MediaPlayer mMediaPlayer;
     private AudioManager mAudioManager;
     Atividade atividade;
+    AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     private int currentAudioId = 0;
     private int currentImageId = 0;
@@ -145,21 +146,6 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         criarTemplate1Presenter.selecionaAudio(3);
     }
 
-    //@OnClick(R.id.btnAudio2)
-//    public void executaAudio(){
-//
-//        //Verifica se algum áudio foi setado antes de dar play
-//        if(mMediaPlayer != null) {
-//
-//            //pede permissão para o Android para executar o áudio
-//            int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
-//                    AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
-//
-//            if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-//                mMediaPlayer.start();
-//            }
-//        }
-//    }
 
     @Override
     protected void onStop() {
@@ -240,13 +226,20 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     @Override
     public void abrirMainActivity(boolean ok1, boolean ok2, boolean ok3){
         if (ok1 == true && ok2 == true && ok3 == true) {
-            Toast.makeText(CriarTemplate1Activity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
-            Intent abrirDetalhes = new Intent(CriarTemplate1Activity.this, AtividadesDetailActivity.class);
-            abrirDetalhes.putExtra("atividade_id", atividade.getId());
-            startActivity(abrirDetalhes);
-            finish();
-
+            if (validar() == true) {
+                atividade.setAtiva(Atividade.SITUACAO_ATIVA);
+                atividadeDAO.update(atividade);
+                Toast.makeText(CriarTemplate1Activity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
+                Intent abrirDetalhes = new Intent(CriarTemplate1Activity.this, AtividadesDetailActivity.class);
+                abrirDetalhes.putExtra("atividade_id", atividade.getId());
+                startActivity(abrirDetalhes);
+                finish();
+            } else{
+                atividade.setAtiva(Atividade.SITUACAO_INATIVA);
+                atividadeDAO.update(atividade);
+            }
         } else{
+
             Toast.makeText(CriarTemplate1Activity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG).show();
         }
     }
@@ -315,6 +308,23 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
                 super.onRequestPermissionsResult(requestCode, permissions,
                         grantResults);
         }
+    }
+
+    public boolean validar(){
+        if (pathImage1 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar imagem 1", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (pathImage2 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar imagem 2", Toast.LENGTH_LONG).show();
+            return false;}
+        if (pathImage1 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar imagem 3", Toast.LENGTH_LONG).show();
+            return false;}
+        if (pathAudio1 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 1", Toast.LENGTH_LONG).show();
+            return false;}
+        return true;
     }
 
 }
