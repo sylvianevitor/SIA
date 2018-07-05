@@ -64,7 +64,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
 
         AtividadesAdapter atividadesAdapter = new AtividadesAdapter(atividadesList, this);
 
-        Log.d("ATIVIDADES ADAPTER", String.valueOf(atividadesAdapter));
+        //Log.d("ATIVIDADES ADAPTER", String.valueOf(atividadesAdapter));
 
         atividadesAdapter.setOnRecyclerViewSelectedAtividades(new OnRecyclerViewSelectedAtividades() {
             @Override
