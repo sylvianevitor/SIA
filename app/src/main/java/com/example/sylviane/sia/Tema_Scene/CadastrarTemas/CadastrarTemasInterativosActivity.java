@@ -43,19 +43,8 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
 
     @OnClick(R.id.button_salvar_tema)
     public void salvar(){
-        if (TextUtils.isEmpty(nameEditText.getText().toString())) {
-            nameTextInputLayout.setErrorEnabled(true);
-            nameTextInputLayout.setError("Nome inválido");
-            return;
-//        } if (cadastrarTemasInterativoPresenter.comparaTema(nameEditText.getText().toString())){
-//            nameTextInputLayout.setErrorEnabled(true);
-//            nameTextInputLayout.setError("Tema já existe");
-//            return;
-         }else if (nameEditText.getText().toString().matches("^[a-zA-Z\\u00C0-\\u00FF]*$") == false){
-            nameTextInputLayout.setErrorEnabled(true);
-            nameTextInputLayout.setError("Nome deve conter letras");
-            return;
-        }
+
+        if (validar(nameEditText.getText().toString()) == false){return;}
         cadastrarTemasInterativoPresenter.salvarTema(nameEditText.getText().toString(), imagem.toString());
     }
 
@@ -102,5 +91,23 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
             }
         }
     }
+
+    public Boolean validar(String nome){
+        if (TextUtils.isEmpty(nome)) {
+            nameTextInputLayout.setErrorEnabled(true);
+            nameTextInputLayout.setError("Nome inválido");
+            return false;
+        }else if (nome.matches("^[a-zA-Z\\u00C0-\\u00FF]*$") == false){
+            nameTextInputLayout.setErrorEnabled(true);
+            nameTextInputLayout.setError("Nome deve conter letras");
+            return false;
+        }
+        //else if (cadastrarTemasInterativoPresenter.comparaTema(nome)){
+//            nameTextInputLayout.setErrorEnabled(true);
+//            nameTextInputLayout.setError("Tema já existe");
+//            return;}
+        return true;
+    }
+
 
 }
