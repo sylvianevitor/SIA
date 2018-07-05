@@ -19,7 +19,9 @@ import com.example.sylviane.sia.persist.model.Template1;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -52,7 +54,7 @@ public class ExecutarTemplate1Presenter {
 
         for (int i =0; i < 3; i++) {
             String PathImage = arquivos.get(i).getImage();
-            Log.d("path da imagem", PathImage);
+           // Log.d("path da imagem", PathImage);
             File imgFile = new File(PathImage);
             if (imgFile.exists()) {
                 imagemBitmap.add(i, BitmapFactory.decodeFile(imgFile.getAbsolutePath()));
@@ -69,17 +71,17 @@ public class ExecutarTemplate1Presenter {
 
         for (int i =0; i< 3; i++) {
             String PathAudio = arquivos.get(1).getAudio();
-            Log.d("path do audio", PathAudio);
+           // Log.d("path do audio", PathAudio);
             mMediaPlayer = MediaPlayer.create(contexto, Uri.parse(PathAudio));
             audioList.add(i,mMediaPlayer);
         }
         return audioList;
     }
 
-    public void sair(int pontuacao, int[]assistidos, Context contexto, int atividade_id){
+    public void sair(int pontuacao, ArrayList<Integer>assistidos, Context contexto, int atividade_id, long tempo){
         Intent abrirFeedback = new Intent(contexto, RelatoriosActivity.class);
         abrirFeedback.putExtra("pontos", pontuacao);
-        abrirFeedback.putExtra("id_execucao", gravar_execucao(pontuacao, assistidos,atividade_id));
+        abrirFeedback.putExtra("id_execucao", gravar_execucao(pontuacao, assistidos,atividade_id, tempo));
         contexto.startActivity(abrirFeedback);
     }
 
@@ -91,15 +93,18 @@ public class ExecutarTemplate1Presenter {
         return r.nextInt((max - min) + 1) + min;
     }
 
-    public int gravar_execucao(int pontuacao, int[]assistidos, int atividade_id){
+    public int gravar_execucao(int pontuacao, ArrayList<Integer>assistidos, int atividade_id, long tempo){
         execucao.setId_atividade(atividade_id);
-        //execucao.setHora();
-        //execucao.setData();
+        Calendar cal = Calendar.getInstance();
+
+        String dateExec = String.valueOf(cal);
+        execucao.setData(dateExec);
         float percentual = pontuacao * 100/30;
         execucao.setPerc_acertos(percentual);
         execucao.setPontos((float) pontuacao);
-        //execucao.setTempo();
-        //execucao.setId_assistido(assistidos);
+        execucao.setTempo((float) tempo);
+        execucao.setId_assistido(assistidos);
+        //Log.d("Id", Integer.toString(assistidos.size()));
         ExecucaoDAO execucaoDAO = new ExecucaoDAO(contexto);
         execucaoDAO.insert(execucao);
         return execucao.getId();

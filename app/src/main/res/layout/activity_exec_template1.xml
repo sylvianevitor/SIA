@@ -1,84 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity">
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/nome_da_atividade"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_gravity="center|center_horizontal"-->
+            <!--android:layout_marginBottom="20dp"-->
+            <!--android:layout_marginTop="10dp"/>-->
+    <!--</LinearLayout>-->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:text="@string/nome_da_atividade" />
-    </LinearLayout>
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            tools:layout_editor_absoluteX="405dp"
-            tools:layout_editor_absoluteY="0dp"
-        android:id="@+id/linearLayout">
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="70dp"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corners_button"/>
 
-            <ImageButton
-                android:id="@+id/imageButton1"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="40dp"
-                android:layout_weight="1"
-                android:background="#aaa"
-                android:orientation="horizontal" />
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="70dp"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corners_button"/>
 
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="40dp"
-                android:layout_weight="1"
-                android:background="#aaa"
-                android:orientation="horizontal" />
-
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="40dp"
-                android:layout_weight="1"
-                android:background="#aaa"
-                android:orientation="horizontal" />
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="70dp"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_corners_button"/>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/btnAudio"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
         android:backgroundTint="@color/colorPrimary"
         android:drawableLeft="@drawable/ic_volume_down_black_24dp"
         android:drawableStart="@drawable/ic_volume_down_black_24dp"
         android:orientation="horizontal"
         android:text="ÁUDIO"
+        android:padding="25dp"
+        android:textSize="25sp"
+        android:background="@drawable/round_button"
         android:textAlignment="center"
-        android:textColor="#fff"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="210dp" />
+        android:layout_gravity="center|center_horizontal"
+        android:textColor="#fff"/>
 
-    <Button
-        android:id="@+id/btnSair"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/btnAudio"
-        android:layout_marginEnd="26dp"
-        android:layout_marginRight="26dp"
-        android:text="SAIR" />
-</RelativeLayout>
+</LinearLayout>

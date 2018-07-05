@@ -1,7 +1,5 @@
 package com.example.sylviane.sia.SelecaoAssistidos;
 
-import com.example.sylviane.sia.Entity.AssistidosEntity;
-import com.example.sylviane.sia.Entity.AssistidosListEntity;
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
 
@@ -17,13 +15,13 @@ public class SelecaoAssistidosPresenter {
     private SelecaoAssistidosView assistidosView;
     private List<Assistido> assistidosList = new ArrayList<>();
     AssistidoDAO assistidoDAO;
-    private List<Integer> idAssistidosList;
+    private ArrayList<Integer> idAssistidosList;
 
     SelecaoAssistidosPresenter(SelecaoAssistidosView assistidosView){
         this.assistidosView = assistidosView;
     }
 
     public void iniciarAtividade() {
-        assistidosView.iniciar(idAssistidosList);
+        assistidosView.iniciar();
     }
 }

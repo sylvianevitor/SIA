@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="grau_dificuldade_array">
-        <item>Selecionar</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -15,10 +14,12 @@
     </string-array>
 
     <string-array name="temas_array">
-        <item>Selecionar</item>
         <item>Meio Ambiente</item>
         <item>Datas Comemorativas</item>
         <item>Vida Diária</item>
-
+    </string-array>
+    <string-array name="tipo_atividade">
+        <item>Ativa</item>
+        <item>Passiva</item>
     </string-array>
 </resources>

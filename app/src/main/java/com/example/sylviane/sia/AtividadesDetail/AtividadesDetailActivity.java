@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sylviane.sia.Atividade.Atividade_Passiva.ExecutarAtividadePassiva.ExecutarAtividadePassivaActivity;
 import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
 import com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
@@ -60,18 +61,33 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
             id_atividade = extras.getInt("atividade_id");
         }
 
-        atividade = atividadeDAO.getAtividadeId(id_atividade);
-        Log.d("Nome atividade", atividade.getNome());
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        atividade = atividadeDAO.getAtividadeId(id_atividade);
+        //Log.d("Nome atividade", atividade.getNome());
         abreDescricao();
     }
 
     @OnClick(R.id.botaoIniciarAtividade)
     public void iniciar() {
-        Log.d("Iniciar atividade", atividade.getNome());
+        if(atividade.getTipo_atividade()==Atividade.TIPO_ATIVA) {
+            Log.d("Iniciar atividade", atividade.getNome());
             Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, SelecaoAssisitidosActivity.class);
             abrirExecucao.putExtra("id_atividade", atividade.getId());
             startActivity(abrirExecucao);
+            finish();
+        }
+        else{
+            Log.d("Iniciar atividade", atividade.getNome());
+            Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, ExecutarAtividadePassivaActivity.class);
+            abrirExecucao.putExtra("id_atividade", atividade.getId());
+            startActivity(abrirExecucao);
+            finish();
+
+        }
     }
 
     @OnClick(R.id.botaoExcluirAtividade)
@@ -83,10 +99,12 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
             toast.show();
         } else {
             atividade.setAtiva(Atividade.SITUACAO_INATIVA); //"EXCLUIR"
+            atividadeDAO.update(atividade);
             toast = Toast.makeText(AtividadesDetailActivity.this, "Atividade excluida com sucesso", Toast.LENGTH_LONG);
             toast.show();
             Intent retornar = new Intent(AtividadesDetailActivity.this, AtividadesActivity.class);
             startActivity(retornar);
+            finish();
         }
     }
     @OnClick(R.id.botaoEditarAtividade)
@@ -100,6 +118,7 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
             Intent abrirEdicao = new Intent(AtividadesDetailActivity.this, DescricaoAtividadeActivity.class);
             abrirEdicao.putExtra("id_atividade", atividade.getId());
             startActivity(abrirEdicao);
+            finish();
         }
     }
 
