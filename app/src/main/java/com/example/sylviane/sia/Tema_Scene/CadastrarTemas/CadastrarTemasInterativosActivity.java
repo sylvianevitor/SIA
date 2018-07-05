@@ -43,11 +43,8 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
 
     @OnClick(R.id.button_salvar_tema)
     public void salvar(){
-        if (TextUtils.isEmpty(nameEditText.getText().toString())) {
-            nameTextInputLayout.setErrorEnabled(true);
-            nameTextInputLayout.setError("Nome inválido");
-            return;
-        }
+
+        if (validar(nameEditText.getText().toString()) == false){return;}
         cadastrarTemasInterativoPresenter.salvarTema(nameEditText.getText().toString(), imagem.toString());
     }
 
@@ -95,4 +92,20 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
         }
     }
 
+    public Boolean validar(String nome){
+        if (TextUtils.isEmpty(nome)) {
+            nameTextInputLayout.setErrorEnabled(true);
+            nameTextInputLayout.setError("Nome inválido");
+            return false;
+        }else if (nome.matches("^[a-zA-Z0-9 \\u00C0-\\u00FF]*$") == false){
+            nameTextInputLayout.setErrorEnabled(true);
+            nameTextInputLayout.setError("Nome deve conter letras");
+            return false;
+        }else if (cadastrarTemasInterativoPresenter.comparaTema(nome)== false){
+            nameTextInputLayout.setErrorEnabled(true);
+            nameTextInputLayout.setError("Tema já existe");
+            return false;
+        }
+        return true;
+    }
 }

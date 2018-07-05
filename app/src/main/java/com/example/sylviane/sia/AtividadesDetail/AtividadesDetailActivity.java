@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sylviane.sia.Atividade.Atividade_Passiva.ExecutarAtividadePassiva.ExecutarAtividadePassivaActivity;
 import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
 import com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
@@ -72,11 +73,21 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
 
     @OnClick(R.id.botaoIniciarAtividade)
     public void iniciar() {
-        Log.d("Iniciar atividade", atividade.getNome());
+        if(atividade.getTipo_atividade()==Atividade.TIPO_ATIVA) {
+            Log.d("Iniciar atividade", atividade.getNome());
             Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, SelecaoAssisitidosActivity.class);
             abrirExecucao.putExtra("id_atividade", atividade.getId());
             startActivity(abrirExecucao);
             finish();
+        }
+        else{
+            Log.d("Iniciar atividade", atividade.getNome());
+            Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, ExecutarAtividadePassivaActivity.class);
+            abrirExecucao.putExtra("id_atividade", atividade.getId());
+            startActivity(abrirExecucao);
+            finish();
+
+        }
     }
 
     @OnClick(R.id.botaoExcluirAtividade)

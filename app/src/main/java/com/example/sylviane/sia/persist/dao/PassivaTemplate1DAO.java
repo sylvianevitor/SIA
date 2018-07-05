@@ -27,7 +27,7 @@ public class PassivaTemplate1DAO {
         database = new Database(context);
     }
 
-    public List<PassivaTemplate1> getArquivos(Atividade atividade) {
+    public ArrayList<PassivaTemplate1> getArquivos(Atividade atividade) {
 
         ArrayList<PassivaTemplate1>  list = new ArrayList<PassivaTemplate1>();
 
@@ -35,7 +35,7 @@ public class PassivaTemplate1DAO {
 
         String[] campos = {"id", "video", "id_atividade"};
 
-        Cursor cursor = db.query(TABLE, campos, "id_atividade=?", new String[] { Integer.toString(atividade.getId()) }, null, null, "descricao");
+        Cursor cursor = db.query(TABLE, campos, "id_atividade=?", new String[] { Integer.toString(atividade.getId()) }, null, null, null);
 
         if(cursor!=null) {
 
