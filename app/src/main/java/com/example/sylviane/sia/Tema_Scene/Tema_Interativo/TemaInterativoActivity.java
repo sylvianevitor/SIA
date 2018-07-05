@@ -68,8 +68,11 @@ public class TemaInterativoActivity extends AppCompatActivity implements Contrac
         temaInterativoAdapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
             @Override
             public void onClick(View view, int position) {
+                Tema tema = temaList.get(position);
+
                 Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
                 openListaAtividadesActivity.putExtra("tipo_atividade", tipo_atividade);
+                openListaAtividadesActivity.putExtra("id_tema", tema.getId());
                 startActivity(openListaAtividadesActivity);
             }
         });

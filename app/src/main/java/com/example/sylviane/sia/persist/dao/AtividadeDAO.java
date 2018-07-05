@@ -139,7 +139,7 @@ public class AtividadeDAO {
         return list;
     }
 
-    public ArrayList<Atividade> getAtividadeByTema(int idTema) {
+    public ArrayList<Atividade> getAtividadeByTema(int idTema, int tipo) {
 
         ArrayList<Atividade>  list = new ArrayList<Atividade>();
 
@@ -147,7 +147,7 @@ public class AtividadeDAO {
 
         String[] campos = {"id", "nome", "objetivo", "descricao", "dificuldade", "id_proprietario", "dt_cadastro", "nr_execucoes", "id_tema", "tipo_atividade", "ativa"};
 
-        Cursor cursor = db.query(TABLE, campos, "id_tema=? and ativa=?", new String[] { Integer.toString(idTema), Integer.toString(Atividade.SITUACAO_ATIVA) }, null, null, "descricao");
+        Cursor cursor = db.query(TABLE, campos, "id_tema=? and ativa=? and  tipo_atividade=?", new String[] { Integer.toString(idTema), Integer.toString(Atividade.SITUACAO_ATIVA), Integer.toString(tipo) }, null, null, "descricao");
 
         if(cursor!=null) {
 
