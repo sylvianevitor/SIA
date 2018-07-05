@@ -231,7 +231,13 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_salvar:
-                criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
+                if(pathAudio1 == null || pathAudio2 == null|| pathAudio3 == null){
+                    Toast.makeText(CriarTemplate1Activity.this, "Não é possível cadastrar a atividade sem áudio.", Toast.LENGTH_LONG).show();
+                }else if(pathImage1 == null || pathImage2 == null || pathImage3 == null){
+                    Toast.makeText(CriarTemplate1Activity.this, "Não é possível cadastrar a atividade sem imagem.", Toast.LENGTH_LONG).show();
+                }else{
+                    criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }

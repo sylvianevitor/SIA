@@ -90,7 +90,7 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
     @Override
     public void abrirAtividade(int id_atividade){
 
-        Toast.makeText(DescricaoAtividadeActivity.this, "Descrição de atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
+        //Toast.makeText(DescricaoAtividadeActivity.this, "Descrição de atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
 
         if (tipoAtividade.getSelectedItemPosition() == 1){
             Intent abrirPassiva = new Intent(DescricaoAtividadeActivity.this, CriarAtividadePassivaActivity.class);
