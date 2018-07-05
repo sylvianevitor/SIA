@@ -47,6 +47,14 @@ public class CadastrarTemasInterativosActivity extends AppCompatActivity impleme
             nameTextInputLayout.setErrorEnabled(true);
             nameTextInputLayout.setError("Nome inválido");
             return;
+//        } if (cadastrarTemasInterativoPresenter.comparaTema(nameEditText.getText().toString())){
+//            nameTextInputLayout.setErrorEnabled(true);
+//            nameTextInputLayout.setError("Tema já existe");
+//            return;
+         }else if (nameEditText.getText().toString().matches("^[a-zA-Z\\u00C0-\\u00FF]*$") == false){
+            nameTextInputLayout.setErrorEnabled(true);
+            nameTextInputLayout.setError("Nome deve conter letras");
+            return;
         }
         cadastrarTemasInterativoPresenter.salvarTema(nameEditText.getText().toString(), imagem.toString());
     }

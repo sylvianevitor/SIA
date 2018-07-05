@@ -4,6 +4,8 @@ import android.content.Context;
 import com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.persist.model.Tema;
 
+import java.util.List;
+
 public class CadastrarTemasInterativoPresenter implements Contract.Presenter{
 
     Contract.View cadastrarTemasInterativosView;
@@ -24,6 +26,12 @@ public class CadastrarTemasInterativoPresenter implements Contract.Presenter{
 
         cadastrarTemasInterativosView.abrirActivity(ok);
     }
+
+//    public void comparaTema(String nome){
+//        TemaDAO temaDAO = new TemaDAO(context);
+//        List<Tema> temasList = temaDAO.getTemas();
+//        for (int i==0; i < temasList.si; i )
+//    }
 
     public void ligarCamera() {
         cadastrarTemasInterativosView.camera();
