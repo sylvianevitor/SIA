@@ -27,14 +27,18 @@ public class CadastrarTemasInterativoPresenter implements Contract.Presenter{
         cadastrarTemasInterativosView.abrirActivity(ok);
     }
 
-//    public void comparaTema(String nome){
-//        TemaDAO temaDAO = new TemaDAO(context);
-//        List<Tema> temasList = temaDAO.getTemas();
-//        for (int i==0; i < temasList.si; i )
-//    }
 
     public void ligarCamera() {
         cadastrarTemasInterativosView.camera();
+    }
+
+    public boolean comparaTema(String nome){
+        TemaDAO temaDAO = new TemaDAO(context);
+        List<Tema> temasList = temaDAO.getTemas();
+        for (int i =0; i< temasList.size();i++){
+            if(temasList.get(i).getTema().equals(nome)){return false;}
+        }
+        return  true;
     }
 
 
