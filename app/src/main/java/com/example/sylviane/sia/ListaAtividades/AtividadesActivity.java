@@ -38,29 +38,33 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         setContentView(R.layout.activity_lista_atividades);
 
         ButterKnife.bind(this);
+        atividadesPresenter = new AtividadesPresenter(this);
 
         Intent intent = getIntent();
         tipo_atividade = intent.getIntExtra("tipo_atividade",-1);
-        Log.d("tipo da atividade", Integer.toString(tipo_atividade));
-        atividadesPresenter = new AtividadesPresenter(this);
-    }
+        int temaId = intent.getIntExtra("tema_id", -1);
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Atividade atividadeDefault = new Atividade();
+        List<Atividade> atividadeList = atividadeDAO.getAtividadeByTema(temaId);
+        Log.d("LISTA ATIVIDADE", String.valueOf(atividadeList));
+        for (int i = 0; i < atividadeList.size(); i++){
+            Log.d("MARI", atividadeList.get(i).getNome());
+        }
 
-//        if(tipo_atividade == 0){
-//            List<Atividade> atividadeList = atividadeDAO.getAtividadeAtiva();
-//        } else if (tipo_atividade == 1){List<Atividade> atividadeList = atividadeDAO.getAtividadePassiva();}
-        List<Atividade> atividadeList = atividadeDAO.getAtividade();
-        atividadesPresenter.updateList(atividadeList);
-
+        //atividadesPresenter.updateList(atividadeList);
+        updateListAtividades(atividadeList);
     }
 
     public void updateListAtividades(final List<Atividade> atividadesList) {
         //seta o adapter
+
+        Log.d("LISTA ATIVIDADE UPDATE", String.valueOf(atividadesList));
+        for (int i = 0; i < atividadesList.size(); i++){
+            Log.d("MARI", atividadesList.get(i).getNome());
+        }
+
         AtividadesAdapter atividadesAdapter = new AtividadesAdapter(atividadesList, this);
+
+        Log.d("ATIVIDADES ADAPTER", String.valueOf(atividadesAdapter));
 
         atividadesAdapter.setOnRecyclerViewSelectedAtividades(new OnRecyclerViewSelectedAtividades() {
             @Override
