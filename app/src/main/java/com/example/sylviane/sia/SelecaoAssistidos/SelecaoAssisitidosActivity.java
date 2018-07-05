@@ -56,8 +56,6 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
         //Log.d("ID ATIVIDADE", String.valueOf(id_atividade));
 
         assistidosPresenter= new SelecaoAssistidosPresenter(this);
-
-        assistidoDAO.popularAssistidos();
         List<Assistido> listaAssistidos = assistidoDAO.getAssistidos();
 
         this.updateList(listaAssistidos);

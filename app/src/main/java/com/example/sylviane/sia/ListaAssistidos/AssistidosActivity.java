@@ -42,7 +42,6 @@ public class AssistidosActivity extends AppCompatActivity implements AssistidosV
         ButterKnife.bind(this);
         assistidosPresenter = new AssistidosPresenter(this);
         AssistidoDAO assistidoDAO = new AssistidoDAO(this);
-        assistidoDAO.popularAssistidos();
         List<Assistido> assistidosList = assistidoDAO.getAssistidos();
 
         assistidosPresenter.updateList(assistidosList);
