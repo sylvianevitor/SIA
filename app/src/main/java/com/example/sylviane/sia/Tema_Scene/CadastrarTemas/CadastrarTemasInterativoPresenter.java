@@ -22,7 +22,12 @@ public class CadastrarTemasInterativoPresenter implements Contract.Presenter{
         tema.setImagem(imagem);
 
         TemaDAO temaDAO = new TemaDAO(context);
-        boolean ok = temaDAO.insert(tema);
+        tema = temaDAO.insert(tema);
+
+        boolean ok = false;
+
+        if (tema != null)
+            ok = true;
 
         cadastrarTemasInterativosView.abrirActivity(ok);
     }

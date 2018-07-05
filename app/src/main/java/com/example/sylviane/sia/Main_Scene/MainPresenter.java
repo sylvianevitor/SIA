@@ -12,6 +12,8 @@ import com.example.sylviane.sia.persist.model.Assistido;
 import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.Tema;
 
+import java.util.ArrayList;
+
 /**
  * Created by mariana on 24/04/18.
  */
@@ -41,12 +43,10 @@ public class MainPresenter extends AppCompatActivity {
             AtividadeDAO atividadeDAO = new AtividadeDAO(contexto);
             TemaDAO temaDAO = new TemaDAO(contexto);
             if (temaDAO.getTemas().size() == 0){
-                Log.d("Criando", "tema padrao");
+                Log.d("Criando", "Tema e Atividades Padrão");
 
                 temaDefault.setTema("Atividades Padrão");
-                temaDAO.insert(temaDefault);
-            }
-            if (atividadeDAO.getAtividadeId(1) == null) {
+                temaDefault = temaDAO.insert(temaDefault);
 
                 Atividade atividadeDefault = new Atividade();
                 atividadeDefault.setNome("Misturando Cores");
@@ -55,15 +55,19 @@ public class MainPresenter extends AppCompatActivity {
                 atividadeDefault.setObjetivo("Aprender sobre cores");
                 atividadeDefault.setDt_cadastro("11/04/1997");
                 atividadeDefault.setId_tema(temaDefault.getId());
-                Log.d("Tema default", Integer.toString(atividadeDefault.getId_tema()));
+                atividadeDefault.setTipo_atividade(Atividade.TIPO_ATIVA);
                 atividadeDAO.insert(atividadeDefault);
             }
+
     }
     public void popularAssistidos(Context contexto){
         AssistidoDAO assistidoDAO = new AssistidoDAO(contexto);
-       // if (assistidoDAO.getAssistidoId(1) ==null){
+
+        ArrayList<Assistido> listAssistidos = assistidoDAO.getAssistidos();
+
+        if(listAssistidos.size() <= 0)
             assistidoDAO.popularAssistidos();
-       // }
+
     }
 
 }
