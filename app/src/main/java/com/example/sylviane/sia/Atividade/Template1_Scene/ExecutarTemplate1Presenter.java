@@ -109,4 +109,8 @@ public class ExecutarTemplate1Presenter {
         execucaoDAO.insert(execucao);
         return execucao.getId();
     }
+
+    public String getNome(){
+        return atividade.getNome();
+    }
 }
