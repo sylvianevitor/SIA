@@ -48,8 +48,8 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
     @Override
     public void verificaResultado(int requestCode, int resultCode, Intent data) {
 
-        int d = data.getIntExtra("id_imagem", 0);
-        Log.d("MARI verificaResultado", Integer.toString(d));
+//        int d = data.getIntExtra("id_imagem", 0);
+//        Log.d("MARI verificaResultado", Integer.toString(d));
 
         switch (requestCode){
             case CODIGO_IMAGEM:
