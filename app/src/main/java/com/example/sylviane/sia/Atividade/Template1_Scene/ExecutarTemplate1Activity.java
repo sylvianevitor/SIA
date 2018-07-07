@@ -40,7 +40,7 @@ import butterknife.OnClick;
  */
 public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View {
     ExecutarTemplate1Presenter executarTemplate1Presenter;
-    //MediaPlayer mp;
+    MediaPlayer mp;
     //List<MediaPlayer> audioFiles = new ArrayList<MediaPlayer>();
     List<String> audioFiles;
     int pontuacao = 0;
@@ -77,7 +77,6 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     public void play() {
         Log.d("Antigo audio", Integer.toString(index));
         //mp = audioFiles.get(index);
-        MediaPlayer mp = new MediaPlayer();
         try {
             mp.setDataSource(audioFiles.get(index));
         } catch (IllegalArgumentException e) {
@@ -97,7 +96,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         }
 //start mediaPlayer
         mp.start();
-
+        mp.reset();
     }
 
     @OnClick(R.id.imageButton1)
