@@ -1,12 +1,14 @@
 package com.example.sylviane.sia.Atividade.Template1_Scene;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -18,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -42,6 +45,9 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     @BindView(R.id.imageButton1)ImageButton imageButton1;
     @BindView(R.id.imageButton2)ImageButton imageButton2;
     @BindView(R.id.imageButton3)ImageButton imageButton3;
+    @BindView(R.id.btnAudio1)Button audioButton1;
+    @BindView(R.id.btnAudio2)Button audioButton2;
+    @BindView(R.id.btnAudio3)Button audioButton3;
 
     CriarTemplate1View.Presenter criarTemplate1Presenter;
 
@@ -119,6 +125,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         criarTemplate1Presenter.selecionaImagem(3);
     }
 
+    @SuppressLint("ResourceAsColor")
     @OnClick(R.id.btnAudio1)
     public void selecionaAudio1(){
 
@@ -213,11 +220,21 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         return super.onCreateOptionsMenu(menu);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_salvar:
                 criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
+                if(pathAudio1 != null){
+                    audioButton1.setBackgroundColor(R.color.colorPrimary);
+                }
+                if(pathAudio2 != null){
+                    audioButton2.setBackgroundColor(R.color.colorPrimary);
+                }
+                if(pathAudio3 != null){
+                    audioButton3.setBackgroundColor(R.color.colorPrimary);
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -323,6 +340,12 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
             return false;}
         if (pathAudio1 == null){
             Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 1", Toast.LENGTH_LONG).show();
+            return false;}
+        if (pathAudio2 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 2", Toast.LENGTH_LONG).show();
+            return false;}
+        if (pathAudio3 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 3", Toast.LENGTH_LONG).show();
             return false;}
         return true;
     }
