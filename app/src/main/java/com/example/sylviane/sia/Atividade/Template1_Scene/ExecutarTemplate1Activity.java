@@ -132,16 +132,19 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
                 case 0:
                     index = 1;
                     Log.d("Novo audio", Integer.toString(index));
+                   // mp = audioFiles.get(index);
                     image1.setClickable(false);
                     break;
                 case 1:
                     index = 2;
                     Log.d("Novo audio", Integer.toString(index));
+                    //mp = audioFiles.get(index);
                     image2.setClickable(false);
                     break;
                 case 2:
                     index = 0;
                     Log.d("Novo audio", Integer.toString(index));
+                   // mp = audioFiles.get(index);
                     image3.setClickable(false);
                     break;
             }
