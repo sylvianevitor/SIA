@@ -16,5 +16,6 @@ public interface Contract {
     interface Presenter{
         void salvarTema(String nome, String imagem);
         void ligarCamera();
+        boolean comparaTema(String nome);
     }
 }

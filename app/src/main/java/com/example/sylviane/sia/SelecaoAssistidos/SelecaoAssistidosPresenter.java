@@ -1,7 +1,5 @@
 package com.example.sylviane.sia.SelecaoAssistidos;
 
-import com.example.sylviane.sia.Entity.AssistidosEntity;
-import com.example.sylviane.sia.Entity.AssistidosListEntity;
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
 

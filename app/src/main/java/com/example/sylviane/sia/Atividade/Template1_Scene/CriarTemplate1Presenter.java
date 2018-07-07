@@ -48,8 +48,8 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
     @Override
     public void verificaResultado(int requestCode, int resultCode, Intent data) {
 
-        int d = data.getIntExtra("id_imagem", 0);
-        Log.d("MARI verificaResultado", Integer.toString(d));
+//        int d = data.getIntExtra("id_imagem", 0);
+//        Log.d("MARI verificaResultado", Integer.toString(d));
 
         switch (requestCode){
             case CODIGO_IMAGEM:
@@ -122,6 +122,7 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
         Log.d("PATH1: ", pathAudio1 + " | " + pathImage1);
         Log.d("PATH2: ", pathAudio2 + " | " + pathImage2);
         Log.d("PATH3: ", pathAudio3 + " | " + pathImage3);
+
 
         Template1 template1 = new Template1();
         template1.setImage(pathImage1);

@@ -37,8 +37,6 @@ public class ExecutarAtividadePassivaActivity extends AppCompatActivity {
         AtividadeDAO atividadeDAO = new AtividadeDAO(this);
         atividade = atividadeDAO.getAtividadeId(id_atividade);
         executaVideo();
-
-
     }
 
     public String load_video(){

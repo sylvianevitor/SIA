@@ -12,7 +12,7 @@ import android.view.View;
 
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.AssistidosDetail.AssistidosDetailActivity;
-import com.example.sylviane.sia.Entity.AssistidosEntity;
+
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
 
@@ -42,7 +42,6 @@ public class AssistidosActivity extends AppCompatActivity implements AssistidosV
         ButterKnife.bind(this);
         assistidosPresenter = new AssistidosPresenter(this);
         AssistidoDAO assistidoDAO = new AssistidoDAO(this);
-        assistidoDAO.popularAssistidos();
         List<Assistido> assistidosList = assistidoDAO.getAssistidos();
 
         assistidosPresenter.updateList(assistidosList);
@@ -61,7 +60,6 @@ public class AssistidosActivity extends AppCompatActivity implements AssistidosV
                                 AssistidosDetailActivity.class);
                 intent.putExtra("assistido_id", assistidosList.get(position).getId());
                 startActivity(intent);
-                finish();
             }
 
             @Override

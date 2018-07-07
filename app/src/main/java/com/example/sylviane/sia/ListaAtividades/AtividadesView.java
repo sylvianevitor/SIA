@@ -1,7 +1,6 @@
 package com.example.sylviane.sia.ListaAtividades;
 
 import com.example.sylviane.sia.persist.model.Atividade;
-import com.example.sylviane.sia.Entity.AtividadesEntity;
 
 import java.util.List;
 

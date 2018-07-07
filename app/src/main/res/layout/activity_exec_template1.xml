@@ -55,16 +55,25 @@
         android:id="@+id/btnAudio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal"
+        android:background="@drawable/round_button"
         android:backgroundTint="@color/colorPrimary"
         android:drawableLeft="@drawable/ic_volume_down_black_24dp"
         android:drawableStart="@drawable/ic_volume_down_black_24dp"
         android:orientation="horizontal"
-        android:text="ÁUDIO"
         android:padding="25dp"
-        android:textSize="25sp"
-        android:background="@drawable/round_button"
+        android:text="OUVIR"
         android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center|center_horizontal"
-        android:textColor="#fff"/>
+        android:padding="25dp"
+        android:text="
+  Clique na imagem correspondente ao áudio tocado."
+        android:textAlignment="center" />
 
 </LinearLayout>

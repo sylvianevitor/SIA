@@ -14,6 +14,7 @@ import com.example.sylviane.sia.ListaAssistidos.AssistidosActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.SelecaoAssistidos.SelecaoAssisitidosActivity;
 import com.example.sylviane.sia.SelecionarAtividade_Scene.SelecionarAtividadesActivity;
+import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 
 import butterknife.ButterKnife;
@@ -22,7 +23,6 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity implements MainView {
 
     MainPresenter mainPresenter;
-    AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +32,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
         ButterKnife.bind(this);
 
         mainPresenter = new MainPresenter(this);
-
-        if(atividadeDAO.getAtividadeId(1) == null) {
-            mainPresenter.creatAtivDefault(this); // chamada da funcao para criar atividade
-        }
+        mainPresenter.creatAtivDefault(this); // chamada da funcao para criar atividade
+        mainPresenter.popularAssistidos(this); // chamada da funcao para popular assistidos
     }
 
     @OnClick(R.id.button_criar_atividade)

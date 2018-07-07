@@ -5,7 +5,12 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
+import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
+import com.example.sylviane.sia.persist.model.Atividade;
+import com.example.sylviane.sia.persist.model.Execucao;
+
+import java.util.List;
 
 /**
  * Created by Natasha on 22/05/2018.
@@ -40,5 +45,16 @@ public class AssistidosDetailPresenter {
 
     public String calculaIdade(java.util.Date dataNasc){
         return assistidosDetailView.calculaIdade(dataNasc);
+    }
+
+
+    //valida informações do banco
+    public void updateList(List<Execucao> atividadeExecutadaList) {
+        if(atividadeExecutadaList!=null){
+            assistidosDetailView.updateListAtividades(atividadeExecutadaList);
+        }
+        else{
+            Toast.makeText(context,"Erro ao carregar lista de atividades",Toast.LENGTH_LONG);
+        }
     }
 }

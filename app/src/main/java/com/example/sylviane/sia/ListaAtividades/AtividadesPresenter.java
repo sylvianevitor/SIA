@@ -3,8 +3,7 @@ package com.example.sylviane.sia.ListaAtividades;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.sylviane.sia.Entity.AtividadesEntity;
-import com.example.sylviane.sia.Entity.AtividadesListEntity;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,4 +30,5 @@ public class AtividadesPresenter {
             Toast.makeText(context,"Erro ao carregar lista de atividades",Toast.LENGTH_LONG);
         }
     }
+
 }

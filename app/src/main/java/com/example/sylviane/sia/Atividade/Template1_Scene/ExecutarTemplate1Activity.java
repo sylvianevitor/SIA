@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -39,8 +40,9 @@ import butterknife.OnClick;
  */
 public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View {
     ExecutarTemplate1Presenter executarTemplate1Presenter;
-    MediaPlayer mp;
-    List<MediaPlayer> audioFiles = new ArrayList<MediaPlayer>();
+    MediaPlayer mp = new MediaPlayer();
+    //List<MediaPlayer> audioFiles = new ArrayList<MediaPlayer>();
+    List<String> audioFiles;
     int pontuacao = 0;
     int id_atividade;
     ArrayList<Integer> id_assistidos;
@@ -74,8 +76,27 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     @OnClick(R.id.btnAudio)
     public void play() {
         Log.d("Antigo audio", Integer.toString(index));
-        mp = audioFiles.get(index);
+        //mp = audioFiles.get(index);
+        try {
+            mp.setDataSource(audioFiles.get(index));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//Prepare mediaplayer
+        try {
+            mp.prepare();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//start mediaPlayer
         mp.start();
+
     }
 
     @OnClick(R.id.imageButton1)
@@ -107,10 +128,11 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         audioFiles = executarTemplate1Presenter.load_audio();
         if (audioFiles != null) {
             index = executarTemplate1Presenter.getRandomIndex(0, 2);
-            mp = audioFiles.get(index);
+            //mp = audioFiles.get(index);
+//            mp = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
             Log.d("Audio recebido", Integer.toString(index));
         } else {
-            mp = MediaPlayer.create(this, R.raw.sound);
+            //mp = MediaPlayer.create(this, R.raw.sound);
         }
         List<Bitmap> imageFiles = executarTemplate1Presenter.load_image();
         if (imageFiles != null) {
