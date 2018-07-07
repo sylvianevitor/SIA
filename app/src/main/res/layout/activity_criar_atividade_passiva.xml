@@ -2,15 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
-    <Button
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_video_galeria"
-        tools:text="Selecionar video da galeria"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Video URL"/>
-
+        android:layout_gravity="center|center_horizontal">
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="500dp"
+            android:layout_height="230dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center|center_horizontal"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_video_galeria"
+            tools:text="Selecionar video da galeria"
+            android:layout_gravity="center|center_horizontal"
+            android:background="@drawable/rounded_corners_button"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Video URL"
+            android:layout_gravity="center|center_horizontal"/>
+    </LinearLayout>
 </LinearLayout>

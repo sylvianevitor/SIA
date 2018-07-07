@@ -1,6 +1,7 @@
 package com.example.sylviane.sia.Atividade.Atividade_Passiva.CriarAtividadePassiva;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,8 +19,12 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.example.sylviane.sia.Atividade.Atividade_Passiva.CriarAtividadePassiva.CriarAtividadePassivaView;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
@@ -42,6 +47,8 @@ import static com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1P
 
 public class CriarAtividadePassivaActivity extends AppCompatActivity {
 
+    @BindView(R.id.videoView)VideoView videoView;
+
     private static final int CODIGO_VIDEO = 1;
     private String caminhoVideo;
     CriarAtividadePassivaView.View criarAtividadePassivaView;
@@ -60,6 +67,23 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
         int id_atividade = intent.getIntExtra("id_atividade", -1);
         Log.d("id natasha", Integer.toString(id_atividade));
         atividade = atividadeDAO.getAtividadeId(id_atividade);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_cadastro_template1, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @SuppressLint("ResourceAsColor")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_salvar:
+                cadastrar(caminhoVideo);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @OnClick(R.id.btn_video_galeria)
@@ -84,7 +108,8 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             String caminhoVideo = getRealPathFromURI(data.getData());
             Toast.makeText(this,caminhoVideo,Toast.LENGTH_LONG).show();
-            cadastrar(caminhoVideo);
+            videoView.setVideoPath(caminhoVideo);
+            videoView.start();
         }
     }
 
