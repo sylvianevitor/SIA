@@ -77,8 +77,8 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     public void play() {
         Log.d("Antigo audio", Integer.toString(index));
         //mp = audioFiles.get(index);
-        mp = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
-        mp.start();
+        MediaPlayer mp2 = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
+        mp2.start();
     }
 
     @OnClick(R.id.imageButton1)
@@ -111,7 +111,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         if (audioFiles != null) {
             index = executarTemplate1Presenter.getRandomIndex(0, 2);
             //mp = audioFiles.get(index);
-            mp = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
+//            mp = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
             Log.d("Audio recebido", Integer.toString(index));
         } else {
             mp = MediaPlayer.create(this, R.raw.sound);
