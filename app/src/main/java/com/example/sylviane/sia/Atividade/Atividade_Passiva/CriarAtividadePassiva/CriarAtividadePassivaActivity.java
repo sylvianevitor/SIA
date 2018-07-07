@@ -112,6 +112,8 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
         } else{
             toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
             toast.show();
+            atividade.setAtiva(Atividade.SITUACAO_INATIVA);
+            atividadeDAO.update(atividade);
         }
     }
     private String getRealPathFromURI(Uri contentUri) {

@@ -30,4 +30,5 @@ public class AtividadesPresenter {
             Toast.makeText(context,"Erro ao carregar lista de atividades",Toast.LENGTH_LONG);
         }
     }
+
 }
