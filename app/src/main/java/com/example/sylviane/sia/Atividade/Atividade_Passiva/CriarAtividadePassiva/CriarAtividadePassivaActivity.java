@@ -47,6 +47,7 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
     CriarAtividadePassivaView.View criarAtividadePassivaView;
     Context context;
     Atividade atividade;
+    AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     @BindView(R.id.btn_video_galeria) Button btnVideoGaleria;
     @Override
@@ -58,8 +59,6 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int id_atividade = intent.getIntExtra("id_atividade", -1);
         Log.d("id natasha", Integer.toString(id_atividade));
-
-        AtividadeDAO atividadeDAO = new AtividadeDAO(this);
         atividade = atividadeDAO.getAtividadeId(id_atividade);
     }
 
@@ -98,13 +97,18 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
 
         Toast toast;
         if (ok == true) {
-            toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG);
-            toast.show();
-            Intent openCadastrarTemaInterativoActivity = new Intent(CriarAtividadePassivaActivity.this, MainActivity.class);
-            startActivity(openCadastrarTemaInterativoActivity);
-            finish();
-
-
+            if (validar() == true) {
+                atividade.setAtiva(Atividade.SITUACAO_ATIVA);
+                atividadeDAO.update(atividade);
+                toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG);
+                toast.show();
+                Intent openCadastrarTemaInterativoActivity = new Intent(CriarAtividadePassivaActivity.this, MainActivity.class);
+                startActivity(openCadastrarTemaInterativoActivity);
+                finish();
+            }else{
+                atividade.setAtiva(Atividade.SITUACAO_INATIVA);
+                atividadeDAO.update(atividade);
+            }
         } else{
             toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
             toast.show();
@@ -182,5 +186,15 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
                 super.onRequestPermissionsResult(requestCode, permissions,
                         grantResults);
         }
+    }
+
+    public boolean validar(){
+
+        if (caminhoVideo == null){
+            Toast.makeText(CriarAtividadePassivaActivity.this, "Selecionar um vídeo", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
     }
 }

@@ -52,10 +52,6 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
     protected void onResume() {
         super.onResume();
         Atividade atividadeDefault = new Atividade();
-
-//        if(tipo_atividade == 0){
-//            List<Atividade> atividadeList = atividadeDAO.getAtividadeAtiva();
-//        } else if (tipo_atividade == 1){List<Atividade> atividadeList = atividadeDAO.getAtividadePassiva();}
         List<Atividade> atividadeList = atividadeDAO.getAtividadeByTema(id_tema, tipo_atividade);
         atividadesPresenter.updateList(atividadeList);
 
