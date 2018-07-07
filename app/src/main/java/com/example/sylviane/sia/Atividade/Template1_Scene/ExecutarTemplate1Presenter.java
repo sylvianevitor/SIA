@@ -80,7 +80,7 @@ public class ExecutarTemplate1Presenter {
 
     public List<String> load_audio() {
         Template1DAO template1DAO = new Template1DAO(contexto);
-        List <String> audioList = null;
+        List <String> audioList = new ArrayList<String>();
         List<Template1> arquivos = template1DAO.getArquivos(atividade);
 
         for (int i =0; i< 3; i++) {
