@@ -40,7 +40,7 @@ import butterknife.OnClick;
  */
 public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View {
     ExecutarTemplate1Presenter executarTemplate1Presenter;
-    MediaPlayer mp;
+    //MediaPlayer mp;
     //List<MediaPlayer> audioFiles = new ArrayList<MediaPlayer>();
     List<String> audioFiles;
     int pontuacao = 0;
@@ -77,8 +77,27 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     public void play() {
         Log.d("Antigo audio", Integer.toString(index));
         //mp = audioFiles.get(index);
-        MediaPlayer mp2 = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
-        mp2.start();
+        MediaPlayer mp = new MediaPlayer();
+        try {
+            mp.setDataSource(audioFiles.get(index));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//Prepare mediaplayer
+        try {
+            mp.prepare();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//start mediaPlayer
+        mp.start();
+
     }
 
     @OnClick(R.id.imageButton1)
@@ -114,7 +133,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
 //            mp = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
             Log.d("Audio recebido", Integer.toString(index));
         } else {
-            mp = MediaPlayer.create(this, R.raw.sound);
+            //mp = MediaPlayer.create(this, R.raw.sound);
         }
         List<Bitmap> imageFiles = executarTemplate1Presenter.load_image();
         if (imageFiles != null) {
