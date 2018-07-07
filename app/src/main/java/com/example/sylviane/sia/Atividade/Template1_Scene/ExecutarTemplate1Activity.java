@@ -155,19 +155,16 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
                     index = 1;
                     Log.d("Novo audio", Integer.toString(index));
                     image1.setClickable(false);
-                    mp.reset();
                     break;
                 case 1:
                     index = 2;
                     Log.d("Novo audio", Integer.toString(index));
                     image2.setClickable(false);
-                    mp.reset();
                     break;
                 case 2:
                     index = 0;
                     Log.d("Novo audio", Integer.toString(index));
                     image3.setClickable(false);
-                    mp.reset();
                     break;
             }
             toast = Toast.makeText(ExecutarTemplate1Activity.this, "PARABENS, VOCE ACERTOU!", Toast.LENGTH_LONG);
