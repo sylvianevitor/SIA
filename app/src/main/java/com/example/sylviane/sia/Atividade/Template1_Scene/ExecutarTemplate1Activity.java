@@ -40,7 +40,7 @@ import butterknife.OnClick;
  */
 public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View {
     ExecutarTemplate1Presenter executarTemplate1Presenter;
-    MediaPlayer mp;
+    MediaPlayer mp = new MediaPlayer();
     //List<MediaPlayer> audioFiles = new ArrayList<MediaPlayer>();
     List<String> audioFiles;
     int pontuacao = 0;
@@ -96,7 +96,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         }
 //start mediaPlayer
         mp.start();
-        mp.reset();
+
     }
 
     @OnClick(R.id.imageButton1)
@@ -155,16 +155,19 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
                     index = 1;
                     Log.d("Novo audio", Integer.toString(index));
                     image1.setClickable(false);
+                    mp.reset();
                     break;
                 case 1:
                     index = 2;
                     Log.d("Novo audio", Integer.toString(index));
                     image2.setClickable(false);
+                    mp.release();
                     break;
                 case 2:
                     index = 0;
                     Log.d("Novo audio", Integer.toString(index));
                     image3.setClickable(false);
+                    mp.release();
                     break;
             }
             toast = Toast.makeText(ExecutarTemplate1Activity.this, "PARABENS, VOCE ACERTOU!", Toast.LENGTH_LONG);
