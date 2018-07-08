@@ -43,13 +43,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
 
         Intent intent = getIntent();
         tipo_atividade = intent.getIntExtra("tipo_atividade",-1);
-        int temaId = intent.getIntExtra("tema_id", -1);
 
-        List<Atividade> atividadeList = atividadeDAO.getAtividadeByTema(temaId);
-        Log.d("LISTA ATIVIDADE", String.valueOf(atividadeList));
-        for (int i = 0; i < atividadeList.size(); i++){
-            Log.d("MARI", atividadeList.get(i).getNome());
-        }
         id_tema = intent.getIntExtra("id_tema",-1);
         Log.d("tipo da atividade", Integer.toString(tipo_atividade));
         Log.d("id tema", Integer.toString(id_tema));
