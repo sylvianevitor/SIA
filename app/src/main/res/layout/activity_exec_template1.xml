@@ -61,19 +61,10 @@
         android:drawableLeft="@drawable/ic_volume_down_black_24dp"
         android:drawableStart="@drawable/ic_volume_down_black_24dp"
         android:orientation="horizontal"
-        android:padding="25dp"
+        android:padding="20dp"
+        android:layout_marginBottom="10dp"
         android:text="OUVIR"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="25sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|center_horizontal"
-        android:padding="25dp"
-        android:text="
-  Clique na imagem correspondente ao áudio tocado."
-        android:textAlignment="center" />
-
 </LinearLayout>
