@@ -84,7 +84,7 @@ public class ExecutarTemplate1Presenter {
         List<Template1> arquivos = template1DAO.getArquivos(atividade);
 
         for (int i =0; i< 3; i++) {
-            String PathAudio = arquivos.get(1).getAudio();
+            String PathAudio = arquivos.get(i).getAudio();
             audioList.add(i,PathAudio);
         }
         return audioList;

@@ -76,6 +76,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     public void play() {
         Log.d("Antigo audio", Integer.toString(index));
         releaseMediaPlayer();
+        System.out.println(audioFiles);
         mp = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
         mp.start();
 
