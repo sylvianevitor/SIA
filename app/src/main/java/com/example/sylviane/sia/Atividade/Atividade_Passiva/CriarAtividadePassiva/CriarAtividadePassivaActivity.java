@@ -70,6 +70,8 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity implements 
         int id_atividade = intent.getIntExtra("id_atividade", -1);
         Log.d("id natasha", Integer.toString(id_atividade));
         atividade = criarAtividadePassivaPresenter.getAtividade(id_atividade);
+
+        setTitle(atividade.getNome());
     }
 
     @Override
