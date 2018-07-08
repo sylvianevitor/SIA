@@ -24,8 +24,7 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/ic_menu_profile"
             android:contentDescription="@null"
-            android:tint="@color/colorAccent"
-            android:layout_weight=""/>
+            android:tint="@color/colorAccent"/>
 
 
         <TextView
@@ -47,8 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="0dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"/>
+            android:layout_marginRight="10dp"/>
 
     </LinearLayout>
 </RelativeLayout>
