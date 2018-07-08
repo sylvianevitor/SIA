@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity">
 
-    <Button
-        android:id="@+id/btnSair2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/btnAudio"
-        android:layout_marginEnd="26dp"
-        android:layout_marginRight="26dp"
-        android:text="SAIR" />
+    <!--<Button-->
+        <!--android:id="@+id/btnSair2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_below="@+id/btnAudio"-->
+        <!--android:layout_marginEnd="26dp"-->
+        <!--android:layout_marginRight="26dp"-->
+        <!--android:text="SAIR" />-->
 
     <RelativeLayout
         android:id="@+id/linearLayout"
@@ -72,11 +72,11 @@
         android:id="@+id/colorButton0"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/objectButton"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_toLeftOf="@+id/btnSair2"
-        android:layout_toStartOf="@+id/btnSair2"
+        android:layout_marginEnd="131dp"
+        android:layout_marginRight="131dp"
         android:layout_weight="1"
         android:background="@drawable/round_button_gray"
         android:orientation="horizontal" />
