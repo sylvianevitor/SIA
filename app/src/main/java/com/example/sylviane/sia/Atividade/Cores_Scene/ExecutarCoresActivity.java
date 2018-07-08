@@ -35,8 +35,6 @@ public class ExecutarCoresActivity extends AppCompatActivity implements Executar
     ImageButton image3;
     @BindView(R.id.objectButton)
     ImageView objeto;
-    @BindView(R.id.btnSair2)
-    Button sair;
 
     int pontuacao = 100;
     boolean red_set = false;
@@ -76,7 +74,7 @@ public class ExecutarCoresActivity extends AppCompatActivity implements Executar
     }
 
 
-    @OnClick(R.id.btnSair2)
+
     public void fim() {
         endTime = System.currentTimeMillis();
         elapsedTime = endTime - startTime;
