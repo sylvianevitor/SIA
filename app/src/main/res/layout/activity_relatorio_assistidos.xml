@@ -36,7 +36,6 @@
         android:layout_alignBottom="@+id/data_execucao"
         android:layout_alignLeft="@+id/text_porcentagem"
         android:layout_alignStart="@+id/text_porcentagem"
-        android:text="dia/mes/ano"
         tools:layout_editor_absoluteX="163dp"
         tools:layout_editor_absoluteY="61dp" />
 
@@ -73,7 +72,6 @@
         android:layout_alignBaseline="@+id/dificuldade_atividade"
         android:layout_alignBottom="@+id/dificuldade_atividade"
         android:layout_centerHorizontal="true"
-        android:text="valor da dificuldade"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="105dp" />
 
@@ -99,7 +97,6 @@
         android:layout_marginStart="24dp"
         android:layout_toEndOf="@+id/porcentagem_acertos"
         android:layout_toRightOf="@+id/porcentagem_acertos"
-        android:text="valor"
         tools:layout_editor_absoluteX="189dp"
         tools:layout_editor_absoluteY="194dp" />
 

@@ -63,9 +63,10 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
     @Override
     protected void onResume() {
         super.onResume();
-        //List<Execucao> execucaoList = execucaoDAO.getExecucaosAssistido(assistidoId);
+        List<Execucao> execucaoList = execucaoDAO.getExecucaosAssistido(assistidoId);
         //Log.d("Execucao recuperada", Integer.toString(execucaoList.get(0).getId_atividade()));
-        //assistidosDetailPresenter.updateList(execucaoList);
+        if(execucaoList != null)
+            assistidosDetailPresenter.updateList(execucaoList);
 
     }
 

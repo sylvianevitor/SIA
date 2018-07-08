@@ -1,8 +1,12 @@
 package com.example.sylviane.sia.Atividade.Cores_Scene;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -90,6 +94,23 @@ public class ExecutarCoresActivity extends AppCompatActivity implements Executar
             objeto.setImageResource(R.drawable.orange_icon_png);
             yellow_set = false;
             red_set = false;
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_cadastro_template1, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @SuppressLint("ResourceAsColor")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_salvar:
+                fim();
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
