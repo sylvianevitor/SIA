@@ -6,20 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.sylviane.sia.R;
-
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 import com.example.sylviane.sia.persist.model.Atividade;
-/**
- * Created by Natasha on 25/04/2018.
- */
 
 public class AtividadesAdapter extends RecyclerView.Adapter<AtividadesAdapter.ViewHolder>{
 

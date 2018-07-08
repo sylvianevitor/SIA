@@ -17,10 +17,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * Created by mariana on 25/04/18.
- */
-
 public class TemaInterativoAdapter extends RecyclerView.Adapter<TemaInterativoAdapter.ViewHolder> {
     private Context context;
     private OnRecyclerViewSelected mOnRecyclerViewSelected;
@@ -43,11 +39,6 @@ public class TemaInterativoAdapter extends RecyclerView.Adapter<TemaInterativoAd
     public void onBindViewHolder(ViewHolder holder, int position) {
         Tema socialEntity = temaList.get(position);
         holder.nomeTema.setText(socialEntity.getTema());
-        /* Picasso.with(context)
-                .load(socialEntity.getImage())
-                .centerCrop()
-                .fit()
-                .into(holder.fotoTema); */
     }
 
     //retorna o tamanho da lista

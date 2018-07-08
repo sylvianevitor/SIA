@@ -8,17 +8,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
-import android.widget.Toast;
-
-import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.dao.PassivaTemplate1DAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.PassivaTemplate1;
-
-/**
- * Created by Rafael Saito on 07/07/2018.
- */
 
 public class CriarAtividadePassivaPresenter implements CriarAtividadePassivaView.Presenter{
     private static final int CODIGO_VIDEO = 1;

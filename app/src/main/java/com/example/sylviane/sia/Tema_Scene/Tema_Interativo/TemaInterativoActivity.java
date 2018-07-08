@@ -6,28 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-
-import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.Tema_Scene.CadastrarTemas.CadastrarTemasInterativosActivity;
 import com.example.sylviane.sia.persist.model.Tema;
-import com.example.sylviane.sia.persist.dao.TemaDAO;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-/**
- * Created by mariana on 25/04/18.
- */
 
 public class TemaInterativoActivity extends AppCompatActivity implements Contract.View {
 
@@ -73,7 +63,6 @@ public class TemaInterativoActivity extends AppCompatActivity implements Contrac
                 Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
                 openListaAtividadesActivity.putExtra("tipo_atividade", tipo_atividade);
                 openListaAtividadesActivity.putExtra("tema_id", temaList.get(position).getId());
-                Log.d("ID TEMA", String.valueOf(temaList.get(position).getId()));
                 openListaAtividadesActivity.putExtra("id_tema", tema.getId());
                 startActivity(openListaAtividadesActivity);
             }

@@ -2,15 +2,12 @@ package com.example.sylviane.sia.AssistidosDetail;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +19,6 @@ import com.example.sylviane.sia.persist.dao.ExecucaoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
 import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.Execucao;
-import com.squareup.picasso.Picasso;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,11 +27,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-/**
- * Created by Natasha on 25/04/2018.
- */
 
 public class AssistidosDetailActivity extends AppCompatActivity implements AssistidosDetailView{
     @BindView(R.id.nome_assistido_detail)
@@ -45,16 +35,12 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
     TextView idade_detail;
     @BindView(R.id.nome_responsavel_assistido_detail)
     TextView responsavel_detail;
-//    @BindView(R.id.imagem_assistido_detail)
-//    ImageView imagem_detail;
     @BindView(R.id.telefone_assistido_detail)
     TextView telefone_detail;
     @BindView(R.id.outras_infos_assistido_detail)
     TextView outras_infos_detail;
     @BindView(R.id.medicamentos_assistido_detail)
     TextView medicamentos_detail;
-//    @BindView(R.id.btnrelatorio)
-//    Button botaorelatorio;
     @BindView(R.id.rv_assistidos_detail)
     RecyclerView rvExecucoes;
 
@@ -67,13 +53,9 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assistidos_detail);
-
         ButterKnife.bind(this);
-
         Intent intent = getIntent();
         assistidoId = intent.getIntExtra("assistido_id", -1);
-
-
         assistidosDetailPresenter = new AssistidosDetailPresenter(this,this);
         assistidosDetailPresenter.getAssistidosDetails(assistidoId);
     }
@@ -106,7 +88,6 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
 
             @Override
             public void onLongClick(View view, int position) {
-                //Toast.makeText(MoviesActivity.this, "Clique Longo", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -120,13 +101,6 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
         rvExecucoes.addItemDecoration(dividerItemDecoration);
     }
 
-//    @OnClick(R.id.btnrelatorio)
-//    public void mostraRelatorio(){
-////        Intent abrirRelatorio = new Intent(AssistidosDetailActivity.this, RelatorioAssistidosActivity.class);
-////        abrirRelatorio.putExtra("id_assistido", assistidoId);
-////        startActivity(abrirRelatorio);
-////       // finish();
-//    }
     @Override
     public void showDetails(Assistido assistido) {
         nome_detail.setText(assistido.getNome_completo());
@@ -145,14 +119,7 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
             e.printStackTrace();
         }
 
-
-
         idade_detail.setText(assistidosDetailPresenter.calculaIdade(date));
-        //Picasso.with(this)
-        //        .load(assistido.getImagemUrl())
-        //        .centerCrop()
-        //        .fit()
-        //        .into(imagem_detail);
     }
 
     @Override
@@ -180,6 +147,5 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
 
         return Integer.toString(idade);
     }
-
 
 }

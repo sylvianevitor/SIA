@@ -4,10 +4,6 @@ import com.example.sylviane.sia.persist.model.Tema;
 
 import java.util.ArrayList;
 
-/**
- * Created by mariana on 01/05/18.
- */
-
 public interface Contract {
 
     interface View {

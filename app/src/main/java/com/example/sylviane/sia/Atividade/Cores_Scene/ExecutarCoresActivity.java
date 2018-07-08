@@ -1,12 +1,8 @@
 package com.example.sylviane.sia.Atividade.Cores_Scene;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -17,11 +13,6 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import static com.example.sylviane.sia.R.drawable.round_button_violet;
-
-/**
- * Created by sylviane on 12/06/18.
- */
 
 public class ExecutarCoresActivity extends AppCompatActivity implements ExecutarCoresView {
 

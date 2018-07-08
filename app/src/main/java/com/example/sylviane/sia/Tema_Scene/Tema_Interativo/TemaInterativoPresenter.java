@@ -7,10 +7,6 @@ import com.example.sylviane.sia.persist.model.Tema;
 
 import java.util.List;
 
-/**
- * Created by mariana on 25/04/18.
- */
-
 public class TemaInterativoPresenter implements Contract.Presenter{
 
     private Contract.View temaInterativoView;

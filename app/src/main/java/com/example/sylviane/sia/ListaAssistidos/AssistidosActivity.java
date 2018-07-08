@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 
@@ -15,18 +14,10 @@ import com.example.sylviane.sia.AssistidosDetail.AssistidosDetailActivity;
 
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
-
-import com.example.sylviane.sia.persist.model.Assistido;
-import com.example.sylviane.sia.persist.dao.AssistidoDAO;
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-/**
- * Created by Natasha on 25/04/2018.
- */
 
 public class AssistidosActivity extends AppCompatActivity implements AssistidosView{
 
@@ -64,12 +55,10 @@ public class AssistidosActivity extends AppCompatActivity implements AssistidosV
 
             @Override
             public void onLongClick(View view, int position) {
-                //Toast.makeText(MoviesActivity.this, "Clique Longo", Toast.LENGTH_SHORT).show();
             }
         });
 
         rvAssistidos.setAdapter(assistidosAdapter);
-
 
         // criação do gerenciador de layouts
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

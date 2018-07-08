@@ -4,16 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.sylviane.sia.Main_Scene.MainActivity;
-import com.example.sylviane.sia.Relatorios.RelatoriosActivity;
 import com.example.sylviane.sia.persist.dao.ExecucaoDAO;
 import com.example.sylviane.sia.persist.model.Execucao;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-
-/**
- * Created by sylviane on 12/06/18.
- */
 
 public class ExecutarCoresPresenter {
     ExecutarCoresView executarCoresView;

@@ -1,9 +1,5 @@
 package com.example.sylviane.sia.Tema_Scene.Tema_Interativo;
 
-/**
- * Created by mariana on 25/04/18.
- */
-
 public class TemaInterativoEntity {
 
     private long id;

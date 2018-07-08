@@ -1,7 +1,6 @@
 package com.example.sylviane.sia.Main_Scene;
 
 import android.content.Context;
-import android.icu.text.LocaleDisplayNames;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -14,9 +13,6 @@ import com.example.sylviane.sia.persist.model.Tema;
 
 import java.util.ArrayList;
 
-/**
- * Created by mariana on 24/04/18.
- */
 
 public class MainPresenter extends AppCompatActivity {
     Context context;

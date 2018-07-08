@@ -2,7 +2,6 @@ package com.example.sylviane.sia.Atividade.Atividade_Passiva.ExecutarAtividadePa
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -17,11 +16,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-/**
- * Created by Natasha on 26/06/2018.
- */
-
 public class ExecutarAtividadePassivaActivity extends AppCompatActivity {
     @BindView(R.id.video_view_passiva)VideoView videoView;
     Atividade atividade;

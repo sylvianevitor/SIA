@@ -4,10 +4,6 @@ import android.content.Intent;
 
 import com.example.sylviane.sia.persist.model.Atividade;
 
-/**
- * Created by Natasha on 26/06/2018.
- */
-
 public interface CriarAtividadePassivaView {
     interface View {
         void abreActivity(Intent intent, Integer codigo);

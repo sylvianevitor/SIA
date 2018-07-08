@@ -1,24 +1,17 @@
 package com.example.sylviane.sia.AtividadesDetail;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sylviane.sia.Atividade.Atividade_Passiva.ExecutarAtividadePassiva.ExecutarAtividadePassivaActivity;
-import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
 import com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene.DescricaoAtividadeActivity;
-import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
 import com.example.sylviane.sia.ListaAtividades.AtividadesActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.SelecaoAssistidos.SelecaoAssisitidosActivity;
-import com.example.sylviane.sia.SelecaoAssistidos.SelecaoAssistidosPresenter;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 
@@ -26,9 +19,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * Created by Natasha on 25/04/2018.
- */
 
 public class AtividadesDetailActivity extends AppCompatActivity implements AtividadesDetailView {
     Atividade atividade = new Atividade();
@@ -67,21 +57,18 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
         super.onResume();
         atividade = atividadeDAO.getAtividadeId(id_atividade);
         setTitle(atividade.getNome());
-        //Log.d("Nome atividade", atividade.getNome());
         abreDescricao();
     }
 
     @OnClick(R.id.botaoIniciarAtividade)
     public void iniciar() {
         if(atividade.getTipo_atividade()==Atividade.TIPO_ATIVA) {
-            Log.d("Iniciar atividade", atividade.getNome());
             Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, SelecaoAssisitidosActivity.class);
             abrirExecucao.putExtra("id_atividade", atividade.getId());
             startActivity(abrirExecucao);
             finish();
         }
         else{
-            Log.d("Iniciar atividade", atividade.getNome());
             Intent abrirExecucao = new Intent(AtividadesDetailActivity.this, ExecutarAtividadePassivaActivity.class);
             abrirExecucao.putExtra("id_atividade", atividade.getId());
             startActivity(abrirExecucao);
@@ -93,7 +80,6 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
     @OnClick(R.id.botaoExcluirAtividade)
     public void excluir() {
         Toast toast;
-        Log.d("Excluir atividade", atividade.getNome());
         if (atividade.getId() == 1) {
             toast = Toast.makeText(AtividadesDetailActivity.this, "Impossivel excluir atividade default", Toast.LENGTH_LONG);
             toast.show();
@@ -109,7 +95,6 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
     }
     @OnClick(R.id.botaoEditarAtividade)
     public void editar(){
-        Log.d("Editar atividade", atividade.getNome());
         if (atividade.getId() == 1) {
             Toast toast;
             toast = Toast.makeText(AtividadesDetailActivity.this, "Impossivel editar atividade default", Toast.LENGTH_LONG);

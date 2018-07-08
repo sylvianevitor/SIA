@@ -6,12 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.example.sylviane.sia.Atividade.Cores_Scene.ExecutarCoresActivity;
 import com.example.sylviane.sia.Atividade.Template1_Scene.ExecutarTemplate1Activity;
@@ -24,10 +22,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-/**
- * Created by sylviane on 14/05/18.
- */
 
 public class SelecaoAssisitidosActivity  extends AppCompatActivity implements SelecaoAssistidosView {
 
@@ -53,7 +47,6 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
 
         Intent intent = getIntent();
         id_atividade = intent.getIntExtra("id_atividade",0);
-        //Log.d("ID ATIVIDADE", String.valueOf(id_atividade));
 
         assistidosPresenter= new SelecaoAssistidosPresenter(this);
         List<Assistido> listaAssistidos = assistidoDAO.getAssistidos();
@@ -69,7 +62,6 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
             @Override
             public void onClick(View view, int position, boolean state) {
                 id_assistido = assistidosList.get(position).getId();
-                Log.d("ID ASSISTIDO", String.valueOf(id_assistido));
                 if(state == true){
                     adicionar(id_assistido);
                 }else{
@@ -79,7 +71,6 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
 
             @Override
             public void onLongClick(View view, int position) {
-                //Toast.makeText(MoviesActivity.this, "Clique Longo", Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -113,7 +104,6 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
     @Override
     public void iniciar(){
         if (id_atividade == 1) {
-            Log.d("Iniciar atividade", "Atividade cores");
             Intent ExecucaoCores = new Intent(SelecaoAssisitidosActivity.this, ExecutarCoresActivity.class);
             ExecucaoCores.putExtra("id_atividade", id_atividade);
             ExecucaoCores.putExtra("assistido_id", idAssistidosList);
@@ -129,7 +119,6 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
 
     public void adicionar(int id_assistido){
         idAssistidosList.add(id_assistido);
-        Log.d("LISTA IDs", String.valueOf(idAssistidosList));
     }
 
     public void remover(ArrayList<Integer> idAssistidosList, int id_assistido){
@@ -142,8 +131,6 @@ public class SelecaoAssisitidosActivity  extends AppCompatActivity implements Se
         }
 
         idAssistidosList.remove(posicao);
-
-        Log.d("LISTA IDs", String.valueOf(idAssistidosList));
     }
 
 }

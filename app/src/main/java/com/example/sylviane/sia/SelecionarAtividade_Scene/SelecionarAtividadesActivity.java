@@ -10,9 +10,6 @@ import com.example.sylviane.sia.persist.model.Atividade;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * Created by mariana on 24/04/18.
- */
 
 public class SelecionarAtividadesActivity extends AppCompatActivity implements SelecionarAtividadesView{
 

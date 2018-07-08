@@ -4,9 +4,6 @@ import android.content.Intent;
 
 import com.example.sylviane.sia.persist.model.Atividade;
 
-/**
- * Created by mariana on 01/05/18.
- */
 
 interface CriarTemplate1View {
 

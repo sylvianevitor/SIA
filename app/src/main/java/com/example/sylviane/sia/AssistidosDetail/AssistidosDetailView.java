@@ -6,10 +6,6 @@ import com.example.sylviane.sia.persist.model.Execucao;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Natasha on 22/05/2018.
- */
-
 public interface AssistidosDetailView {
     void showDetails(Assistido assistido);
 

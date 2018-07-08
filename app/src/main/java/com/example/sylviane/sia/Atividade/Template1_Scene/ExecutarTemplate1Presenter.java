@@ -5,10 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.util.Log;
-
 import com.example.sylviane.sia.Relatorios.RelatoriosActivity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.dao.ExecucaoDAO;
@@ -18,16 +14,10 @@ import com.example.sylviane.sia.persist.model.Execucao;
 import com.example.sylviane.sia.persist.model.Template1;
 
 import java.io.File;
-import java.io.IOException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
-
-/**
- * Created by sylviane on 12/05/18.
- */
 
 public class ExecutarTemplate1Presenter {
     ExecutarTemplate1View executarTemplate1View;
@@ -54,7 +44,6 @@ public class ExecutarTemplate1Presenter {
 
         for (int i =0; i < 3; i++) {
             String PathImage = arquivos.get(i).getImage();
-           // Log.d("path da imagem", PathImage);
             File imgFile = new File(PathImage);
             if (imgFile.exists()) {
                 imagemBitmap.add(i, BitmapFactory.decodeFile(imgFile.getAbsolutePath()));
@@ -62,21 +51,6 @@ public class ExecutarTemplate1Presenter {
         }
         return imagemBitmap;
     }
-//
-//    public List<MediaPlayer> load_audio() {
-//        Template1DAO template1DAO = new Template1DAO(contexto);
-//        List <MediaPlayer> audioList = new ArrayList<MediaPlayer>();
-//        List<Template1> arquivos = template1DAO.getArquivos(atividade);
-//        MediaPlayer mMediaPlayer = new MediaPlayer();
-//
-//        for (int i =0; i< 3; i++) {
-//            String PathAudio = arquivos.get(1).getAudio();
-//           // Log.d("path do audio", PathAudio);
-//            mMediaPlayer = MediaPlayer.create(contexto, Uri.parse(PathAudio));
-//            audioList.add(i,mMediaPlayer);
-//        }
-//        return audioList;
-//    }
 
     public List<String> load_audio() {
         Template1DAO template1DAO = new Template1DAO(contexto);
@@ -116,7 +90,6 @@ public class ExecutarTemplate1Presenter {
         execucao.setPontos((float) pontuacao);
         execucao.setTempo((float) tempo);
         execucao.setId_assistido(assistidos);
-        //Log.d("Id", Integer.toString(assistidos.size()));
         ExecucaoDAO execucaoDAO = new ExecucaoDAO(contexto);
         execucaoDAO.insert(execucao);
         return execucao.getId();

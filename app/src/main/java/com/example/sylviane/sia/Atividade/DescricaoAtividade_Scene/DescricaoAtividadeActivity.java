@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -42,7 +41,6 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
 
         Intent intent = getIntent();
         int id_atividade = intent.getIntExtra("id_atividade",-1);
-        Log.d("Atividade id", Integer.toString(id_atividade));
 
         descricaoAtividadePresenter = new DescricaoAtividadePresenter(this, this);
         descricaoAtividadePresenter.getTemas();
@@ -76,8 +74,6 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
 
     @Override
     public void abrirAtividade(int id_atividade){
-
-        //Toast.makeText(DescricaoAtividadeActivity.this, "Descrição de atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
 
         if (tipoAtividade.getSelectedItemPosition() == 1){
             Intent abrirPassiva = new Intent(DescricaoAtividadeActivity.this, CriarAtividadePassivaActivity.class);

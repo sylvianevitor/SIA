@@ -2,16 +2,7 @@ package com.example.sylviane.sia.ListaAssistidos;
 import com.example.sylviane.sia.persist.model.Assistido;
 import android.content.Context;
 import android.widget.Toast;
-
-
-
-
-import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by Natasha on 25/04/2018.
- */
 
 public class AssistidosPresenter {
 

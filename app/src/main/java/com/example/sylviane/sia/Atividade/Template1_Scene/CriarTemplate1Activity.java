@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -17,7 +16,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -25,12 +23,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.sylviane.sia.AtividadesDetail.AtividadesDetailActivity;
-import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
-import com.example.sylviane.sia.persist.dao.Template1DAO;
 import com.example.sylviane.sia.persist.model.Atividade;
-import com.example.sylviane.sia.persist.model.Template1;
 import com.squareup.picasso.Picasso;
 
 
@@ -40,14 +35,20 @@ import butterknife.OnClick;
 
 import static com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Presenter.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE;
 
-public class CriarTemplate1Activity extends AppCompatActivity implements CriarTemplate1View.View{
+public class CriarTemplate1Activity extends AppCompatActivity implements CriarTemplate1View.View {
 
-    @BindView(R.id.imageButton1)ImageButton imageButton1;
-    @BindView(R.id.imageButton2)ImageButton imageButton2;
-    @BindView(R.id.imageButton3)ImageButton imageButton3;
-    @BindView(R.id.btnAudio1)Button audioButton1;
-    @BindView(R.id.btnAudio2)Button audioButton2;
-    @BindView(R.id.btnAudio3)Button audioButton3;
+    @BindView(R.id.imageButton1)
+    ImageButton imageButton1;
+    @BindView(R.id.imageButton2)
+    ImageButton imageButton2;
+    @BindView(R.id.imageButton3)
+    ImageButton imageButton3;
+    @BindView(R.id.btnAudio1)
+    Button audioButton1;
+    @BindView(R.id.btnAudio2)
+    Button audioButton2;
+    @BindView(R.id.btnAudio3)
+    Button audioButton3;
 
     CriarTemplate1View.Presenter criarTemplate1Presenter;
 
@@ -94,7 +95,6 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
 
         Intent intent = getIntent();
         int id_atividade = intent.getIntExtra("id_atividade", -1);
-        Log.d("id mari", Integer.toString(id_atividade));
 
         atividade = criarTemplate1Presenter.getAtividade(id_atividade);
 
@@ -110,48 +110,51 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     }
 
     @OnClick(R.id.imageButton1)
-    public void selecionaImagem1(){
+    public void selecionaImagem1() {
         this.currentImageId = 1;
         criarTemplate1Presenter.selecionaImagem(1);
     }
 
     @OnClick(R.id.imageButton2)
-    public void selecionaImagem2(){
+    public void selecionaImagem2() {
         this.currentImageId = 2;
         criarTemplate1Presenter.selecionaImagem(2);
     }
 
     @OnClick(R.id.imageButton3)
-    public void selecionaImagem3(){
+    public void selecionaImagem3() {
         this.currentImageId = 3;
         criarTemplate1Presenter.selecionaImagem(3);
     }
 
     @SuppressLint("ResourceAsColor")
     @OnClick(R.id.btnAudio1)
-    public void selecionaAudio1(){
+    public void selecionaAudio1() {
 
         this.currentAudioId = 1;
 
-        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) { }
+        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {
+        }
         criarTemplate1Presenter.selecionaAudio(1);
     }
 
     @OnClick(R.id.btnAudio2)
-    public void selecionaAudio2(){
+    public void selecionaAudio2() {
 
         this.currentAudioId = 2;
 
-        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {}
+        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {
+        }
         criarTemplate1Presenter.selecionaAudio(2);
     }
 
     @OnClick(R.id.btnAudio3)
-    public void selecionaAudio3(){
+    public void selecionaAudio3() {
 
         this.currentAudioId = 3;
 
-        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {}
+        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {
+        }
         criarTemplate1Presenter.selecionaAudio(3);
     }
 
@@ -169,11 +172,11 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
 
     //Exibe uma imagem a partir do seu caminho
     @Override
-    public void carregaImagem(String caminhoImagem){
+    public void carregaImagem(String caminhoImagem) {
         ImageButton currentImageButton;
-        if(currentImageId == 1)
+        if (currentImageId == 1)
             currentImageButton = imageButton1;
-        else if(currentImageId == 2)
+        else if (currentImageId == 2)
             currentImageButton = imageButton2;
         else
             currentImageButton = imageButton3;
@@ -184,7 +187,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
                 .centerCrop()
                 .into(currentImageButton);
 
-        if(currentImageId == 1)
+        if (currentImageId == 1)
             pathImage1 = caminhoImagem;
         else if (currentImageId == 2)
             pathImage2 = caminhoImagem;
@@ -199,7 +202,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         releaseMediaPlayer();
         mMediaPlayer = MediaPlayer.create(this, Uri.parse(caminhoAudio));
 
-        if(currentAudioId == 1)
+        if (currentAudioId == 1)
             pathAudio1 = caminhoAudio;
         else if (currentAudioId == 2)
             pathAudio2 = caminhoAudio;
@@ -227,21 +230,16 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_salvar:
-//                if(pathAudio1 == null || pathAudio2 == null|| pathAudio3 == null){
-//                    Toast.makeText(CriarTemplate1Activity.this, "Não é possível cadastrar a atividade sem áudio.", Toast.LENGTH_LONG).show();
-//                }else if(pathImage1 == null || pathImage2 == null || pathImage3 == null){
-//                    Toast.makeText(CriarTemplate1Activity.this, "Não é possível cadastrar a atividade sem imagem.", Toast.LENGTH_LONG).show();
-//                }else{
-                    criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
-                //}
                 criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
-                if(pathAudio1 != null){
+
+                criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
+                if (pathAudio1 != null) {
                     audioButton1.setBackgroundColor(R.color.colorPrimary);
                 }
-                if(pathAudio2 != null){
+                if (pathAudio2 != null) {
                     audioButton2.setBackgroundColor(R.color.colorPrimary);
                 }
-                if(pathAudio3 != null){
+                if (pathAudio3 != null) {
                     audioButton3.setBackgroundColor(R.color.colorPrimary);
                 }
             default:
@@ -250,7 +248,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     }
 
     @Override
-    public void abrirMainActivity(boolean ok1, boolean ok2, boolean ok3){
+    public void abrirMainActivity(boolean ok1, boolean ok2, boolean ok3) {
         if (ok1 == true && ok2 == true && ok3 == true) {
             if (validar() == true) {
                 atividade.setAtiva(Atividade.SITUACAO_ATIVA);
@@ -260,11 +258,11 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
                 abrirDetalhes.putExtra("atividade_id", atividade.getId());
                 startActivity(abrirDetalhes);
                 finish();
-            } else{
+            } else {
                 atividade.setAtiva(Atividade.SITUACAO_INATIVA);
                 atividadeDAO.update(atividade);
             }
-        } else{
+        } else {
 
             Toast.makeText(CriarTemplate1Activity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG).show();
         }
@@ -286,7 +284,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
                     ActivityCompat
                             .requestPermissions(
                                     (Activity) context,
-                                    new String[] { Manifest.permission.READ_EXTERNAL_STORAGE },
+                                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                                     MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
                 }
                 return false;
@@ -309,7 +307,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         ActivityCompat.requestPermissions((Activity) context,
-                                new String[] { permission },
+                                new String[]{permission},
                                 MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
                     }
                 });
@@ -336,26 +334,31 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         }
     }
 
-    public boolean validar(){
-        if (pathImage1 == null){
+    public boolean validar() {
+        if (pathImage1 == null) {
             Toast.makeText(CriarTemplate1Activity.this, "Selecionar imagem 1", Toast.LENGTH_LONG).show();
             return false;
         }
-        if (pathImage2 == null){
+        if (pathImage2 == null) {
             Toast.makeText(CriarTemplate1Activity.this, "Selecionar imagem 2", Toast.LENGTH_LONG).show();
-            return false;}
-        if (pathImage1 == null){
+            return false;
+        }
+        if (pathImage1 == null) {
             Toast.makeText(CriarTemplate1Activity.this, "Selecionar imagem 3", Toast.LENGTH_LONG).show();
-            return false;}
-        if (pathAudio1 == null){
+            return false;
+        }
+        if (pathAudio1 == null) {
             Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 1", Toast.LENGTH_LONG).show();
-            return false;}
-        if (pathAudio2 == null){
+            return false;
+        }
+        if (pathAudio2 == null) {
             Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 2", Toast.LENGTH_LONG).show();
-            return false;}
-        if (pathAudio3 == null){
+            return false;
+        }
+        if (pathAudio3 == null) {
             Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 3", Toast.LENGTH_LONG).show();
-            return false;}
+            return false;
+        }
         return true;
     }
 

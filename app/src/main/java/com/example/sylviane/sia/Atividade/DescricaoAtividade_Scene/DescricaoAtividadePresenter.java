@@ -1,15 +1,11 @@
 package com.example.sylviane.sia.Atividade.DescricaoAtividade_Scene;
 
 import android.content.Context;
-import android.util.Log;
-
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.Tema;
-
 import java.util.List;
-
 
 public class DescricaoAtividadePresenter implements Contract.Presenter {
     Atividade atividadeExistente;
@@ -44,7 +40,6 @@ public class DescricaoAtividadePresenter implements Contract.Presenter {
         atividade.setAtiva(Atividade.SITUACAO_ATIVA);
 
         if (editar){ //editar cadastro caso ja exista e nao inserir uma nova
-            Log.d("Editar atividade", Integer.toString(atividade.getId()));
             atividadeDAO.update(atividade);
         }else{
             atividadeDAO.insert(atividade);

@@ -1,33 +1,21 @@
 package com.example.sylviane.sia.SelecaoAssistidos;
 
 import android.content.Context;
-import android.graphics.ColorSpace;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sylviane.sia.R;
-import com.example.sylviane.sia.persist.dao.AssistidoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.OnLongClick;
-
-/**
- * Created by sylviane on 14/05/18.
- */
 
 public class SelecaoAssistidosAdapter extends RecyclerView.Adapter<SelecaoAssistidosAdapter.ViewHolder> {
 
@@ -37,10 +25,6 @@ public class SelecaoAssistidosAdapter extends RecyclerView.Adapter<SelecaoAssist
     private SparseBooleanArray itemStateArray= new SparseBooleanArray();
 
     Assistido assistido;
-    int assistido2;
-
-//    AssistidoDAO assistidoDAO = new AssistidoDAO(context);
-//    List<Assistido> assistidosList2 = assistidoDAO.getAssistidos();
 
     SelecaoAssistidosAdapter(List<Assistido> assistidosList, Context context) {
         this.assistidosList = assistidosList;
@@ -58,7 +42,6 @@ public class SelecaoAssistidosAdapter extends RecyclerView.Adapter<SelecaoAssist
     @Override
     public void onBindViewHolder(SelecaoAssistidosAdapter.ViewHolder holder, int position) {
         assistido = assistidosList.get(position);
-        //assistido2 = assistidosList2.get(position).getId();
 
         holder.nomeAssistido.setText(assistido.getNome_completo());
 
@@ -105,7 +88,6 @@ public class SelecaoAssistidosAdapter extends RecyclerView.Adapter<SelecaoAssist
                 selectionState.setChecked(true);
                 itemStateArray.put(adapterPosition, true);
                 onRecyclerViewSelected.onClick(view, getAdapterPosition(), true);
-                //Log.d("ID ASSISTIDO", String.valueOf(assistido2));
             }
             else  {
                 selectionState.setChecked(false);
@@ -114,21 +96,6 @@ public class SelecaoAssistidosAdapter extends RecyclerView.Adapter<SelecaoAssist
 
             }
         }
-
-//        //seta o clique rápido
-//        @OnClick(R.id.container)
-//        void onItemClick(View view){
-//            if(onRecyclerViewSelected != null)
-//                onRecyclerViewSelected.onClick(view, getAdapterPosition());
-//        }
-
-//        //seta o clique longo
-//        @OnLongClick(R.id.container)
-//        boolean onLongClick(View view){
-//            if(onRecyclerViewSelected != null)
-//                onRecyclerViewSelected.onLongClick(view, getAdapterPosition());
-//            return true;
-//        }
 
     }
 

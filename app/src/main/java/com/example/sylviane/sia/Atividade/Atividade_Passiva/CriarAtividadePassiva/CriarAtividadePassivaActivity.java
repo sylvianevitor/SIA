@@ -1,50 +1,30 @@
 package com.example.sylviane.sia.Atividade.Atividade_Passiva.CriarAtividadePassiva;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import com.example.sylviane.sia.Atividade.Atividade_Passiva.CriarAtividadePassiva.CriarAtividadePassivaView;
-import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
-import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Presenter;
 import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
-import com.example.sylviane.sia.persist.dao.PassivaTemplate1DAO;
 import com.example.sylviane.sia.persist.model.Atividade;
-import com.example.sylviane.sia.persist.model.PassivaTemplate1;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Presenter.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE;
-
-/**
- * Created by Natasha on 20/06/2018.
- */
 
 public class CriarAtividadePassivaActivity extends AppCompatActivity implements CriarAtividadePassivaView.View{
 
@@ -68,7 +48,6 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity implements 
 
         Intent intent = getIntent();
         int id_atividade = intent.getIntExtra("id_atividade", -1);
-        Log.d("id natasha", Integer.toString(id_atividade));
         atividade = criarAtividadePassivaPresenter.getAtividade(id_atividade);
 
         setTitle(atividade.getNome());

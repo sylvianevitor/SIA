@@ -1,33 +1,18 @@
 package com.example.sylviane.sia.Atividade.Template1_Scene;
 
-import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.CursorLoader;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.dao.Template1DAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.Template1;
-
-import java.util.List;
-
-/**
- * Created by mariana on 01/05/18.
- */
 
 public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
 
@@ -47,21 +32,13 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
     //Recebe os parâmetros do método onActivityResult e faz as verificações necessárias
     @Override
     public void verificaResultado(int requestCode, int resultCode, Intent data) {
-
-//        int d = data.getIntExtra("id_imagem", 0);
-//
-//        Log.d("MARI verificaResultado", Integer.toString(d));
-
         switch (requestCode){
             case CODIGO_IMAGEM:
                 if(Activity.RESULT_OK == resultCode){
                     //TODO: salvar este caminho da imagem no banco de dados
                     String caminhoDaImagem = getRealPathFromURI(data.getData());
                     criarTemplate1View.carregaImagem(caminhoDaImagem);
-                }else{
-                    Log.d("CANCELAR", "cancelando");
                 }
-
                 break;
 
             case CODIGO_AUDIO:
@@ -122,11 +99,6 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
     @Override
     public void cadastrar(String pathAudio1, String pathAudio2, String pathAudio3, String pathImage1, String pathImage2, String pathImage3){
 
-        Log.d("PATH1: ", pathAudio1 + " | " + pathImage1);
-        Log.d("PATH2: ", pathAudio2 + " | " + pathImage2);
-        Log.d("PATH3: ", pathAudio3 + " | " + pathImage3);
-
-
         Template1 template1 = new Template1();
         template1.setImage(pathImage1);
         template1.setAudio(pathAudio1);
@@ -159,8 +131,4 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
         cursor.moveToFirst();
         return cursor.getString(column_index);
     }
-
-
-
-
 }

@@ -3,7 +3,6 @@ package com.example.sylviane.sia.Relatorios;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -34,7 +33,6 @@ public class RelatoriosActivity extends AppCompatActivity implements RelatoriosV
         Intent intent = getIntent();
         int pontuacao = intent.getIntExtra("pontos", 0);
         id_execucao = intent.getIntExtra("id_execucao",0);
-        Log.d("Execucao id", Integer.toString(id_execucao));
 
         relatoriosPresenter = new RelatoriosPresenter(this);
         execucaoDAO = new ExecucaoDAO(this);

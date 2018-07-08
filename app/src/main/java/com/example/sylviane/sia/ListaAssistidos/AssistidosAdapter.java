@@ -8,18 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.sylviane.sia.R;
-
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 import com.example.sylviane.sia.persist.model.Assistido;
-/**
- * Created by Natasha on 25/04/2018.
- */
 
 public class AssistidosAdapter extends RecyclerView.Adapter<AssistidosAdapter.ViewHolder>{
 
