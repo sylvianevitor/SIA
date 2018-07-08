@@ -20,7 +20,8 @@
             android:label="Lista de Assistidos">
         </activity>
         <activity
-            android:name=".Atividade.Atividade_Passiva.CriarAtividadePassiva.CriarAtividadePassivaActivity">
+            android:name=".Atividade.Atividade_Passiva.CriarAtividadePassiva.CriarAtividadePassivaActivity"
+            android:screenOrientation="landscape">
         </activity>
 
         <activity
@@ -80,7 +81,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Atividade.Atividade_Passiva.ExecutarAtividadePassiva.ExecutarAtividadePassivaActivity">
+        <activity android:name=".Atividade.Atividade_Passiva.ExecutarAtividadePassiva.ExecutarAtividadePassivaActivity"
+            android:screenOrientation="landscape">
         </activity>
 
         <activity android:name=".AtividadesDetail.AtividadesDetailActivity"></activity>

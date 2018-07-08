@@ -64,6 +64,7 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_atividade_passiva);
+
         ButterKnife.bind(this);
 
         selectedVideoPath = new String();
@@ -72,7 +73,7 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity implements 
         Intent intent = getIntent();
         int id_atividade = intent.getIntExtra("id_atividade", -1);
         Log.d("id natasha", Integer.toString(id_atividade));
-        atividade = atividadeDAO.getAtividadeId(id_atividade);
+        atividade = criarAtividadePassivaPresenter.getAtividade(id_atividade);
     }
 
     @Override

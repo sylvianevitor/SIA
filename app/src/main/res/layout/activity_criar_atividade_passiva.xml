@@ -20,15 +20,17 @@
         android:layout_height="match_parent"
         android:layout_gravity="center|center_horizontal"
         android:orientation="vertical">
+
         <Button
+            android:id="@+id/btn_video_galeria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_video_galeria"
-            tools:text="Selecionar video da galeria"
             android:layout_gravity="center|center_horizontal"
+            android:layout_marginTop="5dp"
             android:background="@drawable/rounded_corners_button"
             android:padding="10dp"
-            android:layout_marginTop="5dp"/>
+            android:text="Selecionar Vídeo da Galeria"
+            tools:text="Selecionar video da galeria" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

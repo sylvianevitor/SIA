@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.widget.Toast;
 
 import com.example.sylviane.sia.Main_Scene.MainActivity;
+import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.dao.PassivaTemplate1DAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.PassivaTemplate1;
@@ -42,6 +43,13 @@ public class CriarAtividadePassivaPresenter implements CriarAtividadePassivaView
                 }
                 break;
         }
+    }
+
+    @Override
+    public Atividade getAtividade(int id_atividade) {
+        AtividadeDAO atividadeDAO = new AtividadeDAO(context);
+        atividade = atividadeDAO.getAtividadeId(id_atividade);
+        return atividade;
     }
 
     //Abre a biblioteca permitindo selecionar somente arquivos de imagem

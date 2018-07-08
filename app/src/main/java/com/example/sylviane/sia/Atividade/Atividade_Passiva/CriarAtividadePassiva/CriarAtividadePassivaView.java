@@ -2,6 +2,8 @@ package com.example.sylviane.sia.Atividade.Atividade_Passiva.CriarAtividadePassi
 
 import android.content.Intent;
 
+import com.example.sylviane.sia.persist.model.Atividade;
+
 /**
  * Created by Natasha on 26/06/2018.
  */
@@ -16,6 +18,7 @@ public interface CriarAtividadePassivaView {
     interface Presenter {
         void verificaResultado(int requestCode, int resultCode, Intent data);
         void selecionaVideo();
+        Atividade getAtividade(int id_atividade);
         void cadastrar(String video);
     }
 }
