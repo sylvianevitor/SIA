@@ -41,7 +41,6 @@ import butterknife.OnClick;
 public class ExecutarTemplate1Activity extends AppCompatActivity implements ExecutarTemplate1View {
     ExecutarTemplate1Presenter executarTemplate1Presenter;
     MediaPlayer mp = new MediaPlayer();
-    //List<MediaPlayer> audioFiles = new ArrayList<MediaPlayer>();
     List<String> audioFiles;
     int pontuacao = 0;
     int id_atividade;
@@ -76,25 +75,8 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
     @OnClick(R.id.btnAudio)
     public void play() {
         Log.d("Antigo audio", Integer.toString(index));
-        //mp = audioFiles.get(index);
-        try {
-            mp.setDataSource(audioFiles.get(index));
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-//Prepare mediaplayer
-        try {
-            mp.prepare();
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-//start mediaPlayer
+        releaseMediaPlayer();
+        mp = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
         mp.start();
 
     }
@@ -128,7 +110,6 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         audioFiles = executarTemplate1Presenter.load_audio();
         if (audioFiles != null) {
             index = executarTemplate1Presenter.getRandomIndex(0, 2);
-            //mp = audioFiles.get(index);
 //            mp = MediaPlayer.create(this, Uri.parse(audioFiles.get(index)));
             Log.d("Audio recebido", Integer.toString(index));
         } else {
@@ -177,5 +158,11 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
 
     }
 
+    private void releaseMediaPlayer() {
+        if (mp != null) {
+            mp.release();
+            mp = null;
+        }
+    }
 
 }
