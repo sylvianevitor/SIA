@@ -20,6 +20,7 @@ public interface Contract {
         void cadastro(String nome, String objetivo, String descricao, Integer dificuldade, Tema tema, Integer tipo);
         void getTemas();
         void getAtividade(int id_atividade);
+        boolean comparaNome(String nome);
     }
 }
 

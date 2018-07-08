@@ -1,12 +1,14 @@
 package com.example.sylviane.sia.Atividade.Template1_Scene;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -18,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -42,6 +45,9 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     @BindView(R.id.imageButton1)ImageButton imageButton1;
     @BindView(R.id.imageButton2)ImageButton imageButton2;
     @BindView(R.id.imageButton3)ImageButton imageButton3;
+    @BindView(R.id.btnAudio1)Button audioButton1;
+    @BindView(R.id.btnAudio2)Button audioButton2;
+    @BindView(R.id.btnAudio3)Button audioButton3;
 
     CriarTemplate1View.Presenter criarTemplate1Presenter;
 
@@ -49,6 +55,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     private MediaPlayer mMediaPlayer;
     private AudioManager mAudioManager;
     Atividade atividade;
+    AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     private int currentAudioId = 0;
     private int currentImageId = 0;
@@ -120,6 +127,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         criarTemplate1Presenter.selecionaImagem(3);
     }
 
+    @SuppressLint("ResourceAsColor")
     @OnClick(R.id.btnAudio1)
     public void selecionaAudio1(){
 
@@ -147,21 +155,6 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         criarTemplate1Presenter.selecionaAudio(3);
     }
 
-    //@OnClick(R.id.btnAudio2)
-//    public void executaAudio(){
-//
-//        //Verifica se algum áudio foi setado antes de dar play
-//        if(mMediaPlayer != null) {
-//
-//            //pede permissão para o Android para executar o áudio
-//            int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
-//                    AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
-//
-//            if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-//                mMediaPlayer.start();
-//            }
-//        }
-//    }
 
     @Override
     protected void onStop() {
@@ -229,6 +222,7 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
         return super.onCreateOptionsMenu(menu);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -240,6 +234,16 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
 //                }else{
                     criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
                 //}
+                criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
+                if(pathAudio1 != null){
+                    audioButton1.setBackgroundColor(R.color.colorPrimary);
+                }
+                if(pathAudio2 != null){
+                    audioButton2.setBackgroundColor(R.color.colorPrimary);
+                }
+                if(pathAudio3 != null){
+                    audioButton3.setBackgroundColor(R.color.colorPrimary);
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -248,13 +252,20 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     @Override
     public void abrirMainActivity(boolean ok1, boolean ok2, boolean ok3){
         if (ok1 == true && ok2 == true && ok3 == true) {
-            Toast.makeText(CriarTemplate1Activity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
-            Intent abrirDetalhes = new Intent(CriarTemplate1Activity.this, AtividadesDetailActivity.class);
-            abrirDetalhes.putExtra("atividade_id", atividade.getId());
-            startActivity(abrirDetalhes);
-            finish();
-
+            if (validar() == true) {
+                atividade.setAtiva(Atividade.SITUACAO_ATIVA);
+                atividadeDAO.update(atividade);
+                Toast.makeText(CriarTemplate1Activity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG).show();
+                Intent abrirDetalhes = new Intent(CriarTemplate1Activity.this, AtividadesDetailActivity.class);
+                abrirDetalhes.putExtra("atividade_id", atividade.getId());
+                startActivity(abrirDetalhes);
+                finish();
+            } else{
+                atividade.setAtiva(Atividade.SITUACAO_INATIVA);
+                atividadeDAO.update(atividade);
+            }
         } else{
+
             Toast.makeText(CriarTemplate1Activity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG).show();
         }
     }
@@ -323,6 +334,29 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
                 super.onRequestPermissionsResult(requestCode, permissions,
                         grantResults);
         }
+    }
+
+    public boolean validar(){
+        if (pathImage1 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar imagem 1", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (pathImage2 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar imagem 2", Toast.LENGTH_LONG).show();
+            return false;}
+        if (pathImage1 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar imagem 3", Toast.LENGTH_LONG).show();
+            return false;}
+        if (pathAudio1 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 1", Toast.LENGTH_LONG).show();
+            return false;}
+        if (pathAudio2 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 2", Toast.LENGTH_LONG).show();
+            return false;}
+        if (pathAudio3 == null){
+            Toast.makeText(CriarTemplate1Activity.this, "Selecionar áudio 3", Toast.LENGTH_LONG).show();
+            return false;}
+        return true;
     }
 
 }

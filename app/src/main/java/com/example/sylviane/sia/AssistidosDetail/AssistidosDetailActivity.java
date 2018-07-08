@@ -4,20 +4,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sylviane.sia.R;
+import com.example.sylviane.sia.Relatorios.RelatorioAssistidosActivity;
 import com.example.sylviane.sia.persist.dao.AssistidoDAO;
+import com.example.sylviane.sia.persist.dao.AtividadeDAO;
+import com.example.sylviane.sia.persist.dao.ExecucaoDAO;
 import com.example.sylviane.sia.persist.model.Assistido;
+import com.example.sylviane.sia.persist.model.Atividade;
+import com.example.sylviane.sia.persist.model.Execucao;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,10 +53,15 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
     TextView outras_infos_detail;
     @BindView(R.id.medicamentos_assistido_detail)
     TextView medicamentos_detail;
-    @BindView(R.id.btnrelatorio)
-    Button botaorelatorio;
+//    @BindView(R.id.btnrelatorio)
+//    Button botaorelatorio;
+    @BindView(R.id.rv_assistidos_detail)
+    RecyclerView rvExecucoes;
+
 
     AssistidosDetailPresenter assistidosDetailPresenter;
+    int assistidoId;
+    ExecucaoDAO execucaoDAO = new ExecucaoDAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,16 +71,62 @@ public class AssistidosDetailActivity extends AppCompatActivity implements Assis
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        int assistidoId = intent.getIntExtra("assistido_id", -1);
+        assistidoId = intent.getIntExtra("assistido_id", -1);
 
 
         assistidosDetailPresenter = new AssistidosDetailPresenter(this,this);
         assistidosDetailPresenter.getAssistidosDetails(assistidoId);
     }
-    @OnClick(R.id.btnrelatorio)
-    public void mostraRelatorio(){
-        //mostrar relatorio
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //List<Execucao> execucaoList = execucaoDAO.getExecucaosAssistido(assistidoId);
+        //Log.d("Execucao recuperada", Integer.toString(execucaoList.get(0).getId_atividade()));
+        //assistidosDetailPresenter.updateList(execucaoList);
+
     }
+
+    public void updateListAtividades(final List<Execucao> atividadesExecutadasList) {
+        //seta o adapter
+        AssistidosDetailAdapter assistidosDetailAdapter = new AssistidosDetailAdapter(atividadesExecutadasList, this);
+
+        assistidosDetailAdapter.setOnRecyclerViewSelectedExecucao(new OnRecyclerViewSelectedExecucao() {
+            @Override
+            public void onClick(View view, int position) {
+                Intent intent = new Intent
+                        (AssistidosDetailActivity.this,
+                                RelatorioAssistidosActivity.class);
+                intent.putExtra("id_assistido", assistidoId);
+                intent.putExtra("id_execucao", atividadesExecutadasList.get(position).getId());
+                startActivity(intent);
+                finish();
+
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+                //Toast.makeText(MoviesActivity.this, "Clique Longo", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        rvExecucoes.setAdapter(assistidosDetailAdapter);
+
+        // criação do gerenciador de layouts
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        DividerItemDecoration dividerItemDecoration =
+                new DividerItemDecoration(this, layoutManager.getOrientation());
+        rvExecucoes.setLayoutManager(layoutManager);
+        rvExecucoes.addItemDecoration(dividerItemDecoration);
+    }
+
+//    @OnClick(R.id.btnrelatorio)
+//    public void mostraRelatorio(){
+////        Intent abrirRelatorio = new Intent(AssistidosDetailActivity.this, RelatorioAssistidosActivity.class);
+////        abrirRelatorio.putExtra("id_assistido", assistidoId);
+////        startActivity(abrirRelatorio);
+////       // finish();
+//    }
     @Override
     public void showDetails(Assistido assistido) {
         nome_detail.setText(assistido.getNome_completo());

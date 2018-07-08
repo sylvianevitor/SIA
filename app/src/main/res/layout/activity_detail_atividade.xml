@@ -6,134 +6,138 @@
     android:layout_height="match_parent"
     tools:context="com.example.sylviane.sia.AtividadesDetail.AtividadesDetailActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:labelFor="@id/camponome"
-            android:text="Nome da atividade"
-            android:layout_marginLeft="20dp"/>
-
-        <TextView
-            android:id="@+id/camponome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:text="Nome"
-            android:layout_marginLeft="30dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:labelFor="@id/campoobjetivo"
-            android:text="Objetivo"
-            android:layout_marginLeft="20dp"/>
-
-        <TextView
-            android:id="@+id/campoobjetivo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:labelFor="@id/campodescricao"
-            android:text="Descrição"
-            android:layout_marginLeft="20dp"/>
-
-        <TextView
-            android:id="@+id/campodescricao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:labelFor="@id/campodificuldadeativ"
-            android:text="Dificuldade"
-            android:layout_marginLeft="20dp"/>
-
-        <TextView
-            android:id="@+id/campodificuldadeativ"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:labelFor="@id/campotemaativ"
-            android:text="Tema"
-            android:layout_marginLeft="20dp"/>
-
-        <TextView
-            android:id="@+id/campotemaativ"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"/>
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/botaoEditarAtividade"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/rounded_corners_button"
-                android:text="Editar"
-                android:textAllCaps="true"
-                android:textColor="#fff"
-                android:layout_margin="20dp"/>
+                android:layout_marginTop="10dp"
+                android:labelFor="@id/camponome"
+                android:text="Nome da atividade"
+                android:layout_marginLeft="20dp"/>
 
-            <Button
-                android:id="@+id/botaoExcluirAtividade"
+            <TextView
+                android:id="@+id/camponome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:text="Nome"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/rounded_corners_button"
-                android:text="Excluir"
-                android:textAllCaps="true"
-                android:textColor="#fff"
-                android:layout_margin="20dp"/>
+                android:layout_marginTop="10dp"
+                android:labelFor="@id/campoobjetivo"
+                android:text="Objetivo"
+                android:layout_marginLeft="20dp"/>
 
-            <Button
-                android:id="@+id/botaoIniciarAtividade"
+            <TextView
+                android:id="@+id/campoobjetivo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/rounded_corners_button"
-                android:text="Iniciar"
-                android:textAllCaps="true"
-                android:textColor="#fff"
-                android:layout_margin="20dp"/>
+                android:layout_marginTop="10dp"
+                android:labelFor="@id/campodescricao"
+                android:text="Descrição"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:id="@+id/campodescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:labelFor="@id/campodificuldadeativ"
+                android:text="Dificuldade"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:id="@+id/campodificuldadeativ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:labelFor="@id/campotemaativ"
+                android:text="Tema"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:id="@+id/campotemaativ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:id="@+id/botaoEditarAtividade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/rounded_corners_button"
+                    android:text="Editar"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:layout_margin="20dp"/>
+
+                <Button
+                    android:id="@+id/botaoExcluirAtividade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/rounded_corners_button"
+                    android:text="Excluir"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:layout_margin="20dp"/>
+
+                <Button
+                    android:id="@+id/botaoIniciarAtividade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/rounded_corners_button"
+                    android:text="Iniciar"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:layout_margin="20dp"/>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

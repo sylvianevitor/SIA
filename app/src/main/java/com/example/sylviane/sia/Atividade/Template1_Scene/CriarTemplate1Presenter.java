@@ -126,6 +126,7 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
         Log.d("PATH2: ", pathAudio2 + " | " + pathImage2);
         Log.d("PATH3: ", pathAudio3 + " | " + pathImage3);
 
+
         Template1 template1 = new Template1();
         template1.setImage(pathImage1);
         template1.setAudio(pathAudio1);

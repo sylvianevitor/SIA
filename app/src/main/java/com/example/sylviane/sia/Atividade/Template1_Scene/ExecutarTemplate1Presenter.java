@@ -62,18 +62,30 @@ public class ExecutarTemplate1Presenter {
         }
         return imagemBitmap;
     }
+//
+//    public List<MediaPlayer> load_audio() {
+//        Template1DAO template1DAO = new Template1DAO(contexto);
+//        List <MediaPlayer> audioList = new ArrayList<MediaPlayer>();
+//        List<Template1> arquivos = template1DAO.getArquivos(atividade);
+//        MediaPlayer mMediaPlayer = new MediaPlayer();
+//
+//        for (int i =0; i< 3; i++) {
+//            String PathAudio = arquivos.get(1).getAudio();
+//           // Log.d("path do audio", PathAudio);
+//            mMediaPlayer = MediaPlayer.create(contexto, Uri.parse(PathAudio));
+//            audioList.add(i,mMediaPlayer);
+//        }
+//        return audioList;
+//    }
 
-    public List<MediaPlayer> load_audio() {
+    public List<String> load_audio() {
         Template1DAO template1DAO = new Template1DAO(contexto);
-        List <MediaPlayer> audioList = new ArrayList<MediaPlayer>();
+        List <String> audioList = new ArrayList<String>();
         List<Template1> arquivos = template1DAO.getArquivos(atividade);
-        MediaPlayer mMediaPlayer = new MediaPlayer();
 
         for (int i =0; i< 3; i++) {
-            String PathAudio = arquivos.get(1).getAudio();
-           // Log.d("path do audio", PathAudio);
-            mMediaPlayer = MediaPlayer.create(contexto, Uri.parse(PathAudio));
-            audioList.add(i,mMediaPlayer);
+            String PathAudio = arquivos.get(i).getAudio();
+            audioList.add(i,PathAudio);
         }
         return audioList;
     }

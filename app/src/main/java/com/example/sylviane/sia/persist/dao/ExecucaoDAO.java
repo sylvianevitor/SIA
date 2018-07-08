@@ -4,17 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
+
 
 import com.example.sylviane.sia.persist.model.Execucao;
-import com.example.sylviane.sia.persist.model.Tema;
 import com.example.sylviane.sia.persist.util.Database;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 public class ExecucaoDAO {
 

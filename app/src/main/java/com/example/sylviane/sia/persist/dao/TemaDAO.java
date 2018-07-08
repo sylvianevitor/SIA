@@ -21,7 +21,7 @@ public class TemaDAO {
         database = new Database(context);
     }
 
-    public boolean insert(Tema tema) {
+    public Tema insert(Tema tema) {
 
         db = database.getWritableDatabase();
 
@@ -29,14 +29,15 @@ public class TemaDAO {
         values.put("tema", tema.getTema());
         values.put("imagem", tema.getImagem());
 
-        long result = db.insert(TABLE, null, values);
+        int result = (int) db.insert(TABLE, null, values);
         db.close();
 
         if(result == -1) {
-            return false;
-        } else {
-            return true;
+            return null;
         }
+
+        tema.setId(result);
+        return tema;
     }
 
     public ArrayList<Tema> getTemas() {

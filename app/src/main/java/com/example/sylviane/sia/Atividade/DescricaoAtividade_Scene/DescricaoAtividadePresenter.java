@@ -8,6 +8,8 @@ import com.example.sylviane.sia.persist.dao.TemaDAO;
 import com.example.sylviane.sia.persist.model.Atividade;
 import com.example.sylviane.sia.persist.model.Tema;
 
+import java.util.List;
+
 
 public class DescricaoAtividadePresenter implements Contract.Presenter {
     Atividade atividadeExistente;
@@ -65,6 +67,17 @@ public class DescricaoAtividadePresenter implements Contract.Presenter {
             descricaoAtividadeView.preenchimento(atividade.getNome(), atividade.getObjetivo(), atividade.getDescricao());
             editar = true;
         }
+    }
+
+    public boolean comparaNome(String nome){
+        if(editar = false){
+            AtividadeDAO atividadeDAO = new AtividadeDAO(context);
+            List<Atividade> atividadeList = atividadeDAO.getAtividade();
+            for (int i =0; i< atividadeList.size();i++){
+                if(atividadeList.get(i).getNome().equals(nome)){return false;}
+            }
+        }
+        return  true;
     }
 
 }

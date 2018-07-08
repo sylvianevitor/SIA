@@ -30,6 +30,7 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
 
     AtividadesPresenter atividadesPresenter;
     int tipo_atividade;
+    int id_tema;
     AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
     @Override
@@ -49,6 +50,18 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         for (int i = 0; i < atividadeList.size(); i++){
             Log.d("MARI", atividadeList.get(i).getNome());
         }
+        id_tema = intent.getIntExtra("id_tema",-1);
+        Log.d("tipo da atividade", Integer.toString(tipo_atividade));
+        Log.d("id tema", Integer.toString(id_tema));
+        atividadesPresenter = new AtividadesPresenter(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Atividade atividadeDefault = new Atividade();
+        List<Atividade> atividadeList = atividadeDAO.getAtividadeByTema(id_tema, tipo_atividade);
+        atividadesPresenter.updateList(atividadeList);
 
         //atividadesPresenter.updateList(atividadeList);
         updateListAtividades(atividadeList);

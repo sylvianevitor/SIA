@@ -66,24 +66,11 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
     @OnClick(R.id.botaocadastrardescricaoatividade)
     public void cadastro(){
 
-        if (TextUtils.isEmpty(nomeAtividadeEditText.getText().toString())) {
-            nomeAtividadeEditText.setError("Nome inválido");
-            return;
-        }
-
-        if (TextUtils.isEmpty(objetivoAtividadeEditText.getText().toString())) {
-            objetivoAtividadeEditText.setError("Nome inválido");
-            return;
-        }
-        if (TextUtils.isEmpty(descricaoAtividadeEditText.getText().toString())) {
-            descricaoAtividadeEditText.setError("Nome inválido");
-            return;
-        }
-
+        if (validar(nomeAtividadeEditText.getText().toString(), objetivoAtividadeEditText.getText().toString(), descricaoAtividadeEditText.getText().toString()) == false){return;}
         descricaoAtividadePresenter.cadastro(nomeAtividadeEditText.getText().toString(),
                 objetivoAtividadeEditText.getText().toString(),
                 descricaoAtividadeEditText.getText().toString(),
-                dificuldadeAtividade.getSelectedItemPosition(),
+                dificuldadeAtividade.getSelectedItemPosition() + 1,
                 (Tema) temaAtividade.getSelectedItem(), tipoAtividade.getSelectedItemPosition());
     }
 
@@ -106,4 +93,49 @@ public class DescricaoAtividadeActivity extends AppCompatActivity implements Con
         finish();
 
     }
+    public boolean validar(String nome1, String nome2, String nome3){
+        if (TextUtils.isEmpty(nome1)) {
+            nomeAtividadeEditText.setError("Nome inválido");
+            return false;
+        }else if (nome1.matches("^[a-zA-Z0-9 \\u00C0-\\u00FF]*$") == false){
+            nomeAtividadeEditText.setError("Nome deve conter letras");
+            return false;
+        }else if (descricaoAtividadePresenter.comparaNome(nome1)== false){
+            nomeAtividadeEditText.setError("Atividade já existe");
+            return false;
+        }
+
+        if (TextUtils.isEmpty(nome2)) {
+            objetivoAtividadeEditText.setError("Objetivo inválido");
+            return false;
+        }else if (nome2.matches("^[a-zA-Z0-9 \\u00C0-\\u00FF]*$") == false){
+            objetivoAtividadeEditText.setError("Objetivo deve conter letras");
+            return false;}
+
+        if (TextUtils.isEmpty(nome3)) {
+            descricaoAtividadeEditText.setError("Descrição inválida");
+            return false;
+        }else if (nome3.matches("^[a-zA-Z0-9 \\u00C0-\\u00FF]*$") == false){
+            nomeAtividadeEditText.setError("Descrição deve conter letras");
+            return false;}
+
+        if(dificuldadeAtividade.getSelectedItem() == null){
+            Toast.makeText(DescricaoAtividadeActivity.this, "Necessário selecionar dificuldade", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if(temaAtividade.getSelectedItem() == null){
+            Toast.makeText(DescricaoAtividadeActivity.this, "Necessário selecionar tema", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if(tipoAtividade.getSelectedItem() == null){
+            Toast.makeText(DescricaoAtividadeActivity.this, "Necessário selecionar tipo", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
+    }
+
+
 }
