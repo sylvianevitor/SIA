@@ -171,7 +171,7 @@ public class ExecucaoDAO {
 
         String[] campos= {"id_assistido"};
 
-        Cursor cursor = db.query(TABLE, campos, "id_execucao=?", new String[] { Integer.toString(idExecucao) }, null, null, null);
+        Cursor cursor = db.query(TABLE_LEFT, campos, "id_execucao=?", new String[] { Integer.toString(idExecucao) }, null, null, null);
 
         if(cursor.getCount() == 0)
             return null;
