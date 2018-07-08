@@ -72,6 +72,8 @@ public class TemaInterativoActivity extends AppCompatActivity implements Contrac
 
                 Intent openListaAtividadesActivity = new Intent(TemaInterativoActivity.this, AtividadesActivity.class);
                 openListaAtividadesActivity.putExtra("tipo_atividade", tipo_atividade);
+                openListaAtividadesActivity.putExtra("tema_id", temaList.get(position).getId());
+                Log.d("ID TEMA", String.valueOf(temaList.get(position).getId()));
                 openListaAtividadesActivity.putExtra("id_tema", tema.getId());
                 startActivity(openListaAtividadesActivity);
             }

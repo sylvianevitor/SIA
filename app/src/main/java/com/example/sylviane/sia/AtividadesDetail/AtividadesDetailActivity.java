@@ -60,13 +60,13 @@ public class AtividadesDetailActivity extends AppCompatActivity implements Ativi
         if (extras != null) {
             id_atividade = extras.getInt("atividade_id");
         }
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         atividade = atividadeDAO.getAtividadeId(id_atividade);
+        setTitle(atividade.getNome());
         //Log.d("Nome atividade", atividade.getNome());
         abreDescricao();
     }

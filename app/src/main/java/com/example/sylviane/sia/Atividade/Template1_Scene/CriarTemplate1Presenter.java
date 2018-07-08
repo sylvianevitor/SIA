@@ -49,6 +49,7 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
     public void verificaResultado(int requestCode, int resultCode, Intent data) {
 
 //        int d = data.getIntExtra("id_imagem", 0);
+//
 //        Log.d("MARI verificaResultado", Integer.toString(d));
 
         switch (requestCode){
@@ -57,6 +58,8 @@ public class CriarTemplate1Presenter implements CriarTemplate1View.Presenter{
                     //TODO: salvar este caminho da imagem no banco de dados
                     String caminhoDaImagem = getRealPathFromURI(data.getData());
                     criarTemplate1View.carregaImagem(caminhoDaImagem);
+                }else{
+                    Log.d("CANCELAR", "cancelando");
                 }
 
                 break;

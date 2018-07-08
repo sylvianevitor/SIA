@@ -39,9 +39,11 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         setContentView(R.layout.activity_lista_atividades);
 
         ButterKnife.bind(this);
+        atividadesPresenter = new AtividadesPresenter(this);
 
         Intent intent = getIntent();
         tipo_atividade = intent.getIntExtra("tipo_atividade",-1);
+
         id_tema = intent.getIntExtra("id_tema",-1);
         Log.d("tipo da atividade", Integer.toString(tipo_atividade));
         Log.d("id tema", Integer.toString(id_tema));
@@ -55,11 +57,21 @@ public class AtividadesActivity extends AppCompatActivity implements AtividadesV
         List<Atividade> atividadeList = atividadeDAO.getAtividadeByTema(id_tema, tipo_atividade);
         atividadesPresenter.updateList(atividadeList);
 
+        //atividadesPresenter.updateList(atividadeList);
+        updateListAtividades(atividadeList);
     }
 
     public void updateListAtividades(final List<Atividade> atividadesList) {
         //seta o adapter
+
+        Log.d("LISTA ATIVIDADE UPDATE", String.valueOf(atividadesList));
+        for (int i = 0; i < atividadesList.size(); i++){
+            Log.d("MARI", atividadesList.get(i).getNome());
+        }
+
         AtividadesAdapter atividadesAdapter = new AtividadesAdapter(atividadesList, this);
+
+        //Log.d("ATIVIDADES ADAPTER", String.valueOf(atividadesAdapter));
 
         atividadesAdapter.setOnRecyclerViewSelectedAtividades(new OnRecyclerViewSelectedAtividades() {
             @Override

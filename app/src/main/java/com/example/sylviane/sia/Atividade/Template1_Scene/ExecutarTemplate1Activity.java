@@ -70,6 +70,7 @@ public class ExecutarTemplate1Activity extends AppCompatActivity implements Exec
         executarTemplate1Presenter = new ExecutarTemplate1Presenter(this, this, id_atividade);
         load_info();
         startTime = System.currentTimeMillis();
+        setTitle(executarTemplate1Presenter.getNome());
     }
 
     @OnClick(R.id.btnAudio)

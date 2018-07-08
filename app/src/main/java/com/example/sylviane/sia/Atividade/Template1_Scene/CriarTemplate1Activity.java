@@ -100,6 +100,8 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
 
         //Classe responsável por solicitar o foco do áudio
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+        setTitle(atividade.getNome());
     }
 
     @Override
@@ -225,6 +227,13 @@ public class CriarTemplate1Activity extends AppCompatActivity implements CriarTe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_salvar:
+//                if(pathAudio1 == null || pathAudio2 == null|| pathAudio3 == null){
+//                    Toast.makeText(CriarTemplate1Activity.this, "Não é possível cadastrar a atividade sem áudio.", Toast.LENGTH_LONG).show();
+//                }else if(pathImage1 == null || pathImage2 == null || pathImage3 == null){
+//                    Toast.makeText(CriarTemplate1Activity.this, "Não é possível cadastrar a atividade sem imagem.", Toast.LENGTH_LONG).show();
+//                }else{
+                    criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
+                //}
                 criarTemplate1Presenter.cadastrar(pathAudio1, pathAudio2, pathAudio3, pathImage1, pathImage2, pathImage3);
                 if(pathAudio1 != null){
                     audioButton1.setBackgroundColor(R.color.colorPrimary);
