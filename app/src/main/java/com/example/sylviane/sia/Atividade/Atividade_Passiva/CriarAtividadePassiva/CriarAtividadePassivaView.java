@@ -9,14 +9,13 @@ import android.content.Intent;
 public interface CriarAtividadePassivaView {
     interface View {
         void abreActivity(Intent intent, Integer codigo);
-        void cadastrar();
         void carregaVideo(String caminhoArquivo);
+        void abrirMainActivity(boolean ok);
     }
 
     interface Presenter {
         void verificaResultado(int requestCode, int resultCode, Intent data);
-        void selecionaImagem(int id);
-        void selecionaAudio(int id);
-
+        void selecionaVideo();
+        void cadastrar(String video);
     }
 }

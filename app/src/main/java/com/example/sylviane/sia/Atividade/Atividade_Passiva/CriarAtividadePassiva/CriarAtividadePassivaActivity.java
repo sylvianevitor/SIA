@@ -28,6 +28,7 @@ import android.widget.VideoView;
 
 import com.example.sylviane.sia.Atividade.Atividade_Passiva.CriarAtividadePassiva.CriarAtividadePassivaView;
 import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Activity;
+import com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1Presenter;
 import com.example.sylviane.sia.Main_Scene.MainActivity;
 import com.example.sylviane.sia.R;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
@@ -45,23 +46,28 @@ import static com.example.sylviane.sia.Atividade.Template1_Scene.CriarTemplate1P
  * Created by Natasha on 20/06/2018.
  */
 
-public class CriarAtividadePassivaActivity extends AppCompatActivity {
+public class CriarAtividadePassivaActivity extends AppCompatActivity implements CriarAtividadePassivaView.View{
 
     @BindView(R.id.videoView)VideoView videoView;
 
-    private static final int CODIGO_VIDEO = 1;
-    private String caminhoVideo;
-    CriarAtividadePassivaView.View criarAtividadePassivaView;
-    Context context;
+    CriarAtividadePassivaView.Presenter criarAtividadePassivaPresenter;
+
+//    private static final int CODIGO_VIDEO = 1;
+    private String selectedVideoPath;
+//    CriarAtividadePassivaView.View criarAtividadePassivaView;
+//    Context context;
     Atividade atividade;
     AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
-    @BindView(R.id.btn_video_galeria) Button btnVideoGaleria;
+//    @BindView(R.id.btn_video_galeria) Button btnVideoGaleria;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_atividade_passiva);
         ButterKnife.bind(this);
+
+        selectedVideoPath = new String();
+        criarAtividadePassivaPresenter = new CriarAtividadePassivaPresenter(this, this);
 
         Intent intent = getIntent();
         int id_atividade = intent.getIntExtra("id_atividade", -1);
@@ -80,7 +86,7 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_salvar:
-                cadastrar(caminhoVideo);
+                criarAtividadePassivaPresenter.cadastrar(selectedVideoPath);
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -88,95 +94,94 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_video_galeria)
     public void selecionaVideo() {
-        Intent abreGaleria = new Intent();
-        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {}
-
-        if (Build.VERSION.SDK_INT <= 19) {
-            abreGaleria.setType("video/*");
-            abreGaleria.setAction(Intent.ACTION_GET_CONTENT);
-            abreGaleria.addCategory(Intent.CATEGORY_OPENABLE);
-        } else {
-            abreGaleria = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-        }
-        startActivityForResult(abreGaleria, CODIGO_VIDEO);
-
+        criarAtividadePassivaPresenter.selecionaVideo();
+//        Intent abreGaleria = new Intent();
+//        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {        }
+//
+//        if (Build.VERSION.SDK_INT <= 19) {
+//            abreGaleria.setType("video/*");
+//            abreGaleria.setAction(Intent.ACTION_GET_CONTENT);
+//            abreGaleria.addCategory(Intent.CATEGORY_OPENABLE);
+//        } else {
+//            abreGaleria = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+//        }
+//        startActivityForResult(abreGaleria, CODIGO_VIDEO);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK){
-            String caminhoVideo = getRealPathFromURI(data.getData());
-            Toast.makeText(this,caminhoVideo,Toast.LENGTH_LONG).show();
-            videoView.setVideoPath(caminhoVideo);
-            videoView.start();
-        }
+        criarAtividadePassivaPresenter.verificaResultado(requestCode, resultCode, data);
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(resultCode == RESULT_OK){
+//            String caminhoVideo = getRealPathFromURI(data.getData());
+//            Toast.makeText(this,caminhoVideo,Toast.LENGTH_LONG).show();
+//        }
     }
-
-    public void cadastrar(String caminhoVideo) {
-        PassivaTemplate1 passivaTemplate1 = new PassivaTemplate1();
-        passivaTemplate1.setVideo(caminhoVideo);
-        passivaTemplate1.setAtividade(atividade);
-        PassivaTemplate1DAO passivaTemplate1DAO = new PassivaTemplate1DAO(this);
-        boolean ok= passivaTemplate1DAO.adicionarAquivo(passivaTemplate1);
-
-        Toast toast;
-        if (ok == true) {
-            if (validar() == true) {
-                atividade.setAtiva(Atividade.SITUACAO_ATIVA);
-                atividadeDAO.update(atividade);
-                toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG);
-                toast.show();
-                Intent openCadastrarTemaInterativoActivity = new Intent(CriarAtividadePassivaActivity.this, MainActivity.class);
-                startActivity(openCadastrarTemaInterativoActivity);
-                finish();
-            }else{
-                atividade.setAtiva(Atividade.SITUACAO_INATIVA);
-                atividadeDAO.update(atividade);
-            }
-        } else{
-            toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
-            toast.show();
-            atividade.setAtiva(Atividade.SITUACAO_INATIVA);
-            atividadeDAO.update(atividade);
-        }
-    }
-    private String getRealPathFromURI(Uri contentUri) {
-        String[] proj = { MediaStore.Video.Media.DATA };
-        CursorLoader loader = new CursorLoader(this, contentUri, proj, null, null, null);
-        Cursor cursor = loader.loadInBackground();
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(column_index);
-    }
-    public boolean checkPermissionREAD_EXTERNAL_STORAGE(
-            final Context context) {
-        int currentAPIVersion = Build.VERSION.SDK_INT;
-        if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(context,
-                    Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(
-                        (Activity) context,
-                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    showDialog("External storage", context,
-                            Manifest.permission.READ_EXTERNAL_STORAGE);
-
-                } else {
-                    ActivityCompat
-                            .requestPermissions(
-                                    (Activity) context,
-                                    new String[] { Manifest.permission.READ_EXTERNAL_STORAGE },
-                                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
-                }
-                return false;
-            } else {
-                return true;
-            }
-
-        } else {
-            return true;
-        }
-    }
+//
+//    public void cadastrar(String caminhoVideo) {
+//        PassivaTemplate1 passivaTemplate1 = new PassivaTemplate1();
+//        passivaTemplate1.setVideo(caminhoVideo);
+//        passivaTemplate1.setAtividade(atividade);
+//        PassivaTemplate1DAO passivaTemplate1DAO = new PassivaTemplate1DAO(this);
+//        boolean ok= passivaTemplate1DAO.adicionarAquivo(passivaTemplate1);
+//
+//        Toast toast;
+//        if (ok == true) {
+//            if (validar() == true) {
+//                atividade.setAtiva(Atividade.SITUACAO_ATIVA);
+//                atividadeDAO.update(atividade);
+//                toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG);
+//                toast.show();
+//                Intent openCadastrarTemaInterativoActivity = new Intent(CriarAtividadePassivaActivity.this, MainActivity.class);
+//                startActivity(openCadastrarTemaInterativoActivity);
+//                finish();
+//            }else{
+//                atividade.setAtiva(Atividade.SITUACAO_INATIVA);
+//                atividadeDAO.update(atividade);
+//            }
+//        } else{
+//            toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
+//            toast.show();
+//            atividade.setAtiva(Atividade.SITUACAO_INATIVA);
+//            atividadeDAO.update(atividade);
+//        }
+//    }
+//    private String getRealPathFromURI(Uri contentUri) {
+//        String[] proj = { MediaStore.Video.Media.DATA };
+//        CursorLoader loader = new CursorLoader(this, contentUri, proj, null, null, null);
+//        Cursor cursor = loader.loadInBackground();
+//        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
+//        cursor.moveToFirst();
+//        return cursor.getString(column_index);
+//    }
+//    public boolean checkPermissionREAD_EXTERNAL_STORAGE(
+//            final Context context) {
+//        int currentAPIVersion = Build.VERSION.SDK_INT;
+//        if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
+//            if (ContextCompat.checkSelfPermission(context,
+//                    Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+//                if (ActivityCompat.shouldShowRequestPermissionRationale(
+//                        (Activity) context,
+//                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
+//                    showDialog("External storage", context,
+//                            Manifest.permission.READ_EXTERNAL_STORAGE);
+//
+//                } else {
+//                    ActivityCompat
+//                            .requestPermissions(
+//                                    (Activity) context,
+//                                    new String[] { Manifest.permission.READ_EXTERNAL_STORAGE },
+//                                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+//                }
+//                return false;
+//            } else {
+//                return true;
+//            }
+//
+//        } else {
+//            return true;
+//        }
+//    }
 
     public void showDialog(final String msg, final Context context,
                            final String permission) {
@@ -216,12 +221,47 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity {
     }
 
     public boolean validar(){
-
-        if (caminhoVideo == null){
+        if (selectedVideoPath == null){
             Toast.makeText(CriarAtividadePassivaActivity.this, "Selecionar um vídeo", Toast.LENGTH_LONG).show();
             return false;
         }
-
         return true;
+    }
+
+    @Override
+    public void abreActivity(Intent intent, Integer codigo) {
+        startActivityForResult(intent, codigo);
+    }
+
+
+    @Override
+    public void carregaVideo(String caminhoArquivo) {
+        videoView.setVideoPath(caminhoArquivo);
+        videoView.start();
+        selectedVideoPath = caminhoArquivo;
+    }
+
+    @Override
+    public void abrirMainActivity(boolean ok) {
+        Toast toast;
+        if (ok == true) {
+            if (validar() == true) {
+                atividade.setAtiva(Atividade.SITUACAO_ATIVA);
+                atividadeDAO.update(atividade);
+                toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG);
+                toast.show();
+                Intent openCadastrarTemaInterativoActivity = new Intent(CriarAtividadePassivaActivity.this, MainActivity.class);
+                startActivity(openCadastrarTemaInterativoActivity);
+                finish();
+            }else{
+                atividade.setAtiva(Atividade.SITUACAO_INATIVA);
+                atividadeDAO.update(atividade);
+            }
+        } else{
+            toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
+            toast.show();
+            atividade.setAtiva(Atividade.SITUACAO_INATIVA);
+            atividadeDAO.update(atividade);
+        }
     }
 }
