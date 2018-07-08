@@ -82,7 +82,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Atividade.Atividade_Passiva.ExecutarAtividadePassiva.ExecutarAtividadePassivaActivity"
-            android:screenOrientation="landscape">
+            android:theme="@style/AppThemeNoActionBar">
         </activity>
 
         <activity android:name=".AtividadesDetail.AtividadesDetailActivity"></activity>

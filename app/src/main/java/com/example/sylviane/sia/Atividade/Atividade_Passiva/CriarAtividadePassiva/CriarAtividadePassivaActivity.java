@@ -52,14 +52,10 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity implements 
 
     CriarAtividadePassivaView.Presenter criarAtividadePassivaPresenter;
 
-//    private static final int CODIGO_VIDEO = 1;
     private String selectedVideoPath;
-//    CriarAtividadePassivaView.View criarAtividadePassivaView;
-//    Context context;
     Atividade atividade;
     AtividadeDAO atividadeDAO = new AtividadeDAO(this);
 
-//    @BindView(R.id.btn_video_galeria) Button btnVideoGaleria;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,93 +92,12 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity implements 
     @OnClick(R.id.btn_video_galeria)
     public void selecionaVideo() {
         criarAtividadePassivaPresenter.selecionaVideo();
-//        Intent abreGaleria = new Intent();
-//        if (checkPermissionREAD_EXTERNAL_STORAGE(this)) {        }
-//
-//        if (Build.VERSION.SDK_INT <= 19) {
-//            abreGaleria.setType("video/*");
-//            abreGaleria.setAction(Intent.ACTION_GET_CONTENT);
-//            abreGaleria.addCategory(Intent.CATEGORY_OPENABLE);
-//        } else {
-//            abreGaleria = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-//        }
-//        startActivityForResult(abreGaleria, CODIGO_VIDEO);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         criarAtividadePassivaPresenter.verificaResultado(requestCode, resultCode, data);
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(resultCode == RESULT_OK){
-//            String caminhoVideo = getRealPathFromURI(data.getData());
-//            Toast.makeText(this,caminhoVideo,Toast.LENGTH_LONG).show();
-//        }
     }
-//
-//    public void cadastrar(String caminhoVideo) {
-//        PassivaTemplate1 passivaTemplate1 = new PassivaTemplate1();
-//        passivaTemplate1.setVideo(caminhoVideo);
-//        passivaTemplate1.setAtividade(atividade);
-//        PassivaTemplate1DAO passivaTemplate1DAO = new PassivaTemplate1DAO(this);
-//        boolean ok= passivaTemplate1DAO.adicionarAquivo(passivaTemplate1);
-//
-//        Toast toast;
-//        if (ok == true) {
-//            if (validar() == true) {
-//                atividade.setAtiva(Atividade.SITUACAO_ATIVA);
-//                atividadeDAO.update(atividade);
-//                toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Atividade cadastrada com sucesso", Toast.LENGTH_LONG);
-//                toast.show();
-//                Intent openCadastrarTemaInterativoActivity = new Intent(CriarAtividadePassivaActivity.this, MainActivity.class);
-//                startActivity(openCadastrarTemaInterativoActivity);
-//                finish();
-//            }else{
-//                atividade.setAtiva(Atividade.SITUACAO_INATIVA);
-//                atividadeDAO.update(atividade);
-//            }
-//        } else{
-//            toast = Toast.makeText(CriarAtividadePassivaActivity.this, "Impossível cadastrar a atividade", Toast.LENGTH_LONG);
-//            toast.show();
-//            atividade.setAtiva(Atividade.SITUACAO_INATIVA);
-//            atividadeDAO.update(atividade);
-//        }
-//    }
-//    private String getRealPathFromURI(Uri contentUri) {
-//        String[] proj = { MediaStore.Video.Media.DATA };
-//        CursorLoader loader = new CursorLoader(this, contentUri, proj, null, null, null);
-//        Cursor cursor = loader.loadInBackground();
-//        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
-//        cursor.moveToFirst();
-//        return cursor.getString(column_index);
-//    }
-//    public boolean checkPermissionREAD_EXTERNAL_STORAGE(
-//            final Context context) {
-//        int currentAPIVersion = Build.VERSION.SDK_INT;
-//        if (currentAPIVersion >= android.os.Build.VERSION_CODES.M) {
-//            if (ContextCompat.checkSelfPermission(context,
-//                    Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-//                if (ActivityCompat.shouldShowRequestPermissionRationale(
-//                        (Activity) context,
-//                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
-//                    showDialog("External storage", context,
-//                            Manifest.permission.READ_EXTERNAL_STORAGE);
-//
-//                } else {
-//                    ActivityCompat
-//                            .requestPermissions(
-//                                    (Activity) context,
-//                                    new String[] { Manifest.permission.READ_EXTERNAL_STORAGE },
-//                                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
-//                }
-//                return false;
-//            } else {
-//                return true;
-//            }
-//
-//        } else {
-//            return true;
-//        }
-//    }
 
     public void showDialog(final String msg, final Context context,
                            final String permission) {
@@ -222,11 +137,12 @@ public class CriarAtividadePassivaActivity extends AppCompatActivity implements 
     }
 
     public boolean validar(){
-        if (selectedVideoPath == null){
+        if (selectedVideoPath.equals("")){
             Toast.makeText(CriarAtividadePassivaActivity.this, "Selecionar um vídeo", Toast.LENGTH_LONG).show();
             return false;
         }
-        return true;
+        else
+            return true;
     }
 
     @Override
