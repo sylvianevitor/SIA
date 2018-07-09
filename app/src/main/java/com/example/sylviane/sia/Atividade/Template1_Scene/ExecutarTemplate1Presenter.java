@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioManager;
+import android.util.Log;
+
 import com.example.sylviane.sia.Relatorios.RelatoriosActivity;
 import com.example.sylviane.sia.persist.dao.AtividadeDAO;
 import com.example.sylviane.sia.persist.dao.ExecucaoDAO;
@@ -14,10 +16,12 @@ import com.example.sylviane.sia.persist.model.Execucao;
 import com.example.sylviane.sia.persist.model.Template1;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class ExecutarTemplate1Presenter {
     ExecutarTemplate1View executarTemplate1View;
@@ -82,12 +86,15 @@ public class ExecutarTemplate1Presenter {
     public int gravar_execucao(int pontuacao, ArrayList<Integer>assistidos, int atividade_id, long tempo){
         execucao.setId_atividade(atividade_id);
         Calendar cal = Calendar.getInstance();
-
-        String dateExec = String.valueOf(cal);
+        cal.add(Calendar.DATE, 1);
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        String dateExec = format1.format(cal.getTime());
+        Log.d("Data:",dateExec);
         execucao.setData(dateExec);
         float percentual = pontuacao * 100/30;
         execucao.setPerc_acertos(percentual);
         execucao.setPontos((float) pontuacao);
+        tempo = TimeUnit.MILLISECONDS.toMinutes(tempo);
         execucao.setTempo((float) tempo);
         execucao.setId_assistido(assistidos);
         ExecucaoDAO execucaoDAO = new ExecucaoDAO(contexto);

@@ -89,12 +89,11 @@ public class RelatorioAssistidosActivity extends AppCompatActivity implements Re
         Execucao exec = execucaoDAO.getExecucaoId(execucaoId);
         AtividadeDAO atividadeDAO = new AtividadeDAO(this);
         Atividade atividade = atividadeDAO.getAtividadeId(exec.getId_atividade());
-
         nome_atividade.setText(atividade.getNome());
         Log.d("DATA", exec.getData());
-        //text_data.setText(exec.getData());
+        text_data.setText(exec.getData());
         text_horario.setText(exec.getHora());
-        //text_dificuldade.setText(atividade.getDificuldade());
+        text_dificuldade.setText(Integer.toString(atividade.getDificuldade()));
         text_porcentagem.setText(Float.toString(exec.getPerc_acertos()));
         text_tempo.setText(Float.toString(exec.getTempo()));
         text_observacoes.setText(exec.getObservacao());
