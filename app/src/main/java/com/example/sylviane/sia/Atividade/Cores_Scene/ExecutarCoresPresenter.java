@@ -34,10 +34,9 @@ public class ExecutarCoresPresenter {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
         String dateExec = format1.format(cal.getTime());
-        Log.d("Data:",dateExec);
         execucao.setData(dateExec);
-        tempo = TimeUnit.MILLISECONDS.toMinutes(tempo);
-        execucao.setTempo((float) tempo);
+        int seconds= (int) ((tempo/1000)%60);
+        execucao.setTempo((float) seconds);
         execucao.setId_assistido(assistidos);
         ExecucaoDAO execucaoDAO = new ExecucaoDAO(contexto);
         execucaoDAO.insert(execucao);
