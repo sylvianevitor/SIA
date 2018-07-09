@@ -32,7 +32,6 @@ public class ExecutarCoresPresenter {
     public int gravar_execucao(ArrayList<Integer> assistidos, long tempo, Context contexto){
         execucao.setId_atividade(1);
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 1);
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
         String dateExec = format1.format(cal.getTime());
         Log.d("Data:",dateExec);

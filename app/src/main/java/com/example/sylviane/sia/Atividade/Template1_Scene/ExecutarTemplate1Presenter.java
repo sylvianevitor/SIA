@@ -86,7 +86,6 @@ public class ExecutarTemplate1Presenter {
     public int gravar_execucao(int pontuacao, ArrayList<Integer>assistidos, int atividade_id, long tempo){
         execucao.setId_atividade(atividade_id);
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 1);
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
         String dateExec = format1.format(cal.getTime());
         Log.d("Data:",dateExec);
